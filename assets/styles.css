@@ -5,9 +5,9 @@
 }
 
 :root {
-    --primary_color : #FAA223;
+    --primary_color : #EF3838;
     --secondary_color : #000000;
-    --tertiary_color : #EF3838;
+    --tertiary_color : #FAA223;
     --light_grey : #F9F9F9;
     --dark_grey : #3F3F3F;
     --medium_grey : #CECECE;
@@ -63,7 +63,9 @@ ul {
 a {
     text-decoration: none;
 }
-
+h1,h2,h3{
+    font-family: var(--secondary-font);
+} 
 .img-fluid {
     width: 100%;
     height: 100%;
@@ -71,7 +73,7 @@ a {
 }
 
 .button {
-    background-color: var(--primary_color);
+    background-color: var(--tertiary_color);
     color: var(--light_color);
     text-transform: uppercase;
     border: none;
@@ -119,7 +121,7 @@ header {
                         color: var(--primary_color);
                         font-size: 25px;
                         &:hover, &:active {
-                            color: var(--tertiary_color);
+                            color: var(--primary_color);
                         }
                     }
                     & a {
@@ -128,7 +130,7 @@ header {
                         color: var(--secondary_color);
                        
                         &:hover, &:active {
-                            color: var(--tertiary_color);
+                            color: var(--primary_color);
                         }
                         @media only screen and (max-width: 650px) {
                             font-size: 18px;
@@ -200,7 +202,7 @@ header {
                 display: none;
             }
             &:hover {
-                color: var(--tertiary_color);
+                color: var(--primary_color);
             }
             @media only screen and (min-width: 651px) {
                 display: none;
@@ -230,7 +232,7 @@ header {
         flex-direction: column;
         align-items: center;
         & h2 {
-            font: 30px var(--secondary-font);
+            font-size: 30px;
             font-weight: 600;
             text-transform: uppercase;
             text-align: center;
@@ -271,6 +273,172 @@ header {
 }
 
 
+/***************************
+        SPECIES' FILTER
+ *****************************/
+
+.filter {
+    left: calc(100% - 150px);
+    position: relative;
+    width: 150px;
+    text-align: right;
+    margin-top: 15px;
+    .select-button {
+        background-color: #D9D9D9;
+        padding: 10px;
+        width: 100%;
+        display: flex;
+        border: none;
+        justify-content: space-between;
+        cursor: pointer;
+        &:hover, &:active, a:focus {
+            outline: none;
+        }
+    }
+    .select-dropdown {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        display: none;
+        text-align: left;
+        padding: 10px;
+        background-color: #EDEDED;
+        box-shadow: 0px 7px 5px 2px rgba(0,0,0,0.25);
+        > li {
+            font: 12px var(--primary-font);
+            padding: 5px 10px;
+            > label {
+                cursor: pointer;
+                display: block;
+                &:hover {
+                    color: var(--primary_color);
+                }
+            }
+            > input {
+                display: none;
+                &:checked + label {
+                        color: red;
+                }
+                
+            }
+        }
+        &.open-options {
+            display: block;
+        }
+    }
+}
+
+/******************************
+        ADOPTIONS' CARDS 
+ ****************************/
+.container-card {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    .card {
+        position: relative;justify-content: space-between;
+        margin: 15px auto;
+        > a {
+            color: var(--secondary_color);
+            
+            .top-content {
+                padding: 10px 5px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                > h3 {
+                    color: var(--primary_color);
+                }
+            > i {
+                    font-size: 25px;
+                }
+            }
+            .description {
+                padding: 10px 5px;
+                > p {
+                    font: 12px var(--primary-font);
+                    font-weight: 300;
+                }
+            }
+        }
+        .edit-part {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            > button {
+                display: block;
+                border: none;
+                margin-top: 10px;
+                height: 25px;
+                width: 25px;
+                cursor: pointer;
+                &.delete-btn {
+                    color: var(--light_color);
+                    background-color: var(--primary_color);
+                }
+                &:hover {
+                    color: var(--light_color);
+                    background-color: var(--secondary_color);
+                }
+            }
+        }
+    }
+    @media only screen and (min-width: 744px) {
+        display: flex;
+        gap: 3%;
+        .card {
+            width: 22%;
+            .img-container {
+                height: 200px;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 561px) and (max-width: 743px){ 
+        display: flex;
+        gap: 3%;
+        .card {
+            width: 47%;
+            & .img-container {
+                height: 200px;
+            }
+        }
+    }
+    @media only screen and (max-width: 560px) {
+       & .img-container {
+            height: 300px;
+        }
+        
+    }
+}
+
+
+/******************************
+          DONATION
+ ****************************/
+.donation-part {
+    padding: 30px 15px;
+    max-width: 1024px;
+    text-align: center;
+    margin: 0 auto;
+   p {
+        font: 16px var(--primary_color);
+    }
+}
+.btn {
+    background-color: var(--primary_color);
+    color: var(--light_color);
+    font: 17px var(--secondary-font);
+    text-transform: uppercase;
+    padding: 10px;
+    margin: 15px auto;
+    border-radius: 5px;
+    display: block;
+    max-width: 150px;
+    &:hover {
+        background-color: var(--secondary_color);
+    }
+}
 /***************************
         HOMEPAGE 
  *************************/
@@ -325,6 +493,106 @@ header {
     }
 }
 
+.adoptions {
+    padding: 10vh 15px;
+    max-width: 1024px;
+    margin: auto;
+    > h1 {
+        text-align: center;
+        text-transform: uppercase;
+    } 
+
+}
+
+.presentation {
+    width: 100%;
+    text-align: center;
+    background-color: var(--secondary_color);
+    padding: 40px 15px 60px 15px;
+    > h3 {
+        font-size: 35px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        color: var(--primary_color);
+    }
+}
+
+.missions {
+    margin: 10vh auto;
+    max-width: 1024px;
+    & .container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0 4px;
+        > .column {
+            flex: 50%;
+            max-width: 50%;
+            padding: 0 4px;
+            & .img-container{
+                position: relative;
+                margin-top: 8px;
+                width: 100%; 
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                overflow: hidden;
+                > .title {
+                    position: absolute;
+                    font: 18px var(--secondary-font);
+                    text-transform: uppercase;
+                    padding: 15px 0;
+                    background-color: rgba(0,0,0,0.8);
+                    color: var(--tertiary_color);
+                    width: 50%;
+                    max-width: 250px;
+                    border-radius: 10px;
+                }  
+                > .content {
+                    position: absolute;
+                    z-index: 999;
+                    margin-top:200%;
+                    font: 16px var(--primary-font);
+                    padding: 15px;
+                    color: var(--secondary_color);
+                    transition: .5s all linear;
+                }
+                > img {
+                    width: 100%;
+                }
+                   
+                &:hover {
+                    &:after {
+                        position: absolute;
+                        z-index: 100;
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(249,249,249,0.6);
+                    }
+                    > .title {
+                        opacity: 0;
+                    }
+                    > .content {
+                        margin-top:0;
+                    }
+                }
+            } 
+            @media screen and (max-width: 800px) {  
+                flex: 50%;
+                max-width: 50%;
+            }
+            @media screen and (max-width: 600px) {
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+        
+    }
+}
 /*****************
         FOOTER 
  ***************/
@@ -341,11 +609,10 @@ footer {
         padding: 30px 0 10px 0;
         & h2{
             font-weight: 500;
-            color: var(--secondary_color);
             font-size: 24px;
             margin-bottom: 10px;
             &.title {
-                color: var(--tertiary_color);
+                color: var(--primary_color);
             }
         }
         & a {
@@ -355,7 +622,7 @@ footer {
             display: block;
             font-size: 14px;
             &:hover, &:active {
-                color: var(--tertiary_color);
+                color: var(--primary_color);
             }
         }
         & p {
