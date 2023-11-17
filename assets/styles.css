@@ -72,6 +72,26 @@ h1,h2,h3{
     object-fit: cover;
 }
 
+textarea {
+    height: 200px;
+}
+input {
+    height: 45px;
+}
+input,textarea {
+    border: 1px solid rgba(0,0,0,0.2);
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+    font: 14px var(--primary-font);
+    font-weight: 400;
+
+    &:focus, &:hover, &:active {
+        outline: 1px inset rgba(0,0,0,0.2);
+        box-shadow: 0px 0px 1px 3px rgba(191,191,191,0.5);
+    }
+}
 .button {
     background-color: var(--tertiary_color);
     color: var(--light_color);
@@ -242,21 +262,6 @@ header {
             max-width: 355px;
             margin: auto;
 
-            > input {
-                border: 1px solid rgba(0,0,0,0.2);
-                height: 45px;
-                width: 100%;
-                padding: 5px 10px;
-                border-radius: 5px;
-                margin: 10px auto;
-                font: 14px var(--primary-font);
-                font-weight: 400;
-
-                &:focus, &:hover, &:active {
-                    outline: 1px inset rgba(0,0,0,0.2);
-                    box-shadow: 0px 0px 1px 3px rgba(191,191,191,0.5);
-                }
-            }
            >  button {
                 font-family: var(--primary-font);
                 font-size: 24px;
@@ -414,7 +419,7 @@ header {
 
 
 /******************************
-          DONATION
+       DONATION'S PART
  ****************************/
 .donation-part {
     padding: 30px 15px;
@@ -593,6 +598,57 @@ header {
         
     }
 }
+
+/*****************
+    CONTACT PAGE 
+ ***************/
+.contact_page {
+   > main {
+    margin: 50px 0;
+    
+       > h2 {
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            & .img-container{
+                display: none;
+            }
+            @media only screen and (min-width: 744px) {
+                display: flex;
+                justify-content: space-between;
+                align-items: stretch;
+                margin-top: 30px;
+                background-color: var(--light_grey);
+                overflow: hidden;
+                gap: 3%;
+                border: 1px solid rgba(0,0,0,0.2);
+                
+                > * {
+                    width: 47%;
+                }
+                & > .img-container{
+                    display: block;
+                }
+            } 
+            > form {
+                padding: 6%;
+            > input,textarea,button {
+                    display: block;
+                    width: 100%;
+                }
+                > button {
+                    font-size: 20px;
+                    margin-top: 25px;
+                }
+            }
+        }  
+    }
+}
+
+
 /*****************
         FOOTER 
  ***************/
