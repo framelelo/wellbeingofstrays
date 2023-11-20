@@ -63,7 +63,7 @@ ul {
 a {
     text-decoration: none;
 }
-h1,h2,h3{
+h1,h2,h3,h4{
     font-family: var(--secondary-font);
 } 
 .img-fluid {
@@ -364,7 +364,7 @@ header {
     }
 }
 /******************************
-        ADOPTIONS' CARDS 
+            CARDS 
  ****************************/
 .container-card {
     width: 100%;
@@ -398,9 +398,6 @@ header {
             }
         }
         .edit-part {
-            position: absolute;
-            right: 10px;
-            top: 5px;
             > button {
                 display: block;
                 border: none;
@@ -419,27 +416,7 @@ header {
             }
         }
     }
-    @media only screen and (min-width: 744px) {
-        display: flex;
-        gap: 3%;
-        .card {
-            width: 22%;
-            .img-container {
-                height: 200px;
-            }
-        }
-    }
-
-    @media only screen and (min-width: 561px) and (max-width: 743px){ 
-        display: flex;
-        gap: 3%;
-        .card {
-            width: 47%;
-            & .img-container {
-                height: 200px;
-            }
-        }
-    }
+    
     @media only screen and (max-width: 560px) {
        & .img-container {
             height: 300px;
@@ -536,7 +513,35 @@ header {
         text-align: center;
         text-transform: uppercase;
     } 
+    .edit-part {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+    }
 
+    & .container-card  {
+        @media only screen and (min-width: 744px) {
+            display: flex;
+            gap: 3%;
+            .card {
+                width: 22%;
+                .img-container {
+                    height: 200px;
+                }
+            }
+        }
+    
+        @media only screen and (min-width: 561px) and (max-width: 743px){ 
+            display: flex;
+            gap: 3%;
+            .card {
+                width: 47%;
+                & .img-container {
+                    height: 200px;
+                }
+            }
+        }
+    }
 }
 
 .presentation {
@@ -661,45 +666,104 @@ header {
             }
         }
     }
-    .container {
-        & .edit-form {
-            background-color: var(--light_grey);
-            padding: 15px;
-            
-            & h3 {
-                text-align: center;
-                font-size: 25px;
-                margin: 10px 0;
-                text-transform: uppercase;
-            }
-           > form {
-                max-width: 1024px;
-                margin: 30px auto;
-            }
-        }
-        
-        .selected-value {
-            font: 14px var(--primary-font);
-            font-weight: 400;
-            color: rgba(0,0,0,0.6);
-        }
-        .adoptions {
-            & h2 {
-                border-bottom: 1px solid var(--secondary_color);
-                margin-bottom: 15px;
-                text-transform: uppercase;
-                font-size: 25px;
-                font-weight: 600;
-            }
-            .container-card {
-                margin-bottom: 40px;
-            }
-        }
+} 
+
+.edit-form {
+    background-color: var(--light_grey);
+    padding: 15px;
+    
+    > h4 {
+        text-align: center;
+        font-size: 25px;
+        margin: 10px 0;
+        text-transform: uppercase;
+    }
+    > form {            
+        max-width: 1024px;
+        margin: 30px auto;
         .button {
             margin-top: 20px;
             font: 22px var(--secondary-font);
         }
     }
+}
+  
+.selected-value {
+    font: 14px var(--primary-font);
+    font-weight: 400;
+    color: rgba(0,0,0,0.6);
+}
+.adoptions {
+    & h2 {
+        border-bottom: 1px solid var(--secondary_color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 25px;
+            font-weight: 600;
+        }
+        .container-card {
+            margin-bottom: 40px;
+        }
+    } 
+
+
+/*****************
+    EVENTS PAGE 
+ ***************/
+.evenements-page {
+    > main {
+        margin: 10vh 0;
+        .container {
+            max-width: 90%;
+            margin: 30px auto;
+            box-shadow: 5px 2px 9px 0 rgba(0,0,0,0.2);
+
+        }
+        & .events-title {
+            margin: 30px auto;
+            display: block;
+            padding: 25px 0;
+            text-align: center;
+            color: var(--light_color);
+            background-color: var(--secondary_color);
+            font-size: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .container-card {
+            padding: 30px;
+            .edit-part {
+                display: flex;
+                justify-content: flex-end;
+                margin: 10px 0;
+                gap: 15px;
+            }
+            .title {
+                text-align: center;
+                color: var(--tertiary_color);
+                font-size: 30px;
+            }
+            .img-container {
+                width: 100%;
+                height: 400px;
+            }
+            .description {
+                text-align: center;
+                p {
+                    font: 15px var(--primary-font);
+                }
+            }
+            @media only screen and (min-width: 744px) {
+                display: flex;
+                gap: 5%;
+                .card {
+                    width: 45%;
+                }
+            }
+        }
+    }
+    
+
 }
 
 
