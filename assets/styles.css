@@ -114,6 +114,9 @@ input[type="file"] {
     background-color: var(--secondary_color);
     font: 16px var(--secondary-font);
     color: #fff;
+    &:hover {
+        background-color: var(--primary_color);
+    }
 }
   
 .button {
@@ -784,6 +787,9 @@ footer {
         }
         & p {
             margin-bottom: 5px;
+            > i {
+                margin-right: 5px;
+            }
         }
         @media only screen and (max-width: 650px) {
             flex-direction: column;
