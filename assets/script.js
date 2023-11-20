@@ -12,30 +12,40 @@ function closeNavBar() {
 
 openNav.addEventListener('click', openNavBar);
 closeNav.addEventListener('click', closeNavBar);
+function setupDropdown(btnId, optionsClass) {
+    const dropdownBtn = document.getElementById(btnId);
+    const selectedOptions = document.querySelectorAll(`.${optionsClass} .options`);
+    const selectContainer = document.querySelector(`.${optionsClass}`);
 
-
-const selectBtn = document.querySelector('.filter');
-const selectedInput= document.querySelectorAll('.options');
-const selectOptions = document.querySelector('.select-dropdown');
-
-function toggleSelectOptions() {
-    if (selectOptions.classList.contains("open-options")) {
-        selectOptions.classList.remove("open-options");
-    } else {
-        selectOptions.classList.add("open-options");
+    function toggleOptions(event) {
+        if (selectContainer.classList.contains("open-options")) {
+            selectContainer.classList.remove("open-options");
+        } else {
+            selectContainer.classList.add("open-options");
+        }
     }
+
+    selectedOptions.forEach(function (input) {
+        input.addEventListener('click', function (event) {
+            const selectedValue = event.target.getAttribute('value');
+            console.log(selectedValue);
+            selectContainer.classList.remove("open-options");
+        });
+    });
+
+    dropdownBtn.addEventListener('click', toggleOptions);
+
+    document.addEventListener('click', function (event) {
+        const isClickInsideSelection = selectContainer.contains(event.target) || dropdownBtn.contains(event.target);
+        if (!isClickInsideSelection) {
+            selectContainer.classList.remove("open-options");
+        }
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+        });
+    });
 }
 
-selectedInput.forEach(function (input) {
-    input.addEventListener('click', toggleSelectOptions);
-});
-
-selectBtn.addEventListener('click', toggleSelectOptions);
-
-document.addEventListener('click', function (event) {
-    const isClickInsideFilter = selectOptions.contains(event.target) || selectBtn.contains(event.target);
-    if (!isClickInsideFilter) {
-        selectOptions.classList.remove("open-options");
-    }
-});
-
+setupDropdown('filter-species', 'species-filter');
+setupDropdown('select-animal-gender', 'select-gender');
+setupDropdown('select-animal-specie', 'select-specie');

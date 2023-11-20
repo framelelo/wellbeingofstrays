@@ -18,7 +18,7 @@
     <title>Well-Being of Strays</title>
     <link rel="icon" type="image/x-icon" href="uploads/logo.ico">
 </head>
-<body>
+<body class="adoptions_page">
     <header>
         <div class="brand">
             <a href="">
@@ -74,25 +74,76 @@
             </ul>
         </div>
     </header>
-    <main>
-        <div class="jumbotron">
-            <img src="uploads/jumbotron-accueil.jpg" alt="wellbeingofstrays" class="img-fluid">
-            <div class="container">
-                <div class="content">
-                    <h2>QUI EST WELL-BEING OF STRAYS ?</h2>
-                    <p>
-                        L'association Well-being of Strays est une organisation créée en 2017 à but non lucratif dédiée au bien-être des animaux errants. Nous nous efforçons de venir en aide aux animaux abandonnés, perdus ou maltraités en leur offrant un refuge, des soins médicaux, de la nourriture et de l'amour.
-                    </p>
-                    <p>
-                        Notre mission quotidienne est d’améliorer la vie des animaux errants en mettant en place des solutions durables pour leur bien-être. 
-                    </p>
-                    <p>    
-                        Well-being of Strays compte sur le soutien de bénévoles, de donateurs et de sympathisants pour continuer sa mission et faire une différence positive dans la vie de ces animaux vulnérables.
-                    </p>
-                    <a href="https://www.paypal.com/donate?hosted_button_id=3DS8RCCPB5EB6" class="button" target="_blank">Faire un don</a>
-                </div>
+   <main>
+
+    <div class="jumbotron">
+        <img src="uploads/jumbotron-adoptions.jpg" alt="wellbeingofstrays" class="img-fluid">
+        <div class="container">
+            <div class="content">
+                <h2>Se poser les bonnes questions avant d’adopter !</h2>
+                <p>
+                  
+                    L'adoption d'un animal est bien plus qu'une simple décision, c'est un engagement envers une vie qui dépendra entièrement de vous. En choisissant d'adopter, vous offrez une seconde chance à un être vulnérable et, en retour, vous serez récompensé par une affection inconditionnelle. 
+                </p>
+                <p>
+                    Cependant, cette responsabilité implique de fournir une alimentation adéquate, des soins médicaux, de l'exercice, de l'amour et de l'attention. Vous devrez prendre le temps de comprendre les besoins spécifiques de l'animal que vous choisissez, ainsi que son comportement. L'adoption signifie également prendre en compte les coûts à long terme, le temps nécessaire pour l'éducation, la socialisation et la patience requise pour résoudre les problèmes de comportement.</h2>
+                </p>
+                <p class="center-text">    
+                    DES QUESTIONS SUR LES PROOCÉDURES D’ADOPTION OU AUTRES ?
+                </p>
+                <a class="button" href="http://localhost/wellbeingofstrays/contact.html">Contactez-nous</a>
             </div>
         </div>
+    </div>
+    <div class="container">
+        <div class="edit-form">
+            <h3>Ajouter un animal</h3>
+            <form>
+
+                <div class="image-upload-btn"> 
+                    <label class="title-image" for="image-upload">Ajouter une photo de l'animal</label>
+                    <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg">
+                    
+                </div>
+                <input type="text" placeholder="Nom" name="name" id="name">
+                <div class="selection" id="select-animal-gender">
+                    <button class="select-button">
+                      <span class="selected-value">Mâle ou Femelle</span>
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <ul class="select-dropdown select-gender">
+                      <li>
+                        <input class="options" type="radio" id="male" name="species" value="male"/>
+                        <label for="male">Mâle</label>
+                      </li>
+                      <li>
+                        <input class="options" type="radio" id="female" name="species" value="female" />
+                        <label for="female">Femelle</label>
+                      </li>
+                    </ul>
+                </div>
+                <div class="selection" id="select-animal-specie">
+                    <button class="select-button">
+                      <span class="selected-value">Chien ou Chat</span>
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <ul class="select-dropdown select-specie">
+                      <li>
+                        <input class="options" type="radio" id="dogs" name="species" value="dogs" />
+                        <label for="dogs">Chiens</label>
+                      </li>
+                      <li>
+                        <input class="options" type="radio" id="cats" name="species" value="cats" />
+                        <label for="cats">Chats</label>
+                      </li>
+                    </ul>
+                </div>
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Description"></textarea>
+                <button class="button" type="submit">Valider</button>
+        
+            </form>
+        </div>
+        
         <section class="adoptions">
             <h1>Découvrez les animaux à l’adoption</h1>
 
@@ -103,16 +154,229 @@
                 </button>
                 <ul class="select-dropdown species-filter">
                   <li>
-                    <input class="options" type="radio" id="dogs" name="species" value="dogs"/>
-                    <label for="dogs">Chiens</label>
+                    <input class="options" type="radio" id="dogs-filter" name="species" value="dogs"/>
+                    <label for="dogs-filter">Chiens</label>
                   </li>
                   <li>
-                    <input class="options" type="radio" id="cats" name="species" value="cats"/>
-                    <label for="cats">Chats</label>
+                    <input class="options" type="radio" id="cats-filter" name="species" value="cats" />
+                    <label for="cats-filter">Chats</label>
                   </li>
                 </ul>
             </div>
             
+            <h2>Chiens à adopter</h2>
+            <div class="container-card">
+                <div class="card">
+                    <div class="edit-part">
+                        <button class="edit-btn">
+                            <i class="fa fa-pen"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <a href="">
+                        <div class="img-container">
+                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
+                        </div>
+                        <div class="top-content">
+                            <h3 class="name">Boo</h3>
+                            <i class="fa fa-mars"></i>
+                            
+                        </div>
+                        <div class="description">
+                            <p>
+                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="edit-part">
+                        <button class="edit-btn">
+                            <i class="fa fa-pen"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <a href="">
+                        <div class="img-container">
+                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
+                        </div>
+                        <div class="top-content">
+                            <h3 class="name">Boo</h3>
+                            <i class="fa fa-mars"></i>
+                            
+                        </div>
+                        <div class="description">
+                            <p>
+                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="edit-part">
+                        <button class="edit-btn">
+                            <i class="fa fa-pen"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <a href="">
+                        <div class="img-container">
+                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
+                        </div>
+                        <div class="top-content">
+                            <h3 class="name">Boo</h3>
+                            <i class="fa fa-mars"></i>
+                            
+                        </div>
+                        <div class="description">
+                            <p>
+                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="edit-part">
+                        <button class="edit-btn">
+                            <i class="fa fa-pen"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <a href="">
+                        <div class="img-container">
+                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
+                        </div>
+                        <div class="top-content">
+                            <h3 class="name">Boo</h3>
+                            <i class="fa fa-mars"></i>
+                            
+                        </div>
+                        <div class="description">
+                            <p>
+                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="edit-part">
+                        <button class="edit-btn">
+                            <i class="fa fa-pen"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <a href="">
+                        <div class="img-container">
+                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
+                        </div>
+                        <div class="top-content">
+                            <h3 class="name">Boo</h3>
+                            <i class="fa fa-mars"></i>
+                            
+                        </div>
+                        <div class="description">
+                            <p>
+                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="edit-part">
+                        <button class="edit-btn">
+                            <i class="fa fa-pen"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <a href="">
+                        <div class="img-container">
+                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
+                        </div>
+                        <div class="top-content">
+                            <h3 class="name">Boo</h3>
+                            <i class="fa fa-mars"></i>
+                            
+                        </div>
+                        <div class="description">
+                            <p>
+                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="edit-part">
+                        <button class="edit-btn">
+                            <i class="fa fa-pen"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <a href="">
+                        <div class="img-container">
+                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
+                        </div>
+                        <div class="top-content">
+                            <h3 class="name">Boo</h3>
+                            <i class="fa fa-mars"></i>
+                            
+                        </div>
+                        <div class="description">
+                            <p>
+                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="edit-part">
+                        <button class="edit-btn">
+                            <i class="fa fa-pen"></i>
+                        </button>
+
+                        <button class="delete-btn">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                    <a href="">
+                        <div class="img-container">
+                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
+                        </div>
+                        <div class="top-content">
+                            <h3 class="name">Boo</h3>
+                            <i class="fa fa-mars"></i>
+                            
+                        </div>
+                        <div class="description">
+                            <p>
+                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <h2>Chats à adopter</h2>
             <div class="container-card">
                 <div class="card">
                     <div class="edit-part">
@@ -324,45 +588,9 @@
                 </div>
             </div>
         </section>
-        <section class="presentation">
-            <h3>Agir Ensemble - Wellbeing of Strays</h3>
-            <iframe width="100%" height="600px" src="https://www.youtube.com/embed/aRghlIDnL4k?si=a8Ehqre_GNxSDdS1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </section>
-        <section class="missions">
-            <div class="container">
-                <div class="column">
-                    <a href class="img-container">
-                        <div class="title">Sensibilisation</div>
-                        <div class="content">Nous œuvrons pour trouver des foyers...</div>
-                        <img src="uploads/Missions-1.jpg">
-                    </a>
-                  
-                    <a href="" class="img-container">
-                        <div class="title">Nourrissage</div>
-                        <div class="content">Nos bénévoles à travers l’île nourrissent régulèrement les souvent que possibleanimaux errants de leur région...</div>
-                        <img src="uploads/Missions-2.jpg"> 
-                    </a>
-                </div>
-                <div class="column">
-                    <a href="" class="img-container">
-                        <div class="title">Sauvetage</div>
-                        <div class="content">L'association recueille des animaux errants en détresse...
-                        </div>
-                        <img src="uploads/Missions-3.jpg">
-                    </a>
-                    <a href="" class="img-container">
-                        <div class="title">Stérilisation</div>
-                        <div class="content">Des programmes de stérilisation et de castration sont tous les mois organisées...</div>
-                        <img src="uploads/Missions-4.jpg">
-                    </a>
-                </div> 
-            </div>
-        </section>
-        <section class="donation-part">
-            <p><strong>Well-being of Strays</strong>  compte sur le soutien de bénévoles, de donateurs et de sympathisants pour continuer sa mission et faire une différence positive dans la vie de ces animaux vulnérables.</p>
-            <a class="btn" href="https://www.paypal.com/donate?hosted_button_id=3DS8RCCPB5EB6" target="_blank">faire un don</a>
-        </section>
-    </main>
+    </div>
+    
+   </main>
     <footer>
         <div class="top-container">
             <div class="menu">
