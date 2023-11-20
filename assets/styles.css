@@ -17,6 +17,9 @@
     --secondary-font: 'Oswald', sans-serif;
     
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     position: relative;
@@ -461,10 +464,9 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    & img {
-        display: none;
-    }
+    height: 650px;
     .container {
+        position: absolute;
         background-color:rgba(249,249,249,0.6);
         margin: auto;
         padding: 30px;
@@ -492,15 +494,15 @@ header {
     } 
 
     @media only screen and (min-width: 650px) {
-
-        height: 800px;
         & .container {
-            position: absolute;
             width: 80%;
             max-width: 650px;
         }
-        & img {
-            display: block;
+    }
+    @media only screen and (max-width:649px) {
+        & .container { 
+            height: 100%;
+            display: flex;
         }
     }
 }
@@ -705,6 +707,65 @@ header {
             margin-bottom: 40px;
         }
     } 
+
+
+/*********************
+    MISSIONS PAGE 
+ ***********************/
+.missions-page {
+    > main {
+        .jumbotron .container {
+            max-width: 950px;
+            text-align: center;
+            & h2 {
+                color: var(--primary_color);
+            }
+        }
+        .container {
+            padding: 15px 30px;
+            & h1 {
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 30px;
+                font-weight: 600;
+                margin: 15px 0;
+            }
+            & section {
+                margin: 30px auto;
+                align-items: center;
+                & h2 {
+                    color: var(--tertiary_color);
+                    text-transform: uppercase;
+                    font-size: 25px;
+                    margin-bottom: 10px;
+                }
+                
+                @media screen and (min-width: 800px) {  
+                    display: flex;
+                    justify-content: space-between;
+                    &:nth-child(odd) {
+                        flex-direction: row-reverse;
+                    }
+                    gap: 5%;
+                    .img-part {
+                        width: 60%;
+                    }
+                }
+                @media screen and (max-width: 799px) {
+                    & h2 {
+                        text-align: center;
+                    }  
+                    .img-part {
+                        width: 100%;
+                        height: 300px;
+                        margin: 15px auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 
 /*****************
