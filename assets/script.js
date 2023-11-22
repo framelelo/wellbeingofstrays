@@ -12,40 +12,49 @@ function closeNavBar() {
 
 openNav.addEventListener('click', openNavBar);
 closeNav.addEventListener('click', closeNavBar);
-function setupDropdown(btnId, optionsClass) {
-    const dropdownBtn = document.getElementById(btnId);
-    const selectedOptions = document.querySelectorAll(`.${optionsClass} .options`);
+
+function selectOpen(button, optionsClass) {
+    const dropdownBtn = document.getElementById(button);
     const selectContainer = document.querySelector(`.${optionsClass}`);
 
-    function toggleOptions(event) {
-        if (selectContainer.classList.contains("open-options")) {
-            selectContainer.classList.remove("open-options");
-        } else {
-            selectContainer.classList.add("open-options");
+    // Check if elements exist before attaching event listeners
+    if (dropdownBtn && selectContainer) {
+        function optionsOpen() {
+            if (selectContainer.classList.contains("open-options")) {
+                selectContainer.classList.remove("open-options");
+            } else {
+                selectContainer.classList.add("open-options");
+            }
         }
+
+        dropdownBtn.addEventListener('click', optionsOpen);
+
+        document.addEventListener('click', function (event) {
+            const isClickInsideSelection = selectContainer.contains(event.target) || dropdownBtn.contains(event.target);
+            if (!isClickInsideSelection) {
+                selectContainer.classList.remove("open-options");
+            }
+        });
+
+        const selectedOptions = document.querySelectorAll(`.${optionsClass} .options`);
+        selectedOptions.forEach(function (input) {
+            input.addEventListener('click', function (event) {
+                const selectedValue = event.target.getAttribute('value');
+                console.log(selectedValue);
+                
+                selectContainer.classList.remove("open-options");
+            });
+        });
+
+        document.querySelectorAll('form').forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+            });
+        });
     }
-
-    selectedOptions.forEach(function (input) {
-        input.addEventListener('click', function (event) {
-            const selectedValue = event.target.getAttribute('value');
-            console.log(selectedValue);
-            selectContainer.classList.remove("open-options");
-        });
-    });
-
-    dropdownBtn.addEventListener('click', toggleOptions);
-
-    document.addEventListener('click', function (event) {
-        const isClickInsideSelection = selectContainer.contains(event.target) || dropdownBtn.contains(event.target);
-        if (!isClickInsideSelection) {
-            selectContainer.classList.remove("open-options");
-        }
-        document.querySelector('form').addEventListener('submit', function (event) {
-            event.preventDefault();
-        });
-    });
 }
-
-setupDropdown('filter-species', 'species-filter');
-setupDropdown('select-animal-gender', 'select-gender');
-setupDropdown('select-animal-specie', 'select-specie');
+selectOpen('filter-species', 'species-filter');
+selectOpen('select-animal-gender', 'select-gender');
+selectOpen('select-animal-specie', 'select-specie');
+selectOpen('change-animal-gender', 'change-gender');
+selectOpen('change-animal-specie', 'change-specie');
