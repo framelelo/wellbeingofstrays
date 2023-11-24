@@ -68,13 +68,14 @@ a {
 }
 h1,h2,h3,h4{
     font-family: var(--secondary-font);
+    text-transform: uppercase;
 } 
 .img-fluid {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.center-text{
+.center-text {
     text-align: center;
 }
 
@@ -420,7 +421,7 @@ header {
 }
 
 /******************************
-        EDIT PART 
+        EDIT BUTTONS 
  ****************************/
 
 .edit-part {
@@ -440,6 +441,22 @@ header {
             background-color: var(--secondary_color);
         }
     }
+    &.hr-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+       
+        > i {
+            font-size: 20px;
+        }
+        > button{
+            width: auto;
+            padding: 10px;
+            height: auto;
+        } 
+    }
+    
 }
 
 /******************************
@@ -736,7 +753,6 @@ header {
             padding: 15px 30px;
             & h1 {
                 text-align: center;
-                text-transform: uppercase;
                 font-size: 30px;
                 font-weight: 600;
                 margin: 15px 0;
@@ -746,7 +762,6 @@ header {
                 align-items: center;
                 & h2 {
                     color: var(--tertiary_color);
-                    text-transform: uppercase;
                     font-size: 25px;
                     margin-bottom: 10px;
                 }
@@ -849,7 +864,7 @@ header {
             .content {
                 padding: 15px;
                 margin-bottom: 20px;
-                .edit-part,.title {
+                .title {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -858,14 +873,6 @@ header {
                         font-size: 25px;
                         color: var(--primary_color);
                         font-weight: 600;
-                    }
-                    > i {
-                        font-size: 20px;
-                    }
-                    > button{
-                        width: auto;
-                        padding: 10px;
-                        height: auto;
                     } 
                 }
             }
@@ -927,7 +934,6 @@ header {
  .profiles-page {
     .container {
         > h1 {
-            text-transform: uppercase;
             text-align: center;
             font-size: 30px;
             margin-bottom: 30px;
@@ -941,6 +947,7 @@ header {
             & tr { 
                 text-align: left;
                 border: 1px solid var(--medium_grey);
+                cursor: pointer;
                 > td, > th {
                     padding: 15px 10px;
                     border-spacing: 0;
@@ -952,7 +959,47 @@ header {
                 &:nth-child(odd) {
                     background-color: var(--light_grey);
                 }
+                &.profile:hover, &.profile:active {
+                    background-color: var(--tertiary_color);
+                }
             }
+        }
+        .hr-buttons {
+            justify-content: end;
+            margin-top: 20px;
+        }
+        > form {
+            margin: 50px auto;
+            background-color: var(--light_grey);
+            padding: 40px;
+            box-shadow: 5px 2px 9px 0 rgba(0,0,0,0.2);
+            > h2 {
+                margin-bottom: 30px;
+                text-align: center;
+                > i {
+                    font-size: 35px;
+                    margin-right: 10px;
+                    color: var(--primary_color);
+                }
+            }
+            
+            > input {
+                display: block;
+            }
+            .button {
+                margin-top: 25px;
+                font: 20px var(--secondary-font)
+            }
+
+            @media only screen and (min-width: 744px) {
+                width: 70%;
+                > * {
+                    max-width: 70%;
+                    width: 100%;
+                }
+
+            } 
+
         }
     }
 
