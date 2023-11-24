@@ -398,8 +398,14 @@ header {
             .description {
                 padding: 10px 5px;
                 > p {
-                    font: 12px var(--primary-font);
+                    font: 14px var(--primary-font);
                     font-weight: 300;
+                    overflow: hidden;
+                    box-sizing: content-box;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 2;
+                    -webkit-box-orient: vertical;
                 }
             }
         }
@@ -557,7 +563,7 @@ header {
 .presentation {
     width: 100%;
     text-align: center;
-    background-color: var(--secondary_color);
+    background-color: var(--light_grey);
     padding: 40px 15px 60px 15px;
     > h3 {
         font-size: 35px;
@@ -569,7 +575,7 @@ header {
 }
 
 .missions {
-    margin: 10vh auto;
+    margin: 5vh auto;
     max-width: 1024px;
     & .container {
         display: flex;
@@ -582,7 +588,7 @@ header {
             padding: 0 4px;
             & .img-container{
                 position: relative;
-                margin-top: 8px;
+                padding: 8px;
                 width: 100%; 
                 display: flex;
                 text-align: center;
@@ -677,7 +683,7 @@ header {
 
 .edit-form {
     background-color: var(--light_grey);
-    padding: 15px;
+    padding: 50px;
     
     > h4 {
         text-align: center;
@@ -778,15 +784,11 @@ header {
  ***************/
 .evenements-page {
     > main {
-        margin: 10vh 0;
         .container {
-            max-width: 90%;
-            margin: 30px auto;
             box-shadow: 5px 2px 9px 0 rgba(0,0,0,0.2);
 
         }
         & .events-title {
-            margin: 30px auto;
             display: block;
             padding: 25px 0;
             text-align: center;
@@ -830,21 +832,22 @@ header {
     }
 }
 
-/*****************
-    CONTACT PAGE 
- ***************/
+/*******************************
+    SINGLE ANIMAL PAGE 
+ *****************************/
 .single-page {
     > main {
-        padding: 15px;
         margin: 10px auto;
         .card {
-            margin: 30px auto;
+            margin: 50px auto;
+            padding: 15px;
             > .img-container {
                 width: 100%;
                 height: 300px;
                 display: block;
             }
             .content {
+                padding: 15px;
                 margin-bottom: 20px;
                 .edit-part,.title {
                     display: flex;
@@ -871,9 +874,12 @@ header {
             }
         } 
         .contact {
+            padding: 15px;
+            margin: 50px auto;
+            border-top : 1px solid var(--secondary_color);
             > h2 {
                 font-size: 20px;
-                margin-bottom: 15px;
+                margin: 15px 0;
                 font-weight: 500;
             }
             > p {
@@ -894,8 +900,8 @@ header {
 
         @media only screen and (min-width: 744px) {
 
-            max-width: 1024px;
             .card {
+                max-width: 1024px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -914,7 +920,43 @@ header {
     } 
 }
 
+/*****************
+    PROFILE PAGE 
+ ***************/
 
+ .profiles-page {
+    .container {
+        > h1 {
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+        max-width: 1024px;
+        padding: 15px;
+        margin: 30px auto;
+        #profiles {
+            width: 100%;
+            border-collapse: collapse;
+            & tr { 
+                text-align: left;
+                border: 1px solid var(--medium_grey);
+                > td, > th {
+                    padding: 15px 10px;
+                    border-spacing: 0;
+                    border-right: 1px solid  var(--medium_grey);
+                }
+                > th:first-letter {
+                    text-transform: uppercase;
+                }
+                &:nth-child(odd) {
+                    background-color: var(--light_grey);
+                }
+            }
+        }
+    }
+
+ }
 /*****************
     CONTACT PAGE 
  ***************/
