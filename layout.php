@@ -16,9 +16,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <title>Well-Being of Strays</title>
-    <link rel="icon" type="image/x-icon" href="uploads/logo.ico">
+    <link rel="icon" type="image/x-icon" href="../uploads/logo.ico">
 </head>
-<body class="contact_page">
+<body class="<?= $title?>-page">
+<?php if ($title !== 'connexion' && $title !== 'inscription') {
+    ?>
+
     <header>
         <div class="brand">
             <a href="">
@@ -74,68 +77,56 @@
             </ul>
         </div>
     </header>
-   <main>
-    <h2>Nous Contacter</h2>
-    <div class="container">
-        <div class="img-container">
-            <img class="img-fluid" src="uploads/Quennie.jpeg" alt="adopter un animal maurice">
-        </div>
-       <form action="">
-            <input type="text" placeholder="Nom" name="name" id="name">
-            <input type="email" placeholder="Email" name="email" id="email">
-            <input type="tel" placeholder="Téléphone" name="tel" id="tel">
-            
-            <input type="text" placeholder="Objet" name="object" id="object">
-            <textarea name="message" id="message" cols="30" rows="10"></textarea>
-            <button class="button" type="submit">Valider</button>
-    
-        </form>
-    </div>
-    
-   </main>
-    <footer>
-        <div class="top-container">
-            <div class="menu">
-                <h2 class="title">
-                    Well-Being of Strays
-                </h2>
-                <p>
-                    <i class="fa fa-envelope"></i> wellbeingofstrays@gmail.com
-                </p>
-                <p>
-                    <i class="fa fa-phone"></i> 59632054
-                </p>
-                <p>BRN N° : A18000453</p>
-            </div>
-            <div class="menu">
-                <h2>Comment Aider ?</h2>
-                <ul>
-                    <li><a href="">Faire un don</a></li>
-                    <li><a href="">Adopter un animal</a></li>
-                    <li><a href="">Devenir un bénévole</a></li> 
-                </ul>
-            </div>
-            <div class="menu">
-                <h2>Menu</h2>
-                <ul>
-                    <li><a href="">Accueil</a></li>
-                    <li><a href="">Contactez-nous</a></li>
-                    <li><a href="">Mentions légales</a></li> 
-                </ul>
-            </div>
-        </div> 
-        <div class="bottom-container">
-            <p class="copyright">Well-Being of Strays <i class="fa fa-copyright"><span class="year">2023</span></i></p>
-            <div class="social-icons">
-                <a href="" target="_blank">
-                    <i class="fab fa-facebook-square"></i>
-                </a>
+    <?php }; ?>
+    <main>
+        <?= $content;?>
+    </main>
+    <?php if ($title !== 'connexion' && $title !== 'inscription') {
+    ?>
+        <footer>
+            <div class="top-container">
+                <div class="menu">
+                    <h2 class="title">
+                        Well-Being of Strays
+                    </h2>
+                    <p>
+                        <i class="fa fa-envelope"></i> wellbeingofstrays@gmail.com
+                    </p>
+                    <p>
+                        <i class="fa fa-phone"></i> 59632054
+                    </p>
+                    <p>BRN N° : A18000453</p>
+                </div>
+                <div class="menu">
+                    <h2>Comment Aider ?</h2>
+                    <ul>
+                        <li><a href="">Faire un don</a></li>
+                        <li><a href="">Adopter un animal</a></li>
+                        <li><a href="">Devenir un bénévole</a></li> 
+                    </ul>
+                </div>
+                <div class="menu">
+                    <h2>Menu</h2>
+                    <ul>
+                        <li><a href="">Accueil</a></li>
+                        <li><a href="">Contactez-nous</a></li>
+                        <li><a href="">Mentions légales</a></li> 
+                    </ul>
+                </div>
+            </div> 
+            <div class="bottom-container">
+                <p class="copyright">Well-Being of Strays <i class="fa fa-copyright"><span class="year">2023</span></i></p>
+                <div class="social-icons">
+                    <a href="" target="_blank">
+                        <i class="fab fa-facebook-square"></i>
+                    </a>
 
-                <a href="" target="_blank">
-                    <i class="fab fa-instagram-square"></i>
-                </a>
+                    <a href="" target="_blank">
+                        <i class="fab fa-instagram-square"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    <?php }; ?>
 </body>
 </html>

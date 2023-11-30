@@ -798,7 +798,7 @@ header {
 /*****************
     EVENTS PAGE 
  ***************/
-.evenements-page {
+.events-page {
     > main {
         .container {
             box-shadow: 5px 2px 9px 0 rgba(0,0,0,0.2);
@@ -876,6 +876,9 @@ header {
                     align-items: center;
                     justify-content: center;
                     gap: 10px;
+                    > i {
+                        font-size: 25px;
+                    }
                     > h3 {
                         font-size: 25px;
                         color: var(--primary_color);
@@ -1014,7 +1017,7 @@ header {
 /*****************
     CONTACT PAGE 
  ***************/
-.contact_page {
+.contact-page {
    > main {
     margin: 50px 0;
     
