@@ -1,3 +1,9 @@
+<?php 
+global $base_url;
+
+global $isConnected;
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,10 +22,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <title>Well-Being of Strays</title>
-    <link rel="icon" type="image/x-icon" href="../uploads/logo.ico">
+    <link rel="icon" type="image/x-icon" href="uploads/logo.ico">
 </head>
 <body class="<?= $title?>-page">
-<?php if ($title !== 'connexion' && $title !== 'inscription') {
+    <?php if ($title !== 'connexion' && $title !== 'inscription') {
+        
     ?>
 
     <header>
@@ -37,43 +44,45 @@
                     <i class="fa fa-times"></i>
                 </div>
                 <li class="list">
-                    <a href="http://localhost/wellbeingofstrays/">Accueil</a>
+                    <a href="<?= $base_url ?>">Accueil</a>
                 </li>
                 <li class="list">
-                    <a href="http://localhost/wellbeingofstrays/adoptions.html">Adoptions</a>
+                    <a href="<?= $base_url ?>?page=adoptions">Adoptions</a>
                 </li>
                 <li class="list dropdown-btn">
-                    <a href="http://localhost/wellbeingofstrays/missions.html">Missions 
+                    <a href="<?= $base_url ?>?page=missions">Missions 
                         <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="list dropdown-list">
-                            <a href="">Sensibilisation</a>
+                        <a href="<?= $base_url ?>?page=missions#sensibilisation">Sensibilisation</a>
                         </li>
                         <li class="list dropdown-list">
-                            <a href="">Nourrissage</a>
+                            
+                        <a href="<?= $base_url ?>?page=missions#nourrissage">Nourrissage</a>
                         </li>
                         <li class="list dropdown-list">
-                            <a href="">Sauvetage</a>
+                        <a href="<?= $base_url ?>?page=missions#sauvetage">Sauvetage</a>
                         </li>
                         <li class="list dropdown-list">
-                            <a href="">Stérilisation</a>
+                        <a href="<?= $base_url ?>?page=missions#sterilisation">Stérilisation</a>
                         </li>
                     </ul>
                 </li>
                 <li class="list">
-                    <a href="http://localhost/wellbeingofstrays/evenements.html">Évènements</a>
+                    <a href="<?= $base_url ?>?page=evenements">Évènements</a>
                 </li>
                 <li class="list">
-                    <a href="http://localhost/wellbeingofstrays/contact.html">Contact</a>
+                    <a href="<?= $base_url ?>?page=contact">Contact</a>
                 </li>
-                
+                <?php if ($isConnected) {?> 
                 <li class="list profil-btn">
-                    <a href="http://localhost/wellbeingofstrays/profils.html"><i class="fas fa-user-circle"></i> <span>Profils</span></a>
+                    <a href="<?= $base_url ?>?page=profils"><i class="fas fa-user-circle"></i> <span>Profils</span></a>
                 </li>
                 <li class="list logout-btn">
-                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> <span>Se déconnecter</span></a>    
+                    <a href="<?= $base_url ?>?page=logout"><i class="fas fa-sign-out-alt"></i> <span>Se déconnecter</span></a>    
                 </li>
+                <?php };?>
             </ul>
         </div>
     </header>

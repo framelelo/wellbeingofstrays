@@ -1,8 +1,8 @@
 <?php 
+function homePage(){
+ 
 $title = 'Accueil';
-global $isConnected;
 global $base_url;
-
 ob_start()?>
             <div class="jumbotron">
                 <img src="uploads/jumbotron-accueil.jpg" alt="wellbeingofstrays" class="img-fluid">
@@ -253,33 +253,33 @@ ob_start()?>
                     </div>
                 </div>
             </section>
-            <section class="presentation">
+            <!-- <section class="presentation">
                 <h3>Agir Ensemble - Wellbeing of Strays</h3>
                 <iframe width="100%" height="600px" src="https://www.youtube.com/embed/aRghlIDnL4k?si=a8Ehqre_GNxSDdS1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </section>
+            </section> -->
             <section class="missions">
                 <div class="container">
                     <div class="column">
-                        <a href class="img-container">
+                        <a href="<?= $base_url ?>?page=missions#sensibilisation" class="img-container">
                             <div class="title">Sensibilisation</div>
                             <div class="content">Nous œuvrons pour trouver des foyers...</div>
                             <img src="uploads/Missions-1.jpg">
                         </a>
                       
-                        <a href="" class="img-container">
+                        <a href="<?= $base_url ?>?page=missions#nourrissage" class="img-container">
                             <div class="title">Nourrissage</div>
                             <div class="content">Nos bénévoles à travers l’île nourrissent régulèrement les souvent que possibleanimaux errants de leur région...</div>
                             <img src="uploads/Missions-2.jpg"> 
                         </a>
                     </div>
                     <div class="column">
-                        <a href="" class="img-container">
+                        <a href="<?= $base_url ?>?page=missions#sauvetage" class="img-container">
                             <div class="title">Sauvetage</div>
                             <div class="content">L'association recueille des animaux errants en détresse...
                             </div>
                             <img src="uploads/Missions-3.jpg">
                         </a>
-                        <a href="" class="img-container">
+                        <a href="<?= $base_url ?>?page=missions#sterilisation" class="img-container">
                             <div class="title">Stérilisation</div>
                             <div class="content">Des programmes de stérilisation et de castration sont tous les mois organisées...</div>
                             <img src="uploads/Missions-4.jpg">
@@ -295,5 +295,6 @@ ob_start()?>
         
     <?php
         $content = ob_get_clean();
-        require "layout.php";
+        require "layout.php";   
+    }
     ?>

@@ -4,8 +4,17 @@ require_once "autoload.php";
 if (isset($_GET["page"])) {
     $page = $_GET["page"];
     switch ($page) {
+
+        case "login":
+            signIn();
+            break; 
+            
+        case "signup":
+            newRegistrer();
+            break;   
+ 
         case "adoptions":
-            AdoptionPage();
+            showAdoptions();
             break;
 
         case "missions":
@@ -26,11 +35,17 @@ if (isset($_GET["page"])) {
 
         case "single":
             require('templates/single.php') ;
-            break;    
+            break; 
+ 
+            
+        case "logout":
+            logOut();
+            break;  
+               
         default:
-        require('templates/homepage.php');
+        homePage();
             break;
     }
 } else {
-    require('templates/homepage.php');
+    homePage();
 }
