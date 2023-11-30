@@ -628,7 +628,7 @@ header {
                     font: 18px var(--secondary-font);
                     text-transform: uppercase;
                     padding: 15px 0;
-                    background-color: rgba(0,0,0,0.8);
+                    background-color: rgba(0,0,0,0.85);
                     color: var(--tertiary_color);
                     width: 50%;
                     max-width: 250px;
@@ -638,8 +638,8 @@ header {
                     position: absolute;
                     z-index: 999;
                     margin-top:100%;
-                    font: 16px var(--primary-font);
-                    padding: 15px;
+                    font: 20px var(--primary-font);
+                    padding: 15px 30px;
                     color: var(--secondary_color);
                     transition: .5s all linear;
                 }
