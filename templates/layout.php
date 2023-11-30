@@ -21,17 +21,17 @@ global $isConnected;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <title>Well-Being of Strays</title>
+    <title>Well-Being of Strays - <?= $title?></title>
     <link rel="icon" type="image/x-icon" href="uploads/logo.ico">
 </head>
-<body class="<?= $title?>-page">
+<body class="<?= $page?>-page">
     <?php if ($title !== 'connexion' && $title !== 'inscription') {
         
     ?>
 
     <header>
         <div class="brand">
-            <a href="">
+            <a href="<?= $base_url ?>">
                 <img src="uploads/logo.png" alt="wellbeingofstrays" class="logo">
             </a>
         </div>
@@ -109,28 +109,28 @@ global $isConnected;
                 <div class="menu">
                     <h2>Comment Aider ?</h2>
                     <ul>
-                        <li><a href="">Faire un don</a></li>
-                        <li><a href="">Adopter un animal</a></li>
-                        <li><a href="">Devenir un bénévole</a></li> 
+                        <li><a href="https://www.paypal.com/donate?hosted_button_id=3DS8RCCPB5EB6" target="_blank">Faire un don</a></li>
+                        <li><a href="<?= $base_url ?>?page=adoptions">Adopter un animal</a></li>
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdEzHcDLHL7WJBi8_N0NtmpzK48cZmfM7nfRPsyQ8H6obIpNA/viewform?fbclid=IwAR0QpF_N1fHMBgK5iZIC4vWpRy5DwipBX2JLNR2nqlMaCJ6nNyc_q5xOKJE" target="_blank">Devenir un bénévole</a></li> 
                     </ul>
                 </div>
                 <div class="menu">
                     <h2>Menu</h2>
                     <ul>
-                        <li><a href="">Accueil</a></li>
-                        <li><a href="">Contactez-nous</a></li>
-                        <li><a href="">Mentions légales</a></li> 
+                        <li><a href="<?= $base_url ?>">Accueil</a></li>
+                        <li><a href="<?= $base_url ?>?page=contact">Contactez-nous</a></li>
+                        <li><a href="<?= $base_url ?>?page=mentions">Mentions légales</a></li> 
                     </ul>
                 </div>
             </div> 
             <div class="bottom-container">
                 <p class="copyright">Well-Being of Strays <i class="fa fa-copyright"><span class="year">2023</span></i></p>
                 <div class="social-icons">
-                    <a href="" target="_blank">
+                    <a href="https://www.facebook.com/wellbeingofstrays808" target="_blank">
                         <i class="fab fa-facebook-square"></i>
                     </a>
 
-                    <a href="" target="_blank">
+                    <a href="https://www.instagram.com/thewellbeingofstrays/" target="_blank">
                         <i class="fab fa-instagram-square"></i>
                     </a>
                 </div>

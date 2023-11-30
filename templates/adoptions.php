@@ -1,6 +1,9 @@
 <?php 
 function showAdoptions() {
-$title = 'adoptions';
+
+$title = 'Adoptions Chiens ou Chats';
+$page = 'adoptions';
+
 global $isConnected;
 global $base_url;
 
@@ -20,11 +23,13 @@ ob_start()?>
                 <p class="center-text">    
                     DES QUESTIONS SUR LES PROCÉDURES D’ADOPTION OU AUTRES ?
                 </p>
-                <a class="button" href="http://localhost/wellbeingofstrays/contact.html">Contactez-nous</a>
+                <a class="button"href="<?= $base_url ?>?page=contact">Contactez-nous</a>
             </div>
         </div>
     </div>
     <div class="container">
+
+    <?php if ($isConnected) {?> 
         <div class="edit-form">
             <h4>Ajouter un animal</h4>
             <form>
@@ -72,7 +77,7 @@ ob_start()?>
         
             </form>
         </div>
-        
+        <?php }?>
         <section class="adoptions">
             <h1>Découvrez les animaux à l’adoption</h1>
 
@@ -96,6 +101,8 @@ ob_start()?>
             <h2>Chiens à adopter</h2>
             <div class="container-card">
                 <div class="card">
+
+                    <?php if ($isConnected) {?> 
                     <div class="edit-part">
                         <button class="edit-btn">
                             <i class="fa fa-pen"></i>
@@ -105,6 +112,7 @@ ob_start()?>
                             <i class="fas fa-trash-alt"></i>
                         </button>
                     </div>
+                    <?php } ?>
                     <a href="">
                         <div class="img-container">
                             <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">

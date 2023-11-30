@@ -1,10 +1,11 @@
 
 <?php 
-$title = 'events';
+$title = 'evenements';
 global $isConnected;
 global $base_url;
 
 ob_start()?>
+    <?php if ($isConnected) {?> 
        <div class="container">
             <div class="edit-form">
                 <h4>Ajouter un évènement</h4>
@@ -20,6 +21,7 @@ ob_start()?>
                 </form>
             </div>
         </div>
+        <?php }?>
        
         <h3 class="events-title">Nos évènements</h3>
 
@@ -27,6 +29,8 @@ ob_start()?>
             <div class="container-card">
                 <div class="card">
                     <h3 class="title">FREE STERILISATION</h3>
+
+                    <?php if ($isConnected) {?> 
                     <div class="edit-part">
                         <button class="edit-btn">
                             <i class="fa fa-pen"></i>
@@ -36,6 +40,7 @@ ob_start()?>
                             <i class="fas fa-trash-alt"></i>
                         </button>
                     </div>
+                    <?php } ?>
                     <a href="">
                         <div class="img-container">
                             <img src="uploads/events 1.jpeg" alt="animaux en adoption" class="img-fluid">

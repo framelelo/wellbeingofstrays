@@ -3,6 +3,7 @@ function homePage(){
  
 $title = 'Accueil';
 global $base_url;
+global $isConnected;
 ob_start()?>
             <div class="jumbotron">
                 <img src="uploads/jumbotron-accueil.jpg" alt="wellbeingofstrays" class="img-fluid">
@@ -44,6 +45,8 @@ ob_start()?>
                 
                 <div class="container-card">
                     <div class="card">
+
+                    <?php if ($isConnected) {?> 
                         <div class="edit-part">
                             <button class="edit-btn">
                                 <i class="fa fa-pen"></i>
@@ -53,6 +56,7 @@ ob_start()?>
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
+                        <?php }?>
                         <a href="">
                             <div class="img-container">
                                 <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
@@ -253,11 +257,12 @@ ob_start()?>
                     </div>
                 </div>
             </section>
-            <!-- <section class="presentation">
+            <section class="presentation">
                 <h3>Agir Ensemble - Wellbeing of Strays</h3>
                 <iframe width="100%" height="600px" src="https://www.youtube.com/embed/aRghlIDnL4k?si=a8Ehqre_GNxSDdS1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </section> -->
+            </section> 
             <section class="missions">
+                <h2>Nos missions</h2>
                 <div class="container">
                     <div class="column">
                         <a href="<?= $base_url ?>?page=missions#sensibilisation" class="img-container">

@@ -1,6 +1,6 @@
 
 <?php 
-$title = 'missions';
+$title = 'Nos Missions';
 global $isConnected;
 global $base_url;
 

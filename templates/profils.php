@@ -1,5 +1,6 @@
 <?php 
-    $title = 'profiles';
+    $page = 'profiles';
+    $title = 'Sauvetage animal';
     global $isConnected;
     global $base_url;
 
