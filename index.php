@@ -14,8 +14,12 @@ if (isset($_GET["page"])) {
             break;   
  
         case "adoptions":
-            showAdoptions();
-            break;
+            AdoptionPage();
+        break;
+
+        case "remove":
+            removeAdoption($id);
+        break;
 
         case "missions":
             require('templates/missions.php') ;
@@ -34,7 +38,14 @@ if (isset($_GET["page"])) {
             break;
 
         case "single":
-            require('templates/single.php') ;
+            
+            if(isset($_GET['id']) && ($isConnected) ) {
+                $id = $_GET['id'];
+                singleAdoption($id);
+            }
+            else {
+                homePage();
+            }
             break; 
  
             

@@ -46,15 +46,6 @@ function selectOpen(button, optionsClass) {
             });
         });
 
-        document.querySelectorAll('form').forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
-            });
-        });
     }
 }
 selectOpen('filter-species', 'species-filter');
-selectOpen('select-animal-gender', 'select-gender');
-selectOpen('select-animal-specie', 'select-specie');
-selectOpen('change-animal-gender', 'change-gender');
-selectOpen('change-animal-specie', 'change-specie');

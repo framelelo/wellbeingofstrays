@@ -1,6 +1,9 @@
 <?php
 
-function HomePage(){
-    require('/adoptions.php');
+function homePage(){
+    
+    $adoptions = showAdoptions();
+
+    ShowHomePage($adoptions);
 };
 ?>

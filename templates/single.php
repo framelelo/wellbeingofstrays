@@ -1,7 +1,7 @@
 <?php 
-$title = 'single';
-global $isConnected;
-global $base_url;
+function singleAdoptionPage($adoption){
+    $title = $adoption['name'];
+    $page  = 'single';
 
 ob_start()?> 
         <div class="edit-form">
@@ -13,38 +13,24 @@ ob_start()?>
                     
                 </div>
                 <input type="text" placeholder="Nom" name="name" id="name">
-                <div class="selection select-style" id="change-animal-gender">
-                    <button class="select-button">
-                      <span class="selected-value">Mâle ou Femelle</span>
-                      <i class="fa fa-caret-down"></i>
-                    </button>
-                    <ul class="select-dropdown change-gender">
-                      <li>
-                        <input class="options" type="radio" id="male" name="species" value="male"/>
-                        <label for="male">Mâle</label>
-                      </li>
-                      <li>
-                        <input class="options" type="radio" id="female" name="species" value="female" />
-                        <label for="female">Femelle</label>
-                      </li>
-                    </ul>
+                
+                <div class="select-style">
+                    <select name="gender" class="select-style">
+                        <option value="gender" disabled selected>Male/Femelle</option>
+                        <option value="male">Male</option>
+                        <option value="female">Femelle</option>
+                    </select>
+                    <i class="fa fa-caret-down"></i>
                 </div>
-                <div class="selection select-style" id="change-animal-specie">
-                    <button class="select-button">
-                      <span class="selected-value">Chien ou Chat</span>
-                      <i class="fa fa-caret-down"></i>
-                    </button>
-                    <ul class="select-dropdown change-specie">
-                      <li>
-                        <input class="options" type="radio" id="dogs" name="species" value="dogs" />
-                        <label for="dogs">Chiens</label>
-                      </li>
-                      <li>
-                        <input class="options" type="radio" id="cats" name="species" value="cats" />
-                        <label for="cats">Chats</label>
-                      </li>
-                    </ul>
-                </div>
+               <div class="select-style">
+                    <select name="species">
+                        <option value="specie" disabled selected>Chien/Chat</option>
+                        <option value="dog">Chien</option>
+                        <option value="cat">Chat</option>
+                    </select>
+
+                    <i class="fa fa-caret-down"></i>
+               </div>
                 <textarea name="message" id="message" cols="30" rows="10" placeholder="Description"></textarea>
                 <button class="button" type="submit">Valider</button>
         
@@ -52,13 +38,16 @@ ob_start()?>
         </div>
        <section class="card">
             <div class="img-container">
-                <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
+                <img src="uploads/<?= $adoption['picture'] ?>" alt="animaux en adoption" class="img-fluid">
             </div>
             <div class="left-content">
                 <div class="content">
                     <div class="title">
-                        <i class="fa fa-mars"></i>
-                        <h3 class="name">Boo</h3>
+                    <?php if($adoption['gender'] == 'male') {
+                            echo '<i class="fa fa-mars"></i>';
+                        }
+                        else echo '<i class="fa fa-venus"></i>'; ?>
+                        <h3 class="name"><?= $adoption['name'] ?></h3>
                     </div>
                     <div class="edit-part hr-buttons">
                         <button class="edit-btn">
@@ -71,7 +60,7 @@ ob_start()?>
                         </button>
                     </div>
                 </div>
-                <p>Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments</p>
+                <p><?= $adoption['description'] ?></p>
             </div>   
        </section>
        <section class="contact center-text">
@@ -89,7 +78,7 @@ ob_start()?>
             <a class="button" href="http://localhost/wellbeingofstrays/contact.html">Contactez-nous</a>
        </section>
    
-       <?php
+       <?php 
        $content = ob_get_clean();
-       require "layout.php";
+       require "layout.php";};
    ?>

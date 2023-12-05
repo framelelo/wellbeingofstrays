@@ -1,5 +1,5 @@
 <?php 
-function showAdoptions() {
+function showAdoptionsPage($adoptions_cats, $adoptions_dogs) {
 
 $title = 'Adoptions Chiens ou Chats';
 $page = 'adoptions';
@@ -34,47 +34,34 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
     <?php if ($isConnected) {?> 
         <div class="edit-form">
             <h4>Ajouter un animal</h4>
-            <form>
+            <form method="post" enctype="multipart/form-data">
 
                 <div class="image-upload-btn"> 
                     <label class="title-image" for="image-upload">Ajouter une photo de l'animal</label>
-                    <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg">
+                    <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" require>
                     
                 </div>
-                <input type="text" placeholder="Nom" name="name" id="name">
-                <div class="selection select-style" id="select-animal-gender">
-                    <button class="select-button">
-                      <span class="selected-value">Mâle ou Femelle</span>
-                      <i class="fa fa-caret-down"></i>
-                    </button>
-                    <ul class="select-dropdown select-gender">
-                      <li>
-                        <input class="options" type="radio" id="male" name="species" value="male"/>
-                        <label for="male">Mâle</label>
-                      </li>
-                      <li>
-                        <input class="options" type="radio" id="female" name="species" value="female" />
-                        <label for="female">Femelle</label>
-                      </li>
-                    </ul>
+                <input type="text" placeholder="Nom" name="name" id="name" require>
+              
+                <div class="select-style">
+                    <select name="gender" class="select-style">
+                        <option value="gender" disabled selected>Male/Femelle</option>
+                        <option value="male">Male</option>
+                        <option value="female">Femelle</option>
+                    </select>
+                    <i class="fa fa-caret-down"></i>
                 </div>
-                <div class="selection select-style" id="select-animal-specie">
-                    <button class="select-button">
-                      <span class="selected-value">Chien ou Chat</span>
-                      <i class="fa fa-caret-down"></i>
-                    </button>
-                    <ul class="select-dropdown select-specie">
-                      <li>
-                        <input class="options" type="radio" id="dogs" name="species" value="dogs" />
-                        <label for="dogs">Chiens</label>
-                      </li>
-                      <li>
-                        <input class="options" type="radio" id="cats" name="species" value="cats" />
-                        <label for="cats">Chats</label>
-                      </li>
-                    </ul>
-                </div>
-                <textarea name="message" id="message" cols="30" rows="10" placeholder="Description"></textarea>
+               <div class="select-style">
+                    <select name="species">
+                        <option value="specie" disabled selected>Chien/Chat</option>
+                        <option value="dog">Chien</option>
+                        <option value="cat">Chat</option>
+                    </select>
+
+                    <i class="fa fa-caret-down"></i>
+               </div>
+                
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Description" require></textarea>
                 <button class="button" type="submit">Valider</button>
         
             </form>
@@ -102,429 +89,90 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
             
             <h2>Chiens à adopter</h2>
             <div class="container-card">
+
+
+            <?php if($adoptions_dogs){
+    
+                foreach($adoptions_dogs as $dog){?>
                 <div class="card">
 
-                    <?php if ($isConnected) {?> 
+                <?php if ($isConnected) {?> 
                     <div class="edit-part">
-                        <button class="edit-btn">
+                        <a class="edit-btn" href="?page=single&id=<?= $dog["id"] ?>">
                             <i class="fa fa-pen"></i>
-                        </button>
+                        </a>
 
-                        <button class="delete-btn">
+                        <a class="delete-btn" href="?page=remove&a=delete&id=<?= $dog["id"] ?>">
                             <i class="fas fa-trash-alt"></i>
-                        </button>
+                        </a>
                     </div>
                     <?php } ?>
-                    <a href="">
+                    <a href="<?= $base_url?>?page=single&id=<?= $dog['id']?>">
                         <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
+                            <img src="uploads/<?= $dog['picture'] ?>" alt="animaux en adoption" class="img-fluid">
                         </div>
                         <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
+                            <h3 class="name"><?= $dog['name']?></h3>
+                            <?php if($dog['gender'] == 'male') {
+                            echo '<i class="fa fa-mars"></i>';
+                        }
+                        else echo '<i class="fa fa-venus"></i>'; ?>
                             
                         </div>
                         <div class="description">
                             <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
+                            <?= $dog['description']?>
                             </p>
                         </div>
                     </a>
                 </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
+                <?php }
+            }
+            else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
             </div>
 
             <h2>Chats à adopter</h2>
             <div class="container-card">
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
 
-                        <button class="delete-btn">
+
+            <?php if($adoptions_cats){
+    
+                foreach($adoptions_cats as $cat){?>
+                <div class="card">
+
+                <?php if ($isConnected) {?> 
+                    <div class="edit-part">
+                        <a class="edit-btn" href="?page=single&id=<?= $cat["id"] ?>">
+                            <i class="fa fa-pen"></i>
+                        </a>
+
+                        <a class="delete-btn" href="?page=remove&a=delete&id=<?= $cat["id"] ?>">
                             <i class="fas fa-trash-alt"></i>
-                        </button>
+                        </a>
                     </div>
-                    <a href="">
+                    <?php } ?>
+                    <a href="<?= $base_url?>?page=single&id=<?= $dog['id']?>">
                         <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
+                            <img src="uploads/<?= $cat['picture'] ?>" alt="animaux en adoption" class="img-fluid">
                         </div>
                         <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
+                            <h3 class="name"><?= $cat['name']?></h3>
+                            <?php if($cat['gender'] == 'male') {
+                            echo '<i class="fa fa-mars"></i>';
+                        }
+                        else echo '<i class="fa fa-venus"></i>'; ?>
                             
                         </div>
                         <div class="description">
                             <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
+                            <?= $cat['description']?>
                             </p>
                         </div>
                     </a>
                 </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <div class="edit-part">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                        </button>
-
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <a href="">
-                        <div class="img-container">
-                            <img src="uploads/Boo.jpeg" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name">Boo</h3>
-                            <i class="fa fa-mars"></i>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                                Déjà castré, il adore se prélasser toute la journée pour récupérer des forces pour des gros moments
-                            </p>
-                        </div>
-                    </a>
-                </div>
+                <?php }
+            }
+            else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
             </div>
         </section>
     </div>

@@ -85,7 +85,7 @@ textarea {
 input {
     height: 45px;
 }
-input,textarea,.select-style{
+input,textarea,.select-style select{
     border: 1px solid rgba(0,0,0,0.2);
     width: 100%;
     padding: 5px 10px;
@@ -99,12 +99,20 @@ input,textarea,.select-style{
         box-shadow: 0px 0px 1px 3px rgba(191,191,191,0.5);
     }
 }
+
 .select-style {
     position: relative;
-    background-color: var(--light_color);
-    .select-button {
-        padding: 10px 0px;
+    & i {
+        position: absolute;
+        right: 15px;
+        top: 25px;
     }
+}
+.select-style select {
+    appearance: none;
+    outline: none;
+    background-color: var(--light_color);
+    padding: 13px 7px;
 }
 
 input[type="file"] {
@@ -323,10 +331,9 @@ header {
     width: 150px;
     text-align: right;
     margin-top: 15px;
-    .select-button {
-        background-color: #D9D9D9;
-        padding: 10px;
-    }
+    padding: 10px;
+    background-color: var(--medium_grey);
+    
 }
 
 .select-button {
@@ -430,16 +437,24 @@ header {
  ****************************/
 
 .edit-part {
-    > button {
+    > a {
         display: block;
         border: none;
         margin-top: 10px;
-        height: 25px;
-        width: 25px;
+        height: 30px;
+        width: 30px;
         cursor: pointer;
+        text-align: center;
+        &.edit-btn {
+            background-color: var(--medium_grey);
+            color: var(--secondary-color);
+        }
         &.delete-btn {
             color: var(--light_color);
             background-color: var(--primary_color);
+        }
+        > i {
+            line-height: 30px;
         }
         &:hover {
             color: var(--light_color);
@@ -1148,3 +1163,4 @@ footer {
         }
     }
 }
+
