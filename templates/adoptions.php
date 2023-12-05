@@ -151,7 +151,7 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
                         </a>
                     </div>
                     <?php } ?>
-                    <a href="<?= $base_url?>?page=single&id=<?= $dog['id']?>">
+                    <a href="<?= $base_url?>?page=single&id=<?= $cat['id']?>">
                         <div class="img-container">
                             <img src="uploads/<?= $cat['picture'] ?>" alt="animaux en adoption" class="img-fluid">
                         </div>
