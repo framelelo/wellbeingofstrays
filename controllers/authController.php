@@ -38,7 +38,7 @@ function newRegistrer() {
             
             if ($pwd === $confirmationPwd) {
                     
-            $registrer = registrer($firstName, $lastName, $tel, $email, $pwd, $confirmationPwd);
+            $registrer = registrer($firstName, $lastName, $tel, $email, $pwd);
                 if($registrer) {
                 
                     header("Location: $base_url/?page=login");
@@ -64,5 +64,6 @@ function logOut(){
         
         header("location: $base_url");
     };
+
 
 ?>

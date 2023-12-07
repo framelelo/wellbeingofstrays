@@ -29,21 +29,20 @@ function login($email, $pwd):bool
         }
         return false;
 }
-function registrer($firstName, $lastName, $tel, $email, $pwd, $confirmationPwd)
+function registrer($firstName, $lastName, $tel, $email, $pwd)
 {
 
     global $pdo;
 
     try {
-        $query = $pdo ->prepare("INSERT INTO users(name,last_name,tel,email,pwd,confirmed_pwd) VALUES (:n,:l,:t,:e,:p,:c)");
+        $query = $pdo ->prepare("INSERT INTO users(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");
     
         $query->execute([
             "n" => $firstName,
             "l" => $lastName,
             "t" => $tel,
             "e" => $email,
-            "p" =>  password_hash($pwd, PASSWORD_DEFAULT),
-            "c" => $confirmationPwd
+            "p" =>  password_hash($pwd, PASSWORD_DEFAULT)
         ]);
         return true;
     }
@@ -52,6 +51,5 @@ function registrer($firstName, $lastName, $tel, $email, $pwd, $confirmationPwd)
         return false;
     }
 }
-
 
 ?>

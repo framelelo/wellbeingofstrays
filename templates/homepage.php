@@ -33,11 +33,11 @@ ob_start()?>
                     </button>
                     <ul class="select-dropdown species-filter">
                       <li>
-                        <input class="options" type="radio" id="dogs" name="species" value="dogs"/>
+                        <input class="options" type="radio" id="dogs" name="species" value="dog"/>
                         <label for="dogs">Chiens</label>
                       </li>
                       <li>
-                        <input class="options" type="radio" id="cats" name="species" value="cats"/>
+                        <input class="options" type="radio" id="cats" name="species" value="cat"/>
                         <label for="cats">Chats</label>
                       </li>
                     </ul>
@@ -47,7 +47,7 @@ ob_start()?>
 
                     <?php if($adoptions) {
                         foreach($adoptions as $adoption){?>
-                        <div class="card">
+                        <div class="card <?= $adoption["specie"]?>">
 
                         <?php if ($isConnected) {?> 
                         <div class="edit-part">
@@ -55,7 +55,7 @@ ob_start()?>
                                 <i class="fa fa-pen"></i>
                             </a>
 
-                            <a class="delete-btn" href="?page=remove&a=delete&id=<?= $adoption["id"] ?>">
+                            <a class="delete-btn" href="?page=remove-adoption&a=delete&id=<?= $adoption["id"] ?>">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>
@@ -80,7 +80,7 @@ ob_start()?>
                         </a>
                         </div>
                         <?php } }
-                    else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
+                    else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment !</p>';?>
                         
                     </div>
             </section>

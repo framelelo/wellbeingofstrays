@@ -9,7 +9,6 @@ function closeNavBar() {
     bodyContainer.classList.remove("open");
 }
 
-
 openNav.addEventListener('click', openNavBar);
 closeNav.addEventListener('click', closeNavBar);
 
@@ -17,7 +16,6 @@ function selectOpen(button, optionsClass) {
     const dropdownBtn = document.getElementById(button);
     const selectContainer = document.querySelector(`.${optionsClass}`);
 
-    // Check if elements exist before attaching event listeners
     if (dropdownBtn && selectContainer) {
         function optionsOpen() {
             if (selectContainer.classList.contains("open-options")) {
@@ -45,7 +43,28 @@ function selectOpen(button, optionsClass) {
                 selectContainer.classList.remove("open-options");
             });
         });
-
     }
 }
 selectOpen('filter-species', 'species-filter');
+
+  const radioButtons = document.querySelectorAll('.options');
+  const contentItems = document.querySelectorAll('.card');
+
+  radioButtons.forEach(button => {
+    button.addEventListener('change', filterContent);
+  });
+
+  function filterContent() {
+    const selectedValue = document.querySelector('input[name="species"]:checked').value;
+
+
+    contentItems.forEach(item => {
+      item.style.display = 'none';
+    });
+
+    const filteredItems = document.querySelectorAll(`.card.${selectedValue}`);
+    filteredItems.forEach(item => {
+
+      item.style.display = 'block';
+    });
+  }

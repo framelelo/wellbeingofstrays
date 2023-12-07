@@ -39,19 +39,16 @@ body {
                     right: 30px;
                 }
             }
-            .fa-bars {
-                display: none;
-            }
            
-            .profil-btn, .logout-btn {
-                display: inline-flexbox;
+            & .profil-btn, & .logout-btn {
+                display: block;
                 
                 & a {
                     > i {
                     display: none;
                     }
                     > span {
-                        display: inline-block;
+                        display: block;
                     }
                 } 
             }
@@ -84,6 +81,7 @@ textarea {
 }
 input {
     height: 45px;
+    
 }
 input,textarea,.select-style select{
     border: 1px solid rgba(0,0,0,0.2);
@@ -93,13 +91,19 @@ input,textarea,.select-style select{
     margin: 10px auto;
     font: 14px var(--primary-font);
     font-weight: 400;
-
+    color: var(--dark_grey);
+    &::placeholder {
+        color: var(--dark_grey);
+    }
     &:focus, &:hover, &:active {
         outline: 1px inset rgba(0,0,0,0.2);
         box-shadow: 0px 0px 1px 3px rgba(191,191,191,0.5);
     }
 }
 
+textarea {
+    padding: 15px;
+}
 .select-style {
     position: relative;
     & i {
@@ -108,11 +112,13 @@ input,textarea,.select-style select{
         top: 25px;
     }
 }
+
 .select-style select {
     appearance: none;
     outline: none;
     background-color: var(--light_color);
-    padding: 13px 7px;
+    padding: 13px 10px;
+    text-transform: capitalize;
 }
 
 input[type="file"] {
@@ -148,6 +154,13 @@ input[type="file"] {
     }
 }
 
+.no_adoptions {
+    text-align: center;
+    font: 20px var(--primary-font);
+    margin: 5% auto;
+    text-transform: uppercase;
+    font-style: italic;
+}
 /*****************
         HEADER 
  ***************/
@@ -176,8 +189,10 @@ header {
                     &.logout-btn i {
                         font-size: 20px;
                     }
-                    & span {
-                        display: none;
+                    @media only screen and (min-width: 651px) {
+                        & span {
+                            display: none;
+                        }
                     }
                     &.profil-btn {
                         & i{
@@ -470,9 +485,9 @@ header {
         > i {
             font-size: 20px;
         }
-        > button{
+        > a{
             width: auto;
-            padding: 10px;
+            padding: 5px 10px;
             height: auto;
         } 
     }
@@ -618,6 +633,9 @@ header {
 .missions {
     margin: 5vh auto;
     max-width: 1024px;
+    > h2 {
+        text-align: center;
+    }
     & .container {
         display: flex;
         flex-wrap: wrap;
@@ -768,10 +786,14 @@ header {
 .missions-page {
     > main {
         .jumbotron .container {
+            padding:50px 30px;
             max-width: 950px;
             text-align: center;
             & h2 {
                 color: var(--primary_color);
+            }
+            & p {
+                font-size: 16px;
             }
         }
         .container {
@@ -782,6 +804,7 @@ header {
                 font-weight: 600;
                 margin: 15px 0;
             }
+            
             & section {
                 margin: 30px auto;
                 align-items: center;
@@ -852,10 +875,13 @@ header {
                 margin-bottom: 15px;
             }
              & a {
-                
                 .img-container {
                     width: 100%;
                     height: 400px;
+
+                    & img {
+                        border:1px solid rgba(0,0,0,.5);
+                    }
                 }
                 .description {
                     text-align: center;
@@ -891,11 +917,13 @@ header {
             > .img-container {
                 width: 100%;
                 height: 300px;
+                margin-bottom: 15px;
                 display: block;
             }
             .content {
-                padding: 15px;
                 margin-bottom: 20px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid var(--dark_grey);
                 .title {
                     display: flex;
                     align-items: center;
@@ -920,7 +948,7 @@ header {
             margin: 50px auto;
             border-top : 1px solid var(--secondary_color);
             > h2 {
-                font-size: 20px;
+                font-size: 25px;
                 margin: 15px 0;
                 font-weight: 500;
             }
@@ -951,11 +979,15 @@ header {
                 .img-container {
                     width: 45%;
                 }
-                .content {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between; 
-                    width: 100%;
+
+                .left-content {
+                    width: 60%;
+                    .content {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between; 
+                        width: 100%;
+                    }
                 }
             }
         }
@@ -978,30 +1010,38 @@ header {
         margin: 30px auto;
         #profiles {
             width: 100%;
-            border-collapse: collapse;
-            & tr { 
+            & .row { 
                 text-align: left;
-                border: 1px solid var(--medium_grey);
                 cursor: pointer;
-                > td, > th {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                > .cell {
+                    align-items: stretch;
                     padding: 15px 10px;
-                    border-spacing: 0;
-                    border-right: 1px solid  var(--medium_grey);
-                }
-                > th:first-letter {
-                    text-transform: uppercase;
+                    width: 22%;
+                    border: 1px solid var(--medium_grey);
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    &:last-child { 
+                        width: 12%;
+                        justify-content: center;
+                    }
                 }
                 &:nth-child(odd) {
                     background-color: var(--light_grey);
                 }
-                &.profile:hover, &.profile:active {
-                    background-color: var(--tertiary_color);
+
+                @media only screen and (min-width: 744px) {
+                    .edit-part {
+                        gap: 10px;
+                        display: flex;
+                    }
+                }
+                &.header {
+                    text-transform: capitalize;
                 }
             }
-        }
-        .hr-buttons {
-            justify-content: end;
-            margin-top: 20px;
         }
         > form {
             margin: 50px auto;
@@ -1020,6 +1060,7 @@ header {
             
             > input {
                 display: block;
+                margin: 15px auto;
             }
             .button {
                 margin-top: 25px;

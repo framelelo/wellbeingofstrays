@@ -3,20 +3,23 @@ function singleAdoptionPage($adoption){
     $title = $adoption['name'];
     $page  = 'single';
 
-ob_start()?> 
+    global $base_url;
+    global $isConnected;
+
+ob_start();
+if($isConnected){?> 
         <div class="edit-form">
             <h4>Modifier la fiche</h4>
-            <form>
+            <form method="post" action="<?php $base_url?>?page=update-adoption&id=<?= $adoption["id"] ?>" enctype="multipart/form-data">
                 <div class="image-upload-btn"> 
                     <label class="title-image" for="image-upload">Ajouter une photo de l'animal</label>
                     <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg">
-                    
                 </div>
-                <input type="text" placeholder="Nom" name="name" id="name">
+                <input type="text" placeholder="<?= $adoption['name'] ?>" name="name" id="name">
                 
                 <div class="select-style">
                     <select name="gender" class="select-style">
-                        <option value="gender" disabled selected>Male/Femelle</option>
+                        <option value="gender" disabled selected><?= $adoption['gender'] ?></option>
                         <option value="male">Male</option>
                         <option value="female">Femelle</option>
                     </select>
@@ -24,18 +27,19 @@ ob_start()?>
                 </div>
                <div class="select-style">
                     <select name="species">
-                        <option value="specie" disabled selected>Chien/Chat</option>
+                        <option value="specie" disabled selected><?= $adoption['specie'] ?></option>
                         <option value="dog">Chien</option>
                         <option value="cat">Chat</option>
                     </select>
 
                     <i class="fa fa-caret-down"></i>
                </div>
-                <textarea name="message" id="message" cols="30" rows="10" placeholder="Description"></textarea>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="<?= $adoption['description'] ?>"></textarea>
                 <button class="button" type="submit">Valider</button>
         
             </form>
         </div>
+        <?php }; ?>
        <section class="card">
             <div class="img-container">
                 <img src="uploads/<?= $adoption['picture'] ?>" alt="animaux en adoption" class="img-fluid">
@@ -49,16 +53,19 @@ ob_start()?>
                         else echo '<i class="fa fa-venus"></i>'; ?>
                         <h3 class="name"><?= $adoption['name'] ?></h3>
                     </div>
+                    <?php if($isConnected){?> 
                     <div class="edit-part hr-buttons">
-                        <button class="edit-btn">
-                            <i class="fa fa-pen"></i>
-                            Modifier
-                        </button>
-                        <button class="delete-btn">
-                            <i class="fas fa-trash-alt"></i>
-                            Supprimer
-                        </button>
+                        <a class="edit-btn" href="?page=single&id=<?= $adoption["id"] ?>">
+                                <i class="fa fa-pen"></i>
+                                Modifier
+                            </a>
+
+                            <a class="delete-btn" href="?page=remove-adoption&a=delete&id=<?= $adoption["id"] ?>">
+                                <i class="fas fa-trash-alt"></i>
+                                Supprimer
+                            </a>
                     </div>
+                    <?php };?>
                 </div>
                 <p><?= $adoption['description'] ?></p>
             </div>   
@@ -75,7 +82,7 @@ ob_start()?>
             <h4 class="center-text">    
                 DES QUESTIONS SUR LES PROCÉDURES D’ADOPTION OU AUTRES ?
             </h4>
-            <a class="button" href="http://localhost/wellbeingofstrays/contact.html">Contactez-nous</a>
+            <a class="button" href="<?= $base_url ?>?page=contact">Contactez-nous</a>
        </section>
    
        <?php 

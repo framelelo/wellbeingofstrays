@@ -17,8 +17,15 @@ if (isset($_GET["page"])) {
             AdoptionPage();
         break;
 
-        case "remove":
+        case "remove-adoption":
             removeAdoption($id);
+        break;
+
+        case "update-adoption": 
+            if(isset($_GET['id']) && ($isConnected) ) {
+            $id = $_GET['id'];
+            updateAdoption($id);
+        };
         break;
 
         case "missions":
@@ -26,20 +33,30 @@ if (isset($_GET["page"])) {
         break;
 
         case "evenements":
-            require('templates/evenements.php') ;
+            eventPage();
             break; 
+
+        case "remove-event":
+            removeEvent($id);
+        break; 
 
         case "contact":
             require('templates/contact.php') ;
             break;
 
         case "profils":
-            require('templates/profils.php') ;
-            break;
+            updateProfile();
+        break;
+
+        case "remove-profile":
+            removeProfile($id);
+        break;
+
+        
 
         case "single":
             
-            if(isset($_GET['id']) && ($isConnected) ) {
+            if(isset($_GET['id'])  ) {
                 $id = $_GET['id'];
                 singleAdoption($id);
             }

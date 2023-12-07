@@ -20,10 +20,34 @@ function newAdoptions($id, $name,$specie, $picture, $gender, $description)
         return true;
     }
     catch(PDOException $e){
-        echo $e -> getMessage();
         return false;
     }
 }
+
+function updateAdoptions($id, $id_user, $name, $specie, $picture, $gender, $description)
+{
+    global $pdo;
+
+    try {
+        $query = $pdo->prepare("UPDATE adoptions SET id_member = :u, name = :n, specie = :s, picture = :p, gender = :g, description = :d, date = :c WHERE id = :i");
+
+        $query->execute([
+            "i" => $id,
+            "u" => $id_user,
+            "n" => $name,
+            "s" => $specie,
+            "p" => $picture,
+            "g" => $gender,
+            "d" => $description,
+            "c" => date("Y-m-d H:i:s")
+        ]);
+
+        return true;
+    } catch (PDOException $e) {
+        return false;
+    }
+}
+
 function showCatAdoptions()
 {
     global $pdo;
@@ -35,7 +59,6 @@ function showCatAdoptions()
         return $catAdoptions;    
     }
     catch(PDOException $e){
-        echo $e -> getMessage();
         return false;
     }
 }
@@ -51,7 +74,6 @@ function showDogAdoptions()
         return $datAdoptions;   
     }  
     catch(PDOException $e){
-        echo $e -> getMessage();
         return false;
     }
 }
@@ -84,10 +106,10 @@ function showAdoption($id)
         return $query->fetch();  
     }
     catch(PDOException $e){
-        echo $e -> getMessage();
         return false;
     }
 }
+
 
 function removeAdoptions($id)
 {
@@ -101,7 +123,6 @@ function removeAdoptions($id)
         return true;  
     }
     catch(PDOException $e){
-        echo $e -> getMessage();
         return false;
     }
 }

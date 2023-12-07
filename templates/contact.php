@@ -7,16 +7,16 @@ ob_start()?>
     <h2>Nous Contacter</h2>
     <div class="container">
         <div class="img-container">
-            <img class="img-fluid" src="uploads/Quennie.jpeg" alt="adopter un animal maurice">
+            <img class="img-fluid" src="uploads/Quennie.jpeg" alt="adopter un animal à maurice">
         </div>
        <form action="">
-            <input type="text" placeholder="Nom" name="name" id="name">
-            <input type="email" placeholder="Email" name="email" id="email">
-            <input type="tel" placeholder="Téléphone" name="tel" id="tel">
+            <input type="text" placeholder="Nom" name="name" id="name" required>
+            <input type="email" placeholder="Email" name="email" id="email" required>
+            <input type="tel" placeholder="Téléphone" name="tel" id="tel" required>
             
-            <input type="text" placeholder="Objet" name="object" id="object">
-            <textarea name="message" id="message" cols="30" rows="10"></textarea>
-            <button class="button" type="submit">Valider</button>
+            <input type="text" placeholder="Objet" name="object" id="object" required>
+            <textarea name="message" id="message" cols="30" rows="10" required></textarea>
+            <button class="button" type="submit">ENVOYER</button>
     
         </form>
     </div>

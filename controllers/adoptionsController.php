@@ -22,7 +22,7 @@ function AdoptionPage(){
             $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
             
             if (!$picture_upload) {
-                echo "<p class='modal'>Merci de vérifier la taille de l'image.</p>";
+                echo "Merci de vérifier la taille de l'image.";
             }
         } 
         
@@ -34,21 +34,72 @@ function AdoptionPage(){
                     header("Location: $base_url/?page=adoptions");
                 }
                 else {
-                    echo 'Merci de verifier !';
+                    echo '<div class="modal"><p>Merci de verifier !</p></div>';
+     
                 }
 
         }
         else {
-            echo 'Merci de remplir tous les champs';
+            echo '<div class="modal"><p>Merci de remplir tous les champs</p></div>';
+     
+        };
+    }
+
+    $adoptions = showAdoptions();
+    $adoptions_cats = showCatAdoptions();
+    $adoptions_dogs = showDogAdoptions();
+    
+    showAdoptionsPage($adoptions_cats,$adoptions_dogs,$adoptions);
+};
+
+
+function updateAdoption($id){
+
+    global $base_url;
+
+    if($_POST) {
+
+        $id = $_GET['id'];
+        $id_user = $_SESSION["user"]["id"];
+        $name = $_POST['name']; 
+        $specie = $_POST['species'];
+        $gender = $_POST['gender'];
+        $description = $_POST['description']; 
+
+        $picture = time() . '_' . $_FILES['img-animal']['name'];
+        $temp_folder = $_FILES['img-animal']['tmp_name'];
+        $upload_folder = ROOT_PATH . "/uploads/" . $picture;
+           
+        if (!empty($_FILES['img-animal']['name'])) {
+                
+                
+            $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
+            
+            if (!$picture_upload) {
+                $picture = $_POST['picture'];
+            }
+        } 
+        
+        
+        if ($id && $id_user && $name && $specie && $picture && $gender  && $description) {
+            $update = updateAdoptions($id, $id_user, $name, $specie, $picture, $gender,  $description);
+            if($update) {
+            
+                header("Location: $base_url/?page=adoptions");
+            }
+            else {    
+                echo '<div class="modal"><p>Merci de verifier !</p></div>';
+    
+            }
+        }
+        else {
+            echo '<div class="modal"><p>Merci de remplir tous les champs</p></div>';
         };
     }
 
     
-    $adoptions_cats = showCatAdoptions();
-    $adoptions_dogs = showDogAdoptions();
-    
-
-    showAdoptionsPage($adoptions_cats,$adoptions_dogs);
+    $adoption = showAdoption($id);
+    singleAdoptionPage($adoption);
 };
 
 function singleAdoption($id){ 
@@ -70,7 +121,7 @@ function removeAdoption() {
             removeAdoptions($id);
         }
        
-        header("location: $base_url?page=adoptions");
+        header("location: $base_url/?page=adoptions");
         
         
     } else echo 'erreur';

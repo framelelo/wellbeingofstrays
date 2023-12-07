@@ -1,0 +1,61 @@
+<?php
+
+function updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd)
+{
+    global $pdo;
+
+    try { 
+        $query = $pdo->prepare("UPDATE users SET name = :n, last_name = :l, tel = :t, email = :e, pwd = :p WHERE id = :id"); 
+
+        $query->execute([
+            "n" => $firstName,
+            "l" => $lastName,
+            "t" => $tel,
+            "e" => $email,
+            "p" => password_hash($pwd, PASSWORD_DEFAULT),
+            "id" => $id
+        ]);
+
+        return true;
+    } catch (PDOException $e) {
+        echo 'Error: ' . $e->getMessage();
+        return false;
+    }
+}
+
+function profiles()
+{
+    global $pdo;
+
+    try {
+        $query = $pdo ->prepare("SELECT * FROM users");
+    
+        $query->execute([
+            
+        ]);
+        return $query->fetchAll();
+        
+    }  
+    catch (PDOEXCEPTION $e) {
+        echo $e->getMessage();
+            return false;
+    }
+}
+
+function removeProfiles($id)
+{
+    global $pdo;
+    try {
+        $query = $pdo->prepare("DELETE FROM users WHERE id = :i");
+        $query->execute([
+            "i" => $id,
+        ]);
+    
+        return true;  
+    }
+    catch(PDOException $e){
+        return false;
+    }
+}
+
+?>

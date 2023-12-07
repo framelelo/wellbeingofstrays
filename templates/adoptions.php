@@ -1,5 +1,5 @@
 <?php 
-function showAdoptionsPage($adoptions_cats, $adoptions_dogs) {
+function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $adoptions) {
 
 $title = 'Adoptions Chiens ou Chats';
 $page = 'adoptions';
@@ -25,7 +25,7 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
 <p class="center-text">    
                     DES QUESTIONS SUR LES PROCÉDURES D’ADOPTION OU AUTRES ?
                 </p>
-                <a class="button"href="<?= $base_url ?>?page=contact">Contactez-nous</a>
+                <a class="button" href="<?= $base_url ?>?page=contact">Contactez-nous</a>
             </div>
         </div>
     </div>
@@ -35,17 +35,16 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
         <div class="edit-form">
             <h4>Ajouter un animal</h4>
             <form method="post" enctype="multipart/form-data">
-
                 <div class="image-upload-btn"> 
                     <label class="title-image" for="image-upload">Ajouter une photo de l'animal</label>
-                    <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" require>
+                    <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" required>
                     
                 </div>
-                <input type="text" placeholder="Nom" name="name" id="name" require>
+                <input type="text" placeholder="Nom" name="name" id="name" required>
               
                 <div class="select-style">
                     <select name="gender" class="select-style">
-                        <option value="gender" disabled selected>Male/Femelle</option>
+                        <option value="gender" disabled selected required>Male/Femelle</option>
                         <option value="male">Male</option>
                         <option value="female">Femelle</option>
                     </select>
@@ -53,7 +52,7 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
                 </div>
                <div class="select-style">
                     <select name="species">
-                        <option value="specie" disabled selected>Chien/Chat</option>
+                        <option value="specie" disabled selected required>Chien/Chat</option>
                         <option value="dog">Chien</option>
                         <option value="cat">Chat</option>
                     </select>
@@ -61,7 +60,7 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
                     <i class="fa fa-caret-down"></i>
                </div>
                 
-                <textarea name="description" id="description" cols="30" rows="10" placeholder="Description" require></textarea>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Description" required></textarea>
                 <button class="button" type="submit">Valider</button>
         
             </form>
@@ -86,93 +85,94 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
                   </li>
                 </ul>
             </div>
-            
-            <h2>Chiens à adopter</h2>
-            <div class="container-card">
+            <div class="dog">
+                <h2>Chiens à adopter</h2>
+                <div class="container-card">
 
 
-            <?php if($adoptions_dogs){
-    
-                foreach($adoptions_dogs as $dog){?>
-                <div class="card">
+                <?php if($adoptions_dogs){
+        
+                    foreach($adoptions_dogs as $dog){?>
+                    <div class="card">
 
-                <?php if ($isConnected) {?> 
-                    <div class="edit-part">
-                        <a class="edit-btn" href="?page=single&id=<?= $dog["id"] ?>">
-                            <i class="fa fa-pen"></i>
-                        </a>
+                    <?php if ($isConnected) {?> 
+                        <div class="edit-part">
+                            <a class="edit-btn" href="?page=single&id=<?= $dog["id"] ?>">
+                                <i class="fa fa-pen"></i>
+                            </a>
 
-                        <a class="delete-btn" href="?page=remove&a=delete&id=<?= $dog["id"] ?>">
-                            <i class="fas fa-trash-alt"></i>
+                            <a class="delete-btn" href="?page=remove&a=delete&id=<?= $dog["id"] ?>">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </div>
+                        <?php } ?>
+                        <a href="<?= $base_url?>?page=single&id=<?= $dog['id']?>">
+                            <div class="img-container">
+                                <img src="uploads/<?= $dog['picture'] ?>" alt="animaux en adoption" class="img-fluid">
+                            </div>
+                            <div class="top-content">
+                                <h3 class="name"><?= $dog['name']?></h3>
+                                <?php if($dog['gender'] == 'male') {
+                                echo '<i class="fa fa-mars"></i>';
+                            }
+                            else echo '<i class="fa fa-venus"></i>'; ?>
+                                
+                            </div>
+                            <div class="description">
+                                <p>
+                                <?= $dog['description']?>
+                                </p>
+                            </div>
                         </a>
                     </div>
-                    <?php } ?>
-                    <a href="<?= $base_url?>?page=single&id=<?= $dog['id']?>">
-                        <div class="img-container">
-                            <img src="uploads/<?= $dog['picture'] ?>" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name"><?= $dog['name']?></h3>
-                            <?php if($dog['gender'] == 'male') {
-                            echo '<i class="fa fa-mars"></i>';
-                        }
-                        else echo '<i class="fa fa-venus"></i>'; ?>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                            <?= $dog['description']?>
-                            </p>
-                        </div>
-                    </a>
+                    <?php }
+                }
+                else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
                 </div>
-                <?php }
-            }
-            else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
             </div>
+            
+            <div class="cat">
+                <h2>Chats à adopter</h2>
+                <div class="container-card">
+                <?php if($adoptions_cats){
+        
+                    foreach($adoptions_cats as $cat){?>
+                    <div class="card">
+                    <?php if ($isConnected) {?> 
+                        <div class="edit-part">
+                            <a class="edit-btn" href="?page=single&id=<?= $cat["id"] ?>">
+                                <i class="fa fa-pen"></i>
+                            </a>
 
-            <h2>Chats à adopter</h2>
-            <div class="container-card">
-
-
-            <?php if($adoptions_cats){
-    
-                foreach($adoptions_cats as $cat){?>
-                <div class="card">
-
-                <?php if ($isConnected) {?> 
-                    <div class="edit-part">
-                        <a class="edit-btn" href="?page=single&id=<?= $cat["id"] ?>">
-                            <i class="fa fa-pen"></i>
-                        </a>
-
-                        <a class="delete-btn" href="?page=remove&a=delete&id=<?= $cat["id"] ?>">
-                            <i class="fas fa-trash-alt"></i>
+                            <a class="delete-btn" href="?page=remove-adoption&a=delete&id=<?= $cat["id"] ?>">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </div>
+                        <?php } ?>
+                        <a href="<?= $base_url?>?page=single&id=<?= $cat['id']?>">
+                            <div class="img-container">
+                                <img src="uploads/<?= $cat['picture'] ?>" alt="animaux en adoption" class="img-fluid">
+                            </div>
+                            <div class="top-content">
+                                <h3 class="name"><?= $cat['name']?></h3>
+                                <?php if($cat['gender'] == 'male') {
+                                echo '<i class="fa fa-mars"></i>';
+                            }
+                            else echo '<i class="fa fa-venus"></i>'; ?>
+                                
+                            </div>
+                            <div class="description">
+                                <p>
+                                <?= $cat['description']?>
+                                </p>
+                            </div>
                         </a>
                     </div>
-                    <?php } ?>
-                    <a href="<?= $base_url?>?page=single&id=<?= $cat['id']?>">
-                        <div class="img-container">
-                            <img src="uploads/<?= $cat['picture'] ?>" alt="animaux en adoption" class="img-fluid">
-                        </div>
-                        <div class="top-content">
-                            <h3 class="name"><?= $cat['name']?></h3>
-                            <?php if($cat['gender'] == 'male') {
-                            echo '<i class="fa fa-mars"></i>';
-                        }
-                        else echo '<i class="fa fa-venus"></i>'; ?>
-                            
-                        </div>
-                        <div class="description">
-                            <p>
-                            <?= $cat['description']?>
-                            </p>
-                        </div>
-                    </a>
+                    <?php }
+                }
+                else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
                 </div>
-                <?php }
-            }
-            else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
+
             </div>
         </section>
     </div>
