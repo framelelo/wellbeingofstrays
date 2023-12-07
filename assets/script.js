@@ -47,24 +47,24 @@ function selectOpen(button, optionsClass) {
 }
 selectOpen('filter-species', 'species-filter');
 
-  const radioButtons = document.querySelectorAll('.options');
-  const contentItems = document.querySelectorAll('.card');
 
-  radioButtons.forEach(button => {
-    button.addEventListener('change', filterContent);
+const radioButtons = document.querySelectorAll('.options');
+const contentItems = document.querySelectorAll('.card');
+
+radioButtons.forEach(button => {
+  button.addEventListener('change', filterContent);
+});
+
+function filterContent() {
+  const selectedValue = document.querySelector('input[name="species"]:checked').value;
+
+  contentItems.forEach(item => {
+    item.style.display = 'block';
   });
 
-  function filterContent() {
-    const selectedValue = document.querySelector('input[name="species"]:checked').value;
+  const filteredItems = document.querySelectorAll(`.card:not(.${selectedValue})`);
+  filteredItems.forEach(item => {
+    item.style.display = 'none';
+  });
+}
 
-
-    contentItems.forEach(item => {
-      item.style.display = 'none';
-    });
-
-    const filteredItems = document.querySelectorAll(`.card.${selectedValue}`);
-    filteredItems.forEach(item => {
-
-      item.style.display = 'block';
-    });
-  }

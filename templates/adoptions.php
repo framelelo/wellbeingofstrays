@@ -1,5 +1,5 @@
 <?php 
-function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $adoptions) {
+function showAdoptionsPage($adoptions_cats, $adoptions_dogs) {
 
 $title = 'Adoptions Chiens ou Chats';
 $page = 'adoptions';
@@ -85,15 +85,13 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
                   </li>
                 </ul>
             </div>
-            <div class="dog">
                 <h2>Chiens à adopter</h2>
                 <div class="container-card">
-
 
                 <?php if($adoptions_dogs){
         
                     foreach($adoptions_dogs as $dog){?>
-                    <div class="card">
+                    <div class="card <?= $dog["specie"]?>">
 
                     <?php if ($isConnected) {?> 
                         <div class="edit-part">
@@ -101,7 +99,7 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
                                 <i class="fa fa-pen"></i>
                             </a>
 
-                            <a class="delete-btn" href="?page=remove&a=delete&id=<?= $dog["id"] ?>">
+                            <a class="delete-btn" href="?page=remove-adoption&a=delete&id=<?= $dog["id"] ?>">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>
@@ -129,15 +127,13 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
                 }
                 else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
                 </div>
-            </div>
             
-            <div class="cat">
                 <h2>Chats à adopter</h2>
                 <div class="container-card">
                 <?php if($adoptions_cats){
         
                     foreach($adoptions_cats as $cat){?>
-                    <div class="card">
+                    <div class="card <?= $cat["specie"]?>">
                     <?php if ($isConnected) {?> 
                         <div class="edit-part">
                             <a class="edit-btn" href="?page=single&id=<?= $cat["id"] ?>">
@@ -173,7 +169,6 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
                 else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
                 </div>
 
-            </div>
         </section>
     </div>
 

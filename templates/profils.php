@@ -36,13 +36,18 @@ ob_start()?>
             </div>
             
             <form method="post">
-                <h2> <i class="fa fa-user-circle"></i>Modifier un profil</h2>
+                <h2><?= isset($_GET['id']) ? 'Modifier le profil' : 'Ajouter un profil' ?></h2>
                 <input type="text" placeholder="Prénom" name="first-name" id="first-name" required>
                 <input type="text" placeholder="Nom" name="last-name" id="last-name" required>
                 <input type="tel" placeholder="Tél" name="tel" id="tel" required>
                 <input type="email" placeholder="Email" name="email" id="email" required>
                 <input type="password" placeholder="Mot de passe" name="pwd" id="pwd" required>
                 <input type="password" placeholder="Confirmer mot de passe" name="confirmation-pwd" id="confirmation-pwd" required>
+                <div class="checkbox">
+                    <input type="checkbox" name="role" id="role" value='admin'>
+                    <label for="role"><i class="fas fa-check"></i> Administrateur</label>
+                </div>
+                
                 
                 <button class="button" type="submit">Valider <i class="fa fa-arrow-right"></i></button>
             </form>

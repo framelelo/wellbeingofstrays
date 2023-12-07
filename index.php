@@ -44,18 +44,19 @@ if (isset($_GET["page"])) {
             require('templates/contact.php') ;
             break;
 
-        case "profils":
-            updateProfile();
+        case "profils":  
+            if(isset($_SESSION["user"]['role']) && $_SESSION["user"]['role'] !== null){ 
+                updateProfile();
+            } else {
+                homePage();
+            }
         break;
 
         case "remove-profile":
             removeProfile($id);
         break;
 
-        
-
         case "single":
-            
             if(isset($_GET['id'])  ) {
                 $id = $_GET['id'];
                 singleAdoption($id);
@@ -63,9 +64,7 @@ if (isset($_GET["page"])) {
             else {
                 homePage();
             }
-            break; 
- 
-            
+            break;
         case "logout":
             logOut();
             break;  

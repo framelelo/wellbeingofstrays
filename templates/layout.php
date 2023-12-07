@@ -76,9 +76,14 @@ global $isConnected;
                     <a href="<?= $base_url ?>?page=contact">Contact</a>
                 </li>
                 <?php if ($isConnected) {?> 
-                <li class="list profil-btn">
-                    <a href="<?= $base_url ?>?page=profils"><i class="fas fa-user-circle"></i> <span>Profils</span></a>
-                </li>
+
+                    <?php if(isset($_SESSION["user"]['role']) && $_SESSION["user"]['role'] == 'admin'){ ?>
+  
+                        <li class="list profil-btn">
+                            <a href="<?= $base_url ?>?page=profils"><i class="fas fa-user-circle"></i> <span>Profils</span></a>
+                        </li>
+                    <?php } ?>
+
                 <li class="list logout-btn">
                     <a href="<?= $base_url ?>?page=logout"><i class="fas fa-sign-out-alt"></i> <span>Se déconnecter</span></a>    
                 </li>

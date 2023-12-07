@@ -79,11 +79,11 @@ h1,h2,h3,h4{
 textarea {
     height: 200px;
 }
-input {
+input:not(#role) {
     height: 45px;
     
 }
-input,textarea,.select-style select{
+input:not(#role),textarea,.select-style select{
     border: 1px solid rgba(0,0,0,0.2);
     width: 100%;
     padding: 5px 10px;
@@ -1047,10 +1047,11 @@ header {
             margin: 50px auto;
             background-color: var(--light_grey);
             padding: 40px;
-            box-shadow: 5px 2px 9px 0 rgba(0,0,0,0.2);
+            box-shadow: 5px 2px 9px 0 rgba(191,191,191,.5);
             > h2 {
-                margin-bottom: 30px;
+                margin: 30px auto;
                 text-align: center;
+                display: block;
                 > i {
                     font-size: 35px;
                     margin-right: 10px;
@@ -1061,7 +1062,51 @@ header {
             > input {
                 display: block;
                 margin: 15px auto;
+                
             }
+            > .checkbox {
+                margin: 25px auto;
+                text-align: right;
+                display: block;
+                #role{
+                    display: none;
+                    &:checked + label{
+                        
+                       &::before  {
+                            background-color: var(--tertiary_color);
+                            content: '';
+                            text-align: center;
+                        }
+                        > i {
+                            display: block;
+                        } 
+                    }
+                }
+                > label {
+                    position: relative;
+                    cursor: pointer;
+                    padding-left: 25px;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top:0;
+                        height: 15px;
+                        width: 15px;
+                        border: 1px solid rgba(0,0,0,0.2);
+                        display: block;  
+                        margin-right: 5px;
+                    }
+                    > i {
+                        position: absolute;
+                        left: 3px;
+                        top: 2px;
+                        font-size: 12px;
+                        display: none;
+                        color: var(--light_color);
+                    }
+                }
+                }
             .button {
                 margin-top: 25px;
                 font: 20px var(--secondary-font)

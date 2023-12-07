@@ -12,13 +12,14 @@ function updateProfile()
         $email  = $_POST['email']; 
         $pwd = $_POST['pwd']; 
         $confirmationPwd = $_POST['confirmation-pwd'];
+        $role = isset($_POST['role']) ? $_POST['role'] : null;
         
         if ($firstName && $lastName && $tel && $email && $pwd) {
             
             if(isset($_GET['id']) && ($pwd === $confirmationPwd)) {
                 $id = $_GET['id'];
                  
-                      $update = updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd);
+                      $update = updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd, $role);
                  
 
                   if ($update) {
@@ -27,7 +28,7 @@ function updateProfile()
                       echo 'Merci de vérifier !';
                   }
               } else {
-                    $update = registrer($firstName, $lastName, $tel, $email, $pwd);
+                    $update = newProfile($firstName, $lastName, $tel, $email, $pwd, $role);
                 }   
                     
             
@@ -40,7 +41,6 @@ function updateProfile()
     showProfilePage($profiles);
     
 }
-
 function removeProfile($id){
         global $base_url;
     

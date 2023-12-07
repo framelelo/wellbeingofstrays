@@ -1,11 +1,11 @@
 <?php
 
-function updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd)
+function updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd, $role)
 {
     global $pdo;
 
     try { 
-        $query = $pdo->prepare("UPDATE users SET name = :n, last_name = :l, tel = :t, email = :e, pwd = :p WHERE id = :id"); 
+        $query = $pdo->prepare("UPDATE users SET name = :n, last_name = :l, tel = :t, email = :e, pwd = :p, role = :r WHERE id = :id"); 
 
         $query->execute([
             "n" => $firstName,
@@ -13,7 +13,8 @@ function updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd)
             "t" => $tel,
             "e" => $email,
             "p" => password_hash($pwd, PASSWORD_DEFAULT),
-            "id" => $id
+            "id" => $id,
+            "r" => $role
         ]);
 
         return true;
@@ -22,7 +23,29 @@ function updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd)
         return false;
     }
 }
+function newProfile($firstName, $lastName, $tel, $email, $pwd, $role)
+{
 
+    global $pdo;
+
+    try {
+        $query = $pdo ->prepare("INSERT INTO users(name,last_name,tel,email,pwd,role) VALUES (:n,:l,:t,:e,:p,:r)");
+    
+        $query->execute([
+            "n" => $firstName,
+            "l" => $lastName,
+            "t" => $tel,
+            "e" => $email,
+            "p" =>  password_hash($pwd, PASSWORD_DEFAULT),
+            "r" => $role
+        ]);
+        return true;
+    }
+    catch(PDOException $e){
+        echo $e->getMessage();
+        return false;
+    }
+}
 function profiles()
 {
     global $pdo;
