@@ -35,8 +35,9 @@ function showEventsPage($events, $selectedEvent)
 
     <section class="events">
         <div class="container-card">
-            <?php foreach ($events as $event) { ?>
 
+        <?php if($events){ 
+            foreach ($events as $event) { ?>
                 <div class="card">
                     <h3 class="title"><?= $event['title'] ?></h3>
 
@@ -62,7 +63,7 @@ function showEventsPage($events, $selectedEvent)
                         </div>
                     </a>
                 </div>
-            <?php }; ?>
+            <?php }; } else echo '<p class="no_adoptions">Pas d\'évènements pour le moment</p>';?>
 
         </div>
     </section>

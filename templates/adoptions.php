@@ -1,5 +1,5 @@
 <?php 
-function showAdoptionsPage($adoptions_cats,$adoptions_dogs,$singleAdoption) {
+function showAdoptionsPage($adoptions_cats,$adoptions_dogs,$singleAdoption,$adoptions) {
 
 $title = 'Adoptions Chiens ou Chats';
 $page = 'adoptions';
@@ -73,6 +73,7 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
         <section class="adoptions">
             <h1>Découvrez les animaux à l’adoption</h1>
 
+            <?php if($adoptions) { ?>
             <div class="filter" id="filter-species">
                 <button class="select-button">
                   <span class="selected-value">Filtrer par :</span>
@@ -93,7 +94,6 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
                 <div class="container-card">
 
                 <?php if($adoptions_dogs){
-        
                     foreach($adoptions_dogs as $dog){?>
                     <div class="card <?= $dog["specie"]?>">
 
@@ -172,7 +172,8 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
                 }
                 else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
                 </div>
-
+                <?php }
+                else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
         </section>
     </div>
 

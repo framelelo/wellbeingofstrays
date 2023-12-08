@@ -52,8 +52,9 @@ function AdoptionPage(){
     }
     $adoptions_cats = showCatAdoptions();
     $adoptions_dogs = showDogAdoptions();
+    $adoptions = showAdoptions();
     
-    showAdoptionsPage($adoptions_cats,$adoptions_dogs, $singleAdoption);
+    showAdoptionsPage($adoptions_cats,$adoptions_dogs, $singleAdoption,$adoptions);
 };
 
 

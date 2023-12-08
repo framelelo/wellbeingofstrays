@@ -26,6 +26,7 @@ ob_start()?>
             <section class="adoptions">
                 <h1>Découvrez les animaux à l’adoption</h1>
     
+                <?php if($adoptions) { ?>
                 <div class="filter" id="filter-species">
                     <button class="select-button">
                       <span class="selected-value">Filtrer par :</span>
@@ -42,7 +43,7 @@ ob_start()?>
                       </li>
                     </ul>
                 </div>
-                
+                <?php }?>
                 <div class="container-card">
 
                     <?php if($adoptions) {
@@ -80,7 +81,7 @@ ob_start()?>
                         </a>
                         </div>
                         <?php } }
-                    else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment !</p>';?>
+                    else echo '<p class="no_adoptions">Retrouvez nos propositions d\'adoption prochainement !</p>';?>
                         
                     </div>
             </section>

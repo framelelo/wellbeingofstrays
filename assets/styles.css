@@ -157,9 +157,12 @@ input[type="file"] {
 .no_adoptions {
     text-align: center;
     font: 20px var(--primary-font);
+    color: var(--tertiary_color);
     margin: 5% auto;
     text-transform: uppercase;
     font-style: italic;
+    border: 1px dotted var(--tertiary_color);
+    padding: 10px;
 }
 
 .modal {
