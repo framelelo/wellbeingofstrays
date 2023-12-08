@@ -15,14 +15,12 @@ ob_start()?>
             <div class="content">
                 <h2>Se poser les bonnes questions avant d’adopter !</h2>
                 <p>
-                    
-L'adoption d'un animal est un engagement sérieux, bien au-delà d'une simple décision. 
-C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, avec en retour une affection inconditionnelle. 
-</p> 
-<p>Cependant, cela signifie fournir une alimentation appropriée, des soins médicaux, de l'exercice, de l'amour et de l'attention. Comprenez les besoins spécifiques de l'animal, son comportement, et soyez prêt pour les coûts à long terme, le temps d'éducation, de socialisation, et la patience nécessaire pour résoudre les problèmes de comportement.  
-               
-               </p>
-<p class="center-text">    
+                    L'adoption d'un animal est un engagement sérieux, bien au-delà d'une simple décision. 
+                    C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, avec en retour une affection inconditionnelle. 
+                </p> 
+                <p>Cependant, cela signifie fournir une alimentation appropriée, des soins médicaux, de l'exercice, de l'amour et de l'attention. Comprenez les besoins spécifiques de l'animal, son comportement, et soyez prêt pour les coûts à long terme, le temps d'éducation, de socialisation, et la patience nécessaire pour résoudre les problèmes de comportement.  
+                </p>
+                <p class="center-text">    
                     DES QUESTIONS SUR LES PROCÉDURES D’ADOPTION OU AUTRES ?
                 </p>
                 <a class="button" href="<?= $base_url ?>?page=contact">Contactez-nous</a>

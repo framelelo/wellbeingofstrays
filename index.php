@@ -6,7 +6,10 @@ if (isset($_GET["page"])) {
     switch ($page) {
 
         case "login":
-            signIn();
+
+            if($isConnected){
+                homePage();
+            } else signIn();
             break; 
             
         case "signup":
