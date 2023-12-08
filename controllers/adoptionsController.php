@@ -121,13 +121,25 @@ function removeAdoption() {
         $action = $_GET["a"];
         $id = $_GET["id"];
         
-        if ($action == 'delete'){
-            removeAdoptions($id);
+        if ($action == 'delete') {
+            $adoption = showAdoption($id);
+
+            if ($adoption && isset($adoption['picture'])) {
+                $picturePath = "uploads/" . $adoption['picture'];
+
+                removeAdoptions($id);
+
+                if (file_exists($picturePath)) {
+                    unlink($picturePath);
+                }
+            }
         }
-       
         header("location: $base_url/?page=adoptions");
         
-        
-    } else echo '<div class="modal">Merci de vérifier !</div>';
+    } else {
+        echo '<div class="modal"><p>Merci de vérifier !</p></div>';
+    }
 }
+
+
 ?>

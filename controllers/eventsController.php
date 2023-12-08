@@ -59,7 +59,6 @@ function eventPage()
 }
 
 
-
 function removeEvent() {
     global $base_url;
 
@@ -68,13 +67,23 @@ function removeEvent() {
         $action = $_GET["a"];
         $id = $_GET["id"];
         
-        if ($action == 'delete'){
-            removeEvents($id);
+        if ($action == 'delete') {
+            $event = showEvent($id);
+
+            if ($event && isset($event['picture'])) {
+                $picturePath = "uploads/" . $event['picture'];
+
+                removeEvents($id);
+
+                if (file_exists($picturePath)) {
+                    unlink($picturePath);
+                }
+            }
         }
-       
         header("location: $base_url/?page=evenements");
         
-        
-    } else echo '<div class="modal"><p>Merci de vérifier !</p></div>';
+    } else {
+        echo '<div class="modal"><p>Merci de vérifier !</p></div>';
+    }
 }
 ?>
