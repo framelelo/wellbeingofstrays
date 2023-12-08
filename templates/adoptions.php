@@ -1,5 +1,5 @@
 <?php 
-function showAdoptionsPage($adoptions_cats, $adoptions_dogs) {
+function showAdoptionsPage($adoptions_cats,$adoptions_dogs,$singleAdoption) {
 
 $title = 'Adoptions Chiens ou Chats';
 $page = 'adoptions';
@@ -35,10 +35,14 @@ C'est offrir une seconde chance à une vie qui dépendra entièrement de vous, a
         <div class="edit-form">
             <h4>Ajouter un animal</h4>
             <form method="post" enctype="multipart/form-data">
-                <div class="image-upload-btn"> 
-                    <label class="title-image" for="image-upload">Ajouter une photo de l'animal</label>
-                    <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" required>
-                    
+            <div class="image-upload-btn">
+                    <div class="img-container img-preview" <?php if(!isset($selectedEvent['picture'])) echo 'style="display: none;"' ?>>
+                        <img src="uploads/<?= $singleAdoption['picture'] ?>" alt="animaux en adoption" class="img-fluid" id="previewImage">
+                    </div>
+                
+                    <label class="title-image" for="image-upload">Ajouter une photo</label>
+                    <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
+                    <div id="preview"></div>
                 </div>
                 <input type="text" placeholder="Nom" name="name" id="name" required>
               

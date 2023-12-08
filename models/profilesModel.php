@@ -46,7 +46,8 @@ function newProfile($firstName, $lastName, $tel, $email, $pwd, $role)
         return false;
     }
 }
-function profiles()
+
+function showAllProfiles()
 {
     global $pdo;
 
@@ -65,6 +66,23 @@ function profiles()
     }
 }
 
+
+
+function showProfile($id)
+{
+    global $pdo;
+    try {
+        $query = $pdo->prepare("SELECT * FROM users WHERE id = :i");
+        $query->execute([ "i" => $id,]);
+           return  $query->fetch();     
+          
+    }
+    catch (PDOEXCEPTION $e) {
+        echo $e->getMessage();
+        return false;
+    }
+}
+
 function removeProfiles($id)
 {
     global $pdo;
@@ -77,6 +95,7 @@ function removeProfiles($id)
         return true;  
     }
     catch(PDOException $e){
+        echo $e->getMessage();
         return false;
     }
 }

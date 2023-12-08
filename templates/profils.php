@@ -1,5 +1,5 @@
 <?php 
-function showProfilePage($profiles) {
+function showProfilePage($profiles, $selectedProfile) {
     $page = 'profiles';
     $title = 'Sauvetage animal';
     global $isConnected;
@@ -37,12 +37,12 @@ ob_start()?>
             
             <form method="post">
                 <h2><?= isset($_GET['id']) ? 'Modifier le profil' : 'Ajouter un profil' ?></h2>
-                <input type="text" placeholder="Prénom" name="first-name" id="first-name" required>
-                <input type="text" placeholder="Nom" name="last-name" id="last-name" required>
-                <input type="tel" placeholder="Tél" name="tel" id="tel" required>
-                <input type="email" placeholder="Email" name="email" id="email" required>
-                <input type="password" placeholder="Mot de passe" name="pwd" id="pwd" required>
-                <input type="password" placeholder="Confirmer mot de passe" name="confirmation-pwd" id="confirmation-pwd" required>
+                <input type="text" placeholder="<?= isset($selectedProfile['name']) ? $selectedProfile['name'] : 'Prénom'; ?>" name="first-name" id="first-name" required>
+                <input type="text" placeholder="<?= isset($selectedProfile['last_name']) ? $selectedProfile['last_name'] : 'Nom'; ?>"  name="last-name" id="last-name" required>
+                <input type="tel" placeholder="<?= isset($selectedProfile['tel']) ? $selectedProfile['tel'] : 'Tél.'; ?>"  name="tel" id="tel" required>
+                <input type="email" placeholder="<?= isset($selectedProfile['email']) ? $selectedProfile['email'] : 'Email'; ?>"  name="email" id="email" required>
+                <input type="password" placeholder="<?= isset($_GET['id']) ? 'Modifier le mot de passe' : 'Mot de passe' ?>" name="pwd" id="pwd" required>
+                <input type="password" placeholder="Confirmer le mot de passe" name="confirmation-pwd" id="confirmation-pwd" required>
                 <div class="checkbox">
                     <input type="checkbox" name="role" id="role" value='admin'>
                     <label for="role"><i class="fas fa-check"></i> Administrateur</label>

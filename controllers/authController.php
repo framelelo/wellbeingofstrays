@@ -45,10 +45,10 @@ function newRegistrer() {
                 }
                 
                 else {
-                    echo 'Merci de verifier !';
+                    echo '<div class="modal"><p>Merci de vérifier.</p></div>';
                 }
             }
-            else echo 'Les mots de passe ne correspondent pas';
+            else echo '<div class="modal"><p>Les mots de passe ne correspondent pas.</p></div>';
 
         };
     }

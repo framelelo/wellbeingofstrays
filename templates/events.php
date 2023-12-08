@@ -1,5 +1,5 @@
 <?php 
-function showEventsPage($events)
+function showEventsPage($events, $selectedEvent)
 {
     $page = 'evenements';
     $title = 'Nos évènements';
@@ -15,12 +15,16 @@ function showEventsPage($events)
                 <h4><?= isset($_GET['id']) ? 'Modifier l\'évènement' : 'Ajouter un évènement' ?></h4>
                 <form method="post" enctype="multipart/form-data">
                     <div class="image-upload-btn">
-                        <label class="title-image" for="image-upload">Ajouter une image</label>
-                        <input type="file" name="img-event" id="image-upload" accept=".jpeg,.png,.jpg" required>
+                        <div class="img-container img-preview" <?php if(!isset($selectedEvent['picture'])) echo 'style="display: none;"' ?>>
+                            <img src="uploads/<?= isset($selectedEvent['picture']) ? $selectedEvent['picture'] : ''; ?>" alt="animaux en adoption" class="img-fluid">
+                        </div>
+                        <label class="title-image" for="image-upload">Ajouter une photo</label>
+                        <input type="file" name="img-event" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
+                        <div id="preview"></div>
                     </div>
-                    <input type="text" placeholder="Nom" name="title" id="name" required>
-                    <input type="text" placeholder="Lien" name="event-link" id="event-link" required>
-                    <textarea name="description" id="message" cols="30" rows="10" placeholder="Description" required></textarea>
+                    <input type="text" placeholder="<?= isset($selectedEvent['title']) ? $selectedEvent['title'] : 'Nom'; ?>" name="title" id="name" required>
+                    <input type="text" placeholder="<?= isset($selectedEvent['link']) ? $selectedEvent['link'] : 'Lien'; ?>" name="event-link" id="event-link" required>
+                    <textarea name="description" id="message" cols="30" rows="10" placeholder="<?= isset($selectedEvent['description']) ? $selectedEvent['description'] : 'Description'; ?>" required></textarea>
                     <button class="button" type="submit"><?= isset($_GET['id']) ? 'Modifier' : 'Valider' ?></button>
                 </form>
             </div>

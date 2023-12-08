@@ -44,12 +44,16 @@ function AdoptionPage(){
      
         };
     }
+    $singleAdoption = null; 
 
-    $adoptions = showAdoptions();
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $singleAdoption = showAdoption($id);
+    }
     $adoptions_cats = showCatAdoptions();
     $adoptions_dogs = showDogAdoptions();
     
-    showAdoptionsPage($adoptions_cats,$adoptions_dogs,$adoptions);
+    showAdoptionsPage($adoptions_cats,$adoptions_dogs, $singleAdoption);
 };
 
 
@@ -124,6 +128,6 @@ function removeAdoption() {
         header("location: $base_url/?page=adoptions");
         
         
-    } else echo 'erreur';
+    } else echo '<div class="modal">Merci de vérifier !</div>';
 }
 ?>

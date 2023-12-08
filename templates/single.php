@@ -11,9 +11,14 @@ if($isConnected){?>
         <div class="edit-form">
             <h4>Modifier la fiche</h4>
             <form method="post" action="<?php $base_url?>?page=update-adoption&id=<?= $adoption["id"] ?>" enctype="multipart/form-data">
-                <div class="image-upload-btn"> 
-                    <label class="title-image" for="image-upload">Ajouter une photo de l'animal</label>
-                    <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg">
+                <div class="image-upload-btn">
+                    <div class="img-container img-preview">
+                        <img src="uploads/<?= $adoption['picture'] ?>" alt="animaux en adoption" class="img-fluid" id="previewImage">
+                    </div>
+                
+                    <label class="title-image" for="image-upload">Changer la photo</label>
+                    <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
+                    <div id="preview"></div>
                 </div>
                 <input type="text" placeholder="<?= $adoption['name'] ?>" name="name" id="name">
                 

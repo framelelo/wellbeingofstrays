@@ -161,6 +161,36 @@ input[type="file"] {
     text-transform: uppercase;
     font-style: italic;
 }
+
+.modal {
+    position: fixed;
+    background-color: var(--light_color);
+    color: var(--primary_color);
+    margin: auto;
+    padding: 10%;
+    width: auto;
+    opacity: 0;
+    display: none;
+    z-index: 1000;
+    top: 30vh;
+    align-self: center;
+    overflow: hidden;
+    animation: bounce 2s ease-in-out;
+    box-shadow: 0px 0px 1px 3px rgba(191,191,191,0.5);
+    > p {
+        font: 35px var(--secondary-font);
+        
+    }
+}
+
+@keyframes bounce {
+    
+    0%  {opacity: 0;display: block;}
+    25%  {opacity: .5;display: block;}
+    50%  {opacity: 1;display: block;}
+    75%  {opacity: 1;display: block;}
+    100% {opacity: 0;}
+  }
 /*****************
         HEADER 
  ***************/
@@ -754,11 +784,20 @@ header {
     > form {            
         max-width: 1024px;
         margin: 30px auto;
+
+        .img-container {
+            width: 100%;
+            height: 300px;
+            & img {
+                box-shadow: 5px 2px 9px 0 rgba(191,191,191,.5);
+            }
+        }
         .button {
             margin-top: 20px;
             font: 22px var(--secondary-font);
         }
     }
+    
 }
   
 .selected-value {
@@ -875,14 +914,7 @@ header {
                 margin-bottom: 15px;
             }
              & a {
-                .img-container {
-                    width: 100%;
-                    height: 400px;
-
-                    & img {
-                        border:1px solid rgba(0,0,0,.5);
-                    }
-                }
+                
                 .description {
                     text-align: center;
                     p {
@@ -900,6 +932,14 @@ header {
                 .card {
                     width: 45%;
                 }
+            }
+        }
+        .img-container {
+            width: 100%;
+            height: 400px;
+
+            & img {
+                box-shadow: 5px 2px 9px 0 rgba(191,191,191,.5);
             }
         }
     }
@@ -1015,7 +1055,6 @@ header {
                 cursor: pointer;
                 display: flex;
                 justify-content: center;
-                align-content: center;
                 > .cell {
                     align-items: stretch;
                     padding: 15px 10px;
@@ -1026,6 +1065,11 @@ header {
                     &:last-child { 
                         width: 12%;
                         justify-content: center;
+                    }
+                    &.edit-part {
+                        > a {
+                            margin-top: 0;
+                        }
                     }
                 }
                 &:nth-child(odd) {

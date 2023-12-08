@@ -20,9 +20,10 @@ function eventPage()
             $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
 
             if (!$picture_upload) {
-                echo "Merci de vérifier la taille de l'image.";
+                echo '<div class="modal"><p>Merci de vérifier la taille de l\'image.</p></div>';
             }
         }
+        else echo '<div class="modal"><p>Merci de vérifier !</p></div>';
 
         if ($id_user && $title && $picture && $link && $description) {
               if(isset($_GET['id'])) {
@@ -35,17 +36,28 @@ function eventPage()
             if ($update) {
                 header("Location: $base_url/?page=evenements");
             } else {
-                echo 'Merci de vérifier !';
+                echo '<div class="modal"><p>Merci de vérifier !</p></div>';
             }
         } else {
-            echo 'Merci de remplir tous les champs';
+            echo '<div class="modal"><p>Merci de remplir tous les champs.</p></div>';
         }
     }
 
-    $events = showEvents();
     
-    showEventsPage($events);
+    $selectedEvent = null;
+
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $selectedEvent = showEvent($id);
+    }
+
+    $events = showEvents();
+    showEventsPage($events, $selectedEvent);
+    
+    $events = showEvents();
+    showEventsPage($events, $selectedEvent);
 }
+
 
 
 function removeEvent() {
@@ -63,6 +75,6 @@ function removeEvent() {
         header("location: $base_url/?page=evenements");
         
         
-    } else echo 'erreur';
+    } else echo '<div class="modal"><p>Merci de vérifier !</p></div>';
 }
 ?>

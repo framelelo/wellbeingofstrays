@@ -68,3 +68,25 @@ function filterContent() {
   });
 }
 
+function triggerClick() {
+    document.getElementById('image-upload').click();
+}
+
+function previewFile() {
+    var preview = document.querySelector('.img-container img');
+    var image = document.querySelector('.img-preview');
+    var fileInput = document.getElementById('image-upload');
+    var files = fileInput.files;
+
+    if (files.length > 0) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            preview.src = e.target.result;
+        };
+        image.style.display = 'block';
+        reader.readAsDataURL(files[0]);
+    } else {
+        // If no file is selected, you can set a default image or leave it blank
+        preview.src = "uploads/default-image.jpg";
+    }
+}
