@@ -17,7 +17,7 @@ ob_start()?>
             </div>
         </div>
         <div class="container">
-            <h1>Nos missons</h1>
+            <h1>Nos missions</h1>
             <section id="sensibilisation">
                <div class="img-part">
                     <img class="img-fluid" src="uploads/Missions-1.jpg" alt="Sensibilisation animale ile maurice">

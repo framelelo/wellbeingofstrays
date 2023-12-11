@@ -172,12 +172,12 @@ input[type="file"] {
     background-color: var(--light_color);
     color: var(--primary_color);
     margin: auto;
-    padding: 10%;
+    padding: 3% 6%;
     width: auto;
-    opacity: 0;
+    opacity: 1;
     display: none;
     z-index: 1000;
-    top: 30vh;
+    top: 45vh;
     align-self: center;
     overflow: hidden;
     animation: bounce 2s ease-in-out;

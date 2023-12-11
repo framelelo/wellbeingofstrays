@@ -63,8 +63,6 @@ function eventPage()
     $events = showEvents();
     showEventsPage($events, $selectedEvent);
     
-    $events = showEvents();
-    showEventsPage($events, $selectedEvent);
 }
 
 

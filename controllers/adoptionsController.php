@@ -60,7 +60,6 @@ function AdoptionPage(){
             echo '<div class="modal"><p>Merci de remplir tous les champs</p></div>';
         }
     }
-   
     
     showAdoptionsPage($adoptions_cats,$adoptions_dogs, $singleAdoption,$adoptions);
 };
@@ -77,8 +76,8 @@ function updateAdoption($id){
         $id = $_GET['id'];
         $id_user = $_SESSION["user"]["id"];
         $name = $_POST['name']; 
-        $specie = $_POST['species'];
-        $gender = $_POST['gender'];
+        $gender = isset($_POST['gender']) ? $_POST['gender'] : null;
+        $specie = isset($_POST['species']) ? $_POST['species'] : null;
         $description = $_POST['description']; 
 
         $picture = time() . '_' . $_FILES['img-animal']['name'];
@@ -105,7 +104,6 @@ function updateAdoption($id){
             echo '<div class="modal"><p>Merci d\'ajouter une image</p></div>';
             
         }
-        
         
         if ($id && $id_user && $name && $specie && $picture && $gender  && $description) {
             $update = updateAdoptions($id, $id_user, $name, $specie, $picture, $gender,  $description);
