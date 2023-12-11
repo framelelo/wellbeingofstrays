@@ -174,8 +174,7 @@ input[type="file"] {
     margin: auto;
     padding: 3% 6%;
     width: auto;
-    opacity: 1;
-    display: none;
+    opacity: 0;
     z-index: 1000;
     top: 45vh;
     align-self: center;
@@ -189,12 +188,11 @@ input[type="file"] {
 }
 
 @keyframes bounce {
-    
-    0%  {opacity: 0;display: block;}
-    25%  {opacity: .5;display: block;}
-    50%  {opacity: 1;display: block;}
-    75%  {opacity: 1;display: block;}
-    100% {opacity: 0;}
+    0%  {opacity: 0;}
+    25%  {opacity: .5;}
+    50%  {opacity: 1;}
+    75%  {opacity: 1;}
+    100% {opacity: 0;display: none;}
   }
 /*****************
         HEADER 
