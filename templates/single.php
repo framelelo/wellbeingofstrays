@@ -40,7 +40,7 @@ if($isConnected){?>
                     <i class="fa fa-caret-down"></i>
                </div>
                 <textarea name="description" id="description" cols="30" rows="10" maxlength='200' placeholder="<?= $adoption['description'] ?>"></textarea>
-                <button class="button" type="submit">Valider</button>
+                <button class="button" type="submit">Modifier  <i class="fa fa-arrow-right"></i></button>
         
             </form>
         </div>

@@ -5,7 +5,6 @@
 function eventPage()
 {
     global $base_url;
-    
     $selectedEvent = null;
 
     if (isset($_GET['id'])) {
@@ -34,8 +33,8 @@ function eventPage()
     
         $maxFileSize = 2097152; 
     
-        if (!empty($_FILES['img-animal']['name'])) {
-            $fileSize = $_FILES['img-animal']['size'];
+        if (!empty($_FILES['img-event']['name'])) {
+            $fileSize = $_FILES['img-event']['size'];
         
             if ($fileSize > $maxFileSize) {
                 echo '<div class="modal"><p>La taille de votre image est trop lourde.</p></div>';
@@ -43,12 +42,17 @@ function eventPage()
                 showEventsPage($events, $selectedEvent);; 
            
             }
-        
-            $picture = time() . '_' . $_FILES['img-animal']['name'];
-            $temp_folder = $_FILES['img-animal']['tmp_name'];
-            $upload_folder = ROOT_PATH . "/uploads/" . $picture;
-        
-            $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
+            else {
+                $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
+                $oldPicturePath = ROOT_PATH . "/uploads/" . $selectedEvent['picture'];
+                if (file_exists($oldPicturePath)) {
+                    unlink($oldPicturePath);
+                }
+
+                if (!$picture_upload) {
+                    $picture = $_POST['picture'];
+                }
+            }
         
             if (!$picture_upload) {
                 echo '<div class="modal"><p>Merci de vérifier</p></div>';

@@ -14,6 +14,9 @@ function AdoptionPage(){
     $adoptions_dogs = showDogAdoptions();
     $adoptions = showAdoptions();
 
+
+    $test = showAdoptionsPage($adoptions_cats,$adoptions_dogs, $singleAdoption,$adoptions);
+
     if($_POST) {
 
         $id = $_SESSION["user"]["id"];
@@ -29,7 +32,7 @@ function AdoptionPage(){
         
             if ($fileSize > $maxFileSize) {
                 echo '<div class="modal"><p>La taille de votre image est trop lourde.</p></div>';
-                return showAdoptionsPage($adoptions_cats,$adoptions_dogs, $singleAdoption,$adoptions); 
+                return $test; 
            
             }
         
@@ -41,11 +44,11 @@ function AdoptionPage(){
         
             if (!$picture_upload) {
                 echo '<div class="modal"><p>Merci de vérifier</p></div>';
-                return showAdoptionsPage($adoptions_cats,$adoptions_dogs, $singleAdoption,$adoptions); 
+                return $test; 
             }
         } else {
             echo '<div class="modal"><p>Merci d\'ajouter une image</p></div>';
-            return showAdoptionsPage($adoptions_cats,$adoptions_dogs, $singleAdoption,$adoptions); 
+            return $test; 
             
         }
         
@@ -61,7 +64,6 @@ function AdoptionPage(){
         }
     }
     
-    showAdoptionsPage($adoptions_cats,$adoptions_dogs, $singleAdoption,$adoptions);
 };
 
 
@@ -95,6 +97,10 @@ function updateAdoption($id){
                 return singleAdoptionPage($adoption); 
             } else {
                 $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
+                $oldPicturePath = ROOT_PATH . "/uploads/" . $adoption['picture'];
+                    if (file_exists($oldPicturePath)) {
+                        unlink($oldPicturePath);
+                    }
     
                 if (!$picture_upload) {
                     $picture = $_POST['picture'];

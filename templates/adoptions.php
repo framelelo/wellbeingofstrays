@@ -63,7 +63,7 @@ ob_start()?>
                </div>
                 
                 <textarea name="description" id="description" cols="30" rows="10" placeholder="Description" maxlength='200' required></textarea>
-                <button class="button" type="submit">Valider</button>
+                <button class="button" type="submit">Ajouter <i class="fa fa-arrow-right"></i></button>
         
             </form>
         </div>

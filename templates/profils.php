@@ -49,7 +49,7 @@ ob_start()?>
                 </div>
                 
                 
-                <button class="button" type="submit">Valider <i class="fa fa-arrow-right"></i></button>
+                <button class="button" type="submit"><?= isset($_GET['id']) ? 'Modifier' : 'Ajouter' ?> <i class="fa fa-arrow-right"></i></button>
             </form>
         </div>
         <?php
