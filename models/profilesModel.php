@@ -13,8 +13,8 @@ function updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd, $role)
             "t" => $tel,
             "e" => $email,
             "p" => password_hash($pwd, PASSWORD_DEFAULT),
-            "id" => $id,
-            "r" => $role
+            "r" => $role,
+            "id" => $id
         ]);
 
         return true;
