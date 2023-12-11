@@ -102,7 +102,9 @@ input:not(#role),textarea,.select-style select{
 }
 
 textarea {
-    padding: 15px;
+    padding: 15px 13px;
+    resize: none;
+   
 }
 .select-style {
     position: relative;
@@ -162,7 +164,7 @@ input[type="file"] {
     text-transform: uppercase;
     font-style: italic;
     border: 1px dotted var(--tertiary_color);
-    padding: 10px;
+    padding: 30px;
 }
 
 .modal {
@@ -1235,7 +1237,7 @@ footer {
     .top-container {
         display: flex;
         justify-content: space-between;
-        padding: 30px 0 10px 0;
+        padding: 40px 0 10px 0;
         & h2{
             font-weight: 500;
             font-size: 24px;
@@ -1244,16 +1246,23 @@ footer {
                 color: var(--primary_color);
             }
         }
-        & a {
-            font-weight: 500;
-            color: var(--secondary_color);
-            padding: 5px;
-            display: block;
-            font-size: 14px;
-            &:hover, &:active {
-                color: var(--primary_color);
+        .menu {
+            > .contact {
+            > a {
+                font-size: 16px;
+            }
+            }
+            & a {
+                font-weight: 500;
+                color: var(--secondary_color);
+                font-size: 14px;
+                padding: 7px;
+                &:hover, &:active {
+                    color: var(--primary_color);
+                }
             }
         }
+        
         & p {
             margin-bottom: 5px;
             > i {

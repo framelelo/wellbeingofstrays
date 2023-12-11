@@ -25,7 +25,7 @@ ob_start()?>
                 </p>
                 <a class="button" href="<?= $base_url ?>?page=contact">Contactez-nous</a>
             </div>
-        </div>
+        </div> 
     </div>
     <div class="container">
 
@@ -33,7 +33,7 @@ ob_start()?>
         <div class="edit-form">
             <h4>Ajouter un animal</h4>
             <form method="post" enctype="multipart/form-data">
-            <div class="image-upload-btn">
+                <div class="image-upload-btn">
                     <div class="img-container img-preview" <?php if(!isset($selectedEvent['picture'])) echo 'style="display: none;"' ?>>
                         <img src="uploads/<?= $singleAdoption['picture'] ?>" alt="animaux en adoption" class="img-fluid" id="previewImage">
                     </div>
@@ -42,7 +42,7 @@ ob_start()?>
                     <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
                     <div id="preview"></div>
                 </div>
-                <input type="text" placeholder="Nom" name="name" id="name" required>
+                <input type="text" placeholder="Nom" name="name" id="name" maxlength='20' required>
               
                 <div class="select-style">
                     <select name="gender" class="select-style">
@@ -62,7 +62,7 @@ ob_start()?>
                     <i class="fa fa-caret-down"></i>
                </div>
                 
-                <textarea name="description" id="description" cols="30" rows="10" placeholder="Description" required></textarea>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Description" maxlength='200' required></textarea>
                 <button class="button" type="submit">Valider</button>
         
             </form>
@@ -88,6 +88,7 @@ ob_start()?>
                   </li>
                 </ul>
             </div>
+            <div class="dog-content">
                 <h2>Chiens à adopter</h2>
                 <div class="container-card">
 
@@ -129,10 +130,12 @@ ob_start()?>
                 }
                 else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
                 </div>
+            </div>
             
+            <div class="cat-content">
                 <h2>Chats à adopter</h2>
                 <div class="container-card">
-                <?php if($adoptions_cats){
+                    <?php if($adoptions_cats){
         
                     foreach($adoptions_cats as $cat){?>
                     <div class="card <?= $cat["specie"]?>">
@@ -172,6 +175,7 @@ ob_start()?>
                 </div>
                 <?php }
                 else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>';?>
+            </div>
         </section>
     </div>
 

@@ -23,6 +23,7 @@ require_once("controllers/homeController.php");
 require_once("controllers/adoptionsController.php");
 require_once("controllers/eventsController.php");
 require_once("controllers/profilesController.php");
+require_once("controllers/contactController.php");
 
 
 require_once("templates/login.php");
@@ -32,5 +33,6 @@ require_once("templates/signup.php");
 require_once("templates/single.php");
 require_once("templates/events.php");
 require_once("templates/profils.php");
+require_once("templates/contact.php");
 
 ?>

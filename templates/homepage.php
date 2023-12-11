@@ -34,12 +34,12 @@ ob_start()?>
                     </button>
                     <ul class="select-dropdown species-filter">
                       <li>
-                        <input class="options" type="radio" id="dogs" name="species" value="dog"/>
-                        <label for="dogs">Chiens</label>
+                        <input class="options" type="radio" id="dogs-filter" name="species" value="dog"/>
+                        <label for="dogs-filter">Chiens</label>
                       </li>
                       <li>
-                        <input class="options" type="radio" id="cats" name="species" value="cat"/>
-                        <label for="cats">Chats</label>
+                        <input class="options" type="radio" id="cats-filter" name="species" value="cat"/>
+                        <label for="cats-filter">Chats</label>
                       </li>
                     </ul>
                 </div>
@@ -48,7 +48,7 @@ ob_start()?>
 
                     <?php if($adoptions) {
                         foreach($adoptions as $adoption){?>
-                        <div class="card <?= $adoption["specie"]?>">
+                        <div class="card <?= $adoption["specie"]?>-content">
 
                         <?php if ($isConnected) {?> 
                         <div class="edit-part">

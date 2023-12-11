@@ -20,7 +20,7 @@ if($isConnected){?>
                     <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
                     <div id="preview"></div>
                 </div>
-                <input type="text" placeholder="<?= $adoption['name'] ?>" name="name" id="name">
+                <input type="text" placeholder="<?= $adoption['name'] ?>" name="name" id="name" maxlength='20'>
                 
                 <div class="select-style">
                     <select name="gender" class="select-style">
@@ -39,7 +39,7 @@ if($isConnected){?>
 
                     <i class="fa fa-caret-down"></i>
                </div>
-                <textarea name="description" id="description" cols="30" rows="10" placeholder="<?= $adoption['description'] ?>"></textarea>
+                <textarea name="description" id="description" cols="30" rows="10" maxlength='200' placeholder="<?= $adoption['description'] ?>"></textarea>
                 <button class="button" type="submit">Valider</button>
         
             </form>

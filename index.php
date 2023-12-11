@@ -43,10 +43,6 @@ if (isset($_GET["page"])) {
             removeEvent($id);
         break; 
 
-        case "contact":
-            require('templates/contact.php') ;
-            break;
-
         case "profils":  
             if(isset($_SESSION["user"]['role']) && $_SESSION["user"]['role'] !== null){ 
                 updateProfile();
@@ -68,6 +64,11 @@ if (isset($_GET["page"])) {
                 homePage();
             }
             break;
+
+        case "contact" :
+            sendEmail();
+            break; 
+
         case "logout":
             logOut();
             break;  

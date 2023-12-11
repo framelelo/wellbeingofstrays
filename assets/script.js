@@ -48,45 +48,38 @@ function selectOpen(button, optionsClass) {
 selectOpen('filter-species', 'species-filter');
 
 
-const radioButtons = document.querySelectorAll('.options');
-const contentItems = document.querySelectorAll('.card');
+const dogsFilter = document.getElementById('dogs-filter');
+  const catsFilter = document.getElementById('cats-filter');
+  const dogsContent = document.querySelector('.dog-content');
+  const catsContent = document.querySelector('.cat-content');
 
-radioButtons.forEach(button => {
-  button.addEventListener('change', filterContent);
-});
-
-function filterContent() {
-  const selectedValue = document.querySelector('input[name="species"]:checked').value;
-
-  contentItems.forEach(item => {
-    item.style.display = 'block';
+  dogsFilter.addEventListener('change', () => {
+    dogsContent.style.display = dogsFilter.checked ? 'block' : 'none';
+    catsContent.style.display = 'none';
   });
 
-  const filteredItems = document.querySelectorAll(`.card:not(.${selectedValue})`);
-  filteredItems.forEach(item => {
-    item.style.display = 'none';
+  catsFilter.addEventListener('change', () => {
+    catsContent.style.display = catsFilter.checked ? 'block' : 'none';
+    dogsContent.style.display = 'none';
   });
-}
 
 function triggerClick() {
     document.getElementById('image-upload').click();
 }
 
 function previewFile() {
-    var preview = document.querySelector('.img-container img');
-    var image = document.querySelector('.img-preview');
-    var fileInput = document.getElementById('image-upload');
-    var files = fileInput.files;
+    const previewImg = document.querySelector('.img-container img');
+    const image = document.querySelector('.img-preview');
+    const fileInput = document.getElementById('image-upload');
+    const files = fileInput.files;
 
     if (files.length > 0) {
         var reader = new FileReader();
         reader.onload = function (e) {
-            preview.src = e.target.result;
+            previewImg.src = e.target.result;
         };
         image.style.display = 'block';
         reader.readAsDataURL(files[0]);
-    } else {
-        // If no file is selected, you can set a default image or leave it blank
-        preview.src = "uploads/default-image.jpg";
-    }
+    } 
 }
+xs

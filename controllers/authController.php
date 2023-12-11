@@ -13,10 +13,11 @@ function signIn() {
                 if($login) {
                     header("Location: $base_url");
                 }
-                else {
-                    echo '<div class="modal"><p>Merci de vérifier vos identifiants</p></div>';
-                }
-        };
+                else echo '<div class="modal"><p>Merci de vérifier vos identifiants</p></div>';
+        }
+        else {
+            echo '<div class="modal"><p>Merci de vérifier vos identifiants</p></div>';
+        }
     }
 
     showLoginPage();

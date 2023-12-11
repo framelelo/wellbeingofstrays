@@ -22,9 +22,9 @@ function showEventsPage($events, $selectedEvent)
                         <input type="file" name="img-event" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
                         <div id="preview"></div>
                     </div>
-                    <input type="text" placeholder="<?= isset($selectedEvent['title']) ? $selectedEvent['title'] : 'Nom'; ?>" name="title" id="name" required>
+                    <input type="text" placeholder="<?= isset($selectedEvent['title']) ? $selectedEvent['title'] : 'Nom'; ?>" name="title" id="name" maxlength="40" required>
                     <input type="text" placeholder="<?= isset($selectedEvent['link']) ? $selectedEvent['link'] : 'Lien'; ?>" name="event-link" id="event-link" required>
-                    <textarea name="description" id="message" cols="30" rows="10" placeholder="<?= isset($selectedEvent['description']) ? $selectedEvent['description'] : 'Description'; ?>" required></textarea>
+                    <textarea name="description" id="message" cols="30" rows="10" placeholder="<?= isset($selectedEvent['description']) ? $selectedEvent['description'] : 'Description'; ?>" maxlength="100" required></textarea>
                     <button class="button" type="submit"><?= isset($_GET['id']) ? 'Modifier' : 'Valider' ?></button>
                 </form>
             </div>

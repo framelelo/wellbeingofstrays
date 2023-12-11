@@ -103,11 +103,11 @@ global $isConnected;
                     <h2 class="title">
                         Well-Being of Strays
                     </h2>
-                    <p>
-                        <i class="fa fa-envelope"></i> wellbeingofstrays@gmail.com
+                    <p class="contact">
+                        <i class="fa fa-envelope"></i> <a href="mailto:wellbeingofstrays@gmail.com">wellbeingofstrays@gmail.com</a>
                     </p>
-                    <p>
-                        <i class="fa fa-phone"></i> 59632054
+                    <p class="contact">
+                        <i class="fa fa-phone"></i> <a href="tel:59632054">59632054</a>
                     </p>
                     <p>BRN N° : A18000453</p>
                 </div>
