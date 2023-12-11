@@ -49,19 +49,28 @@ selectOpen('filter-species', 'species-filter');
 
 
 const dogsFilter = document.getElementById('dogs-filter');
-  const catsFilter = document.getElementById('cats-filter');
-  const dogsContent = document.querySelector('.dog-content');
-  const catsContent = document.querySelector('.cat-content');
+const catsFilter = document.getElementById('cats-filter');
+const dogsContent = document.querySelectorAll('.dog-content');
+const catsContent = document.querySelectorAll('.cat-content');
 
-  dogsFilter.addEventListener('change', () => {
-    dogsContent.style.display = dogsFilter.checked ? 'block' : 'none';
-    catsContent.style.display = 'none';
-  });
+dogsFilter.addEventListener('change', () => {
+    dogsContent.forEach(function (dog) {
+        dog.style.display = dogsFilter.checked ? 'block' : 'none';
+    });
+    catsContent.forEach(function (cat) {
+        cat.style.display = 'none';
+    });
+});
 
-  catsFilter.addEventListener('change', () => {
-    catsContent.style.display = catsFilter.checked ? 'block' : 'none';
-    dogsContent.style.display = 'none';
-  });
+catsFilter.addEventListener('change', () => {
+    catsContent.forEach(function (cat) {
+        cat.style.display = catsFilter.checked ? 'block' : 'none';
+    });
+    dogsContent.forEach(function (dog) {
+        dog.style.display = 'none';
+    });
+});
+
 
 function triggerClick() {
     document.getElementById('image-upload').click();
