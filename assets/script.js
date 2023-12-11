@@ -91,4 +91,3 @@ function previewFile() {
         reader.readAsDataURL(files[0]);
     } 
 }
-xs

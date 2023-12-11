@@ -86,7 +86,7 @@ ob_start()?>
                     </div>
             </section>
             <section class="presentation">
-                <h3>Agir Ensemble - Wellbeing of Strays</h3>
+                <h3>Agir Ensemble - Well-Being of Strays</h3>
                 <iframe width="100%" height="600px" src="https://www.youtube.com/embed/aRghlIDnL4k?si=a8Ehqre_GNxSDdS1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </section> 
             <section class="missions">
@@ -110,12 +110,12 @@ ob_start()?>
                             <div class="title">Sauvetage</div>
                             <div class="content">L'association recueille des animaux errants en détresse...
                             </div>
-                            <img src="uploads/Missions-3.jpg">
+                            <img src="uploads/Missions-3.png">
                         </a>
                         <a href="<?= $base_url ?>?page=missions#sterilisation" class="img-container">
                             <div class="title">Stérilisation</div>
                             <div class="content">Des programmes de stérilisation et de castration sont tous les mois organisées...</div>
-                            <img src="uploads/Missions-4.jpg">
+                            <img src="uploads/Missions-4.jpg"> 
                         </a>
                     </div> 
                 </div>

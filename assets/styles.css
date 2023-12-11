@@ -376,59 +376,62 @@ header {
  *****************************/
 
 .filter {
-    left: calc(100% - 150px);
     position: relative;
     width: 150px;
     text-align: right;
     margin-top: 15px;
     padding: 10px;
+    left: calc(100% - 150px);
     background-color: var(--medium_grey);
+    cursor: pointer;
     
+    > .select-button {
+        background-color: transparent;
+        width: 100%;
+        display: flex;
+        border: none;
+        justify-content: space-between;
+        cursor: pointer;
+        color: var(--dark_grey);
+        &:hover, &:active, a:focus {
+            outline: none;
+            color: var(--secondary-color);
+        }
+    }
+    .select-dropdown {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        display: none;
+        padding: 10px 0;
+        left: 0;
+        text-align: left;
+        background-color: #EDEDED;
+        box-shadow: 0px 7px 5px 2px rgba(0,0,0,0.25);
+        > li {
+            font: 12px var(--primary-font);
+            display: block;
+            > label {
+                cursor: pointer;
+                display: block;
+                padding: 7px 20px;
+            }
+            > input {
+                display: none;
+                &:checked + label {
+                    color: red;
+                }
+            }
+            &:hover {
+                background-color: var(--light_color);
+            }
+        }
+        &.open-options {
+            display: block;
+        }
+    }
 }
 
-.select-button {
-    background-color: transparent;
-    width: 100%;
-    display: flex;
-    border: none;
-    justify-content: space-between;
-    cursor: pointer;
-    &:hover, &:active, a:focus {
-        outline: none;
-    }
-}
-.select-dropdown {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    display: none;
-    left: 0;
-    text-align: left;
-    padding: 10px;
-    background-color: #EDEDED;
-    box-shadow: 0px 7px 5px 2px rgba(0,0,0,0.25);
-    > li {
-        font: 12px var(--primary-font);
-        padding: 5px 10px;
-        > label {
-            cursor: pointer;
-            display: block;
-            &:hover {
-                color: var(--primary_color);
-            }
-        }
-        > input {
-            display: none;
-            &:checked + label {
-                    color: red;
-            }
-            
-        }
-    }
-    &.open-options {
-        display: block;
-    }
-}
 /******************************
             CARDS 
  ****************************/
@@ -537,6 +540,7 @@ header {
     max-width: 1024px;
     text-align: center;
     margin: 0 auto;
+    border-top: 1px solid var(--secondary_color);
    p {
         font: 16px var(--primary_color);
     }
@@ -805,11 +809,6 @@ header {
     
 }
   
-.selected-value {
-    font: 14px var(--primary-font);
-    font-weight: 400;
-    color: rgba(0,0,0,0.6);
-}
 .adoptions {
     & h2 {
         border-bottom: 1px solid var(--secondary_color);
@@ -867,6 +866,7 @@ header {
                     gap: 5%;
                     .img-part {
                         width: 60%;
+                        max-height: 400px;
                     }
                 }
                 @media screen and (max-width: 799px) {

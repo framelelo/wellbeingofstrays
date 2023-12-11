@@ -46,7 +46,7 @@ ob_start()?>
              </section>
              <section id="sauvetage">
                 <div class="img-part">
-                     <img class="img-fluid" src="uploads/Missions-3.jpg" alt="Sensibilisation animale ile maurice">
+                     <img class="img-fluid" src="uploads/Missions-3.png" alt="Sensibilisation animale ile maurice">
                 </div> 
                 <div class="text-part">
                  <h2>
