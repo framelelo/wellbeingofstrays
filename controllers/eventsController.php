@@ -26,23 +26,21 @@ function eventPage()
         $title = $_POST['title'];
         $link = $_POST['event-link'];
         $description = $_POST['description'];
-    
+
         $picture = time() . '_' . $_FILES['img-event']['name'];
         $temp_folder = $_FILES['img-event']['tmp_name'];
         $upload_folder = ROOT_PATH . "/uploads/" . $picture;
-    
-        $maxFileSize = 2097152; 
-    
+
+        $maxFileSize = 2097152;
+
         if (!empty($_FILES['img-event']['name'])) {
             $fileSize = $_FILES['img-event']['size'];
-        
+
             if ($fileSize > $maxFileSize) {
                 echo '<div class="modal"><p>La taille de votre image est trop lourde.</p></div>';
-                return 
-                showEventsPage($events, $selectedEvent);; 
-           
-            }
-            else {
+                return
+                    showEventsPage($events, $selectedEvent);;
+            } else {
                 $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
                 $oldPicturePath = ROOT_PATH . "/uploads/" . $selectedEvent['picture'];
                 if (file_exists($oldPicturePath)) {
@@ -53,19 +51,18 @@ function eventPage()
                     $picture = $_POST['picture'];
                 }
             }
-        
+
             if (!$picture_upload) {
                 echo '<div class="modal"><p>Merci de vérifier</p></div>';
-                return 
-                showEventsPage($events, $selectedEvent);; 
+                return
+                    showEventsPage($events, $selectedEvent);;
             }
         } else {
             echo '<div class="modal"><p>Merci d\'ajouter une image</p></div>';
-            return 
-            showEventsPage($events, $selectedEvent);; 
-            
+            return
+                showEventsPage($events, $selectedEvent);;
         }
-    
+
         if ($id_user && $title && $picture && $link && $description && $fileSize <= $maxFileSize) {
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
@@ -73,7 +70,7 @@ function eventPage()
             } else {
                 $update = newEvents($id_user, $title, $picture, $link, $description);
             }
-    
+
             if ($update) {
                 header("Location: $base_url/?page=evenements");
             } else {
@@ -83,20 +80,20 @@ function eventPage()
             echo '<div class="modal"><p>Merci de vérifier.</p></div>';
         }
     }
-    
+
     showEventsPage($events, $selectedEvent);
-    
 }
 
 
-function removeEvent() {
+function removeEvent()
+{
     global $base_url;
 
     if (isset($_GET["a"])) {
 
         $action = $_GET["a"];
         $id = $_GET["id"];
-        
+
         if ($action == 'delete') {
             $event = showEvent($id);
 
@@ -111,7 +108,6 @@ function removeEvent() {
             }
         }
         header("location: $base_url/?page=evenements");
-        
     } else {
         echo '<div class="modal"><p>Merci de vérifier !</p></div>';
     }

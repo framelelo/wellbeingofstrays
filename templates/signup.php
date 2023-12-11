@@ -1,12 +1,12 @@
+<?php
+function showRegsitrerPage()
+{
 
-<?php 
-function showRegsitrerPage() {
+    $title = 'inscription';
+    global $isConnected;
+    global $base_url;
 
-$title = 'inscription';
-global $isConnected;
-global $base_url;
-
-ob_start()?> 
+    ob_start() ?>
     <div class="login-page">
         <div class="container">
             <form method="post">
@@ -17,13 +17,13 @@ ob_start()?>
                 <input type="email" placeholder="Email" name="email" id="email" required>
                 <input type="password" placeholder="Mot de passe" name="pwd" id="pwd" required>
                 <input type="password" placeholder="Confirmer mot de passe" name="confirmationPwd" id="confirmation-pwd" required>
-                
+
                 <button class="button" type="submit">Valider</button>
             </form>
         </div>
     </div>
-    <?php
-        $content = ob_get_clean();
-        require "layout.php";
-    };
-    ?>
+<?php
+    $content = ob_get_clean();
+    require "layout.php";
+};
+?>

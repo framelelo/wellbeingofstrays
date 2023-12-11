@@ -1,9 +1,9 @@
 <?php
 
-function homePage(){
-    
+function homePage()
+{
+
     $adoptions = showAdoptions();
 
     ShowHomePage($adoptions);
 };
-?>

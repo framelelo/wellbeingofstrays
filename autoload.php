@@ -34,5 +34,3 @@ require_once("templates/single.php");
 require_once("templates/events.php");
 require_once("templates/profils.php");
 require_once("templates/contact.php");
-
-?>

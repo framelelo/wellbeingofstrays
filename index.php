@@ -7,74 +7,77 @@ if (isset($_GET["page"])) {
 
         case "login":
 
-            if($isConnected){
+            if ($isConnected) {
                 homePage();
             } else signIn();
-            break; 
-            
+            break;
+
         case "signup":
             newRegistrer();
-            break;   
- 
+            break;
+
         case "adoptions":
             AdoptionPage();
-        break;
+            break;
 
         case "remove-adoption":
             removeAdoption($id);
-        break;
+            break;
 
-        case "update-adoption": 
-            if(isset($_GET['id']) && ($isConnected) ) {
-            $id = $_GET['id'];
-            updateAdoption($id);
-        };
-        break;
+        case "update-adoption":
+            if (isset($_GET['id']) && ($isConnected)) {
+                $id = $_GET['id'];
+                updateAdoption($id);
+            };
+            break;
 
         case "missions":
-            require('templates/missions.php') ;
-        break;
+            require('templates/missions.php');
+            break;
 
         case "evenements":
             eventPage();
-            break; 
+            break;
 
         case "remove-event":
             removeEvent($id);
-        break; 
+            break;
 
-        case "profils":  
-            if(isset($_SESSION["user"]['role']) && $_SESSION["user"]['role'] !== null){ 
+        case "profils":
+            if (isset($_SESSION["user"]['role']) && $_SESSION["user"]['role'] === 'admin') {
                 updateProfile();
             } else {
                 homePage();
             }
-        break;
+            break;
 
         case "remove-profile":
             removeProfile($id);
-        break;
+            break;
 
         case "single":
-            if(isset($_GET['id'])  ) {
+            if (isset($_GET['id'])) {
                 $id = $_GET['id'];
                 singleAdoption($id);
-            }
-            else {
+            } else {
                 homePage();
             }
             break;
 
-        case "contact" :
+        case "contact":
             sendEmail();
-            break; 
+            break;
+
+        case "mentions_legales":
+            require('templates/mentions.php');
+            break;
 
         case "logout":
             logOut();
-            break;  
-               
+            break;
+
         default:
-        homePage();
+            homePage();
             break;
     }
 } else {

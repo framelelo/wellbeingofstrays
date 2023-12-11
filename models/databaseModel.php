@@ -1,4 +1,4 @@
-<?php 
+<?php
 global $pdo;
 
 $host = 'localhost';
@@ -8,7 +8,4 @@ $password = 'root';
 
 if (!isset($pdo)) {
     $pdo = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $username, $password);
-}
-
-else return $pdo;
-?>
+} else return $pdo;

@@ -4,8 +4,8 @@ function updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd, $role)
 {
     global $pdo;
 
-    try { 
-        $query = $pdo->prepare("UPDATE users SET name = :n, last_name = :l, tel = :t, email = :e, pwd = :p, role = :r WHERE id = :id"); 
+    try {
+        $query = $pdo->prepare("UPDATE users SET name = :n, last_name = :l, tel = :t, email = :e, pwd = :p, role = :r WHERE id = :id");
 
         $query->execute([
             "n" => $firstName,
@@ -29,8 +29,8 @@ function newProfile($firstName, $lastName, $tel, $email, $pwd, $role)
     global $pdo;
 
     try {
-        $query = $pdo ->prepare("INSERT INTO users(name,last_name,tel,email,pwd,role) VALUES (:n,:l,:t,:e,:p,:r)");
-    
+        $query = $pdo->prepare("INSERT INTO users(name,last_name,tel,email,pwd,role) VALUES (:n,:l,:t,:e,:p,:r)");
+
         $query->execute([
             "n" => $firstName,
             "l" => $lastName,
@@ -40,8 +40,7 @@ function newProfile($firstName, $lastName, $tel, $email, $pwd, $role)
             "r" => $role
         ]);
         return true;
-    }
-    catch(PDOException $e){
+    } catch (PDOException $e) {
         echo $e->getMessage();
         return false;
     }
@@ -52,17 +51,13 @@ function showAllProfiles()
     global $pdo;
 
     try {
-        $query = $pdo ->prepare("SELECT * FROM users");
-    
-        $query->execute([
-            
-        ]);
+        $query = $pdo->prepare("SELECT * FROM users");
+
+        $query->execute([]);
         return $query->fetchAll();
-        
-    }  
-    catch (PDOEXCEPTION $e) {
+    } catch (PDOEXCEPTION $e) {
         echo $e->getMessage();
-            return false;
+        return false;
     }
 }
 
@@ -73,11 +68,9 @@ function showProfile($id)
     global $pdo;
     try {
         $query = $pdo->prepare("SELECT * FROM users WHERE id = :i");
-        $query->execute([ "i" => $id,]);
-           return  $query->fetch();     
-          
-    }
-    catch (PDOEXCEPTION $e) {
+        $query->execute(["i" => $id,]);
+        return  $query->fetch();
+    } catch (PDOEXCEPTION $e) {
         echo $e->getMessage();
         return false;
     }
@@ -91,13 +84,10 @@ function removeProfiles($id)
         $query->execute([
             "i" => $id,
         ]);
-    
-        return true;  
-    }
-    catch(PDOException $e){
+
+        return true;
+    } catch (PDOException $e) {
         echo $e->getMessage();
         return false;
     }
 }
-
-?>

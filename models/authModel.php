@@ -1,13 +1,13 @@
 <?php
 
-function login($email, $pwd):bool
+function login($email, $pwd): bool
 {
 
     global $pdo;
 
     try {
-        $query = $pdo ->prepare("SELECT * FROM users WHERE email = :e");
-    
+        $query = $pdo->prepare("SELECT * FROM users WHERE email = :e");
+
         $query->execute([
             "e" => $email
         ]);
@@ -21,13 +21,12 @@ function login($email, $pwd):bool
         }
 
         $_SESSION["user"] = $user;
-        
+
         return true;
-    }  
-    catch (PDOEXCEPTION $e) {
-            return false;
-        }
+    } catch (PDOEXCEPTION $e) {
         return false;
+    }
+    return false;
 }
 function registrer($firstName, $lastName, $tel, $email, $pwd)
 {
@@ -35,8 +34,8 @@ function registrer($firstName, $lastName, $tel, $email, $pwd)
     global $pdo;
 
     try {
-        $query = $pdo ->prepare("INSERT INTO users(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");
-    
+        $query = $pdo->prepare("INSERT INTO users(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");
+
         $query->execute([
             "n" => $firstName,
             "l" => $lastName,
@@ -45,11 +44,8 @@ function registrer($firstName, $lastName, $tel, $email, $pwd)
             "p" =>  password_hash($pwd, PASSWORD_DEFAULT)
         ]);
         return true;
-    }
-    catch(PDOException $e){
+    } catch (PDOException $e) {
         echo $e->getMessage();
         return false;
     }
 }
-
-?>

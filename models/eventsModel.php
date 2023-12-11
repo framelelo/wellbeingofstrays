@@ -1,6 +1,6 @@
 <?php
 
-function updateEvents($id, $id_user, $title, $picture,$link,$description)
+function updateEvents($id, $id_user, $title, $picture, $link, $description)
 {
     global $pdo;
 
@@ -55,11 +55,10 @@ function showEvents()
     try {
         $query = $pdo->prepare("SELECT * FROM events ORDER BY date DESC");
         $query->execute([]);
-    
+
         $allEvents = $query->fetchAll();
-        return $allEvents;    
-    }
-    catch (PDOEXCEPTION $e) {
+        return $allEvents;
+    } catch (PDOEXCEPTION $e) {
         return false;
     }
 }
@@ -69,11 +68,9 @@ function showEvent($id)
     global $pdo;
     try {
         $query = $pdo->prepare("SELECT * FROM events WHERE id = :i");
-        $query->execute([ "i" => $id,]);
-           return  $query->fetch();     
-          
-    }
-    catch (PDOEXCEPTION $e) {
+        $query->execute(["i" => $id,]);
+        return  $query->fetch();
+    } catch (PDOEXCEPTION $e) {
         return false;
     }
 }
@@ -86,12 +83,9 @@ function removeEvents($id)
         $query->execute([
             "i" => $id,
         ]);
-    
-        return true;  
-    }
-    catch(PDOException $e){
+
+        return true;
+    } catch (PDOException $e) {
         return false;
     }
 }
-
-?>
