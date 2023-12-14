@@ -33,6 +33,14 @@ function registrer($firstName, $lastName, $tel, $email, $pwd)
 
     global $pdo;
 
+    $checkQuery = $pdo->prepare("SELECT COUNT(*) FROM users WHERE email = :e");
+    $checkQuery->execute(["e" => $email]);
+    $emailExists = $checkQuery->fetchColumn();
+    if ($emailExists) {
+        return false;
+    }
+
+
     try {
         $query = $pdo->prepare("INSERT INTO users(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");
 
