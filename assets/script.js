@@ -1,3 +1,6 @@
+
+// OPEN NAVBAR ON SMALL SCREEN
+
 const bodyContainer = document.querySelector("body");
 const openNav = document.querySelector(".open-nav");
 const closeNav = document.querySelector(".close-nav");
@@ -12,6 +15,8 @@ function closeNavBar() {
 openNav.addEventListener("click", openNavBar);
 closeNav.addEventListener("click", closeNavBar);
 
+
+// DISPLAY SELECT DROPDOWN FILTER
 function selectOpen(button, optionsClass) {
   const dropdownBtn = document.getElementById(button);
   const selectContainer = document.querySelector(`.${optionsClass}`);
@@ -39,6 +44,7 @@ function selectOpen(button, optionsClass) {
     const selectedOptions = document.querySelectorAll(
       `.${optionsClass} .options`
     );
+
     selectedOptions.forEach(function (input) {
       input.addEventListener("click", function (event) {
         const selectedValue = event.target.getAttribute("value");
@@ -50,6 +56,10 @@ function selectOpen(button, optionsClass) {
   }
 }
 selectOpen("filter-species", "species-filter");
+
+
+
+// FILTER FOR SPECIES
 
 const dogsFilter = document.getElementById("dogs-filter");
 const catsFilter = document.getElementById("cats-filter");
@@ -74,9 +84,8 @@ catsFilter.addEventListener("change", () => {
   });
 });
 
-function triggerClick() {
-  document.getElementById("image-upload").click();
-}
+
+// IMAGE PREVIEW
 
 function previewFile() {
   const previewImg = document.querySelector(".img-container img");

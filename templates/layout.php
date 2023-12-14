@@ -37,11 +37,11 @@ global $isConnected;
                     <img src="uploads/logo.png" alt="wellbeingofstrays" class="logo">
                 </a>
             </div>
-            <div class="navbar">
+            <nav>
                 <div class="open-nav nav-btn">
                     <i class="fa fa-bars"></i>
                 </div>
-                <ul class="nav">
+                <ul class="navbar">
                     <div class="close-nav nav-btn">
                         <i class="fa fa-times"></i>
                     </div>
@@ -91,7 +91,7 @@ global $isConnected;
                         </li>
                     <?php }; ?>
                 </ul>
-            </div>
+            </nav>
         </header>
     <?php }; ?>
     <main>

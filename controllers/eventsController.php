@@ -5,6 +5,7 @@
 function eventPage()
 {
     global $base_url;
+    
     $selectedEvent = null;
 
     if (isset($_GET['id'])) {
@@ -13,14 +14,7 @@ function eventPage()
     }
 
     $events = showEvents();
-    $selectedEvent = null;
 
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $selectedEvent = showEvent($id);
-    }
-
-    $events = showEvents();
     if ($_POST) {
         $id_user = $_SESSION["user"]["id"];
         $title = $_POST['title'];
@@ -39,28 +33,24 @@ function eventPage()
             if ($fileSize > $maxFileSize) {
                 echo '<div class="modal"><p>La taille de votre image est trop lourde.</p></div>';
                 return
-                    showEventsPage($events, $selectedEvent);;
+                    showEventsPage($events, $selectedEvent);
             } else {
                 $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
+
                 $oldPicturePath = ROOT_PATH . "/uploads/" . $selectedEvent['picture'];
                 if (file_exists($oldPicturePath)) {
                     unlink($oldPicturePath);
                 }
-
-                if (!$picture_upload) {
-                    $picture = $_POST['picture'];
-                }
             }
-
             if (!$picture_upload) {
                 echo '<div class="modal"><p>Merci de vérifier</p></div>';
                 return
-                    showEventsPage($events, $selectedEvent);;
+                    showEventsPage($events, $selectedEvent);
             }
         } else {
             echo '<div class="modal"><p>Merci d\'ajouter une image</p></div>';
             return
-                showEventsPage($events, $selectedEvent);;
+                showEventsPage($events, $selectedEvent);
         }
 
         if ($id_user && $title && $picture && $link && $description && $fileSize <= $maxFileSize) {

@@ -15,9 +15,6 @@ function AdoptionPage()
     $adoptions_dogs = showDogAdoptions();
     $adoptions = showAdoptions();
 
-
-    $test = showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $adoptions);
-
     if ($_POST) {
 
         $id = $_SESSION["user"]["id"];
@@ -26,6 +23,10 @@ function AdoptionPage()
         $gender = $_POST['gender'];
         $description = $_POST['description'];
 
+
+        $picture = time() . '_' . $_FILES['img-animal']['name'];
+        $temp_folder = $_FILES['img-animal']['tmp_name'];
+        $upload_folder = ROOT_PATH . "/uploads/" . $picture;
         $maxFileSize = 2097152;
 
         if (!empty($_FILES['img-animal']['name'])) {
@@ -33,22 +34,19 @@ function AdoptionPage()
 
             if ($fileSize > $maxFileSize) {
                 echo '<div class="modal"><p>La taille de votre image est trop lourde.</p></div>';
-                return $test;
+                return showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $adoptions);
+                } else {
+                $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
             }
-
-            $picture = time() . '_' . $_FILES['img-animal']['name'];
-            $temp_folder = $_FILES['img-animal']['tmp_name'];
-            $upload_folder = ROOT_PATH . "/uploads/" . $picture;
-
-            $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
-
             if (!$picture_upload) {
-                echo '<div class="modal"><p>Merci de vérifier</p></div>';
-                return $test;
-            }
+                echo '<div class="modal"><p>Merci de vérifier</p></div>'; 
+                return showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $adoptions);
+                   }
         } else {
             echo '<div class="modal"><p>Merci d\'ajouter une image</p></div>';
-            return $test;
+            return showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $adoptions);
+
+                 
         }
 
         if ($id && $name && $specie && $picture && $gender && $description) {
@@ -62,6 +60,10 @@ function AdoptionPage()
             echo '<div class="modal"><p>Merci de remplir tous les champs</p></div>';
         }
     }
+
+
+
+    showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $adoptions);
 };
 
 
@@ -99,10 +101,6 @@ function updateAdoption($id)
                 $oldPicturePath = ROOT_PATH . "/uploads/" . $adoption['picture'];
                 if (file_exists($oldPicturePath)) {
                     unlink($oldPicturePath);
-                }
-
-                if (!$picture_upload) {
-                    $picture = $_POST['picture'];
                 }
             }
         } else {
