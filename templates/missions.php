@@ -1,12 +1,12 @@
 <?php
-$title = 'Nos Missions';
+$title = 'Nos Missions - sauvetage animal Maurice';
 global $isConnected;
 global $base_url;
 
 ob_start() ?>
 <main>
     <div class="jumbotron">
-        <img src="uploads/jumbotron-missions.jpg" alt="wellbeingofstrays" class="img-fluid">
+        <img src="uploads/jumbotron-missions.jpg" alt="Well-Being of Strays" class="img-fluid">
         <div class="container">
             <div class="content">
                 <h2>Pour une protection animale bienveillante et durable</h2>
@@ -58,7 +58,7 @@ ob_start() ?>
         </section>
         <section id="sterilisation">
             <div class="img-part">
-                <img class="img-fluid" src="uploads/Missions-4.jpg" alt="Sensibilisation animale ile maurice">
+                <img class="img-fluid" src="uploads/Missions-4.jpg" alt="Stérilisation animale ile maurice">
             </div>
             <div class="text-part">
                 <h2>

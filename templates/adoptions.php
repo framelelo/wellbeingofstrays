@@ -2,7 +2,7 @@
 function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $adoptions)
 {
 
-    $title = 'Adoptions Chiens ou Chats';
+    $title = 'Adoptions Chiens ou Chats Maurice';
     $page = 'adoptions';
 
     global $isConnected;
@@ -11,7 +11,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
     ob_start() ?>
 
     <div class="jumbotron">
-        <img src="uploads/jumbotron-adoptions.jpg" alt="wellbeingofstrays" class="img-fluid">
+        <img src="uploads/jumbotron-adoptions.jpg" alt="Adoption animaux Maurice" class="img-fluid">
         <div class="container">
             <div class="content">
                 <h2>Se poser les bonnes questions avant d’adopter !</h2>
@@ -36,7 +36,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                 <form method="post" enctype="multipart/form-data">
                     <div class="image-upload-btn">
                         <div class="img-container img-preview" <?php if (!isset($selectedEvent['picture'])) echo 'style="display: none;"' ?>>
-                            <img src="uploads/<?= $singleAdoption['picture'] ?>" alt="animaux en adoption" class="img-fluid" id="previewImage">
+                            <img src="uploads/<?= $singleAdoption['picture'] ?>" alt="Animaux en adoption île Maurice" class="img-fluid" id="previewImage">
                         </div>
 
                         <label class="title-image" for="image-upload">Ajouter une photo</label>
@@ -110,7 +110,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                     <?php } ?>
                                     <a href="<?= $base_url ?>?page=single&id=<?= $dog['id'] ?>">
                                         <div class="img-container">
-                                            <img src="uploads/<?= $dog['picture'] ?>" alt="animaux en adoption" class="img-fluid">
+                                            <img src="uploads/<?= $dog['picture'] ?>" alt="Chats en adoption à  l'ile Maurice" class="img-fluid">
                                         </div>
                                         <div class="top-content">
                                             <h3 class="name"><?= $dog['name'] ?></h3>
@@ -151,7 +151,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                     <?php } ?>
                                     <a href="<?= $base_url ?>?page=single&id=<?= $cat['id'] ?>">
                                         <div class="img-container">
-                                            <img src="uploads/<?= $cat['picture'] ?>" alt="animaux en adoption" class="img-fluid">
+                                            <img src="uploads/<?= $cat['picture'] ?>" alt="Chats en adoption à  l'ile Maurice" class="img-fluid">
                                         </div>
                                         <div class="top-content">
                                             <h3 class="name"><?= $cat['name'] ?></h3>

@@ -6,7 +6,7 @@ function login($email, $pwd): bool
     global $pdo;
 
     try {
-        $query = $pdo->prepare("SELECT * FROM users WHERE email = :e");
+        $query = $pdo->prepare("SELECT * FROM members WHERE email = :e");
 
         $query->execute([
             "e" => $email
@@ -33,7 +33,7 @@ function registrer($firstName, $lastName, $tel, $email, $pwd)
 
     global $pdo;
 
-    $checkQuery = $pdo->prepare("SELECT COUNT(*) FROM users WHERE email = :e");
+    $checkQuery = $pdo->prepare("SELECT COUNT(*) FROM members WHERE email = :e");
     $checkQuery->execute(["e" => $email]);
     $emailExists = $checkQuery->fetchColumn();
     if ($emailExists) {
@@ -42,7 +42,7 @@ function registrer($firstName, $lastName, $tel, $email, $pwd)
 
 
     try {
-        $query = $pdo->prepare("INSERT INTO users(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");
+        $query = $pdo->prepare("INSERT INTO members(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");
 
         $query->execute([
             "n" => $firstName,

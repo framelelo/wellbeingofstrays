@@ -1,7 +1,7 @@
 <?php
 function singleAdoptionPage($adoption)
 {
-    $title = $adoption['name'];
+    $title = 'Adoption animale -' . $adoption['name'];
     $page  = 'single';
 
     global $base_url;
@@ -14,7 +14,7 @@ function singleAdoptionPage($adoption)
             <form method="post" action="<?php $base_url ?>?page=update-adoption&id=<?= $adoption["id"] ?>" enctype="multipart/form-data">
                 <div class="image-upload-btn">
                     <div class="img-container img-preview">
-                        <img src="uploads/<?= $adoption['picture'] ?>" alt="animaux en adoption" class="img-fluid" id="previewImage">
+                        <img src="uploads/<?= $adoption['picture'] ?>" alt="Animaux en adoption Maurice" class="img-fluid" id="previewImage">
                     </div>
 
                     <label class="title-image" for="image-upload">Changer la photo</label>
@@ -48,7 +48,7 @@ function singleAdoptionPage($adoption)
     <?php }; ?>
     <section class="card">
         <div class="img-container">
-            <img src="uploads/<?= $adoption['picture'] ?>" alt="animaux en adoption" class="img-fluid">
+            <img src="uploads/<?= $adoption['picture'] ?>" alt="Animaux en adoption Maurice" class="img-fluid">
         </div>
         <div class="left-content">
             <div class="content">

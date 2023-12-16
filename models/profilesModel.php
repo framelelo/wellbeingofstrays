@@ -5,7 +5,7 @@ function updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd, $role)
     global $pdo;
 
     try {
-        $query = $pdo->prepare("UPDATE users SET name = :n, last_name = :l, tel = :t, email = :e, pwd = :p, role = :r WHERE id = :id");
+        $query = $pdo->prepare("UPDATE members SET name = :n, last_name = :l, tel = :t, email = :e, pwd = :p, role = :r WHERE id = :id");
 
         $query->execute([
             "n" => $firstName,
@@ -29,7 +29,7 @@ function newProfile($firstName, $lastName, $tel, $email, $pwd, $role)
     global $pdo;
 
     try {
-        $query = $pdo->prepare("INSERT INTO users(name,last_name,tel,email,pwd,role) VALUES (:n,:l,:t,:e,:p,:r)");
+        $query = $pdo->prepare("INSERT INTO members(name,last_name,tel,email,pwd,role) VALUES (:n,:l,:t,:e,:p,:r)");
 
         $query->execute([
             "n" => $firstName,
@@ -51,7 +51,7 @@ function showAllProfiles()
     global $pdo;
 
     try {
-        $query = $pdo->prepare("SELECT * FROM users");
+        $query = $pdo->prepare("SELECT * FROM members");
 
         $query->execute([]);
         return $query->fetchAll();
@@ -67,7 +67,7 @@ function showProfile($id)
 {
     global $pdo;
     try {
-        $query = $pdo->prepare("SELECT * FROM users WHERE id = :i");
+        $query = $pdo->prepare("SELECT * FROM members WHERE id = :i");
         $query->execute(["i" => $id,]);
         return  $query->fetch();
     } catch (PDOEXCEPTION $e) {
@@ -80,7 +80,7 @@ function removeProfiles($id)
 {
     global $pdo;
     try {
-        $query = $pdo->prepare("DELETE FROM users WHERE id = :i");
+        $query = $pdo->prepare("DELETE FROM members WHERE id = :i");
         $query->execute([
             "i" => $id,
         ]);

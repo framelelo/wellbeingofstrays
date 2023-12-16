@@ -1,6 +1,6 @@
 <?php
 $page = 'mentions';
-$title = 'Wellbeing of Strays - Mentions';
+$title = 'Well-Being of Strays - Mentions';
 global $isConnected;
 global $base_url;
 

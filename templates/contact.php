@@ -2,7 +2,7 @@
 function contactPage()
 {
 
-    $title = 'contact';
+    $title = 'Bien-être animal - île Maurice';
     $page = 'contact';
     global $isConnected;
     global $base_url;
@@ -11,7 +11,7 @@ function contactPage()
     <h2>Nous Contacter</h2>
     <div class="container">
         <div class="img-container">
-            <img class="img-fluid" src="uploads/Quennie.jpeg" alt="adopter un animal à maurice">
+            <img class="img-fluid" src="uploads/Quennie.jpeg" alt="Adopter un animal à Maurice">
         </div>
         <form method="post">
             <input type="text" placeholder="Nom *" name="name" id="name" required>

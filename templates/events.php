@@ -16,7 +16,7 @@ function showEventsPage($events, $selectedEvent)
                 <form method="post" enctype="multipart/form-data">
                     <div class="image-upload-btn">
                         <div class="img-container img-preview" <?php if (!isset($selectedEvent['picture'])) echo 'style="display: none;"' ?>>
-                            <img src="uploads/<?= isset($selectedEvent['picture']) ? $selectedEvent['picture'] : ''; ?>" alt="animaux en adoption" class="img-fluid">
+                            <img src="uploads/<?= isset($selectedEvent['picture']) ? $selectedEvent['picture'] : ''; ?>" alt="Animaux en adoption à l'ile Maurice" class="img-fluid">
                         </div>
                         <label class="title-image" for="image-upload"><?= isset($_GET['id']) ? 'Modifier la photo' : 'Ajouter une photo' ?></label>
                         <input type="file" name="img-event" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
@@ -54,7 +54,7 @@ function showEventsPage($events, $selectedEvent)
                         <?php } ?>
                         <a href="<?= $event['link'] ?>" target="_blank">
                             <div class="img-container">
-                                <img src="uploads/<?= $event['picture'] ?>" alt="animaux en adoption" class="img-fluid">
+                                <img src="uploads/<?= $event['picture'] ?>" alt="Animaux en adoption à l'ile Maurice" class="img-fluid">
                             </div>
                             <div class="description">
                                 <p>
