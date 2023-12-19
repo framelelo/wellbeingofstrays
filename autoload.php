@@ -4,12 +4,11 @@ session_start();
 global $base_url;
 $base_url = "http://localhost/wellbeingofstrays";
 
+global $isConnected;
+$isConnected = $_SESSION && $_SESSION["user"];
 
 
 define('ROOT_PATH', realpath(dirname(__FILE__)));
-
-global $isConnected;
-$isConnected = $_SESSION && $_SESSION["user"];
 
 require_once("models/databaseModel.php");
 require_once("models/authModel.php");

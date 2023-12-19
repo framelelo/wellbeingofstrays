@@ -1,6 +1,6 @@
 <?php
 
-function login($email, $pwd): bool
+function login($email, $pwd)
 {
 
     global $pdo;
@@ -24,22 +24,28 @@ function login($email, $pwd): bool
 
         return true;
     } catch (PDOEXCEPTION $e) {
+        echo $e->getMessage();
         return false;
     }
-    return false;
 }
+
+
 function registrer($firstName, $lastName, $tel, $email, $pwd)
 {
 
     global $pdo;
 
-    $checkQuery = $pdo->prepare("SELECT COUNT(*) FROM members WHERE email = :e");
-    $checkQuery->execute(["e" => $email]);
-    $emailExists = $checkQuery->fetchColumn();
-    if ($emailExists) {
+    try {
+        $checkQuery = $pdo->prepare("SELECT COUNT(*) FROM members WHERE email = :e");
+        $checkQuery->execute(["e" => $email]);
+        $emailExists = $checkQuery->fetchColumn();
+        if ($emailExists) {
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo $e->getMessage();
         return false;
     }
-
 
     try {
         $query = $pdo->prepare("INSERT INTO members(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");

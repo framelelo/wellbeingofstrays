@@ -73,6 +73,8 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
             <h1>Découvrez les animaux à l’adoption</h1>
 
             <?php if ($adoptions) { ?>
+
+                
                 <div class="filter" id="filter-species">
                     <button class="select-button">
                         <span class="selected-value">Filtrer par :</span>
@@ -89,6 +91,8 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                         </li>
                     </ul>
                 </div>
+
+
                 <div class="dog-content">
                     <h2>Chiens à adopter</h2>
                     <div class="container-card">
@@ -110,7 +114,11 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                     <?php } ?>
                                     <a href="<?= $base_url ?>?page=single&id=<?= $dog['id'] ?>">
                                         <div class="img-container">
-                                            <img src="uploads/<?= $dog['picture'] ?>" alt="Chats en adoption à  l'ile Maurice" class="img-fluid">
+                                            
+
+                                            <img src="uploads/<?= $dog['picture'] ?>" alt="Chats en adoption à l'ile Maurice" class="img-fluid">
+
+
                                         </div>
                                         <div class="top-content">
                                             <h3 class="name"><?= $dog['name'] ?></h3>

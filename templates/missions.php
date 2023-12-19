@@ -33,7 +33,7 @@ ob_start() ?>
         </section>
         <section id="nourrissage">
             <div class="img-part">
-                <img class="img-fluid" src="uploads/Missions-2.jpg" alt="Nourrir les animaux errents - ile maurice">
+                <img class="img-fluid" src="uploads/Missions-2.jpg" alt="Nourrir les animaux errants - ile maurice">
             </div>
             <div class="text-part">
                 <h2>
