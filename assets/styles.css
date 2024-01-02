@@ -209,6 +209,9 @@ input[type="file"] {
   }
 }
 
+#modal-container {
+  display: none;
+}
 
 @keyframes bounce {
   0% {
@@ -1109,7 +1112,7 @@ header {
           }
           &.edit-part {
             > a {
-              margin-top: 0px;
+              margin: 5px auto;
             }
           }
         }
@@ -1173,7 +1176,7 @@ header {
             content: "";
             position: absolute;
             left: 0px;
-            top: 0px;
+            top: 2px;
             height: 15px;
             width: 15px;
             border: 1px solid rgba(0, 0, 0, 0.2);
@@ -1183,7 +1186,7 @@ header {
           > i {
             position: absolute;
             left: 2px;
-            top: 2px;
+            top: 4px;
             font-size: 12px;
             display: none;
             color: var(--light_color);

@@ -1,4 +1,24 @@
 
+
+// CONFIRMATION OF PASSWORD MATCH
+function confirmPwd() {
+
+  var password = document.getElementById("pwd").value;
+  var confirmPassword = document.getElementById("confirmation-pwd").value;
+
+
+  var modalContainer = document.getElementById("modal-container");
+  if (password !== confirmPassword) {
+
+    modalContainer.style.display = 'block';
+
+    return false; 
+  }
+
+  return true; 
+}
+
+
 // OPEN NAVBAR ON SMALL SCREEN
 
 const bodyContainer = document.querySelector("body");

@@ -32,20 +32,15 @@ function newRegistrer()
         $tel = $_POST['tel'];
         $email  = $_POST['email'];
         $pwd = $_POST['pwd'];
-        $confirmationPwd = $_POST['confirmationPwd'];
 
         if ($firstName && $lastName && $tel && $email && $pwd) {
 
-            if ($pwd === $confirmationPwd) {
-
                 $registrer = registrer($firstName, $lastName, $tel, $email, $pwd);
                 if ($registrer) {
-
                     header("Location: $base_url/?page=login");
                 } else {
-                    echo '<div class="modal"><p>Merci de vérifier.</p></div>';
+                    echo '<div class="modal"><p>L\'email existe déjà.</p></div>';
                 }
-            } else echo '<div class="modal"><p>Les mots de passe ne correspondent pas.</p></div>';
         };
     }
 

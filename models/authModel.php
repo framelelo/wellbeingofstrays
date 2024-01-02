@@ -32,7 +32,6 @@ function login($email, $pwd)
 
 function registrer($firstName, $lastName, $tel, $email, $pwd)
 {
-
     global $pdo;
 
     try {
