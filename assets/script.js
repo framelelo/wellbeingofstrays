@@ -66,7 +66,8 @@ const catsFilter = document.getElementById("cats-filter");
 const dogsContent = document.querySelectorAll(".dog-content");
 const catsContent = document.querySelectorAll(".cat-content");
 
-dogsFilter.addEventListener("change", () => {
+if(dogsFilter) {
+  dogsFilter.addEventListener("change", () => {
   dogsContent.forEach(function (dog) {
     dog.style.display = dogsFilter.checked ? "block" : "none";
   });
@@ -74,16 +75,19 @@ dogsFilter.addEventListener("change", () => {
     cat.style.display = "none";
   });
 });
+}
 
-catsFilter.addEventListener("change", () => {
-  catsContent.forEach(function (cat) {
-    cat.style.display = catsFilter.checked ? "block" : "none";
-  });
-  dogsContent.forEach(function (dog) {
-    dog.style.display = "none";
-  });
-});
 
+if(dogsFilter) {
+  catsFilter.addEventListener("change", () => {
+    catsContent.forEach(function (cat) {
+      cat.style.display = catsFilter.checked ? "block" : "none";
+    });
+    dogsContent.forEach(function (dog) {
+      dog.style.display = "none";
+    });
+  });
+}
 
 // IMAGE PREVIEW
 

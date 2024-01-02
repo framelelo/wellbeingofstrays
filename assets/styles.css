@@ -1092,19 +1092,20 @@ header {
       width: 100%;
       & .row {
         text-align: left;
-        cursor: pointer;
         display: flex;
-        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--medium_grey);
         > .cell {
-          align-items: stretch;
           padding: 15px 10px;
           width: 22%;
-          border: 1px solid var(--medium_grey);
           text-overflow: ellipsis;
           overflow: hidden;
+
+          border-right: 1px solid var(--medium_grey);
           &:last-child {
             width: 12%;
             justify-content: center;
+            border: none;
           }
           &.edit-part {
             > a {

@@ -87,7 +87,6 @@ function updateAdoption($id)
         $temp_folder = $_FILES['img-animal']['tmp_name'];
         $upload_folder = ROOT_PATH . "/uploads/" . $picture;
 
-
         $maxFileSize = 2097152;
 
         if (!empty($_FILES['img-animal']['name'])) {
@@ -97,7 +96,8 @@ function updateAdoption($id)
                 echo '<div class="modal"><p>La taille de votre image est trop lourde.</p></div>';
                 return singleAdoptionPage($adoption);
             } else {
-                $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
+                move_uploaded_file($temp_folder, $upload_folder);
+                
                 $oldPicturePath = ROOT_PATH . "/uploads/" . $adoption['picture'];
                 if (file_exists($oldPicturePath)) {
                     unlink($oldPicturePath);
