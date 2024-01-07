@@ -27,6 +27,17 @@ function newProfile($firstName, $lastName, $tel, $email, $pwd, $role)
 {
 
     global $pdo;
+    try {
+        $checkQuery = $pdo->prepare("SELECT COUNT(*) FROM members WHERE email = :e");
+        $checkQuery->execute(["e" => $email]);
+        $emailExists = $checkQuery->fetchColumn();
+        if ($emailExists) {
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+    }
 
     try {
         $query = $pdo->prepare("INSERT INTO members(name,last_name,tel,email,pwd,role) VALUES (:n,:l,:t,:e,:p,:r)");

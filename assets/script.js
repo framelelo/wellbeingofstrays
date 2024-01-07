@@ -7,7 +7,8 @@ function confirmPwd() {
   var confirmPassword = document.getElementById("confirmation-pwd").value;
   var modalContainer = document.getElementById("modal-container");
   
-  if (password !== confirmPassword) {
+  if(confirmPassword) {
+    if (password !== confirmPassword) {
 
     modalContainer.style.display = 'block';
 
@@ -16,6 +17,8 @@ function confirmPwd() {
 
   return true; 
 }
+  }
+  
 
 
 // OPEN NAVBAR ON SMALL SCREEN

@@ -33,14 +33,26 @@ function newRegistrer()
         $email  = $_POST['email'];
         $pwd = $_POST['pwd'];
 
-        if ($firstName && $lastName && $tel && $email && $pwd) {
 
-                $registrer = registrer($firstName, $lastName, $tel, $email, $pwd);
+        if ($firstName && $lastName && $tel && $email && $pwd) {
+            $registrer = registrer($firstName, $lastName, $tel, $email, $pwd);
+
+            //PASSWORD SHOULD CONTAIN MINIMUM 8 CHARACTERS, 1 LETTER, 1 NUMBER
+            
+            if(strlen($pwd < 8) || !preg_match("#[0-9]+#", $pwd) || !preg_match("#[A-Z]+#", $pwd) || !preg_match("#[a-z]+#", $pwd)) {
+                echo '<div class="modal"><p>Le mot de passe doit contenir : <p>
+                <span>Au moins 8 caractères, dont une majuscule, une minuscule et un chiffre</span></div>';
+                
+            }
+            else {
                 if ($registrer) {
                     header("Location: $base_url/?page=login");
                 } else {
                     echo '<div class="modal"><p>L\'email existe déjà.</p></div>';
                 }
+                
+            }
+                
         };
     }
 

@@ -36,11 +36,11 @@ function showProfilePage($profiles, $selectedProfile)
       <?php } ?>
     </div>
 
-    <form method="post">
+    <form method="post" onsubmit="return confirmPwd()">
       <h2><?= isset($_GET['id']) ? 'Modifier le profil' : 'Ajouter un profil' ?></h2>
-      <input type="text" placeholder="<?= isset($selectedProfile['name']) ? $selectedProfile['name'] : 'Prénom'; ?>" name="first-name" id="first-name">
-      <input type="text" placeholder="<?= isset($selectedProfile['last_name']) ? $selectedProfile['last_name'] : 'Nom'; ?>" name="last-name" id="last-name">
-      <input type="tel" placeholder="<?= isset($selectedProfile['tel']) ? $selectedProfile['tel'] : 'Tél.'; ?>" name="tel" id="tel">
+      <input type="text" placeholder="<?= isset($selectedProfile['name']) ? $selectedProfile['name'] : 'Prénom'; ?>" name="first-name" id="first-name"  maxlength="30" >
+      <input type="text" placeholder="<?= isset($selectedProfile['last_name']) ? $selectedProfile['last_name'] : 'Nom'; ?>" name="last-name" id="last-name"  maxlength="40" >
+      <input type="tel" placeholder="<?= isset($selectedProfile['tel']) ? $selectedProfile['tel'] : 'Tél.'; ?>" name="tel" id="tel" pattern="[0-9]{8}"  placeholder="51234567">
       <input type="email" placeholder="<?= isset($selectedProfile['email']) ? $selectedProfile['email'] : 'Email'; ?>" name="email" id="email">
       <input type="password" placeholder="<?= isset($_GET['id']) ? 'Modifier le mot de passe' : 'Mot de passe' ?>" name="pwd" id="pwd">
       <input type="password" placeholder="Confirmer le mot de passe" name="confirmation-pwd" id="confirmation-pwd">
@@ -52,6 +52,7 @@ function showProfilePage($profiles, $selectedProfile)
 
       <button class="button" type="submit"><?= isset($_GET['id']) ? 'Modifier' : 'Ajouter' ?> <i class="fa fa-arrow-right"></i></button>
     </form>
+    <div class="modal" id="modal-container"><p>Les mots de passe ne correspondent pas.</p></div>
   </div>
 <?php
   $content = ob_get_clean();
