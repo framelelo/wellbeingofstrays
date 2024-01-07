@@ -5,9 +5,8 @@ function confirmPwd() {
 
   var password = document.getElementById("pwd").value;
   var confirmPassword = document.getElementById("confirmation-pwd").value;
-
-
   var modalContainer = document.getElementById("modal-container");
+  
   if (password !== confirmPassword) {
 
     modalContainer.style.display = 'block';
