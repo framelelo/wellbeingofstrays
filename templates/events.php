@@ -54,7 +54,7 @@ function showEventsPage($events, $selectedEvent)
                         <?php } ?>
                         <a href="<?= $event['link'] ?>" target="_blank" rel="noopener noreferrer nofollow">
                             <div class="img-container">
-                                <img src="uploads/<?= $event['picture'] ?>" alt="Animaux en adoption à l'ile Maurice" class="img-fluid">
+                                <img src="uploads/<?= $event['picture'] ?>" alt="Animaux en adoption à l'ile Maurice" loading="lazy" class="img-fluid">
                             </div>
                             <div class="description">
                                 <p>

@@ -64,7 +64,7 @@ function ShowHomePage($adoptions)
                         <?php } ?>
                         <a href="<?= $base_url ?>?page=single&id=<?= $adoption['id'] ?>">
                             <div class="img-container">
-                                <img src="uploads/<?= $adoption['picture'] ?>" alt="Animaux à adopter Maurice" class="img-fluid">
+                                <img src="uploads/<?= $adoption['picture'] ?>" alt="Animaux à adopter Maurice" loading="lazy" class="img-fluid">
                             </div>
                             <div class="top-content">
                                 <h3 class="name"><?= $adoption['name'] ?></h3>
@@ -87,7 +87,7 @@ function ShowHomePage($adoptions)
     </section>
     <section class="presentation">
         <h3>Agir Ensemble - Well-Being of Strays</h3>
-        <iframe width="100%" height="600px" src="https://www.youtube.com/embed/aRghlIDnL4k?si=a8Ehqre_GNxSDdS1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe loading="lazy" width="100%" height="600px" src="https://www.youtube.com/embed/aRghlIDnL4k?si=a8Ehqre_GNxSDdS1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </section>
     <section class="missions">
         <h2>Nos missions</h2>
@@ -96,13 +96,13 @@ function ShowHomePage($adoptions)
                 <a href="<?= $base_url ?>?page=missions#sensibilisation" class="img-container">
                     <div class="title">Sensibilisation</div>
                     <div class="content">Nous œuvrons pour trouver des foyers...</div>
-                    <img src="uploads/Missions-1.jpg" alt="Animaux île Maurice">
+                    <img src="uploads/Missions-1.jpg" loading="lazy" alt="Animaux île Maurice">
                 </a>
 
                 <a href="<?= $base_url ?>?page=missions#nourrissage" class="img-container">
                     <div class="title">Nourrissage</div>
                     <div class="content">Nos bénévoles à travers l’île nourrissent régulèrement les souvent que possibleanimaux errants de leur région...</div>
-                    <img src="uploads/Missions-2.jpg" alt="Aide aux animaux Maurice">
+                    <img src="uploads/Missions-2.jpg" loading="lazy" alt="Aide aux animaux Maurice">
                 </a>
             </div>
             <div class="column">
@@ -110,12 +110,12 @@ function ShowHomePage($adoptions)
                     <div class="title">Sauvetage</div>
                     <div class="content">L'association recueille des animaux errants en détresse...
                     </div>
-                    <img src="uploads/Missions-3.png" alt="Sauvetage animaux Maurice">
+                    <img src="uploads/Missions-3.png" loading="lazy" alt="Sauvetage animaux Maurice">
                 </a>
                 <a href="<?= $base_url ?>?page=missions#sterilisation" class="img-container">
                     <div class="title">Stérilisation</div>
                     <div class="content">Des programmes de stérilisation et de castration sont tous les mois organisées...</div>
-                    <img src="uploads/Missions-4.jpg" alt="Sterilisation animaux Maurice">
+                    <img src="uploads/Missions-4.jpg" loading="lazy" alt="Sterilisation animaux Maurice">
                 </a>
             </div>
         </div>

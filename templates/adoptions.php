@@ -114,18 +114,13 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                     <?php } ?>
                                     <a href="<?= $base_url ?>?page=single&id=<?= $dog['id'] ?>">
                                         <div class="img-container">
-                                            
-
-                                            <img src="uploads/<?= $dog['picture'] ?>" alt="Chats en adoption à l'ile Maurice" class="img-fluid">
-
-
+                                            <img src="uploads/<?= $dog['picture'] ?>" alt="Chats en adoption à l'ile Maurice" loading="lazy" class="img-fluid">
                                         </div>
                                         <div class="top-content">
                                             <h3 class="name"><?= $dog['name'] ?></h3>
                                             <?php if ($dog['gender'] == 'male') {
                                                 echo '<i class="fa fa-mars"></i>';
                                             } else echo '<i class="fa fa-venus"></i>'; ?>
-
                                         </div>
                                         <div class="description">
                                             <p>
@@ -159,7 +154,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                     <?php } ?>
                                     <a href="<?= $base_url ?>?page=single&id=<?= $cat['id'] ?>">
                                         <div class="img-container">
-                                            <img src="uploads/<?= $cat['picture'] ?>" alt="Chats en adoption à  l'ile Maurice" class="img-fluid">
+                                            <img src="uploads/<?= $cat['picture'] ?>" alt="Chats en adoption à  l'ile Maurice" loading="lazy" class="img-fluid">
                                         </div>
                                         <div class="top-content">
                                             <h3 class="name"><?= $cat['name'] ?></h3>
