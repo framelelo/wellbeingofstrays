@@ -1,22 +1,42 @@
 
 <?php
+
 function sendEmail()
 {
+    require_once 'captchaControllers/autoload.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $to = "framelelo89@gmail.com";
-        $sub = "test";
-        $message = "msg";
+    $secret = '6LdCN0opAAAAALwmhWXAZTjjktNbIwHoDNUc752F';
 
-        $headers = "Content-Type: text/plain; charset=utf-8\r\n";
-        $headers .= "From: wellbeingofstrays@gmail.com\r\n";
+    if ($_POST) {
+        
+        $gRecaptchaResponse = $_POST['g-recaptcha-response'];
 
-        if (mail($to, $sub, $message, $headers)) {
-            echo '<div class="modal"><p>Message envoyé !</p></div>';
+        $recaptcha = new \ReCaptcha\ReCaptcha($secret);
+        $resp = $recaptcha->setExpectedHostname('localhost')
+                        ->verify($gRecaptchaResponse, $_SERVER['REMOTE_ADDR']);
+
+        if ($resp->isSuccess()) {
+            $to = 'wellbeingofstrays@gmail.com';
+            $from = $_POST['email'];
+            $tel = $_POST['tel'];
+            $object = $_POST['object'];
+            $message = $_POST['message'];
+
+            $headers = "Content-Type: text/plain; charset=utf-8\r\n";
+            $headers .= "From: $from\r\n";
+
+            if (mail($to, $from, $message, $headers)) {
+                echo '<div class="modal"><p>Message envoyé !</p></div>';
+            } else {
+                echo '<div class="modal"><p>Une erreur s\'est produite, merci de vérifier !</p></div>';
+            }
         } else {
-            echo '<div class="modal"><p>Une erreur s\'est produite, merci de vérifier !</p></div>';
+            echo '<div class="modal"><p>Merci de remplir le captcha !</p></div>';
         }
+        
     }
+        
+    
     contactPage();
 }
 ?>
