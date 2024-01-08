@@ -18,7 +18,7 @@ function sendEmail()
         if ($resp->isSuccess()) {
             $to = 'wellbeingofstrays@gmail.com';
             $from = $_POST['email'];
-            $tel = $_POST['tel'];
+            $tel = isset($_POST['tel']) ? $_POST['tel'] : null;
             $object = $_POST['object'];
             $message = $_POST['message'];
 

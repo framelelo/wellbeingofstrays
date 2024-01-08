@@ -15,44 +15,49 @@ function updateProfile()
 
         if ($firstName && $lastName && $tel && $email && $pwd) {
 
+            //UDATING EXISTING PROFILES
+
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
 
-                    $update = updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd, $role);
 
-                    if(strlen($pwd < 8) || !preg_match("#[0-9]+#", $pwd) || !preg_match("#[A-Z]+#", $pwd) || !preg_match("#[a-z]+#", $pwd)) {
-                        echo '<div class="modal"><p>Le mot de passe doit contenir : <p>
-                        <span>Au moins 8 caractères, dont une majuscule, une minuscule et un chiffre</span></div>';
+                // PASSWORD SHOULD CONTAIN MINIMUM 8 CHARACTERS, 1 LETTER, 1 NUMBER
+                    if (strlen($pwd) >= 8 && preg_match("#[0-9]+#", $pwd) && preg_match("#[A-Z]+#", $pwd) && preg_match("#[a-z]+#", $pwd)) {
                         
-                    } else {
+                        $update = updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd, $role);
                         if ($update) {
                             header("Location: $base_url/?page=profils");
                         } else {
                             echo '<div class="modal">Merci de vérifier !</div>';
                         }
+                    } else {
+                        
+                        echo '<div class="modal"><p>Le mot de passe doit contenir : <p>
+                        <span>Au moins 8 caractères, dont une majuscule, une minuscule et un chiffre</span></div>';
+                        
                     }
                 } 
                 
+                // ADDING NEW PROFILES
                 else {
-                        $newProfile = newProfile($firstName, $lastName, $tel, $email, $pwd, $role);
-                        if(strlen($pwd < 8) || !preg_match("#[0-9]+#", $pwd) || !preg_match("#[A-Z]+#", $pwd) || !preg_match("#[a-z]+#", $pwd)) {
-                            echo '<div class="modal"><p>Le mot de passe doit contenir : <p>
-                            <span>Au moins 8 caractères, dont une majuscule, une minuscule et un chiffre</span></div>';
-                            
-                        }
 
-                        else {
-                            if($newProfile){
-                                header("Location: $base_url/?page=profils");
-                            }
-                            else {
-                                echo '<div class="modal"><p>L\'email existe déjà.</p></div>';
-                            }
-                            
-                           
+                // PASSWORD SHOULD CONTAIN MINIMUM 8 CHARACTERS, 1 LETTER, 1 NUMBER
+
+                    if (strlen($pwd) >= 8 && preg_match("#[0-9]+#", $pwd) && preg_match("#[A-Z]+#", $pwd) && preg_match("#[a-z]+#", $pwd)) {
+                        
+                        $newProfile = newProfile($firstName, $lastName, $tel, $email, $pwd, $role);
+                        if ($newProfile) {
+                            header("Location: $base_url/?page=profils");
+                        } else {
+                            echo '<div class="modal">Merci de vérifier !</div>';
                         }
+                    } else {
+                        
+                        echo '<div class="modal"><p>Le mot de passe doit contenir : <p>
+                        <span>Au moins 8 caractères, dont une majuscule, une minuscule et un chiffre</span></div>';
+                        
+                    }
                     
-                    newProfile($firstName, $lastName, $tel, $email, $pwd, $role);
                 }
             
         } else echo '<div class="modal"><p>Merci de vérifier.</p></div>';

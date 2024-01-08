@@ -22,7 +22,7 @@ function contactPage()
             <textarea name="message" id="message" cols="30" rows="10" placeholder="Ecrire un message *" required></textarea>
 
             <div class="g-recaptcha" data-theme='dark' data-sitekey="6LdCN0opAAAAAI2-4ul6sQFGmtjlFV934baHXzKv"></div>
-            <button class="button" type='submit'>ENVOYER <i class="fa fa-arrow-right"></i>
+            <button class="button" name="submit" type='submit'>ENVOYER <i class="fa fa-arrow-right"></i>
             </button>
         </form>
     </div>
