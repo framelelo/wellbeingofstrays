@@ -46,7 +46,7 @@ function newRegistrer()
                 }
             } else {
                 echo '<div class="modal"><p>Le mot de passe doit contenir :</p>
-                <span>Au moins 8 caractères, dont une majuscule, une minuscule et un chiffre</span></div>';
+                <ul><li>Au moins 8 caractères,</li> <li>Une majuscule,</li><li>Une minuscule</li> <li>Un chiffre</li></ul></div>';
             }
         }
         
