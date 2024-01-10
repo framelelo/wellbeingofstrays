@@ -1,13 +1,13 @@
 <?php
 $page = 'mentions';
-$title = 'Well-Being of Strays - Mentions';
+$title = 'Well-Being of Strays - Mentions Légales';
 global $isConnected;
 global $base_url;
 
 ob_start() ?>
 <main>
     <div class="container">
-
+    <h1>Mentions Légales</h1>
         <h2>Définitions</h2>
         <p><b>Client :</b> tout professionnel ou personne physique capable au sens des articles 1123 et suivants du Code civil, ou personne morale, qui visite le Site objet des présentes conditions générales.<br>
             <b>Prestations et Services :</b> <a href="http://localhost/wellbeingofstrays/">http://localhost/wellbeingofstrays/</a> met à disposition des Clients :
@@ -37,8 +37,6 @@ ob_start() ?>
         <div ng-bind-html="linkHTML">
             <p>Les mentions légales sont issues du modèle proposé par le <a href="https://fr.orson.io/1371/generateur-mentions-legales" title="générateur de mentions légales RGPD d">générateur de mentions légales RGPD d'Orson.io</a></p>
         </div>
-
-
 
         <h2>2. Conditions générales d’utilisation du site et des services proposés.</h2>
 

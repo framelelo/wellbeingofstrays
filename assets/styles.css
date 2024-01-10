@@ -1352,3 +1352,31 @@ footer {
     }
   }
 }
+
+.mentions-page {
+  .container {
+    width: 90%;
+    margin: 50px auto;
+    text-align: justify;
+  }
+  h1,h2,h3 {
+    margin: 15px 0px;
+  }
+  h1 {
+    color: var(--primary_color);
+  
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--tertiary_color);
+  }
+  h3  {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  p {
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
