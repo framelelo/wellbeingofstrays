@@ -6,7 +6,6 @@ function showEventsPage($events, $selectedEvent)
 
 
     global $isConnected;
-    global $base_url;
 
     ob_start() ?>
     <?php if ($isConnected) { ?>
