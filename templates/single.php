@@ -24,24 +24,24 @@ function singleAdoptionPage($adoption)
                 <input type="text" placeholder="<?= $adoption['name'] ?>" value="<?= $adoption['name'] ?>" name="name" id="name" maxlength='20'>
 
                 <div class="select-style">
-        <select name="gender">
-            <option value="<?= $adoption['gender'] ?>" disabled selected><?= $adoption['gender'] ?></option>
-            
+                    <select name="gender">
+                        <option value="<?= $adoption['gender'] ?>" disabled selected><?= $adoption['gender'] ?></option>
 
-            <option value="male" <?php echo ($adoption['gender'] == 'male') ? 'selected' : ''; ?>>Mâle</option>
-            <option value="female" <?php echo ($adoption['gender'] == 'Femelle') ? 'selected' : ''; ?>>Femelle</option>
-        </select>
-        <i class="fa fa-caret-down"></i>
-    </div>
 
-    <div class="select-style">
-        <select name="species">
-            <option value="<?= $adoption['specie'] ?>" disabled selected><?= $adoption['specie'] ?></option>
-            <option value="dog" <?php echo ($adoption['specie'] == 'dog') ? 'selected' : ''; ?>>Chien</option>
-            <option value="cat" <?php echo ($adoption['specie'] == 'cat') ? 'selected' : ''; ?>>Chat</option>
-        </select>
-        <i class="fa fa-caret-down"></i>
-    </div>
+                        <option value="male" <?php echo ($adoption['gender'] == 'male') ? 'selected' : ''; ?>>Mâle</option>
+                        <option value="female" <?php echo ($adoption['gender'] == 'Femelle') ? 'selected' : ''; ?>>Femelle</option>
+                    </select>
+                    <i class="fa fa-caret-down"></i>
+                </div>
+
+                <div class="select-style">
+                    <select name="species">
+                        <option value="<?= $adoption['specie'] ?>" disabled selected><?= $adoption['specie'] ?></option>
+                        <option value="dog" <?php echo ($adoption['specie'] == 'dog') ? 'selected' : ''; ?>>Chien</option>
+                        <option value="cat" <?php echo ($adoption['specie'] == 'cat') ? 'selected' : ''; ?>>Chat</option>
+                    </select>
+                    <i class="fa fa-caret-down"></i>
+                </div>
                 <textarea name="description" id="description" cols="30" rows="10" maxlength='200' placeholder="<?= $adoption['description'] ?>"><?= $adoption['description'] ?></textarea>
                 <button class="button" type="submit">Modifier <i class="fa fa-arrow-right"></i></button>
 
