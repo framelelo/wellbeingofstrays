@@ -57,7 +57,7 @@ function ShowHomePage($adoptions)
                                     <i class="fa fa-pen"></i>
                                 </a>
 
-                                <a class="delete-btn" href="?page=remove-adoption&a=delete&id=<?= $adoption["id"] ?>">
+                                <a class="delete-btn" href="?page=supprimer-adoption&id=<?= $adoption["id"] ?>">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                             </div>

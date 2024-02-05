@@ -20,14 +20,16 @@ if (isset($_GET["page"])) {
             AdoptionPage();
             break;
 
-        case "remove-adoption":
+        case "supprimer-adoption":
             removeAdoption();
             break;
 
-        case "update-adoption":
+        case "modifier-adoption":
             if (isset($_GET['id']) && ($isConnected)) {
                 $id = $_GET['id'];
                 updateAdoption($id);
+            } else {
+                homePage();
             };
             break;
 
@@ -39,12 +41,12 @@ if (isset($_GET["page"])) {
             eventPage();
             break;
 
-        case "remove-event":
+        case "supprimer-evenement":
             removeEvent();
             break;
 
         case "profils":
-            if (isset($_SESSION["user"]['role']) && $_SESSION["user"]['role'] === 'admin') {
+            if (isset($_SESSION["user"]['role']) && $_SESSION["user"]['role'] === 'admin' && ($isConnected)) {
                 updateProfile();
             } else {
                 homePage();
@@ -56,12 +58,8 @@ if (isset($_GET["page"])) {
             break;
 
         case "single":
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
-                singleAdoption($id);
-            } else {
-                homePage();
-            }
+            singleAdoption();
+
             break;
 
         case "contact":

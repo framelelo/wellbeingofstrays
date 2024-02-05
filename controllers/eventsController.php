@@ -80,12 +80,9 @@ function removeEvent()
 {
     global $base_url;
 
-    if (isset($_GET["a"])) {
-
-        $action = $_GET["a"];
+    if (isset($_GET["id"])) {
         $id = $_GET["id"];
 
-        if ($action == 'delete') {
             $event = showEvent($id);
 
             if ($event && isset($event['picture'])) {
@@ -97,7 +94,7 @@ function removeEvent()
                     unlink($picturePath);
                 }
             }
-        }
+        
         header("location: $base_url/?page=evenements");
     } else {
         echo '<div class="modal"><p>Merci de vérifier !</p></div>';

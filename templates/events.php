@@ -63,7 +63,7 @@ function showEventsPage($events, $selectedEvent)
                                     <i class="fa fa-pen"></i>
                                 </a>
 
-                                <a class="delete-btn" href="?page=remove-event&a=delete&id=<?= $event["id"] ?>">
+                                <a class="delete-btn" href="?page=supprimer-evenement&id=<?= $event["id"] ?>">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                             </div>
