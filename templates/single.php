@@ -11,7 +11,7 @@ function singleAdoptionPage($adoption)
     if ($isConnected) { ?>
         <div class="edit-form">
             <h4>Modifier la fiche</h4>
-            <form method="post" action="<?php $base_url ?>?page=update-adoption&id=<?= $adoption["id"] ?>" enctype="multipart/form-data">
+            <form method="post" action="<?php $base_url ?>?page=modifier-adoption&id=<?= $adoption["id"] ?>" enctype="multipart/form-data">
                 <div class="image-upload-btn">
                     <div class="img-container img-preview">
                         <img src="uploads/<?= $adoption['picture'] ?>" alt="Animaux en adoption Maurice" class="img-fluid" id="previewImage">
@@ -21,26 +21,28 @@ function singleAdoptionPage($adoption)
                     <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
                     <div id="preview"></div>
                 </div>
-                <input type="text" placeholder="<?= $adoption['name'] ?>" name="name" id="name" maxlength='20'>
+                <input type="text" placeholder="<?= $adoption['name'] ?>" value="<?= $adoption['name'] ?>" name="name" id="name" maxlength='20'>
 
                 <div class="select-style">
-                    <select name="gender" class="select-style">
-                        <option value="gender" disabled selected><?= $adoption['gender'] ?></option>
-                        <option value="male">Male</option>
-                        <option value="female">Femelle</option>
-                    </select>
-                    <i class="fa fa-caret-down"></i>
-                </div>
-                <div class="select-style">
-                    <select name="species">
-                        <option value="specie" disabled selected><?= $adoption['specie'] ?></option>
-                        <option value="dog">Chien</option>
-                        <option value="cat">Chat</option>
-                    </select>
+        <select name="gender">
+            <option value="<?= $adoption['gender'] ?>" disabled selected><?= $adoption['gender'] ?></option>
+            
 
-                    <i class="fa fa-caret-down"></i>
-                </div>
-                <textarea name="description" id="description" cols="30" rows="10" maxlength='200' placeholder="<?= $adoption['description'] ?>"></textarea>
+            <option value="male" <?php echo ($adoption['gender'] == 'male') ? 'selected' : ''; ?>>Mâle</option>
+            <option value="female" <?php echo ($adoption['gender'] == 'Femelle') ? 'selected' : ''; ?>>Femelle</option>
+        </select>
+        <i class="fa fa-caret-down"></i>
+    </div>
+
+    <div class="select-style">
+        <select name="species">
+            <option value="<?= $adoption['specie'] ?>" disabled selected><?= $adoption['specie'] ?></option>
+            <option value="dog" <?php echo ($adoption['specie'] == 'dog') ? 'selected' : ''; ?>>Chien</option>
+            <option value="cat" <?php echo ($adoption['specie'] == 'cat') ? 'selected' : ''; ?>>Chat</option>
+        </select>
+        <i class="fa fa-caret-down"></i>
+    </div>
+                <textarea name="description" id="description" cols="30" rows="10" maxlength='200' placeholder="<?= $adoption['description'] ?>"><?= $adoption['description'] ?></textarea>
                 <button class="button" type="submit">Modifier <i class="fa fa-arrow-right"></i></button>
 
             </form>
@@ -65,7 +67,7 @@ function singleAdoptionPage($adoption)
                             Modifier
                         </a>
 
-                        <a class="delete-btn" href="?page=remove-adoption&a=delete&id=<?= $adoption["id"] ?>">
+                        <a class="delete-btn" href="?page=supprimer-adoption&id=<?= $adoption["id"] ?>">
                             <i class="fas fa-trash-alt"></i>
                             Supprimer
                         </a>

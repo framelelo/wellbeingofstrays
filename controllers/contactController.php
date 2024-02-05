@@ -8,12 +8,12 @@ function sendEmail()
     $secret = '6LdCN0opAAAAALwmhWXAZTjjktNbIwHoDNUc752F';
 
     if ($_POST) {
-        
+
         $gRecaptchaResponse = $_POST['g-recaptcha-response'];
 
         $recaptcha = new \ReCaptcha\ReCaptcha($secret);
         $resp = $recaptcha->setExpectedHostname('localhost')
-                        ->verify($gRecaptchaResponse, $_SERVER['REMOTE_ADDR']);
+            ->verify($gRecaptchaResponse, $_SERVER['REMOTE_ADDR']);
 
         if ($resp->isSuccess()) {
             $to = 'wellbeingofstrays@gmail.com';
@@ -33,10 +33,9 @@ function sendEmail()
         } else {
             echo '<div class="modal"><p>Merci de remplir le captcha !</p></div>';
         }
-        
     }
-        
-    
+
+
     contactPage();
 }
 ?>

@@ -21,7 +21,13 @@ if (isset($_GET["page"])) {
             break;
 
         case "supprimer-adoption":
-            removeAdoption();
+            if (isset($_GET['id']) && ($isConnected)) {
+                $id = $_GET['id'];
+                removeAdoption();
+            } else {
+                homePage();
+            };
+
             break;
 
         case "modifier-adoption":

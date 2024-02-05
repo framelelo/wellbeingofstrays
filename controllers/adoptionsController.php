@@ -35,18 +35,16 @@ function AdoptionPage()
             if ($fileSize > $maxFileSize) {
                 echo '<div class="modal"><p>La taille de votre image est trop lourde.</p></div>';
                 return showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $adoptions);
-                } else {
+            } else {
                 $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
             }
             if (!$picture_upload) {
-                echo '<div class="modal"><p>Merci de vérifier</p></div>'; 
+                echo '<div class="modal"><p>Merci de vérifier</p></div>';
                 return showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $adoptions);
-                   }
+            }
         } else {
             echo '<div class="modal"><p>Merci d\'ajouter une image</p></div>';
             return showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $adoptions);
-
-                 
         }
 
         if ($id && $name && $specie && $picture && $gender && $description) {
@@ -79,8 +77,8 @@ function updateAdoption($id)
         $id = $_GET['id'];
         $id_user = $_SESSION["user"]["id"];
         $name = $_POST['name'];
-        $gender = isset($_POST['gender']) ? $_POST['gender'] : null;
-        $specie = isset($_POST['species']) ? $_POST['species'] : null;
+        $gender = $_POST['gender'];
+        $specie = $_POST['species'];
         $description = $_POST['description'];
 
         $picture = time() . '_' . $_FILES['img-animal']['name'];
@@ -97,62 +95,65 @@ function updateAdoption($id)
                 return singleAdoptionPage($adoption);
             } else {
                 move_uploaded_file($temp_folder, $upload_folder);
-                
+
                 $oldPicturePath = ROOT_PATH . "/uploads/" . $adoption['picture'];
                 if (file_exists($oldPicturePath)) {
                     unlink($oldPicturePath);
                 }
             }
+        } elseif (empty($_FILES['img-event']['name']) && isset($_GET['id'])) {
+            $picture = $adoption['picture'];
         } else {
             echo '<div class="modal"><p>Merci d\'ajouter une image</p></div>';
+            return
+                ShowHomePage($adoption);
         }
 
-        if ($id && $id_user && $name && $specie && $picture && $gender  && $description) {
-            $update = updateAdoptions($id, $id_user, $name, $specie, $picture, $gender,  $description);
-            if ($update) {
 
-                header("Location: $base_url/?page=adoptions");
-            } else {
-                echo '<div class="modal"><p>Merci de verifier !</p></div>';
-            }
+
+        $update = updateAdoptions($id, $id_user, $name, $specie, $picture, $gender,  $description);
+        if ($update) {
+
+            header("Location: $base_url/?page=adoptions");
         } else {
-            echo '<div class="modal"><p>Merci de remplir tous les champs</p></div>';
-        };
+            echo '<div class="modal"><p>Merci de verifier !</p></div>';
+        }
     }
 
 
     singleAdoptionPage($adoption);
 };
 
-function singleAdoption($id)
+function singleAdoption()
 {
-
-    $adoption = showAdoption($id);
-    singleAdoptionPage($adoption);
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $adoption = showAdoption($id);
+        singleAdoptionPage($adoption);
+    } else {
+        homePage();
+    }
 }
 
 function removeAdoption()
 {
     global $base_url;
 
-    if (isset($_GET["a"])) {
-
-        $action = $_GET["a"];
+    if (isset($_GET["id"])) {
         $id = $_GET["id"];
 
-        if ($action == 'delete') {
-            $adoption = showAdoption($id);
+        $adoption = showAdoption($id);
 
-            if ($adoption && isset($adoption['picture'])) {
-                $picturePath = "uploads/" . $adoption['picture'];
+        if ($adoption && isset($adoption['picture'])) {
+            $picturePath = "uploads/" . $adoption['picture'];
 
-                removeAdoptions($id);
+            removeAdoptions($id);
 
-                if (file_exists($picturePath)) {
-                    unlink($picturePath);
-                }
+            if (file_exists($picturePath)) {
+                unlink($picturePath);
             }
         }
+
         header("location: $base_url/?page=adoptions");
     } else {
         echo '<div class="modal"><p>Merci de vérifier !</p></div>';

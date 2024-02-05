@@ -31,5 +31,5 @@ require_once("templates/adoptions.php");
 require_once("templates/signup.php");
 require_once("templates/single.php");
 require_once("templates/events.php");
-require_once("templates/profils.php");
+require_once("templates/profiles.php");
 require_once("templates/contact.php");
