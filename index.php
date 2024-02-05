@@ -21,7 +21,7 @@ if (isset($_GET["page"])) {
             break;
 
         case "remove-adoption":
-            removeAdoption($id);
+            removeAdoption();
             break;
 
         case "update-adoption":
@@ -40,7 +40,7 @@ if (isset($_GET["page"])) {
             break;
 
         case "remove-event":
-            removeEvent($id);
+            removeEvent();
             break;
 
         case "profils":

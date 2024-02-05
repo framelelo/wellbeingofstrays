@@ -5,7 +5,7 @@
 function eventPage()
 {
     global $base_url;
-    
+
     $selectedEvent = null;
 
     if (isset($_GET['id'])) {
@@ -28,6 +28,9 @@ function eventPage()
         $maxFileSize = 2097152;
 
         if (!empty($_FILES['img-event']['name'])) {
+
+        $oldPicturePath = ROOT_PATH . "/uploads/" . $selectedEvent['picture'];
+        $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
             $fileSize = $_FILES['img-event']['size'];
 
             if ($fileSize > $maxFileSize) {
@@ -35,42 +38,40 @@ function eventPage()
                 return
                     showEventsPage($events, $selectedEvent);
             } else {
-                $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
-
-                $oldPicturePath = ROOT_PATH . "/uploads/" . $selectedEvent['picture'];
+                
                 if (file_exists($oldPicturePath)) {
                     unlink($oldPicturePath);
                 }
             }
+            
             if (!$picture_upload) {
-                echo '<div class="modal"><p>Merci de vérifier</p></div>';
+                echo '<div class="modal"><p>Merci d\'ajouter une image</p></div>';
                 return
                     showEventsPage($events, $selectedEvent);
             }
-        } else {
+        }
+        elseif (empty($_FILES['img-event']['name']) && isset($_GET['id'])) {
+            $picture = $selectedEvent['picture'];
+        }
+        else {
             echo '<div class="modal"><p>Merci d\'ajouter une image</p></div>';
             return
                 showEventsPage($events, $selectedEvent);
         }
 
-        if ($id_user && $title && $picture && $link && $description && $fileSize <= $maxFileSize) {
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
-                $update = updateEvents($id, $id_user, $title, $picture, $link, $description);
-            } else {
-                $update = newEvents($id_user, $title, $picture, $link, $description);
-            }
-
-            if ($update) {
-                header("Location: $base_url/?page=evenements");
-            } else {
-                echo '<div class="modal"><p>Merci de vérifier.</p></div>';
-            }
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $update = updateEvents($id, $id_user, $title, $picture, $link, $description);
         } else {
-            echo '<div class="modal"><p>Merci de vérifier.</p></div>';
+            $update = newEvents($id_user, $title, $picture, $link, $description);
+        }
+
+        if ($update) {
+            header("Location: $base_url/?page=evenements");
+        } else {
+            echo '<div class="modal"><p>Merci de vérifier les champs obligatoires.</p></div>';
         }
     }
-
     showEventsPage($events, $selectedEvent);
 }
 

@@ -8,23 +8,40 @@ function showEventsPage($events, $selectedEvent)
     global $isConnected;
 
     ob_start() ?>
-    <?php if ($isConnected) { ?>
+    <?php if ($isConnected) {
+        
+        $defaultImage = $selectedEvent['picture'] ?? '';
+        $defaultTitle = $selectedEvent['title'] ?? '';
+        $defaultLink = $selectedEvent['link'] ?? '';
+        $defaultCoontent = $selectedEvent['description'] ?? '';
+        $isRequired = isset($_GET['id']) ? '' : 'required'; 
+
+          ?>
         <div class="container">
             <div class="edit-form">
                 <h4><?= isset($_GET['id']) ? 'Modifier l\'évènement' : 'Ajouter un évènement' ?></h4>
                 <form method="post" enctype="multipart/form-data">
                     <div class="image-upload-btn">
-                        <div class="img-container img-preview" <?php if (!isset($selectedEvent['picture'])) echo 'style="display: none;"' ?>>
-                            <img src="uploads/<?= isset($selectedEvent['picture']) ? $selectedEvent['picture'] : ''; ?>" alt="Animaux en adoption à l'ile Maurice" class="img-fluid">
+                        <div class="img-container img-preview" <?= !isset($selectedEvent['picture']) ? 'style="display: none;"' : '' ?>>
+                            <img src="uploads/<?= $defaultImage ?>" alt="Animaux en adoption à l'ile Maurice" class="img-fluid">
                         </div>
-                        <label class="title-image" for="image-upload"><?= isset($_GET['id']) ? 'Modifier la photo' : 'Ajouter une photo' ?></label>
-                        <input type="file" name="img-event" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
+                        <label class="title-image" for="image-upload">
+                            <?= isset($_GET['id']) ? 'Modifier la photo' : 'Ajouter une photo' ?>
+                        </label>
+                        <input type="file" name="img-event" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()" value="<?= $defaultImage ?>">
                         <div id="preview"></div>
                     </div>
-                    <input type="text" placeholder="<?= isset($selectedEvent['title']) ? $selectedEvent['title'] : 'Titre'; ?>" name="title" id="name" maxlength="40" required>
-                    <input type="text" placeholder="<?= isset($selectedEvent['link']) ? $selectedEvent['link'] : 'Lien'; ?>" name="event-link" id="event-link" required>
-                    <textarea name="description" id="message" cols="30" rows="10" placeholder="<?= isset($selectedEvent['description']) ? $selectedEvent['description'] : 'Description'; ?>" maxlength="150" required></textarea>
-                    <button class="button" type="submit"><?= isset($_GET['id']) ? 'Modifier' : 'Ajouter' ?> <i class="fa fa-arrow-right"></i></button>
+
+                    <input type="text" placeholder="<?= $selectedEvent['title'] ?? 'Titre'; ?>" name="title" id="name" maxlength="40" value="<?= $defaultTitle ?>" <?= $isRequired ?>>
+
+                    <input type="text" placeholder="<?= $selectedEvent['link'] ?? 'Lien'; ?>" name="event-link" id="event-link" value="<?= $defaultLink ?>" <?= $isRequired ?>>
+
+                    <textarea name="description" id="message" cols="30" rows="10" placeholder="<?= $selectedEvent['description'] ?? 'Description'; ?>" maxlength="150" <?= $isRequired ?>><?= $defaultCoontent ?></textarea>
+
+                    <button class="button" type="submit">
+                        <?= isset($_GET['id']) ? 'Modifier' : 'Ajouter' ?> <i class="fa fa-arrow-right"></i>
+                    </button>
+
                 </form>
             </div>
         </div>
