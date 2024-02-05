@@ -59,7 +59,7 @@ if (isset($_GET["page"])) {
             }
             break;
 
-        case "remove-profile":
+        case "supprimer-profils":
             removeProfile($id);
             break;
 
