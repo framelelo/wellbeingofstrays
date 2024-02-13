@@ -35,7 +35,7 @@ function registrer($firstName, $lastName, $tel, $email, $pwd)
     global $pdo;
 
     try {
-        $checkQuery = $pdo->prepare("SELECT COUNT(*) FROM members WHERE email = :e");
+        $checkQuery = $pdo->prepare("SELECT * FROM members WHERE email = :e");
         $checkQuery->execute(["e" => $email]);
         $emailExists = $checkQuery->fetchColumn();
         if ($emailExists) {
