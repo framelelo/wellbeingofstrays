@@ -71,7 +71,6 @@ function AdoptionPage()
  * 
  * @param int $id
  * 
- * @throws PDOException
  */
 function updateAdoption($id)
 {
