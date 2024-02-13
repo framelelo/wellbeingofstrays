@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Sign in
+ * Sign in - login
  * 
- * @throws PDOException
- * 
+ * @param string $email,
+ * @param string $pwd
  */
 function signIn()
 {

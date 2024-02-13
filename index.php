@@ -1,7 +1,6 @@
 <?php
 
 /**
- * 
  * Affichage selon les 'cases' de l'url définit par la variable 'page'
  */
 require_once "autoload.php";

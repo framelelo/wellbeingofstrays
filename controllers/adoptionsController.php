@@ -172,7 +172,6 @@ function removeAdoption()
                 unlink($picturePath);
             }
         }
-
         header("location: $base_url/?page=adoptions");
     } else {
         echo '<div class="modal"><p>Merci de vérifier !</p></div>';
