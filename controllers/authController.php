@@ -47,7 +47,6 @@ function newRegistrer()
         $email  = $_POST['email'];
         $pwd = $_POST['pwd'];
 
-
         if ($firstName && $lastName && $tel && $email && $pwd) {
 
             // PASSWORD SHOULD CONTAIN MINIMUM 8 CHARACTERS, 1 LETTER, 1 NUMBER

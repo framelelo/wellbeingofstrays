@@ -1,4 +1,5 @@
 <?php
+
 /** 
  * Update profile
  * 
@@ -6,16 +7,16 @@
  * 
  * @throws PDOException
  * 
-*/
+ */
 
 function updateProfile()
 {
     global $base_url;
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_POST) {
         // Validate and sanitize user input
-        $firstName = $_POST['first-name'];
-        $lastName = $_POST['last-name'];
+        $firstName = htmlspecialchars($_POST['first-name']);
+        $lastName = htmlspecialchars($_POST['last-name']);
         $tel = $_POST['tel'];
         $email = $_POST['email'];
         $pwd = $_POST['pwd'];
@@ -34,7 +35,7 @@ function updateProfile()
                     if ($update) {
                         echo '<div class="modal">Profil mis à jour !</div>';
                         header("Location: $base_url/?page=profils");
-                        exit; 
+                        exit;
                     } else {
                         echo '<div class="modal"><p>Erreur lors de la mise à jour du profil. Merci de vérifier !</p></div>';
                     }

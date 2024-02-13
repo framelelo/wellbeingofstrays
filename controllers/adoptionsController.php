@@ -23,10 +23,10 @@ function AdoptionPage()
     if ($_POST) {
 
         $id = $_SESSION["user"]["id"];
-        $name = $_POST['name'];
+        $name = htmlspecialchars($_POST['name']);
         $specie = $_POST['species'];
         $gender = $_POST['gender'];
-        $description = $_POST['description'];
+        $description = htmlspecialchars($_POST['description']);
 
 
         $picture = time() . '_' . $_FILES['img-animal']['name'];
@@ -84,10 +84,10 @@ function updateAdoption($id)
 
         $id = $_GET['id'];
         $id_user = $_SESSION["user"]["id"];
-        $name = $_POST['name'];
+        $name = htmlspecialchars($_POST['name']);
         $gender = $_POST['gender'];
         $specie = $_POST['species'];
-        $description = $_POST['description'];
+        $description = htmlspecialchars($_POST['description']);
 
         $picture = time() . '_' . $_FILES['img-animal']['name'];
         $temp_folder = $_FILES['img-animal']['tmp_name'];

@@ -29,7 +29,7 @@ function singleAdoptionPage($adoption)
 
 
                         <option value="male" <?php echo ($adoption['gender'] == 'male') ? 'selected' : ''; ?>>Mâle</option>
-                        <option value="female" <?php echo ($adoption['gender'] == 'Femelle') ? 'selected' : ''; ?>>Femelle</option>
+                        <option value="femelle" <?php echo ($adoption['gender'] == 'femelle') ? 'selected' : ''; ?>>Femelle</option>
                     </select>
                     <i class="fa fa-caret-down"></i>
                 </div>

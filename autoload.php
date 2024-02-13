@@ -10,6 +10,7 @@ $isConnected = $_SESSION && $_SESSION["user"];
 
 define('ROOT_PATH', realpath(dirname(__FILE__)));
 
+
 /** Models */
 require_once("models/databaseModel.php");
 require_once("models/authModel.php");

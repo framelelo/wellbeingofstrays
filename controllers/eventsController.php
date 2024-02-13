@@ -20,9 +20,9 @@ function eventPage()
 
     if ($_POST) {
         $id_user = $_SESSION["user"]["id"];
-        $title = $_POST['title'];
-        $link = $_POST['event-link'];
-        $description = $_POST['description'];
+        $title = htmlspecialchars($_POST['title']);
+        $link = htmlspecialchars($_POST['event-link']);
+        $description = htmlspecialchars($_POST['description']);
 
         $picture = time() . '_' . $_FILES['img-event']['name'];
         $temp_folder = $_FILES['img-event']['tmp_name'];
@@ -32,8 +32,8 @@ function eventPage()
 
         if (!empty($_FILES['img-event']['name'])) {
 
-        $oldPicturePath = ROOT_PATH . "/uploads/" . $selectedEvent['picture'];
-        $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
+            $oldPicturePath = ROOT_PATH . "/uploads/" . $selectedEvent['picture'];
+            $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
             $fileSize = $_FILES['img-event']['size'];
 
             if ($fileSize > $maxFileSize) {
@@ -41,22 +41,20 @@ function eventPage()
                 return
                     showEventsPage($events, $selectedEvent);
             } else {
-                
+
                 if (file_exists($oldPicturePath)) {
                     unlink($oldPicturePath);
                 }
             }
-            
+
             if (!$picture_upload) {
                 echo '<div class="modal"><p>Merci d\'ajouter une image</p></div>';
                 return
                     showEventsPage($events, $selectedEvent);
             }
-        }
-        elseif (empty($_FILES['img-event']['name']) && isset($_GET['id'])) {
+        } elseif (empty($_FILES['img-event']['name']) && isset($_GET['id'])) {
             $picture = $selectedEvent['picture'];
-        }
-        else {
+        } else {
             echo '<div class="modal"><p>Merci d\'ajouter une image</p></div>';
             return
                 showEventsPage($events, $selectedEvent);
@@ -86,18 +84,18 @@ function removeEvent()
     if (isset($_GET["id"])) {
         $id = $_GET["id"];
 
-            $event = showEvent($id);
+        $event = showEvent($id);
 
-            if ($event && isset($event['picture'])) {
-                $picturePath = "uploads/" . $event['picture'];
+        if ($event && isset($event['picture'])) {
+            $picturePath = "uploads/" . $event['picture'];
 
-                removeEvents($id);
+            removeEvents($id);
 
-                if (file_exists($picturePath)) {
-                    unlink($picturePath);
-                }
+            if (file_exists($picturePath)) {
+                unlink($picturePath);
             }
-        
+        }
+
         header("location: $base_url/?page=evenements");
     } else {
         echo '<div class="modal"><p>Merci de vérifier !</p></div>';

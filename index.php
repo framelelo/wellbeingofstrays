@@ -71,11 +71,11 @@ if (isset($_GET["page"])) {
             break;
 
         case "contact":
-            sendEmail();
+            contactPage();
             break;
 
         case "mentions_legales":
-            require('views/mentions.php');
+            showMentions();
             break;
 
         case "logout":
