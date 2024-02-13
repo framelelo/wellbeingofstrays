@@ -11,7 +11,7 @@ function signIn()
     global $base_url;
     if ($_POST) {
 
-        $email  = $_POST['email'];
+        $email  = htmlspecialchars($_POST['email']);
         $pwd = $_POST['password'];
 
         if ($email && $pwd) {
@@ -32,19 +32,23 @@ function signIn()
  * 
  * Sign up - registrer new user 
  * 
- * @param string $firstName, string $lastName, string $tel, string $email, string $pwd
+ * @param string $firstName,
+ * @param string $lastName, 
+ * @param string $tel, 
+ * @param string $email, 
+ * @param string $pwd
  * 
- * @throws PDOException
+ * return boolean
  */
 function newRegistrer()
 {
     global $base_url;
     if ($_POST) {
 
-        $firstName = $_POST['first-name'];
-        $lastName = $_POST['last-name'];
+        $firstName = htmlspecialchars($_POST['first-name']);
+        $lastName = htmlspecialchars($_POST['last-name']);
         $tel = $_POST['tel'];
-        $email  = $_POST['email'];
+        $email  = htmlspecialchars($_POST['email']);
         $pwd = $_POST['pwd'];
 
         if ($firstName && $lastName && $tel && $email && $pwd) {

@@ -18,10 +18,10 @@ function updateProfile()
         $firstName = htmlspecialchars($_POST['first-name']);
         $lastName = htmlspecialchars($_POST['last-name']);
         $tel = $_POST['tel'];
-        $email = $_POST['email'];
+        $email = htmlspecialchars($_POST['email']);
         $pwd = $_POST['pwd'];
         $confirmPwd = $_POST['confirmation-pwd'];
-        $role = isset($_POST['role']) ? htmlspecialchars($_POST['role']) : null;
+        $role = isset($_POST['role']) ?$_POST['role'] : null;
 
         // Updating existing profiles
         if (isset($_GET['id'])) {
