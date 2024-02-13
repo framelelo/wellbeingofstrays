@@ -1,6 +1,12 @@
 <?php
-
-function updateEvents($id, $id_user, $title, $picture, $link, $description)
+/**
+ * Update events
+ * 
+ * @param int $id, int $id_user, string $title, string $picture, string $link, string $description
+ * 
+ * @return bool
+ */
+function updateEvents(int $id, int $id_user,string $title, string $picture, string $link, string $description): bool
 {
     global $pdo;
 
@@ -24,7 +30,13 @@ function updateEvents($id, $id_user, $title, $picture, $link, $description)
     }
 }
 
-function newEvents($id_user, $title, $picture, $link, $description)
+/**
+ * Add new events
+ * @param int $id_user, string $title, string $picture, string $link, string $description
+ * 
+ * @return bool
+ */
+function newEvents(int $id_user, string $title, string $picture, string $link, string $description) : bool
 {
     global $pdo;
 
@@ -48,7 +60,11 @@ function newEvents($id_user, $title, $picture, $link, $description)
 }
 
 
-
+/**
+ * Show events
+ * 
+ * @throws PDOException
+ */
 function showEvents()
 {
     global $pdo;
@@ -63,7 +79,14 @@ function showEvents()
     }
 }
 
-function showEvent($id)
+/**
+ * Show event
+ * 
+ * @param int $id
+ * 
+ * @throws PDOException
+ */
+function showEvent(int $id)
 {
     global $pdo;
     try {
@@ -75,7 +98,14 @@ function showEvent($id)
     }
 }
 
-function removeEvents($id)
+/**
+ * Remove events
+ * 
+ * @param int $id
+ * 
+ * @throws PDOException
+ */
+function removeEvents(int $id)
 {
     global $pdo;
     try {

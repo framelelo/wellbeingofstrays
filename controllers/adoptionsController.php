@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Show adoption
+ * 
+ * @param int $id
+ *
+ */
 function AdoptionPage()
 {
 
@@ -58,13 +63,16 @@ function AdoptionPage()
             echo '<div class="modal"><p>Merci de remplir tous les champs</p></div>';
         }
     }
-
-
-
     showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $adoptions);
 };
 
-
+/**
+ * Update adoption
+ * 
+ * @param int $id
+ * 
+ * @throws PDOException
+ */
 function updateAdoption($id)
 {
 
@@ -124,6 +132,12 @@ function updateAdoption($id)
     singleAdoptionPage($adoption);
 };
 
+/**
+ * Show single adoption
+ * 
+ * @param array $adoption
+ * 
+*/
 function singleAdoption()
 {
     if (isset($_GET['id'])) {
@@ -135,6 +149,11 @@ function singleAdoption()
     }
 }
 
+/**
+ * Remove adoption
+ * 
+ * @param int $id
+*/
 function removeAdoption()
 {
     global $base_url;

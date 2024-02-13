@@ -1,4 +1,13 @@
 <?php
+/** 
+ * Update profile
+ * 
+ * @param int $id, string $firstName, string $lastName, string $tel, string $email, string $pwd
+ * 
+ * @throws PDOException
+ * 
+*/
+
 function updateProfile()
 {
     global $base_url;
@@ -67,6 +76,14 @@ function updateProfile()
     $profiles = showAllProfiles();
     showProfilePage($profiles, $selectedProfile);
 }
+
+/**
+ * Remove profile
+ * 
+ * @param int $id
+ * 
+ * 
+ */
 function removeProfile($id)
 {
     global $base_url;

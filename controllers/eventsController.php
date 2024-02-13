@@ -1,7 +1,10 @@
 
 <?php
 
-
+/**
+ * Show events
+ * 
+ */
 function eventPage()
 {
     global $base_url;

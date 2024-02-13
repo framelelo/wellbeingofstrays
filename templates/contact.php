@@ -21,7 +21,10 @@ function contactPage()
             <input type="text" placeholder="Objet *" name="object" id="object" required>
             <textarea name="message" id="message" cols="30" rows="10" placeholder="Ecrire un message *" required></textarea>
 
+            <!-- RECAPTCHA -->
             <div class="g-recaptcha" data-theme='dark' data-sitekey="6LdCN0opAAAAAI2-4ul6sQFGmtjlFV934baHXzKv"></div>
+
+
             <button class="button" name="submit" type='submit'>ENVOYER <i class="fa fa-arrow-right"></i>
             </button>
         </form>

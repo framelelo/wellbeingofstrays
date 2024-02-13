@@ -1,6 +1,16 @@
 <?php
 
-function newAdoptions($id, $name, $specie, $picture, $gender, $description)
+/** CREATE NEW ADOPTIONS CARDS
+ * @var $pdo
+ * 
+ * @param int $id, string $name, string $specie, string $picture, string $gender, string $description
+ * 
+ * @return bool
+ * 
+ * @throws PDOException
+*/
+
+function newAdoptions(int $id, string $name, string $specie, string $picture, string $gender, string $description)
 {
 
     global $pdo;

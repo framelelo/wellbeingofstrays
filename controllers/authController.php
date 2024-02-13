@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Sign in
+ * 
+ * @throws PDOException
+ * 
+ */
 function signIn()
 {
     global $base_url;
@@ -21,9 +27,17 @@ function signIn()
 
     showLoginPage();
 }
+
+/**
+ * 
+ * Sign up - registrer new user 
+ * 
+ * @param string $firstName, string $lastName, string $tel, string $email, string $pwd
+ * 
+ * @throws PDOException
+ */
 function newRegistrer()
 {
-
     global $base_url;
     if ($_POST) {
 
@@ -35,9 +49,10 @@ function newRegistrer()
 
 
         if ($firstName && $lastName && $tel && $email && $pwd) {
-        
+
             // PASSWORD SHOULD CONTAIN MINIMUM 8 CHARACTERS, 1 LETTER, 1 NUMBER
             if (strlen($pwd) >= 8 && preg_match("#[0-9]+#", $pwd) && preg_match("#[A-Z]+#", $pwd) && preg_match("#[a-z]+#", $pwd)) {
+                
                 $registrer = registrer($firstName, $lastName, $tel, $email, $pwd);
                 if ($registrer) {
                     header("Location: $base_url/?page=login");
@@ -49,15 +64,18 @@ function newRegistrer()
                 <ul><li>Au moins 8 caractères,</li> <li>Une majuscule,</li><li>Une minuscule</li> <li>Un chiffre</li></ul></div>';
             }
         }
-        
     }
 
     showRegsitrerPage();
 }
 
+/**
+ * Log out
+ * 
+ * @throws PDOException
+ */
 function logOut()
 {
-
     global $base_url;
     session_destroy();
 
