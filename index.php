@@ -1,12 +1,17 @@
 <?php
+
+/**
+ * 
+ * Affichage selon les 'cases' de l'url définit par la variable 'page'
+ */
 require_once "autoload.php";
+
 
 if (isset($_GET["page"])) {
     $page = $_GET["page"];
     switch ($page) {
 
         case "login":
-
             if ($isConnected) {
                 homePage();
             } else signIn();
@@ -27,9 +32,7 @@ if (isset($_GET["page"])) {
             } else {
                 homePage();
             };
-
             break;
-
         case "modifier-adoption":
             if (isset($_GET['id']) && ($isConnected)) {
                 $id = $_GET['id'];
@@ -38,9 +41,8 @@ if (isset($_GET["page"])) {
                 homePage();
             };
             break;
-
         case "missions":
-            require('templates/missions.php');
+            showMissions();
             break;
 
         case "evenements":
@@ -73,7 +75,7 @@ if (isset($_GET["page"])) {
             break;
 
         case "mentions_legales":
-            require('templates/mentions.php');
+            require('views/mentions.php');
             break;
 
         case "logout":
