@@ -35,11 +35,11 @@ function ShowHomePage($adoptions)
                 </button>
                 <ul class="select-dropdown species-filter">
                     <li>
-                        <input class="options" type="radio" id="dogs-filter" name="species" value="dog" />
+                        <input class="options" type="radio" id="dogs-filter" name="species" value="chien" />
                         <label for="dogs-filter">Chiens</label>
                     </li>
                     <li>
-                        <input class="options" type="radio" id="cats-filter" name="species" value="cat" />
+                        <input class="options" type="radio" id="cats-filter" name="species" value="chat" />
                         <label for="cats-filter">Chats</label>
                     </li>
                 </ul>
@@ -68,7 +68,7 @@ function ShowHomePage($adoptions)
                             </div>
                             <div class="top-content">
                                 <h3 class="name"><?= $adoption['name'] ?></h3>
-                                <?php if ($adoption['gender'] == 'male') {
+                                <?php if ($adoption['gender'] == 'mâle') {
                                     echo '<i class="fa fa-mars"></i>';
                                 } else echo '<i class="fa fa-venus"></i>'; ?>
 

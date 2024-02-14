@@ -101,4 +101,5 @@ function removeEvent()
         echo '<div class="modal"><p>Merci de vérifier !</p></div>';
     }
 }
+
 ?>

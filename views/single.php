@@ -26,9 +26,7 @@ function singleAdoptionPage($adoption)
                 <div class="select-style">
                     <select name="gender">
                         <option value="<?= $adoption['gender'] ?>" disabled selected><?= $adoption['gender'] ?></option>
-
-
-                        <option value="male" <?php echo ($adoption['gender'] == 'male') ? 'selected' : ''; ?>>Mâle</option>
+                        <option value="mâle" <?php echo ($adoption['gender'] == 'mâle') ? 'selected' : ''; ?>>Mâle</option>
                         <option value="femelle" <?php echo ($adoption['gender'] == 'femelle') ? 'selected' : ''; ?>>Femelle</option>
                     </select>
                     <i class="fa fa-caret-down"></i>
@@ -37,8 +35,8 @@ function singleAdoptionPage($adoption)
                 <div class="select-style">
                     <select name="species">
                         <option value="<?= $adoption['specie'] ?>" disabled selected><?= $adoption['specie'] ?></option>
-                        <option value="dog" <?php echo ($adoption['specie'] == 'dog') ? 'selected' : ''; ?>>Chien</option>
-                        <option value="cat" <?php echo ($adoption['specie'] == 'cat') ? 'selected' : ''; ?>>Chat</option>
+                        <option value="chien" <?php echo ($adoption['specie'] == 'chien') ? 'selected' : ''; ?>>Chien</option>
+                        <option value="chat" <?php echo ($adoption['specie'] == 'chat') ? 'selected' : ''; ?>>Chat</option>
                     </select>
                     <i class="fa fa-caret-down"></i>
                 </div>

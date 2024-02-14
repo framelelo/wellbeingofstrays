@@ -61,7 +61,7 @@ function showCatAdoptions()
 {
     global $pdo;
     try {
-        $query = $pdo->prepare("SELECT * FROM adoptions WHERE specie = 'cat' ORDER BY date DESC");
+        $query = $pdo->prepare("SELECT * FROM adoptions WHERE specie = 'chat' ORDER BY date DESC");
         $query->execute([]);
 
         $catAdoptions = $query->fetchAll();
@@ -75,7 +75,7 @@ function showDogAdoptions()
 {
     global $pdo;
     try {
-        $query = $pdo->prepare("SELECT * FROM adoptions WHERE specie = 'dog' ORDER BY date DESC");
+        $query = $pdo->prepare("SELECT * FROM adoptions WHERE specie = 'chien' ORDER BY date DESC");
         $query->execute([]);
 
         $datAdoptions = $query->fetchAll();

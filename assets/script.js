@@ -85,8 +85,8 @@ selectOpen("filter-species", "species-filter");
 
 const dogsFilter = document.getElementById("dogs-filter");
 const catsFilter = document.getElementById("cats-filter");
-const dogsContent = document.querySelectorAll(".dog-content");
-const catsContent = document.querySelectorAll(".cat-content");
+const dogsContent = document.querySelectorAll(".chien-content");
+const catsContent = document.querySelectorAll(".chat-content");
 
 if(dogsFilter) {
   dogsFilter.addEventListener("change", () => {

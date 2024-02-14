@@ -49,15 +49,15 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                         <select name="gender" class="select-style">
                             <option value="gender" disabled selected required>Male/Femelle</option>
                             <option value="male">Male</option>
-                            <option value="female">Femelle</option>
+                            <option value="femelle">Femelle</option>
                         </select>
                         <i class="fa fa-caret-down"></i>
                     </div>
                     <div class="select-style">
                         <select name="species">
                             <option value="specie" disabled selected required>Chien/Chat</option>
-                            <option value="dog">Chien</option>
-                            <option value="cat">Chat</option>
+                            <option value=" chien">Chien</option>
+                            <option value="chat">Chat</option>
                         </select>
 
                         <i class="fa fa-caret-down"></i>
@@ -93,7 +93,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                 </div>
 
 
-                <div class="dog-content">
+                <div class="chien-content">
                     <h2>Chiens à adopter</h2>
                     <div class="container-card">
 
@@ -134,7 +134,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                     </div>
                 </div>
 
-                <div class="cat-content">
+                <div class="chat-content">
                     <h2>Chats à adopter</h2>
                     <div class="container-card">
                         <?php if ($adoptions_cats) {
