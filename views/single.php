@@ -19,7 +19,7 @@ function singleAdoptionPage($adoption)
 
                     <label class="title-image" for="image-upload">Changer la photo</label>
                     <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
-                    <div id="preview"></div>
+                    
                 </div>
                 <input type="text" placeholder="<?= $adoption['name'] ?>" value="<?= $adoption['name'] ?>" name="name" id="name" maxlength='20'>
 

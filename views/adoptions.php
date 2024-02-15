@@ -41,7 +41,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
 
                         <label class="title-image" for="image-upload">Ajouter une photo</label>
                         <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
-                        <div id="preview"></div>
+                        
                     </div>
                     <input type="text" placeholder="Nom" name="name" id="name" maxlength='20' required>
 

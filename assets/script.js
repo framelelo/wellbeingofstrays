@@ -1,25 +1,20 @@
-
-
+// 
 // CONFIRMATION OF PASSWORD MATCH
+// 
 function confirmPwd() {
-
   var password = document.getElementById("pwd").value;
   var confirmPassword = document.getElementById("confirmation-pwd").value;
   var modalContainer = document.getElementById("modal-container");
-  
-  if(confirmPassword) {
+
+  if (confirmPassword) {
     if (password !== confirmPassword) {
+      modalContainer.style.display = "block";
 
-    modalContainer.style.display = 'block';
-
-    return false; 
+      return false;
+    }
+    return true;
   }
-
-  return true; 
 }
-  }
-  
-
 
 // OPEN NAVBAR ON SMALL SCREEN
 
@@ -36,7 +31,6 @@ function closeNavBar() {
 
 openNav.addEventListener("click", openNavBar);
 closeNav.addEventListener("click", closeNavBar);
-
 
 // DISPLAY SELECT DROPDOWN FILTER
 function selectOpen(button, optionsClass) {
@@ -79,8 +73,6 @@ function selectOpen(button, optionsClass) {
 }
 selectOpen("filter-species", "species-filter");
 
-
-
 // FILTER FOR SPECIES
 
 const dogsFilter = document.getElementById("dogs-filter");
@@ -88,19 +80,18 @@ const catsFilter = document.getElementById("cats-filter");
 const dogsContent = document.querySelectorAll(".chien-content");
 const catsContent = document.querySelectorAll(".chat-content");
 
-if(dogsFilter) {
+if (dogsFilter) {
   dogsFilter.addEventListener("change", () => {
-  dogsContent.forEach(function (dog) {
-    dog.style.display = dogsFilter.checked ? "block" : "none";
+    dogsContent.forEach(function (dog) {
+      dog.style.display = dogsFilter.checked ? "block" : "none";
+    });
+    catsContent.forEach(function (cat) {
+      cat.style.display = "none";
+    });
   });
-  catsContent.forEach(function (cat) {
-    cat.style.display = "none";
-  });
-});
 }
 
-
-if(dogsFilter) {
+if (dogsFilter) {
   catsFilter.addEventListener("change", () => {
     catsContent.forEach(function (cat) {
       cat.style.display = catsFilter.checked ? "block" : "none";
