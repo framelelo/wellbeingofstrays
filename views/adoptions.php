@@ -56,7 +56,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                     <div class="select-style">
                         <select name="species">
                             <option value="specie" disabled selected required>Chien/Chat</option>
-                            <option value=" chien">Chien</option>
+                            <option value="chien">Chien</option>
                             <option value="chat">Chat</option>
                         </select>
 
@@ -73,8 +73,6 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
             <h1>Découvrez les animaux à l’adoption</h1>
 
             <?php if ($adoptions) { ?>
-
-                
                 <div class="filter" id="filter-species">
                     <button class="select-button">
                         <span class="selected-value">Filtrer par :</span>
@@ -96,11 +94,9 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                 <div class="chien-content">
                     <h2>Chiens à adopter</h2>
                     <div class="container-card">
-
                         <?php if ($adoptions_dogs) {
                             foreach ($adoptions_dogs as $dog) { ?>
                                 <div class="card <?= $dog["specie"] ?>">
-
                                     <?php if ($isConnected) { ?>
                                         <div class="edit-part">
                                             <a class="edit-btn" href="?page=single&id=<?= $dog["id"] ?>">

@@ -78,8 +78,8 @@ function showDogAdoptions()
         $query = $pdo->prepare("SELECT * FROM adoptions WHERE specie = 'chien' ORDER BY date DESC");
         $query->execute([]);
 
-        $datAdoptions = $query->fetchAll();
-        return $datAdoptions;
+        $dogAdoptions = $query->fetchAll();
+        return $dogAdoptions;
     } catch (PDOException $e) {
         return false;
     }
