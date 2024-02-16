@@ -35,7 +35,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                 <h4>Ajouter un animal</h4>
                 <form method="post" enctype="multipart/form-data">
                     <div class="image-upload-btn">
-                        <div class="img-container img-preview" <?php if (!isset($selectedEvent['picture'])) echo 'style="display: none;"' ?>>
+                        <div class="img-container img-preview" style="display: none;">
                             <img src="uploads/<?= $singleAdoption['picture'] ?>" alt="Animaux en adoption île Maurice" class="img-fluid" id="previewImage">
                         </div>
 
@@ -89,8 +89,6 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                         </li>
                     </ul>
                 </div>
-
-
                 <div class="chien-content">
                     <h2>Chiens à adopter</h2>
                     <div class="container-card">
@@ -103,7 +101,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                                 <i class="fa fa-pen"></i>
                                             </a>
 
-                                            <a class="delete-btn" href="?page=remove-adoption&a=delete&id=<?= $dog["id"] ?>">
+                                            <a class="delete-btn" href="?page=supprimer-adoption&a=delete&id=<?= $dog["id"] ?>">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </div>
