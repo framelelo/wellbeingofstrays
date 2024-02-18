@@ -1,8 +1,13 @@
 <?php
 /**
- * Update events
+ * UPDATE EVENTS IN DATABASE
  * 
- * @param int $id, int $id_user, string $title, string $picture, string $link, string $description
+ * @param int $id
+ * @param int $id_user
+ * @param string $title
+ * @param string $picture
+ * @param string $link
+ * @param string $description
  * 
  * @return bool
  */
@@ -31,8 +36,13 @@ function updateEvents(int $id, int $id_user,string $title, string $picture, stri
 }
 
 /**
- * Add new events
- * @param int $id_user, string $title, string $picture, string $link, string $description
+ * ADD NEW EVENT IN DATABASE
+ * 
+ * @param int $id_user
+ * @param string $title
+ * @param string $picture
+ * @param string $link
+ * @param string $description
  * 
  * @return bool
  */
@@ -61,9 +71,8 @@ function newEvents(int $id_user, string $title, string $picture, string $link, s
 
 
 /**
- * Show events
+ * SELECT ALL EVENTS FROM DATABASE
  * 
- * @throws PDOException
  */
 function showEvents()
 {
@@ -80,11 +89,11 @@ function showEvents()
 }
 
 /**
- * Show event
+ * SELECT EVENTS BY ID FROM DATABASE
  * 
  * @param int $id
  * 
- * @throws PDOException
+ * 
  */
 function showEvent(int $id)
 {
@@ -99,13 +108,13 @@ function showEvent(int $id)
 }
 
 /**
- * Remove events
+ * REMOVE EVENTS FROM DATABASE
  * 
  * @param int $id
  * 
- * @throws PDOException
+ * @return bool
  */
-function removeEvents(int $id)
+function removeEvents(int $id): bool
 {
     global $pdo;
     try {

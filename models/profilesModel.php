@@ -1,6 +1,18 @@
 <?php
-
-function updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd, $role)
+/** 
+ * UPDATE PROFILES IN DATABASE
+ * 
+ * @param int $id
+ * @param string $firstName
+ * @param string $lastName
+ * @param int $tel
+ * @param string $email
+ * @param string $pwd
+ * @param string $role
+ * 
+ * @return bool
+ * */
+function updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd, $role): bool
 {
     global $pdo;
 
@@ -23,10 +35,25 @@ function updateProfiles($id, $firstName, $lastName, $tel, $email, $pwd, $role)
         return false;
     }
 }
-function newProfile($firstName, $lastName, $tel, $email, $pwd, $role)
+
+/**
+ * ADD A NEW PROFILE IN DATABASE
+ * 
+ * @param string $firstName
+ * @param string $lastName
+ * @param int $tel
+ * @param string $email
+ * @param string $pwd
+ * @param string $role
+ * 
+ * @return bool
+ */
+function newProfile(string $firstName, string $lastName, int $tel, string $email, string $pwd, string $role): bool
 {
 
     global $pdo;
+
+    // Check if email already exists in database
     try {
         $checkQuery = $pdo->prepare("SELECT COUNT(*) FROM members WHERE email = :e");
         $checkQuery->execute(["e" => $email]);
@@ -39,6 +66,7 @@ function newProfile($firstName, $lastName, $tel, $email, $pwd, $role)
         return false;
     }
 
+    // Insert new user into database
     try {
         $query = $pdo->prepare("INSERT INTO members(name,last_name,tel,email,pwd,role) VALUES (:n,:l,:t,:e,:p,:r)");
 
@@ -57,6 +85,9 @@ function newProfile($firstName, $lastName, $tel, $email, $pwd, $role)
     }
 }
 
+/**
+ * SHOW ALL PROFILES
+ */
 function showAllProfiles()
 {
     global $pdo;
@@ -72,9 +103,16 @@ function showAllProfiles()
     }
 }
 
+/**
+ * SHOW PROFILE BY ID
+ * 
+ * @param int $id
+ * 
+ * @return bool
+ * 
+ */
 
-
-function showProfile($id)
+function showProfile( int $id): bool
 {
     global $pdo;
     try {
@@ -87,7 +125,15 @@ function showProfile($id)
     }
 }
 
-function removeProfiles($id)
+/**
+ * REMOVE PROFILE
+ * 
+ * @param int $id
+ * 
+ * @return bool
+ * 
+ */
+function removeProfiles( int $id): bool
 {
     global $pdo;
     try {

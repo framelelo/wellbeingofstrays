@@ -1,6 +1,14 @@
 <?php
-
-function login($email, $pwd)
+/**
+ * FOR LOGIN
+ * 
+ * @param string $email
+ * @param string $pwd
+ * 
+ * @return bool
+ * 
+ * */
+function login(string $email, string $pwd): bool
 {
 
     global $pdo;
@@ -29,11 +37,24 @@ function login($email, $pwd)
     }
 }
 
+/**
+ * TO REGISTER A NEW USER
+ * 
+ * @param string $firstName
+ * @param string $lastName 
+ * @param int $tel
+ * @param string $email
+ * @param string $pwd
+ * 
+ * 
+ * @return bool
+ * 
+ * */
 
-function registrer($firstName, $lastName, $tel, $email, $pwd)
+function register(string $firstName, string $lastName, int $tel, string $email, string $pwd) : bool
 {
     global $pdo;
-
+// Check if email already exists in database
     try {
         $checkQuery = $pdo->prepare("SELECT * FROM members WHERE email = :e");
         $checkQuery->execute(["e" => $email]);
@@ -45,7 +66,7 @@ function registrer($firstName, $lastName, $tel, $email, $pwd)
         echo $e->getMessage();
         return false;
     }
-
+// Insert user into database
     try {
         $query = $pdo->prepare("INSERT INTO members(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");
 

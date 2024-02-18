@@ -1,11 +1,13 @@
 <?php
 /**
- * Show adoption
+ * ADD ADOPTIONS IN DATABASE IF CONDITIONS ARE MET
+ *
+ * @param array $adoptions
  * 
- * @param int $id
+ * @return void
  *
  */
-function AdoptionPage()
+function AdoptionPage(): void
 {
 
     global $base_url;
@@ -67,12 +69,13 @@ function AdoptionPage()
 };
 
 /**
- * Update adoption
+ * UPDATE ADOPTION IN DATABASE IF CONDITIONS ARE MET
  * 
  * @param int $id
  * 
+ * 
  */
-function updateAdoption($id)
+function updateAdoption(int $id)
 {
 
     global $base_url;
@@ -132,7 +135,7 @@ function updateAdoption($id)
 };
 
 /**
- * Show single adoption
+ * SHOW SINGLE ADOPTION IF ID IS SET
  * 
  * @param array $adoption
  * 
@@ -149,7 +152,7 @@ function singleAdoption()
 }
 
 /**
- * Remove adoption
+ * DELETE ADOPTION IF ID IS SET IN DATABASE
  * 
  * @param int $id
 */

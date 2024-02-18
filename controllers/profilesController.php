@@ -1,11 +1,14 @@
 <?php
 
 /** 
- * Update profile
+ * UPDATE PROFILE IN DATABASE IF CONDITIONS ARE MET
  * 
- * @param int $id, string $firstName, string $lastName, string $tel, string $email, string $pwd
- * 
- * @throws PDOException
+ * @param int $id
+ * @param string $firstName
+ * @param string $lastName
+ * @param int $tel
+ * @param string $email
+ * @param string $pwd
  * 
  */
 
@@ -79,13 +82,13 @@ function updateProfile()
 }
 
 /**
- * Remove profile
+ * DELETE PROFILE IN DATABASE IF ID IS SET
  * 
  * @param int $id
  * 
  * 
  */
-function removeProfile($id)
+function removeProfile(int $id)
 {
     global $base_url;
 

@@ -1,20 +1,24 @@
 <?php
 
-/** CREATE NEW ADOPTIONS CARDS
- * @var $pdo
+/** CREATE NEW ADOPTION IN DATABASE
  * 
- * @param int $id, string $name, string $specie, string $picture, string $gender, string $description
+ * @param int $id
+ * @param string $name
+ * @param string $specie
+ * @param string $picture
+ * @param string $gender
+ * @param string $description
  * 
  * @return bool
  * 
- * @throws PDOException
 */
 
-function newAdoptions(int $id, string $name, string $specie, string $picture, string $gender, string $description)
+function newAdoptions(int $id, string $name, string $specie, string $picture, string $gender, string $description): bool
 {
 
     global $pdo;
 
+    // Add a new adoption to the database
     try {
         $query = $pdo->prepare("INSERT INTO adoptions(id_member,name,specie,picture,gender,description,date) VALUES (:i,:n,:s,:p,:g,:d,:c)");
 
@@ -33,7 +37,20 @@ function newAdoptions(int $id, string $name, string $specie, string $picture, st
     }
 }
 
-function updateAdoptions($id, $id_user, $name, $specie, $picture, $gender, $description)
+/** UPDATE ADOPTIONS IN DATABASE
+ * 
+ * @param int $id
+ * @param int $id_user
+ * @param string $name
+ * @param string $specie
+ * @param string $picture
+ * @param string $gender
+ * @param string $description
+ * 
+ * @return bool
+ * */
+
+function updateAdoptions(int $id, int $id_user, string $name, string $specie, string $picture, string $gender, string $description):bool
 {
     global $pdo;
 
@@ -57,6 +74,10 @@ function updateAdoptions($id, $id_user, $name, $specie, $picture, $gender, $desc
     }
 }
 
+/**
+ * SELECT ADOPTIONS WHERE SPECIE = CHAT
+ * 
+ */
 function showCatAdoptions()
 {
     global $pdo;
@@ -71,6 +92,10 @@ function showCatAdoptions()
     }
 }
 
+/**
+ * SELECT ADOPTIONS WHERE SPECIE = CHIEN
+ * 
+ */
 function showDogAdoptions()
 {
     global $pdo;
@@ -85,7 +110,10 @@ function showDogAdoptions()
     }
 }
 
-
+/**
+ * SELECT ALL ADOPTIONS FROM DATABASE
+ * 
+ */
 function showAdoptions()
 {
     global $pdo;
@@ -100,7 +128,13 @@ function showAdoptions()
     }
 }
 
-function showAdoption($id)
+/**
+ * SELECT ADOPTIONS BY ID  FROM DATABASE
+ * 
+ * @param int $id
+ * 
+ */
+function showAdoption(int $id)
 {
     global $pdo;
     try {
@@ -115,8 +149,15 @@ function showAdoption($id)
     }
 }
 
-
-function removeAdoptions($id)
+/**
+ * DELETE ADOPTION BY ID FROM DATABASE
+ * 
+ * @param int $id
+ * 
+ * @return bool
+ * 
+ */
+function removeAdoptions(int $id): bool
 {
     global $pdo;
     try {

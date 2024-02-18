@@ -1,12 +1,15 @@
 <?php
 
 /**
- * Sign in - login
+ * LOGIN USER IF CREDENTIALS ARE CORRECT
  * 
- * @param string $email,
+ * @param string $email
  * @param string $pwd
+ * 
+ * 
+ * @return void
  */
-function signIn()
+function signIn(): void
 {
     global $base_url;
     if ($_POST) {
@@ -30,7 +33,7 @@ function signIn()
 
 /**
  * 
- * Sign up - registrer new user 
+ * ADD NEW USER IN DATABASE
  * 
  * @param string $firstName,
  * @param string $lastName, 
@@ -38,9 +41,9 @@ function signIn()
  * @param string $email, 
  * @param string $pwd
  * 
- * return boolean
+ * @return void
  */
-function newRegistrer()
+function newRegistrer():void
 {
     global $base_url;
     if ($_POST) {
@@ -56,7 +59,7 @@ function newRegistrer()
             // PASSWORD SHOULD CONTAIN MINIMUM 8 CHARACTERS, 1 LETTER, 1 NUMBER
             if (strlen($pwd) >= 8 && preg_match("#[0-9]+#", $pwd) && preg_match("#[A-Z]+#", $pwd) && preg_match("#[a-z]+#", $pwd)) {
                 
-                $registrer = registrer($firstName, $lastName, $tel, $email, $pwd);
+                $registrer = register($firstName, $lastName, $tel, $email, $pwd);
                 if ($registrer) {
                     header("Location: $base_url/?page=login");
                 } else {
@@ -73,11 +76,11 @@ function newRegistrer()
 }
 
 /**
- * Log out
+ * LOGOUT
  * 
- * @throws PDOException
+ * @return void
  */
-function logOut()
+function logOut(): void
 {
     global $base_url;
     session_destroy();

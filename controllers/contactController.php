@@ -1,6 +1,10 @@
 
 <?php
 
+/**
+ * SEND MAIL
+ * 
+ */
 function sendEmail()
 {
     require_once 'captchaControllers/autoload.php';
@@ -34,8 +38,6 @@ function sendEmail()
             echo '<div class="modal"><p>Merci de remplir le captcha !</p></div>';
         }
     }
-
-
     contactPage();
 }
 ?>
