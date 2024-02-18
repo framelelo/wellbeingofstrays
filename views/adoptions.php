@@ -6,8 +6,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
     $title = 'Adoptions Chiens ou Chats Maurice';
     $page = 'adoptions';
 
-    global $isConnected;
-    global $base_url;
+    global $isConnected, $base_url, $msg;
 
     // Start buffer
     ob_start() ?>
@@ -73,6 +72,12 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                 </form>
             </div>
         <?php } ?>
+        <?php 
+    if ($msg) {
+        echo "<div class='modal'><p>" . $_SESSION['msg'] . "</div>";
+        $_SESSION['msg'] = "";
+        header("Refresh: 1.5; url=$base_url?p=profile&id=" . $_SESSION['user']['id_user']);
+    } ?>
         <section class="adoptions">
             <h1>Découvrez les animaux à l’adoption</h1>
 
@@ -107,7 +112,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                                 <i class="fa fa-pen"></i>
                                             </a>
 
-                                            <a class="delete-btn" href="?page=supprimer-adoption&a=delete&id=<?= $dog["id"] ?>">
+                                            <a class="delete-btn" href="?page=supprimer-adoption&id=<?= $dog["id"] ?>">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </div>
@@ -146,8 +151,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                             <a class="edit-btn" href="?page=single&id=<?= $cat["id"] ?>">
                                                 <i class="fa fa-pen"></i>
                                             </a>
-
-                                            <a class="delete-btn" href="?page=supprimer-adoption&a=delete&id=<?= $cat["id"] ?>">
+                                            <a class="delete-btn" href="?page=supprimer-adoption&id=<?= $cat["id"] ?>">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </div>

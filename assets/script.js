@@ -119,3 +119,16 @@ function previewFile() {
     reader.readAsDataURL(files[0]);
   }
 }
+
+// LINK VALIDATION FOR EVENTS PAGE
+function validateLinkFormat(input) {
+  var linkFormat = /^(ftp|http|https):\/\/[^ "]+$/;
+
+  var errorMessage = document.getElementById('link-error-message');
+  
+  if (linkFormat.test(input.value)) {
+      errorMessage.textContent = '';
+  } else {
+      errorMessage.textContent = 'Merci de renseigner un lien valide';
+  }
+}

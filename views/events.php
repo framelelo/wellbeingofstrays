@@ -36,9 +36,9 @@ function showEventsPage($events, $selectedEvent)
                     </div>
 
                     <input type="text" placeholder="<?= $selectedEvent['title'] ?? 'Titre'; ?>" name="title" id="name" maxlength="40" value="<?= $defaultTitle ?>" <?= $isRequired ?>>
-
-                    <input type="text" placeholder="<?= $selectedEvent['link'] ?? 'Lien'; ?>" name="event-link" id="event-link" value="<?= $defaultLink ?>" <?= $isRequired ?>>
-
+                    <!-- Link format validation -->
+                    <input type="text" oninput="validateLinkFormat(this)" placeholder="<?= $selectedEvent['link'] ?? 'Lien'; ?>" name="event-link" id="event-link" value="<?= $defaultLink ?>" <?= $isRequired ?>>
+                    <span id="link-error-message" style="color: red;"></span>
                     <textarea name="description" id="message" cols="30" rows="10" placeholder="<?= $selectedEvent['description'] ?? 'Description'; ?>" maxlength="150" <?= $isRequired ?>><?= $defaultCoontent ?></textarea>
 
                     <button class="button" type="submit">
@@ -59,7 +59,6 @@ function showEventsPage($events, $selectedEvent)
                 foreach ($events as $event) { ?>
                     <div class="card">
                         <h3 class="title"><?= $event['title'] ?></h3>
-
                         <?php if ($isConnected) { ?>
                             <div class="edit-part">
                                 <a class="edit-btn" href="?page=evenements&id=<?= $event["id"] ?>">

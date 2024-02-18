@@ -1,13 +1,15 @@
 <?php
 session_start();
 
-global $base_url;
+//  Set global variables
+global $base_url, $isConnected;
+// Set base url
 $base_url = "http://localhost/wellbeingofstrays";
 
-global $isConnected;
+// Check if user is connected
 $isConnected = $_SESSION && $_SESSION["user"];
 
-
+// Set root path
 define('ROOT_PATH', realpath(dirname(__FILE__)));
 
 

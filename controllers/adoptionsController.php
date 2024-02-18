@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ADD ADOPTIONS IN DATABASE IF CONDITIONS ARE MET
  *
@@ -55,7 +56,8 @@ function AdoptionPage()
         if ($id && $name && $specie && $picture && $gender && $description) {
             $adoption = newAdoptions($id, $name, $specie, $picture, $gender, $description);
             if ($adoption) {
-                header("Location: $base_url/?page=adoptions");
+                echo '<div class="modal"><p>Fiche adoption ajoutée !</p></div>';
+                header("Refresh: .5; URL=$base_url/?page=adoptions");
             } else {
                 echo '<div class="modal"><p>Merci de vérifier !</p></div>';
             }
@@ -121,8 +123,8 @@ function updateAdoption(int $id)
 
         $update = updateAdoptions($id, $id_user, $name, $specie, $picture, $gender,  $description);
         if ($update) {
-
-            header("Location: $base_url/?page=adoptions");
+            echo '<div class="modal"><p>Fiche adoption modifiée !</p></div>';
+            header("Refresh: .5; URL=$base_url/?page=single&id=$id");
         } else {
             echo '<div class="modal"><p>Merci de verifier !</p></div>';
         }
@@ -135,9 +137,8 @@ function updateAdoption(int $id)
 /**
  * SHOW SINGLE ADOPTION IF ID IS SET
  * 
- * @param array $adoption
  * 
-*/
+ */
 function singleAdoption()
 {
     if (isset($_GET['id'])) {
@@ -153,7 +154,7 @@ function singleAdoption()
  * DELETE ADOPTION IF ID IS SET IN DATABASE
  * 
  * @param int $id
-*/
+ */
 function removeAdoption()
 {
     global $base_url;
@@ -172,8 +173,10 @@ function removeAdoption()
                 unlink($picturePath);
             }
         }
-        header("location: $base_url/?page=adoptions");
+        echo '<div class="modal"><p>Fiche adoption supprimée !</p></div>';
+        header("Refresh: 0.5; URL=$base_url/?page=adoptions");
     } else {
         echo '<div class="modal"><p>Merci de vérifier !</p></div>';
     }
+    AdoptionPage();
 }

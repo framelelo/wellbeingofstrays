@@ -27,6 +27,7 @@ function showProfilePage($profiles, $selectedProfile)
       </div>
       <?php foreach ($profiles as $profile) { ?>
         <div class="profile row">
+        <i class="fas fa-user-shield"></i>
           <div class="first-name cell"><?= $profile['name'] ?></div>
           <div class="last-name cell"><?= $profile['last_name'] ?></div>
           <div class="tel cell"><?= $profile['tel'] ?></div>
