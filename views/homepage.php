@@ -2,9 +2,14 @@
 function ShowHomePage($adoptions)
 {
 
-    $title = 'Bien-être animal errant île Maurice'; 
+    // Set title and page name
+    $title = 'Bien-être animal errant île Maurice';
+    $page = 'home';
+    
     global $base_url;
     global $isConnected;
+
+    // Start buffer
     ob_start() ?>
     <div class="jumbotron">
         <img src="uploads/jumbotron-accueil.jpg" alt="well-being of strays" class="img-fluid">
@@ -127,6 +132,8 @@ function ShowHomePage($adoptions)
 
 
 <?php
+
+    // End buffer and display it through layout.php with the variable $content
     $content = ob_get_clean();
     require "layout.php";
 }

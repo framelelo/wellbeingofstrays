@@ -2,14 +2,17 @@
 function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $adoptions)
 {
 
+    // Set title and page name
     $title = 'Adoptions Chiens ou Chats Maurice';
     $page = 'adoptions';
 
     global $isConnected;
     global $base_url;
 
+    // Start buffer
     ob_start() ?>
 
+    <!-- Jumbotron -->
     <div class="jumbotron">
         <img src="uploads/jumbotron-adoptions.jpg" alt="Adoption animaux Maurice" class="img-fluid">
         <div class="container">
@@ -30,6 +33,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
     </div>
     <div class="container">
 
+        <!-- Form to add a new adoption -->
         <?php if ($isConnected) { ?>
             <div class="edit-form">
                 <h4>Ajouter un animal</h4>
@@ -41,14 +45,14 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
 
                         <label class="title-image" for="image-upload">Ajouter une photo</label>
                         <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
-                        
+
                     </div>
                     <input type="text" placeholder="Nom" name="name" id="name" maxlength='20' required>
 
                     <div class="select-style">
                         <select name="gender" class="select-style">
                             <option value="gender" disabled selected required>Male/Femelle</option>
-                            <option value="male">Male</option>
+                            <option value="mâle">Mâle</option>
                             <option value="femelle">Femelle</option>
                         </select>
                         <i class="fa fa-caret-down"></i>
@@ -72,6 +76,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
         <section class="adoptions">
             <h1>Découvrez les animaux à l’adoption</h1>
 
+            <!-- Filter options for dogs and cats -->
             <?php if ($adoptions) { ?>
                 <div class="filter" id="filter-species">
                     <button class="select-button">
@@ -89,6 +94,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                         </li>
                     </ul>
                 </div>
+                <!-- Display dogs -->
                 <div class="chien-content">
                     <h2>Chiens à adopter</h2>
                     <div class="container-card">
@@ -112,7 +118,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                         </div>
                                         <div class="top-content">
                                             <h3 class="name"><?= $dog['name'] ?></h3>
-                                            <?php if ($dog['gender'] == 'male') {
+                                            <?php if ($dog['gender'] == 'mâle') {
                                                 echo '<i class="fa fa-mars"></i>';
                                             } else echo '<i class="fa fa-venus"></i>'; ?>
                                         </div>
@@ -128,11 +134,11 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                     </div>
                 </div>
 
+                <!-- Display dogs -->
                 <div class="chat-content">
                     <h2>Chats à adopter</h2>
                     <div class="container-card">
                         <?php if ($adoptions_cats) {
-
                             foreach ($adoptions_cats as $cat) { ?>
                                 <div class="card <?= $cat["specie"] ?>">
                                     <?php if ($isConnected) { ?>
@@ -141,7 +147,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                                 <i class="fa fa-pen"></i>
                                             </a>
 
-                                            <a class="delete-btn" href="?page=remove-adoption&a=delete&id=<?= $cat["id"] ?>">
+                                            <a class="delete-btn" href="?page=supprimer-adoption&a=delete&id=<?= $cat["id"] ?>">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </div>
@@ -152,7 +158,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                         </div>
                                         <div class="top-content">
                                             <h3 class="name"><?= $cat['name'] ?></h3>
-                                            <?php if ($cat['gender'] == 'male') {
+                                            <?php if ($cat['gender'] == 'mâle') {
                                                 echo '<i class="fa fa-mars"></i>';
                                             } else echo '<i class="fa fa-venus"></i>'; ?>
 
@@ -171,9 +177,9 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                 </div>
         </section>
     </div>
-
-
 <?php
+
+    // End buffer and display it through layout.php with the variable $content
     $content = ob_get_clean();
     require "layout.php";
 }; ?>

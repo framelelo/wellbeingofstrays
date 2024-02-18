@@ -1,11 +1,12 @@
 <?php
 function showMentions()
 {
-    $page = 'mentions';
-    $title = 'Well-Being of Strays - Mentions Légales';
-    global $isConnected;
-    global $base_url;
 
+    // Set title and page name
+    $title = 'Well-Being of Strays - Mentions Légales';
+    $page = 'mentions';
+
+    // Start buffer
     ob_start() ?>
     <main>
         <div class="container">
@@ -229,6 +230,8 @@ function showMentions()
 
         </div>
     <?php
+
+    // End buffer and display it through layout.php with the variable $content
     $content = ob_get_clean();
     require "layout.php";
 }

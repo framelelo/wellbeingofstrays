@@ -1,6 +1,7 @@
 <?php
 function singleAdoptionPage($adoption)
 {
+    // Set title and page name
     $title = 'Adoption animale -' . $adoption['name'];
     $page  = 'single';
 
@@ -19,7 +20,7 @@ function singleAdoptionPage($adoption)
 
                     <label class="title-image" for="image-upload">Changer la photo</label>
                     <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
-                    
+
                 </div>
                 <input type="text" placeholder="<?= $adoption['name'] ?>" value="<?= $adoption['name'] ?>" name="name" id="name" maxlength='20'>
 
@@ -91,6 +92,8 @@ function singleAdoptionPage($adoption)
     </section>
 
 <?php
+
+    // End buffer and display it through layout.php with the variable $content
     $content = ob_get_clean();
     require "layout.php";
 };

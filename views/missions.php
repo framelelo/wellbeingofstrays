@@ -2,9 +2,11 @@
 function showMissions()
 {
 
+    // Set title and page name
     $title = 'Bien-être animal errant île Maurice';
     $page = 'missions';
 
+    // Start buffer
     ob_start() ?>
     <main>
         <div class="jumbotron">
@@ -77,6 +79,9 @@ function showMissions()
             <a class="btn" href="https://www.paypal.com/donate?hosted_button_id=3DS8RCCPB5EB6" target="_blank">faire un don</a>
         </section>
     <?php
+
+    // End buffer and display it through layout.php with the variable $content
     $content = ob_get_clean();
-    require "layout.php";}
-?>
+    require "layout.php";
+}
+    ?>

@@ -1,23 +1,26 @@
 <?php
 function showEventsPage($events, $selectedEvent)
 {
-    $page = 'evenements';
-    $title = 'Nos évènements';
 
+    // Set title and page name
+    $title = 'Nos évènements';
+    $page = 'evenements';
 
     global $isConnected;
 
-    ob_start() ?>
-    <?php if ($isConnected) {
-        
+    // Start buffer
+    ob_start();
+
+    if ($isConnected) {
         $defaultImage = $selectedEvent['picture'] ?? '';
         $defaultTitle = $selectedEvent['title'] ?? '';
         $defaultLink = $selectedEvent['link'] ?? '';
         $defaultCoontent = $selectedEvent['description'] ?? '';
-        $isRequired = isset($_GET['id']) ? '' : 'required'; 
+        $isRequired = isset($_GET['id']) ? '' : 'required';
 
-          ?>
+?>
         <div class="container">
+            <!-- Form to add or update events-->
             <div class="edit-form">
                 <h4><?= isset($_GET['id']) ? 'Modifier l\'évènement' : 'Ajouter un évènement' ?></h4>
                 <form method="post" enctype="multipart/form-data">
@@ -48,7 +51,7 @@ function showEventsPage($events, $selectedEvent)
     <?php } ?>
 
     <h3 class="events-title">Nos évènements</h3>
-
+    <!-- Display events cards -->
     <section class="events">
         <div class="container-card">
 
@@ -85,6 +88,7 @@ function showEventsPage($events, $selectedEvent)
         </div>
     </section>
 <?php
+    // End buffer and display it through layout.php with the variable $content
     $content = ob_get_clean();
     require "layout.php";
 }

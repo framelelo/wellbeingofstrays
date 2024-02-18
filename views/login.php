@@ -2,10 +2,11 @@
 function showLoginPage()
 {
 
-    $title = 'connexion';
-    global $isConnected;
-    global $base_url;
+    // Set title and page name
+    $title = 'Bien-être animal errant île Maurice';
+    $page =  'connexion';
 
+    // Start buffer
     ob_start() ?>
     <div class="login-page">
         <div class="container">
@@ -18,6 +19,8 @@ function showLoginPage()
         </div>
     </div>
 <?php
+
+    // End buffer and display it through layout.php with the variable $content
     $content = ob_get_clean();
     require "layout.php";
 }

@@ -3,11 +3,9 @@
  * ADD ADOPTIONS IN DATABASE IF CONDITIONS ARE MET
  *
  * @param array $adoptions
- * 
- * @return void
  *
  */
-function AdoptionPage(): void
+function AdoptionPage()
 {
 
     global $base_url;

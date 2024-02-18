@@ -84,11 +84,9 @@ function updateProfile()
 /**
  * DELETE PROFILE IN DATABASE IF ID IS SET
  * 
- * @param int $id
- * 
  * 
  */
-function removeProfile(int $id)
+function removeProfile($id)
 {
     global $base_url;
 

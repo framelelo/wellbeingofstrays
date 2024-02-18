@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <?php
 global $base_url;
@@ -11,14 +10,14 @@ global $isConnected;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
 
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/script.js" defer></script>
 
     <!--  GOOGLE RECAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
+
     <!--  FONTAWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -33,7 +32,7 @@ global $isConnected;
 </head>
 
 <body class="<?= $page ?>-page">
-    <?php if ($title !== 'connexion' && $title !== 'inscription') {
+    <?php if ($page !== 'connexion' && $page !== 'inscription') {
 
     ?>
 
@@ -100,10 +99,11 @@ global $isConnected;
             </nav>
         </header>
     <?php }; ?>
+
     <main>
         <?= $content; ?>
     </main>
-    <?php if ($title !== 'connexion' && $title !== 'inscription') {
+    <?php if ($page !== 'connexion' && $page !== 'inscription') {
     ?>
         <footer>
             <div class="top-container">

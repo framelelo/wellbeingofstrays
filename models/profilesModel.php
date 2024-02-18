@@ -1,5 +1,6 @@
 <?php
 /** 
+ * 
  * UPDATE PROFILES IN DATABASE
  * 
  * @param int $id
@@ -108,11 +109,9 @@ function showAllProfiles()
  * 
  * @param int $id
  * 
- * @return bool
- * 
  */
 
-function showProfile( int $id): bool
+function showProfile( int $id)
 {
     global $pdo;
     try {
@@ -126,14 +125,11 @@ function showProfile( int $id): bool
 }
 
 /**
+ * 
  * REMOVE PROFILE
  * 
- * @param int $id
- * 
- * @return bool
- * 
  */
-function removeProfiles( int $id): bool
+function removeProfiles($id)
 {
     global $pdo;
     try {
