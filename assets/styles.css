@@ -6,6 +6,8 @@
   box-sizing: border-box;
 }
 
+/* Variables */
+
 :root {
   --primary_color: #ef3838;
   --secondary_color: #000000;
@@ -67,6 +69,7 @@ a {
   text-decoration: none;
 }
 
+/* General HEADINGS */
 h1,
 h2,
 h3,
@@ -74,7 +77,6 @@ h4 {
   font-family: var(--secondary-font);
   text-transform: uppercase;
 }
-
 
 .img-fluid {
   width: 100%;
@@ -85,6 +87,8 @@ h4 {
 .center-text {
   text-align: center;
 }
+
+/* General INPUTS styles */
 
 input:not(#role),
 textarea,
@@ -155,7 +159,6 @@ input[type="file"] {
   }
 }
 
-
 /******************************
        DEFAULT BUTTON
  ****************************/
@@ -184,12 +187,10 @@ input[type="file"] {
   padding: 30px;
 }
 
-
-
 /******************************
        DISPLAY MODAL 
  ****************************/
- .modal {
+.modal {
   position: fixed;
   opacity: 0;
   visibility: hidden;
@@ -240,12 +241,11 @@ input[type="file"] {
   }
 }
 
-
 /***************************
         DROPDOWN FILTER
  *****************************/
 
- .filter {
+.filter {
   position: relative;
   width: 150px;
   text-align: right;
@@ -318,7 +318,7 @@ input[type="file"] {
     margin: 30px auto;
     > a {
       color: var(--secondary_color);
-      .img-container  {
+      .img-container {
         overflow: hidden;
         img {
           transition: all 0.5s ease-out;
@@ -364,7 +364,6 @@ input[type="file"] {
     }
   }
 }
-
 
 /******************************
         EDIT FORM 
@@ -1038,6 +1037,7 @@ header {
       padding: 15px;
       margin: 50px auto;
       border-top: 1px solid var(--secondary_color);
+
       > h2 {
         font-size: 25px;
         margin: 15px 0px;
@@ -1257,13 +1257,20 @@ header {
           display: block;
           width: 100%;
         }
-        
+
         > textarea {
           margin-bottom: 30px;
         }
         > button {
           font-size: 20px;
           margin-top: 25px;
+        }
+      }
+      .g-recaptcha-container {
+        text-align: center;
+
+        .g-recaptcha {
+          display: inline-block;
         }
       }
     }
@@ -1361,19 +1368,20 @@ footer {
     margin: 50px auto;
     text-align: justify;
   }
-  h1,h2,h3 {
+  h1,
+  h2,
+  h3 {
     margin: 15px 0px;
   }
   h1 {
     color: var(--primary_color);
-  
   }
   h2 {
     font-size: 20px;
     font-weight: 400;
     color: var(--tertiary_color);
   }
-  h3  {
+  h3 {
     font-size: 18px;
     font-weight: 400;
   }
