@@ -56,8 +56,7 @@ function AdoptionPage()
         if ($id && $name && $specie && $picture && $gender && $description) {
             $adoption = newAdoptions($id, $name, $specie, $picture, $gender, $description);
             if ($adoption) {
-                echo '<div class="modal"><p>Fiche adoption ajoutée !</p></div>';
-                header("Refresh: .5; URL=$base_url/?page=adoptions");
+                header("location: $base_url/?page=adoptions");
             } else {
                 echo '<div class="modal"><p>Merci de vérifier !</p></div>';
             }
@@ -118,13 +117,9 @@ function updateAdoption(int $id)
             return
                 ShowHomePage($adoption);
         }
-
-
-
         $update = updateAdoptions($id, $id_user, $name, $specie, $picture, $gender,  $description);
         if ($update) {
-            echo '<div class="modal"><p>Fiche adoption modifiée !</p></div>';
-            header("Refresh: .5; URL=$base_url/?page=single&id=$id");
+            header("location: $base_url/?page=adoptions");
         } else {
             echo '<div class="modal"><p>Merci de verifier !</p></div>';
         }
@@ -173,8 +168,7 @@ function removeAdoption()
                 unlink($picturePath);
             }
         }
-        echo '<div class="modal"><p>Fiche adoption supprimée !</p></div>';
-        header("Refresh: 0.5; URL=$base_url/?page=adoptions");
+        header("location: $base_url/?page=adoptions");
     } else {
         echo '<div class="modal"><p>Merci de vérifier !</p></div>';
     }

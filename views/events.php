@@ -26,7 +26,7 @@ function showEventsPage($events, $selectedEvent)
                 <form method="post" enctype="multipart/form-data">
                     <div class="image-upload-btn">
                         <div class="img-container img-preview" <?= !isset($selectedEvent['picture']) ? 'style="display: none;"' : '' ?>>
-                            <img src="uploads/<?= $defaultImage ?>" alt="Animaux en adoption à l'ile Maurice" class="img-fluid">
+                            <img src="uploads/<?= $defaultImage ?>" alt="Animaux en adoption à l'ile Maurice" class="img-fluid" id="previewImage">
                         </div>
                         <label class="title-image" for="image-upload">
                             <?= isset($_GET['id']) ? 'Modifier la photo' : 'Ajouter une photo' ?>

@@ -38,8 +38,6 @@ function eventPage()
         // Check if the image has been uploaded
         if (!empty($_FILES['img-event']['name'])) {
 
-            // Retrieve the old image path
-            $oldPicturePath = ROOT_PATH . "/uploads/" . $selectedEvent['picture'];
             //Move the uploaded file to uploads folder
             $picture_upload = move_uploaded_file($temp_folder, $upload_folder);
             //Retrieve the file size
@@ -52,6 +50,8 @@ function eventPage()
                     showEventsPage($events, $selectedEvent);
             } else {
 
+            // Retrieve the old image path
+            $oldPicturePath = ROOT_PATH . "/uploads/" . $selectedEvent['picture'];
                 // Delete the old image if it exists
                 if (file_exists($oldPicturePath)) {
                     unlink($oldPicturePath);

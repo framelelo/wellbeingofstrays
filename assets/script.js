@@ -123,8 +123,8 @@ if (catsFilter) {
 // IMAGE PREVIEW
 
 function previewFile() {
-  const previewImg = document.querySelector(".img-container img");
-  const image = document.querySelector(".img-preview");
+  const imageContainer = document.querySelector(".img-container");
+  const previewImg = document.getElementById("previewImage");
   const fileInput = document.getElementById("image-upload");
   const files = fileInput.files;
 
@@ -133,7 +133,7 @@ function previewFile() {
     reader.onload = function (e) {
       previewImg.src = e.target.result;
     };
-    image.style.display = "block";
+    imageContainer.style.display = "block";
     reader.readAsDataURL(files[0]);
   }
 }
