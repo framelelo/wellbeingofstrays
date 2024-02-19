@@ -51,10 +51,9 @@ function ShowHomePage($adoptions)
             </div>
         <?php } ?>
         <div class="container-card">
-
             <?php if ($adoptions) {
                 foreach ($adoptions as $adoption) { ?>
-                    <div class="card <?= $adoption["specie"] ?>-content">
+                    <div class="card <?= $adoption["specie"] ?>-content block animatable fadeInUp">
 
                         <?php if ($isConnected) { ?>
                             <div class="edit-part">
@@ -86,7 +85,7 @@ function ShowHomePage($adoptions)
                         </a>
                     </div>
             <?php }
-            } else echo '<p class="no_adoptions">Retrouvez nos propositions d\'adoption prochainement !</p>'; ?>
+            } else echo '<p class="no-adoptions">Retrouvez nos propositions d\'adoption prochainement !</p>'; ?>
             <!-- DISPLAY MESSAGE IF ONE OF SPECIES IS EMPTY -->
             <p class="no-adoptions-message" style="display: none;">Pas d'adoptions pour le moment</p>
 
@@ -100,26 +99,26 @@ function ShowHomePage($adoptions)
         <h2>Nos missions</h2>
         <div class="container">
             <div class="column">
-                <a href="<?= $base_url ?>?page=missions#sensibilisation" class="img-container">
+                <a href="<?= $base_url ?>?page=missions#sensibilisation" class="img-container block animatable fadeInUp">
                     <div class="title">Sensibilisation</div>
                     <div class="content">Nous œuvrons pour trouver des foyers...</div>
                     <img src="uploads/Missions-1.jpg" loading="lazy" alt="Animaux île Maurice">
                 </a>
 
-                <a href="<?= $base_url ?>?page=missions#nourrissage" class="img-container">
+                <a href="<?= $base_url ?>?page=missions#nourrissage" class="img-container block animatable fadeInDown">
                     <div class="title">Nourrissage</div>
                     <div class="content">Nos bénévoles à travers l’île nourrissent régulèrement les souvent que possibleanimaux errants de leur région...</div>
                     <img src="uploads/Missions-2.jpg" loading="lazy" alt="Aide aux animaux Maurice">
                 </a>
             </div>
             <div class="column">
-                <a href="<?= $base_url ?>?page=missions#sauvetage" class="img-container">
+                <a href="<?= $base_url ?>?page=missions#sauvetage" class="img-container block animatable fadeInUp">
                     <div class="title">Sauvetage</div>
                     <div class="content">L'association recueille des animaux errants en détresse...
                     </div>
                     <img src="uploads/Missions-3.png" loading="lazy" alt="Sauvetage animaux Maurice">
                 </a>
-                <a href="<?= $base_url ?>?page=missions#sterilisation" class="img-container">
+                <a href="<?= $base_url ?>?page=missions#sterilisation" class="img-container block animatable fadeInDown">
                     <div class="title">Stérilisation</div>
                     <div class="content">Des programmes de stérilisation et de castration sont tous les mois organisées...</div>
                     <img src="uploads/Missions-4.jpg" loading="lazy" alt="Sterilisation animaux Maurice">

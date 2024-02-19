@@ -105,7 +105,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                     <div class="container-card">
                         <?php if ($adoptions_dogs) {
                             foreach ($adoptions_dogs as $dog) { ?>
-                                <div class="card <?= $dog["specie"] ?>">
+                                <div class="card <?= $dog["specie"] ?>  block animatable fadeInDown">
                                     <?php if ($isConnected) { ?>
                                         <div class="edit-part">
                                             <a class="edit-btn" href="?page=single&id=<?= $dog["id"] ?>">
@@ -145,7 +145,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                     <div class="container-card">
                         <?php if ($adoptions_cats) {
                             foreach ($adoptions_cats as $cat) { ?>
-                                <div class="card <?= $cat["specie"] ?>">
+                                <div class="card <?= $cat["specie"] ?> block animatable fadeInUp">
                                     <?php if ($isConnected) { ?>
                                         <div class="edit-part">
                                             <a class="edit-btn" href="?page=single&id=<?= $cat["id"] ?>">
