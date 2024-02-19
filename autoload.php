@@ -1,4 +1,5 @@
 <?php
+// Start session to check if user is connected
 session_start();
 
 //  Set global variables
