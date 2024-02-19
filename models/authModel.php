@@ -51,7 +51,8 @@ function login(string $email, string $pwd): bool
  * 
  * */
 
-function register(string $firstName, string $lastName, int $tel, string $email, string $pwd) : bool
+
+ function register(string $firstName, string $lastName, int $tel, string $email, string $pwd) : bool
 {
     global $pdo;
 // Check if email already exists in database
@@ -66,6 +67,9 @@ function register(string $firstName, string $lastName, int $tel, string $email, 
         echo $e->getMessage();
         return false;
     }
+
+
+
 // Insert user into database
     try {
         $query = $pdo->prepare("INSERT INTO members(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");

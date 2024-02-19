@@ -1,12 +1,16 @@
 <?php
 
-/**
- * Affichage selon les 'cases' de l'url définit par la variable 'page'
- */
+
 require_once "autoload.php";
 
-
-if (isset($_GET["page"])) {
+/**
+ * Affichage des pages ou appel des fonctions selon les 'cases' de l'url définit par la variable 'page'
+ * 
+ * @param string $page
+ * 
+ */
+if (isset($_GET["page"]))
+{
     $page = $_GET["page"];
     switch ($page) {
 

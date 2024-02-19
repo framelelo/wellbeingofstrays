@@ -5,7 +5,7 @@ function ShowHomePage($adoptions)
     // Set title and page name
     $title = 'Bien-être animal errant île Maurice';
     $page = 'home';
-    
+
     global $base_url;
     global $isConnected;
 
@@ -32,7 +32,7 @@ function ShowHomePage($adoptions)
     <section class="adoptions">
         <h1>Découvrez les animaux à l’adoption</h1>
 
-        <?php if ($adoptions) { ?>
+        <?php if (($adoptions) && (sizeof($adoptions) > 1)) { ?>
             <div class="filter" id="filter-species">
                 <button class="select-button">
                     <span class="selected-value">Filtrer par :</span>
@@ -87,6 +87,8 @@ function ShowHomePage($adoptions)
                     </div>
             <?php }
             } else echo '<p class="no_adoptions">Retrouvez nos propositions d\'adoption prochainement !</p>'; ?>
+            <!-- DISPLAY MESSAGE IF ONE OF SPECIES IS EMPTY -->
+            <p class="no-adoptions-message" style="display: none;">Pas d'adoptions pour le moment</p>
 
         </div>
     </section>

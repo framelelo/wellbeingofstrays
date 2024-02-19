@@ -82,7 +82,7 @@ function showEventsPage($events, $selectedEvent)
                         </a>
                     </div>
             <?php };
-            } else echo '<p class="no_adoptions">Pas d\'évènements pour le moment</p>'; ?>
+            } else echo '<p class="no-adoptions">Pas d\'évènements pour le moment</p>'; ?>
 
         </div>
     </section>

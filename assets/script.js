@@ -79,6 +79,7 @@ const dogsFilter = document.getElementById("dogs-filter");
 const catsFilter = document.getElementById("cats-filter");
 const dogsContent = document.querySelectorAll(".chien-content");
 const catsContent = document.querySelectorAll(".chat-content");
+const noAdoptionMessage = document.querySelector(".no-adoptions-message"); 
 
 if (dogsFilter) {
   dogsFilter.addEventListener("change", () => {
@@ -88,10 +89,20 @@ if (dogsFilter) {
     catsContent.forEach(function (cat) {
       cat.style.display = "none";
     });
+
+    // Show or hide the "No dogs for adoption" message
+    if (dogsContent.length === 0) {
+      
+         noAdoptionMessage.style.display = "block";
+    } else {
+      noAdoptionMessage.style.display = "none";
+    }
+      
+     
   });
 }
 
-if (dogsFilter) {
+if (catsFilter) {
   catsFilter.addEventListener("change", () => {
     catsContent.forEach(function (cat) {
       cat.style.display = catsFilter.checked ? "block" : "none";
@@ -99,6 +110,13 @@ if (dogsFilter) {
     dogsContent.forEach(function (dog) {
       dog.style.display = "none";
     });
+
+     // Show or hide the "No dogs for adoption" message
+     if (catsContent.length === 0 && catsFilter.checked) {
+      noAdoptionMessage.style.display = "block";
+    } else {
+      noAdoptionMessage.style.display = "none";
+    }
   });
 }
 
@@ -122,13 +140,17 @@ function previewFile() {
 
 // LINK VALIDATION FOR EVENTS PAGE
 function validateLinkFormat(input) {
+  // Regex pattern for valid links (http, https, ftp)
   var linkFormat = /^(ftp|http|https):\/\/[^ "]+$/;
 
+  // Get the error message element
   var errorMessage = document.getElementById('link-error-message');
   
+  // Check if the input value matches the link format
   if (linkFormat.test(input.value)) {
       errorMessage.textContent = '';
   } else {
       errorMessage.textContent = 'Merci de renseigner un lien valide';
   }
 }
+

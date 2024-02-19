@@ -135,7 +135,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                     </a>
                                 </div>
                         <?php }
-                        } else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>'; ?>
+                        } else echo '<p class="no-adoptions">Pas d\'adoptions pour le moment</p>'; ?>
                     </div>
                 </div>
 
@@ -175,9 +175,9 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                     </a>
                                 </div>
                         <?php }
-                        } else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>'; ?>
+                        } else echo '<p class="no-adoptions">Pas d\'adoptions pour le moment</p>'; ?>
                     </div>
-                <?php } else echo '<p class="no_adoptions">Pas d\'adoptions pour le moment</p>'; ?>
+                <?php } else echo '<p class="no-adoptions">Pas d\'adoptions pour le moment</p>'; ?>
                 </div>
         </section>
     </div>

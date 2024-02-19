@@ -176,7 +176,7 @@ input[type="file"] {
   }
 }
 
-.no_adoptions {
+p[class^='no-adoptions']{
   text-align: center;
   font: 20px var(--primary-font);
   color: var(--tertiary_color);
