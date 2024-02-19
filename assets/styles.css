@@ -176,7 +176,7 @@ input[type="file"] {
   }
 }
 
-p[class^='no-adoptions']{
+p[class^="no-adoptions"] {
   text-align: center;
   font: 20px var(--primary-font);
   color: var(--tertiary_color);
@@ -1388,5 +1388,61 @@ footer {
   p {
     font-size: 16px;
     line-height: 25px;
+  }
+}
+
+.animatable {
+  /* initially hide animatable objects */
+  visibility: hidden;
+
+  /* initially pause animatable objects their animations */
+  animation-play-state: paused;
+}
+
+/* show objects being animated */
+.animated {
+  visibility: visible;
+  animation-fill-mode: both;
+  animation-duration: 2.5s;
+  animation-play-state: running;
+  &.bounceInLeft {
+    animation-name: bounceInLeft;
+  }
+  &.bounceInRight {
+    animation-name: bounceInRight;
+  }
+}
+
+@keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-2000px);
+  }
+  60% {
+    transform: translateX(20px);
+  }
+  80% {
+    transform: translateX(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+  60% {
+    transform: translateX(-20px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
