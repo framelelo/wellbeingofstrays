@@ -13,7 +13,11 @@ function showProfilePage($profiles, $selectedProfile)
   $defaultPwd = isset($selectedProfile['pwd']) ? $selectedProfile['pwd'] : 'password';
 
   // Start buffer
-  ob_start() ?>
+  ob_start();
+  
+  global $token;
+  
+  ?>
   <div class="container">
     <h1>Tous les profils</h1>
 
@@ -27,8 +31,11 @@ function showProfilePage($profiles, $selectedProfile)
       </div>
       <?php foreach ($profiles as $profile) { ?>
         <div class="profile row">
-        <i class="fas fa-user-shield"></i>
-          <div class="first-name cell"><?= $profile['name'] ?></div>
+          <div class="first-name cell">
+            <?php if (isset($profile['role']) && $profile['role'] === 'admin') {
+              echo "
+              <i class='fas fa-user-shield fa-sm'></i> ";
+            } echo $profile['name'] ?></div>
           <div class="last-name cell"><?= $profile['last_name'] ?></div>
           <div class="tel cell"><?= $profile['tel'] ?></div>
           <div class="email cell"><?= $profile['email'] ?></div>
@@ -57,6 +64,8 @@ function showProfilePage($profiles, $selectedProfile)
         <label for="role"><i class="fas fa-check"></i> Administrateur</label>
       </div>
 
+      <!-- CSRF token -->
+      <input type="hidden" name="token" value="<?= $token ?? '' ?>">
 
       <button class="button" type="submit"><?= isset($_GET['id']) ? 'Modifier' : 'Ajouter' ?> <i class="fa fa-arrow-right"></i></button>
     </form>

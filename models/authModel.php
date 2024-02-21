@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FOR LOGIN
  * 
@@ -10,9 +11,9 @@
  * */
 function login(string $email, string $pwd): bool
 {
-
     global $pdo;
 
+    // Check if email already exists in database
     try {
         $query = $pdo->prepare("SELECT * FROM members WHERE email = :e");
 
@@ -20,6 +21,8 @@ function login(string $email, string $pwd): bool
             "e" => $email
         ]);
         $user = $query->fetch();
+
+        // Check if user does not exist
         if (!$user) {
             return false;
         }
@@ -27,7 +30,7 @@ function login(string $email, string $pwd): bool
         if (!password_verify($pwd, $user["pwd"])) {
             return false;
         }
-
+        // Set session variables
         $_SESSION["user"] = $user;
 
         return true;
@@ -52,10 +55,10 @@ function login(string $email, string $pwd): bool
  * */
 
 
- function register(string $firstName, string $lastName, int $tel, string $email, string $pwd) : bool
+function register(string $firstName, string $lastName, int $tel, string $email, string $pwd): bool
 {
     global $pdo;
-// Check if email already exists in database
+    // Check if email already exists in database
     try {
         $checkQuery = $pdo->prepare("SELECT * FROM members WHERE email = :e");
         $checkQuery->execute(["e" => $email]);
@@ -70,7 +73,7 @@ function login(string $email, string $pwd): bool
 
 
 
-// Insert user into database
+    // Insert user into database
     try {
         $query = $pdo->prepare("INSERT INTO members(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");
 

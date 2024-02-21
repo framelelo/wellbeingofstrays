@@ -6,7 +6,7 @@ function showEventsPage($events, $selectedEvent)
     $title = 'Nos évènements';
     $page = 'evenements';
 
-    global $isConnected;
+    global $isConnected, $token;
 
     // Start buffer
     ob_start();
@@ -40,6 +40,9 @@ function showEventsPage($events, $selectedEvent)
                     <input type="text" oninput="validateLinkFormat(this)" placeholder="<?= $selectedEvent['link'] ?? 'Lien'; ?>" name="event-link" id="event-link" value="<?= $defaultLink ?>" <?= $isRequired ?>>
                     <span id="link-error-message" style="color: red;"></span>
                     <textarea name="description" id="message" cols="30" rows="10" placeholder="<?= $selectedEvent['description'] ?? 'Description'; ?>" maxlength="150" <?= $isRequired ?>><?= $defaultCoontent ?></textarea>
+
+                    <!-- CSRF token -->
+                    <input type="hidden" name="token" value="<?= $token ?? '' ?>">
 
                     <button class="button" type="submit">
                         <?= isset($_GET['id']) ? 'Modifier' : 'Ajouter' ?> <i class="fa fa-arrow-right"></i>

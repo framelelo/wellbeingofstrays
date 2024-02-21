@@ -17,12 +17,15 @@ function signIn(): void
         $email  = htmlspecialchars($_POST['email']);
         $pwd = $_POST['password'];
 
+        // Check if email and password are not empty
         if ($email && $pwd) {
 
             $login = login($email, $pwd);
             if ($login) {
                 header("Location: $base_url");
-            } else echo '<div class="modal"><p>Merci de vérifier vos identifiants</p></div>';
+            } else {
+                echo '<div class="modal"><p>Merci de vérifier vos identifiants</p></div>';
+            }
         } else {
             echo '<div class="modal"><p>Merci de vérifier vos identifiants</p></div>';
         }
@@ -43,7 +46,7 @@ function signIn(): void
  * 
  * @return void
  */
-function newRegistrer():void
+function newRegistrer(): void
 {
     global $base_url;
     if ($_POST) {
@@ -58,7 +61,7 @@ function newRegistrer():void
 
             // PASSWORD SHOULD CONTAIN MINIMUM 8 CHARACTERS, 1 LETTER, 1 NUMBER
             if (strlen($pwd) >= 8 && preg_match("#[0-9]+#", $pwd) && preg_match("#[A-Z]+#", $pwd) && preg_match("#[a-z]+#", $pwd)) {
-                
+
                 $registrer = register($firstName, $lastName, $tel, $email, $pwd);
                 if ($registrer) {
                     header("Location: $base_url/?page=login");

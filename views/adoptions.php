@@ -6,7 +6,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
     $title = 'Adoptions Chiens ou Chats Maurice';
     $page = 'adoptions';
 
-    global $isConnected, $base_url, $msg;
+    global $isConnected, $base_url, $token;
 
     // Start buffer
     ob_start() ?>
@@ -67,17 +67,15 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                     </div>
 
                     <textarea name="description" id="description" cols="30" rows="10" placeholder="Description" maxlength='200' required></textarea>
+                    
+                    <!-- CSRF token -->
+                    <input type="hidden" name="token" value="<?= $token ?? '' ?>">
+                    
                     <button class="button" type="submit">Ajouter <i class="fa fa-arrow-right"></i></button>
 
                 </form>
             </div>
         <?php } ?>
-        <?php 
-    if ($msg) {
-        echo "<div class='modal'><p>" . $_SESSION['msg'] . "</div>";
-        $_SESSION['msg'] = "";
-        header("Refresh: 1.5; url=$base_url?p=profile&id=" . $_SESSION['user']['id_user']);
-    } ?>
         <section class="adoptions">
             <h1>Découvrez les animaux à l’adoption</h1>
 

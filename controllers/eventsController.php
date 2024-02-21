@@ -9,9 +9,10 @@
  */
 function eventPage()
 {
-    global $base_url;
+    global $base_url, $token;
 
     $selectedEvent = null;
+
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -19,10 +20,10 @@ function eventPage()
     }
 
     $events = showEvents();
-
-    // Check if the form has been submitted
-    if ($_POST) {
+    // Check if the form has been submitted and the token is valid
+    if ($_POST && isset($_POST['token']) && hash_equals($token, $_POST['token'])) {
         $id_user = $_SESSION["user"]["id"];
+
         $title = htmlspecialchars($_POST['title']);
         $link = htmlspecialchars($_POST['event-link']);
         $description = htmlspecialchars($_POST['description']);
@@ -33,7 +34,7 @@ function eventPage()
         $upload_folder = ROOT_PATH . "/uploads/" . $picture;
 
         // Set the maximum file size
-        $maxFileSize = 2097152;
+        $maxFileSize = 2097152; // 2Mo
 
         // Check if the image has been uploaded
         if (!empty($_FILES['img-event']['name'])) {
@@ -50,14 +51,14 @@ function eventPage()
                     showEventsPage($events, $selectedEvent);
             } else {
 
-            // Retrieve the old image path
-            $oldPicturePath = ROOT_PATH . "/uploads/" . $selectedEvent['picture'];
+                // Retrieve the old image path
+                $oldPicturePath = ROOT_PATH . "/uploads/" . $selectedEvent['picture'];
                 // Delete the old image if it exists
                 if (file_exists($oldPicturePath)) {
                     unlink($oldPicturePath);
                 }
             }
-            // Check if the image upload was successful
+            // If image not uploaded
             if (!$picture_upload) {
                 echo '<div class="modal"><p>Merci d\'ajouter une image</p></div>';
                 return
@@ -86,6 +87,7 @@ function eventPage()
             echo '<div class="modal"><p>Merci de vérifier les champs obligatoires.</p></div>';
         }
     }
+
     showEventsPage($events, $selectedEvent);
 }
 

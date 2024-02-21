@@ -14,9 +14,10 @@
 
 function updateProfile()
 {
-    global $base_url;
-
-    if ($_POST) {
+    global $base_url, $token;
+    
+    // Check if the form has been submitted and the token is valid
+    if ($_POST && isset($_POST['token']) && hash_equals($token, $_POST['token'])) {
         // Validate and sanitize user input
         $firstName = htmlspecialchars($_POST['first-name']);
         $lastName = htmlspecialchars($_POST['last-name']);
@@ -24,7 +25,7 @@ function updateProfile()
         $email = htmlspecialchars($_POST['email']);
         $pwd = $_POST['pwd'];
         $confirmPwd = $_POST['confirmation-pwd'];
-        $role = isset($_POST['role']) ?$_POST['role'] : null;
+        $role = isset($_POST['role']) ? $_POST['role'] : null;
 
         // Updating existing profiles
         if (isset($_GET['id'])) {

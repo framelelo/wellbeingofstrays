@@ -5,8 +5,7 @@ function singleAdoptionPage($adoption)
     $title = 'Adoption animale -' . $adoption['name'];
     $page  = 'single';
 
-    global $base_url;
-    global $isConnected;
+    global $base_url, $isConnected, $token;
 
     ob_start();
     if ($isConnected) { ?>
@@ -42,6 +41,10 @@ function singleAdoptionPage($adoption)
                     <i class="fa fa-caret-down"></i>
                 </div>
                 <textarea name="description" id="description" cols="30" rows="10" maxlength='200' placeholder="<?= $adoption['description'] ?>"><?= $adoption['description'] ?></textarea>
+
+                <!-- CSRF token -->
+                <input type="hidden" name="token" value="<?= $token ?? '' ?>">
+
                 <button class="button" type="submit">Modifier <i class="fa fa-arrow-right"></i></button>
 
             </form>

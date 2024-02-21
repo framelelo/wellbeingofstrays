@@ -9,8 +9,7 @@ require_once "autoload.php";
  * @param string $page
  * 
  */
-if (isset($_GET["page"]))
-{
+if (isset($_GET["page"])) {
     $page = $_GET["page"];
     switch ($page) {
 
