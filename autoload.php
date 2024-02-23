@@ -8,7 +8,7 @@ global $base_url, $isConnected, $token;
 $base_url = "http://localhost/wellbeingofstrays";
 
 // Check if user is connected
-$isConnected = $_SESSION && $_SESSION["user"];
+$isConnected = isset($_SESSION["user"]) && $_SESSION["user"];
 
 
 
