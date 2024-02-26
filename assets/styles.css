@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-/* Variables */
+/* Global Variables */
 
 :root {
   --primary_color: #ef3838;
@@ -1059,6 +1059,9 @@ header {
       }
     }
 
+    /*****************************************************
+        MEDIA QUERIES - DISPLAY SINGLE PAGE
+  *****************************************************/
     @media only screen and (min-width: 744px) {
       .card {
         max-width: 1024px;
