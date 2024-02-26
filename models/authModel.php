@@ -72,7 +72,6 @@ function register(string $firstName, string $lastName, int $tel, string $email, 
     }
 
 
-
     // Insert user into database
     try {
         $query = $pdo->prepare("INSERT INTO members(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");
