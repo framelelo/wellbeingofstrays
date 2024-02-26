@@ -50,42 +50,41 @@ function login(string $email, string $pwd): bool
  * @param string $pwd
  * 
  * 
- * @return bool
  * 
  * */
 
 
-function register(string $firstName, string $lastName, int $tel, string $email, string $pwd): bool
-{
-    global $pdo;
-    // Check if email already exists in database
-    try {
-        $checkQuery = $pdo->prepare("SELECT * FROM members WHERE email = :e");
-        $checkQuery->execute(["e" => $email]);
-        $emailExists = $checkQuery->fetch();
-        if ($emailExists) {
-            return false;
-        }
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        return false;
-    }
-
-
-    // Insert user into database
-    try {
-        $query = $pdo->prepare("INSERT INTO members(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");
-
-        $query->execute([
-            "n" => $firstName,
-            "l" => $lastName,
-            "t" => $tel,
-            "e" => $email,
-            "p" =>  password_hash($pwd, PASSWORD_DEFAULT)
-        ]);
-        return true;
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        return false;
-    }
-}
+ function register(string $firstName, string $lastName, int $tel, string $email, string $pwd): bool
+ {
+     global $pdo;
+ 
+     try {
+         // Check if email already exists in database
+         $checkQuery = $pdo->prepare("SELECT * FROM members WHERE email = :e");
+         $checkQuery->execute(["e" => $email]);
+         $emailExists = $checkQuery->fetch();
+ 
+         if (!$emailExists) {
+             // Email does not exist, proceed to insert user into the database
+             $query = $pdo->prepare("INSERT INTO members(name,last_name,tel,email,pwd) VALUES (:n,:l,:t,:e,:p)");
+ 
+             $query->execute([
+                 "n" => $firstName,
+                 "l" => $lastName,
+                 "t" => $tel,
+                 "e" => $email,
+                 "p" =>  password_hash($pwd, PASSWORD_DEFAULT)
+             ]);
+ 
+             return true;
+         } else {
+             // Email already exists, return false
+             return false;
+         }
+     } catch (PDOException $e) {
+         echo $e->getMessage();
+         return false;
+     }
+ }
+ 
+ 
