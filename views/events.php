@@ -11,7 +11,9 @@ function showEventsPage($events, $selectedEvent)
     // Start buffer
     ob_start();
 
+    // Check if user is connected
     if ($isConnected) {
+        // Set ternary operators to set default values
         $defaultImage = $selectedEvent['picture'] ?? '';
         $defaultTitle = $selectedEvent['title'] ?? '';
         $defaultLink = $selectedEvent['link'] ?? '';
@@ -19,6 +21,7 @@ function showEventsPage($events, $selectedEvent)
         $isRequired = isset($_GET['id']) ? '' : 'required';
 
 ?>
+
         <div class="container">
             <!-- Form to add or update events-->
             <div class="edit-form">

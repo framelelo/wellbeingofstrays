@@ -81,6 +81,7 @@ function updateAdoptions(int $id, int $id_user, string $name, string $specie, st
 function showCatAdoptions()
 {
     global $pdo;
+    // SELECT ADOPTIONS WHERE SPECIE = CHAT
     try {
         $query = $pdo->prepare("SELECT * FROM adoptions WHERE specie = 'chat' ORDER BY date DESC");
         $query->execute([]);
@@ -99,6 +100,7 @@ function showCatAdoptions()
 function showDogAdoptions()
 {
     global $pdo;
+    // SELECT ADOPTIONS WHERE SPECIE = CHIEN
     try {
         $query = $pdo->prepare("SELECT * FROM adoptions WHERE specie = 'chien' ORDER BY date DESC");
         $query->execute([]);
