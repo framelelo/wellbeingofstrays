@@ -82,6 +82,7 @@ global $isConnected;
                     <li class="list">
                         <a href="<?= $base_url ?>?page=contact">Contact</a>
                     </li>
+                    
                     <?php if ($isConnected) { ?>
 
                         <?php if (isset($_SESSION["user"]['role']) && $_SESSION["user"]['role'] == 'admin') { ?>
@@ -100,9 +101,12 @@ global $isConnected;
         </header>
     <?php }; ?>
 
+    <!-- Main content -->
     <main>
+        <!-- Variable content -->
         <?= $content; ?>
     </main>
+    
     <?php if ($page !== 'connexion' && $page !== 'inscription') {
     ?>
         <footer>
@@ -151,6 +155,7 @@ global $isConnected;
         </footer>
     <?php }; ?>
 </body>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 </html>

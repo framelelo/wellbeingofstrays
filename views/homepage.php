@@ -25,7 +25,13 @@ function ShowHomePage($adoptions)
                 <p>
                     Well-being of Strays compte sur le soutien de bénévoles, de donateurs et de sympathisants pour continuer sa mission et faire une différence positive dans la vie de ces animaux vulnérables.
                 </p>
-                <a href="https://www.paypal.com/donate?hosted_button_id=3DS8RCCPB5EB6" class="button" target="_blank">Faire un don</a>
+
+
+                <a href="https://www.paypal.com/donate?hosted_button_id=3DS8RCCPB5EB6" class="button" target="_blank">
+                    Faire un don
+                </a>
+           
+           
             </div>
         </div>
     </div>

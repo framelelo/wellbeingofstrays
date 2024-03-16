@@ -4,7 +4,7 @@
 require_once "autoload.php";
 
 /**
- * Affichage des pages ou appel des fonctions selon les 'cases' de l'url définit par la variable 'page'
+ * Show page according to url
  * 
  * @param string $page
  * 

@@ -37,12 +37,16 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
             <div class="edit-form">
                 <h4>Ajouter un animal</h4>
                 <form method="post" enctype="multipart/form-data">
+
+                <!-- Image upload & preview -->
                     <div class="image-upload-btn">
                         <div class="img-container img-preview" style="display: none;">
                             <img src="uploads/<?= $singleAdoption['picture'] ?>" alt="Animaux en adoption île Maurice" class="img-fluid" id="previewImage">
                         </div>
 
                         <label class="title-image" for="image-upload">Ajouter une photo</label>
+
+                        <!-- Input file : call previewfile() -->
                         <input type="file" name="img-animal" id="image-upload" accept=".jpeg,.png,.jpg" onchange="previewFile()">
 
                     </div>
@@ -137,14 +141,18 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                     </div>
                 </div>
 
-                <!-- Display dogs -->
+                <!-- Display cats -->
                 <div class="chat-content">
                     <h2>Chats à adopter</h2>
                     <div class="container-card">
+                        <!-- If has cats -->
                         <?php if ($adoptions_cats) {
                             foreach ($adoptions_cats as $cat) { ?>
+                            <!-- For filter purpose, a class with the specie has been added to the card -->
                                 <div class="card <?= $cat["specie"] ?> block animatable fadeInUp">
+                                <!-- If connected then edit part is displayed -->
                                     <?php if ($isConnected) { ?>
+                                        <!-- To update or delete an adoption -->
                                         <div class="edit-part">
                                             <a class="edit-btn" href="?page=single&id=<?= $cat["id"] ?>">
                                                 <i class="fa fa-pen"></i>
@@ -163,7 +171,6 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                             <?php if ($cat['gender'] == 'mâle') {
                                                 echo '<i class="fa fa-mars"></i>';
                                             } else echo '<i class="fa fa-venus"></i>'; ?>
-
                                         </div>
                                         <div class="description">
                                             <p>
@@ -173,7 +180,8 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                                     </a>
                                 </div>
                         <?php }
-                        } else echo '<p class="no-adoptions">Pas d\'adoptions pour le moment</p>'; ?>
+                        } // If no cats available
+                        else echo '<p class="no-adoptions">Pas d\'adoptions pour le moment</p>'; ?>
                     </div>
                 <?php } else echo '<p class="no-adoptions">Pas d\'adoptions pour le moment</p>'; ?>
                 </div>

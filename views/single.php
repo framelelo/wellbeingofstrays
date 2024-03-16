@@ -12,6 +12,9 @@ function singleAdoptionPage($adoption)
         <div class="edit-form">
             <h4>Modifier la fiche</h4>
             <form method="post" action="<?php $base_url ?>?page=modifier-adoption&id=<?= $adoption["id"] ?>" enctype="multipart/form-data">
+                
+
+                <!-- Image upload & preview -->
                 <div class="image-upload-btn">
                     <div class="img-container img-preview">
                         <img src="uploads/<?= $adoption['picture'] ?>" alt="Animaux en adoption Maurice" class="img-fluid" id="previewImage">

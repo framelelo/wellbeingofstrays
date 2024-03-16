@@ -20,8 +20,12 @@ function eventPage()
     }
 
     $events = showEvents();
+
+
     // Check if the form has been submitted and the token is valid
     if ($_POST && isset($_POST['token']) && hash_equals($token, $_POST['token'])) {
+
+
         $id_user = $_SESSION["user"]["id"];
 
         $title = htmlspecialchars($_POST['title']);
@@ -104,15 +108,14 @@ function removeEvent()
 
         $event = showEvent($id);
 
-        if ($event && isset($event['picture'])) {
-            $picturePath = "uploads/" . $event['picture'];
+        $picturePath = "uploads/" . $event['picture'];
 
-            removeEvents($id);
+        removeEvents($id);
 
-            if (file_exists($picturePath)) {
-                unlink($picturePath);
-            }
+        if (file_exists($picturePath)) {
+            unlink($picturePath);
         }
+
 
         header("location: $base_url/?page=evenements");
     } else {

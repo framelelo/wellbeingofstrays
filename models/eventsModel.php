@@ -114,10 +114,13 @@ function showEvent(int $id)
  * 
  * @return bool
  */
+
 function removeEvents(int $id): bool
 {
     global $pdo;
+
     try {
+        // Remove event by id
         $query = $pdo->prepare("DELETE FROM events WHERE id = :i");
         $query->execute([
             "i" => $id,
