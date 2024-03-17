@@ -73,7 +73,7 @@ if (isset($_GET["page"])) {
             break;
 
         case "contact":
-            contactPage();
+            sendEmail();
             break;
 
         case "mentions_legales":

@@ -29,7 +29,7 @@ function sendEmail()
             $headers = "Content-Type: text/plain; charset=utf-8\r\n";
             $headers .= "From: $from\r\n";
 
-            if (mail($to, $from, $message, $headers)) {
+            if (mail($to, $from, $message, $headers, '-f' . $object)) {
                 echo '<div class="modal"><p>Message envoyé !</p></div>';
             } else {
                 echo '<div class="modal"><p>Une erreur s\'est produite, merci de vérifier !</p></div>';

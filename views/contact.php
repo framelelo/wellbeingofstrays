@@ -14,7 +14,7 @@ function contactPage()
             <img class="img-fluid" loading="lazy" src="uploads/Quennie.jpeg" alt="Adopter un animal à Maurice">
         </div>
         <!-- Contact form -->
-        <form method="post">
+        <form method="POST">
             <input type="text" placeholder="Nom *" name="name" id="name" required>
             <input type="email" placeholder="Email *" name="email" id="email" required>
             <input type="tel" placeholder="Téléphone" name="tel" id="tel">
