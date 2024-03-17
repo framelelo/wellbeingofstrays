@@ -15,10 +15,12 @@ if (isset($_GET["page"])) {
 
         case "login":
             if ($isConnected) {
-                homePage();
+                header("Location: $base_url");
             } else signIn();
             break;
 
+
+            
         case "signup":
             newRegistrer();
             break;

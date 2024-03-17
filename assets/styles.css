@@ -917,7 +917,6 @@ header {
           gap: 5%;
           .img-part {
             width: 60%;
-            max-height: 400px;
           }
         }
         @media screen and (max-width: 799px) {
