@@ -42,7 +42,7 @@ function showEventsPage($events, $selectedEvent)
 
                     <input type="text" name="title" id="name" maxlength="40" value="<?= $defaultTitle ?>" <?= $isRequired ?>>
                     <!-- Link format validation -->
-                    <input type="text" oninput="validateLinkFormat(this)" name="event-link" id="event-link" value="<?= $defaultLink ?>" <?= $isRequired ?>>
+                    <input type="text" oninput="validateLinkFormat(this)" name="event-link" id="event-link" value="<?= $defaultLink ?>" <?= $isRequired ?> rel="noopener noreferrer nofollow">
                     <span id="link-error-message" style="color: red;"></span>
 
                     
