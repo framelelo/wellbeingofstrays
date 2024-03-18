@@ -819,13 +819,15 @@ header {
           }
         }
       }
-      @media screen and (max-width: 800px) {
+      @media (max-width: 800px) {
         flex: 50%;
         max-width: 50%;
+        text-align: justify;
       }
-      @media screen and (max-width: 600px) {
+      @media (max-width: 600px) {
         flex: 100%;
         max-width: 100%;
+        text-align: justify;
       }
     }
   }
@@ -908,7 +910,7 @@ header {
           margin-bottom: 10px;
         }
 
-        @media screen and (min-width: 800px) {
+        @media (min-width: 800px) {
           display: flex;
           justify-content: space-between;
           &:nth-child(odd) {
@@ -919,7 +921,7 @@ header {
             width: 60%;
           }
         }
-        @media screen and (max-width: 799px) {
+        @media (max-width: 799px) {
           & h2 {
             text-align: center;
           }
@@ -1061,7 +1063,7 @@ header {
     /*****************************************************
         MEDIA QUERIES - DISPLAY SINGLE PAGE
   *****************************************************/
-    @media only screen and (min-width: 744px) {
+    @media (min-width: 744px) {
       .card {
         max-width: 1024px;
         display: flex;
@@ -1207,7 +1209,7 @@ header {
         font: 20px var(--secondary-font);
       }
 
-      @media only screen and (min-width: 744px) {
+      @media (min-width: 744px) {
         width: 70%;
         > * {
           max-width: 70%;

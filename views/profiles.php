@@ -9,7 +9,7 @@ function showProfilePage($profiles, $selectedProfile)
   $defaultName = isset($selectedProfile['name']) ? $selectedProfile['name'] : 'Prénom';
   $defaultLastName = isset($selectedProfile['last_name']) ? $selectedProfile['last_name'] : 'Nom';
   $defaultTel = isset($selectedProfile['tel']) ? $selectedProfile['tel'] : '06 00 00 00 00';
-  $defaultEmail = isset($selectedProfile['email']) ? $selectedProfile['email'] : 'email';
+  $defaultEmail = isset($selectedProfile['email']) ? $selectedProfile['email'] : 'Email';
   $defaultPwd = isset($selectedProfile['pwd']) ? $selectedProfile['pwd'] : 'password';
 
   // Start buffer
