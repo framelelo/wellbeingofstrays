@@ -13,11 +13,11 @@ function showEventsPage($events, $selectedEvent)
 
     // Check if user is connected
     if ($isConnected) {
-        // Set ternary operators to set default values
+        // Set ternary operators for default values
         $defaultImage = $selectedEvent['picture'] ?? '';
-        $defaultTitle = $selectedEvent['title'] ?? '';
-        $defaultLink = $selectedEvent['link'] ?? '';
-        $defaultCoontent = $selectedEvent['description'] ?? '';
+        $defaultTitle = $selectedEvent['title'] ?? 'Titre';
+        $defaultLink = $selectedEvent['link'] ?? 'Lien';
+        $defaultCoontent = $selectedEvent['description'] ?? 'Description';
         $isRequired = isset($_GET['id']) ? '' : 'required';
 
 ?>
@@ -40,13 +40,13 @@ function showEventsPage($events, $selectedEvent)
 
                     </div>
 
-                    <input type="text" placeholder="<?= $selectedEvent['title'] ?? 'Titre'; ?>" name="title" id="name" maxlength="40" value="<?= $defaultTitle ?>" <?= $isRequired ?>>
+                    <input type="text" name="title" id="name" maxlength="40" value="<?= $defaultTitle ?>" <?= $isRequired ?>>
                     <!-- Link format validation -->
-                    <input type="text" oninput="validateLinkFormat(this)" placeholder="<?= $selectedEvent['link'] ?? 'Lien'; ?>" name="event-link" id="event-link" value="<?= $defaultLink ?>" <?= $isRequired ?>>
+                    <input type="text" oninput="validateLinkFormat(this)" name="event-link" id="event-link" value="<?= $defaultLink ?>" <?= $isRequired ?>>
                     <span id="link-error-message" style="color: red;"></span>
 
                     
-                    <textarea name="description" id="message" cols="30" rows="10" placeholder="<?= $selectedEvent['description'] ?? 'Description'; ?>" maxlength="150" <?= $isRequired ?>><?= $defaultCoontent ?></textarea>
+                    <textarea name="description" id="message" cols="30" rows="10" maxlength="150" <?= $isRequired ?>><?= $defaultCoontent ?></textarea>
 
                     <!-- CSRF token -->
                     <input type="hidden" name="token" value="<?= $token ?? '' ?>">
