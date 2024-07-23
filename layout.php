@@ -141,7 +141,7 @@ global $isConnected;
                 </div>
             </div>
             <div class="bottom-container">
-                <p class="copyright">Well-Being of Strays <i class="fa fa-copyright"><span class="year">2023</span></i></p>
+                <p class="copyright">Well-Being of Strays <i class="fa fa-copyright"><span class="year"><?= date('Y'); ?></span></i></p>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/wellbeingofstrays808" target="_blank">
                         <i class="fab fa-facebook-square"></i>

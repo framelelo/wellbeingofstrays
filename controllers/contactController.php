@@ -21,15 +21,16 @@ function sendEmail()
 
         if ($resp->isSuccess()) {
             $to = 'wellbeingofstrays@gmail.com';
+            $name = $_POST['name'];
             $from = $_POST['email'];
             $tel = isset($_POST['tel']) ? $_POST['tel'] : null;
             $object = $_POST['object'];
             $message = $_POST['message'];
 
-            $headers = "Content-Type: text/plain; charset=utf-8\r\n";
-            $headers .= "From: $from\r\n";
+            $headers = "Content-Type: text/plain; charset=utf-8" ."\r\n";
+            $headers .= "From: $from"  . "\r\n" . "Name: " . $name .  "\r\n" ."Tel: " . $tel . "\r\n";
 
-            if (mail($to, $from, $message, $headers, '-f' . $object)) {
+            if (mail($to,  $object, $headers, $message)) {
                 echo '<div class="modal"><p>Message envoyé !</p></div>';
             } else {
                 echo '<div class="modal"><p>Une erreur s\'est produite, merci de vérifier !</p></div>';
