@@ -172,7 +172,7 @@ jQuery(function($) {
     // Check all animatables and animate them if necessary
     $animatables.each(function(i) {
        var $animatable = $(this);
-      if (($animatable.offset().top + $animatable.height() - 20) < offset) {
+      if (($animatable.offset().top + $animatable.height() - 40) < offset) {
         $animatable.removeClass('animatable').addClass('animated');
       }
     });
