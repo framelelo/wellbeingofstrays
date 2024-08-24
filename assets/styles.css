@@ -200,8 +200,7 @@ p[class^="no-adoptions"] {
   margin: auto;
   padding: 4% 6%;
   z-index: 1000;
-  width: auto;
-  min-width: 500px;
+  width: min(90%, 500px);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -497,7 +496,7 @@ header {
             font-size: 20px;
           }
           @media only screen and (min-width: 651px) {
-            & span {
+            &:not(.dropdown-btn) span {
               display: none;
             }
           }
@@ -511,7 +510,7 @@ header {
               }
             }
           }
-          & a {
+          & a, & span {
             font: 16px var(--secondary-font);
             font-weight: 300;
             color: var(--secondary_color);
@@ -611,7 +610,7 @@ header {
     background-color: var(--light_grey);
     box-shadow: 2px 5px 9px 0px rgba(0, 0, 0, 0.2);
     margin: auto;
-    padding: 50px;
+    padding: 30px;
     min-height: 500px;
     display: flex;
     flex-direction: column;
@@ -650,7 +649,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 650px;
+  height: 750px;
   .container {
     position: absolute;
     background-color: rgba(249, 249, 249, 0.8);
@@ -880,12 +879,12 @@ header {
      MISSIONS PAGE 
  ***********************/
 .missions-page {
+  overflow-x: hidden;
   > main {
     .jumbotron .container {
       padding: 50px 30px;
       max-width: 950px;
       text-align: center;
-      overflow: clip;
       & h2 {
         color: var(--primary_color);
       }
@@ -895,6 +894,7 @@ header {
     }
     .container {
       padding: 15px 30px;
+      overflow: hidden;
       & h1 {
         text-align: center;
         font-size: 30px;

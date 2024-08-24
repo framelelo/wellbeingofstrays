@@ -57,9 +57,9 @@ global $isConnected;
                         <a href="<?= $base_url ?>?page=adoptions">Adoptions</a>
                     </li>
                     <li class="list dropdown-btn">
-                        <a href="<?= $base_url ?>?page=missions">Missions
+                        <span>Missions
                             <i class="fa fa-caret-down"></i>
-                        </a>
+                        </span>
                         <ul class="dropdown-menu">
                             <li class="list dropdown-list">
                                 <a href="<?= $base_url ?>?page=missions#sensibilisation">Sensibilisation</a>
@@ -82,7 +82,7 @@ global $isConnected;
                     <li class="list">
                         <a href="<?= $base_url ?>?page=contact">Contact</a>
                     </li>
-                    
+
                     <?php if ($isConnected) { ?>
 
                         <?php if (isset($_SESSION["user"]['role']) && $_SESSION["user"]['role'] == 'admin') { ?>
@@ -106,7 +106,7 @@ global $isConnected;
         <!-- Variable content -->
         <?= $content; ?>
     </main>
-    
+
     <?php if ($page !== 'connexion' && $page !== 'inscription') {
     ?>
         <footer>
