@@ -12,7 +12,6 @@ function ShowHomePage($adoptions)
     // Start buffer
     ob_start() ?>
     <div class="jumbotron">
-        <img src="uploads/jumbotron-accueil.jpg" alt="well-being of strays" class="img-fluid">
         <div class="container">
             <div class="content">
                 <h2>QUI EST WELL-BEING OF STRAYS ?</h2>
@@ -30,8 +29,8 @@ function ShowHomePage($adoptions)
                 <a href="https://www.paypal.com/donate?hosted_button_id=3DS8RCCPB5EB6" class="button" target="_blank">
                     Faire un don
                 </a>
-           
-           
+
+
             </div>
         </div>
     </div>

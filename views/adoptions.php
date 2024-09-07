@@ -13,7 +13,6 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
 
     <!-- Jumbotron -->
     <div class="jumbotron">
-        <img src="uploads/jumbotron-adoptions.jpg" alt="Adoption animaux Maurice" class="img-fluid">
         <div class="container">
             <div class="content">
                 <h2>Se poser les bonnes questions avant d’adopter !</h2>
@@ -38,7 +37,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                 <h4>Ajouter un animal</h4>
                 <form method="post" enctype="multipart/form-data">
 
-                <!-- Image upload & preview -->
+                    <!-- Image upload & preview -->
                     <div class="image-upload-btn">
                         <div class="img-container img-preview" style="display: none;">
                             <img src="uploads/<?= $singleAdoption['picture'] ?>" alt="Animaux en adoption île Maurice" class="img-fluid" id="previewImage">
@@ -71,10 +70,10 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                     </div>
 
                     <textarea name="description" id="description" cols="30" rows="10" placeholder="Description" maxlength='200' required></textarea>
-                    
+
                     <!-- CSRF token -->
                     <input type="hidden" name="token" value="<?= $token ?? '' ?>">
-                    
+
                     <button class="button" type="submit">Ajouter <i class="fa fa-arrow-right"></i></button>
 
                 </form>
@@ -148,9 +147,9 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                         <!-- If has cats -->
                         <?php if ($adoptions_cats) {
                             foreach ($adoptions_cats as $cat) { ?>
-                            <!-- For filter purpose, a class with the specie has been added to the card -->
+                                <!-- For filter purpose, a class with the specie has been added to the card -->
                                 <div class="card <?= $cat["specie"] ?> block animatable fadeInUp">
-                                <!-- If connected then edit part is displayed -->
+                                    <!-- If connected then edit part is displayed -->
                                     <?php if ($isConnected) { ?>
                                         <!-- To update or delete an adoption -->
                                         <div class="edit-part">

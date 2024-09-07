@@ -510,7 +510,8 @@ header {
               }
             }
           }
-          & a, & span {
+          & a,
+          & span {
             font: 16px var(--secondary-font);
             font-weight: 300;
             color: var(--secondary_color);
@@ -520,7 +521,7 @@ header {
               color: var(--primary_color);
             }
             @media only screen and (max-width: 650px) {
-              font-size: 22px;
+              font-size: 20px;
             }
           }
           &.dropdown-btn {
@@ -549,7 +550,10 @@ header {
               }
               @media only screen and (max-width: 650px) {
                 .dropdown-list {
-                  padding-top: 10px;
+                  padding-top: 12px;
+                  > a {
+                    font-size: 18px;
+                  }
                 }
               }
             }
@@ -640,18 +644,20 @@ header {
 }
 
 /***************************
-        HOMEPAGE 
+        JUMBOTRON 
  *************************/
 
 .jumbotron {
-  width: 100%;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 750px;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 30px 0px;
   .container {
-    position: absolute;
     background-color: rgba(249, 249, 249, 0.8);
     margin: auto;
     padding: 30px;
@@ -664,12 +670,20 @@ header {
         font-size: 30px;
         font-weight: 500;
         margin-bottom: 30px;
+        @media screen and (max-width: 800px) {
+          font-size: 25px;
+          text-align: center;
+        }
       }
       > p {
         font-size: 14px;
         font-family: var(--primary-font);
         margin-bottom: 30px;
         line-height: 22px;
+        @media screen and (max-width: 800px) {
+          font-size: 14px;
+          text-align: center;
+        }
       }
       > .button {
         font-family: var(--primary-font);
@@ -695,7 +709,11 @@ header {
     }
   }
 }
-
+.home-page {
+  .jumbotron {
+    background: url("../uploads/jumbotron-accueil.jpg") no-repeat center;
+  }
+}
 .adoptions {
   max-width: 1024px;
   padding: 10vh 15px;
@@ -835,23 +853,16 @@ header {
 /**********************
     ADOPTIONS PAGE 
  ********************/
-.adoptions_page {
+.adoptions-page {
   .jumbotron {
+    background-image: url("../uploads/jumbotron-adoptions.jpg");
     .container {
-      max-width: 800px;
       .content {
-        & h2 {
-          border: none;
-          font-size: 25px;
-        }
         > p {
           font-family: var(--primary-font);
         }
-
         > .button {
-          font-size: 20px;
           background-color: var(--secondary_color);
-          font-weight: 300;
           &:hover,
           &:focus {
             background-color: var(--tertiary_color);
@@ -881,15 +892,15 @@ header {
 .missions-page {
   overflow-x: hidden;
   > main {
-    .jumbotron .container {
-      padding: 50px 30px;
-      max-width: 950px;
-      text-align: center;
-      & h2 {
-        color: var(--primary_color);
-      }
-      & p {
-        font-size: 16px;
+    .jumbotron {
+      background-image: url("../uploads/jumbotron-missions.jpg");
+      .container {
+        padding: 50px 30px;
+        max-width: 950px;
+        text-align: center;
+        & h2 {
+          color: var(--primary_color);
+        }
       }
     }
     .container {

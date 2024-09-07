@@ -10,7 +10,6 @@ function showMissions()
     ob_start() ?>
 
     <div class="jumbotron">
-        <img src="uploads/jumbotron-missions.jpg" loading="lazy" alt="Well-Being of Strays" class="img-fluid">
         <div class="container">
             <div class="content">
                 <h2>Pour une protection animale bienveillante et durable</h2>
