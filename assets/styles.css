@@ -91,7 +91,7 @@ h4 {
 
 /* General INPUTS styles */
 
-input:not(#role),
+main input:not(#role),
 textarea,
 .select-style select {
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -358,7 +358,7 @@ p[class^="no-adoptions"] {
     }
   }
 
-  @media only screen and (max-width: 560px) {
+  @media only screen and (min-width: 561px) {
     & .img-container {
       height: 300px;
     }
@@ -716,7 +716,7 @@ header {
 }
 .home-page {
   .jumbotron {
-    background: url("../uploads/jumbotron-accueil.jpg") no-repeat center;
+    background-image: url("../uploads/jumbotron-accueil.jpg");
   }
 }
 .adoptions {
@@ -740,9 +740,6 @@ header {
       gap: 3%;
       .card {
         width: 30%;
-        .img-container {
-          height: 200px;
-        }
       }
     }
 
@@ -751,9 +748,6 @@ header {
       gap: 3%;
       .card {
         width: 47%;
-        & .img-container {
-          height: 200px;
-        }
       }
     }
   }
@@ -1484,4 +1478,36 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/************************** COOKIES CONSENT **************************/
+.freeprivacypolicy-com---palette-light .cc-nb-okagree,
+.freeprivacypolicy-com---palette-light .cc-cp-foot-save {
+  background-color: var(--secondary_color) !important;
+  &:hover {
+    background-color: var(--dark_grey) !important;
+  }
+}
+.freeprivacypolicy-com---palette-light .cc-nb-reject {
+  background-color: var(--primary_color) !important;
+  &:hover {
+    background-color: var(--dark_grey) !important;
+  }
+}
+.freeprivacypolicy-com---palette-light .cc-nb-changep {
+  border: 1px solid var(--secondary_color) !important;
+  &:hover {
+    background-color: var(--dark_grey) !important;
+    color: var(--light_color) !important;
+  }
+}
+.freeprivacypolicy-com---pc-dialog input[type=checkbox].cc-custom-checkbox:checked+label:before {
+  background-color: var(--tertiary_color) !important;
+}
+
+.freeprivacypolicy-com---palette-light .cc-pc-head-lang select:focus {
+  box-shadow: 0 0 0 2px var(--dark_grey) !important;
+}
+.freeprivacypolicy-com---palette-light .cc-pc-head-close:active, .freeprivacypolicy-com---palette-light .cc-pc-head-close:focus {
+  border: 1px var(--dark_grey) !important;
 }
