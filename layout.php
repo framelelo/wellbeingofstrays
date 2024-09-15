@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <?php
-global $base_url;
-
-global $isConnected;
+global $base_url,$isConnected;
 ?>
 <html lang="fr">
 
