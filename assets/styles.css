@@ -1271,6 +1271,7 @@ header {
         > button {
           font-size: 20px;
           margin-top: 25px;
+          padding: 20px 10px;
         }
       }
       .g-recaptcha-container {
