@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-global $base_url,$isConnected;
+global $base_url, $isConnected;
 ?>
 <html lang="fr">
 
@@ -9,7 +9,9 @@ global $base_url,$isConnected;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+    <meta name="description" content="Well-being of Strays est une organisation à but non lucratif basée à Maurice, fondée en 2017, dédiée au bien-être des animaux errants. Nous offrons refuge, soins médicaux, nourriture et amour aux animaux abandonnés, perdus ou maltraités. Notre mission est d'améliorer leur vie grâce à des solutions durables pour leur bien-être. L'association fonctionne grâce au soutien de bénévoles et donateurs, contribuant à un impact positif pour les animaux vulnérables de l'île Maurice.">
+    <meta name="author" content="Well-being of Strays">
+    
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/script.js" defer></script>
 
@@ -25,7 +27,7 @@ global $base_url,$isConnected;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <title>Well-Being of Strays - <?= $title ?></title>
+    <title>Well-Being of Strays - <?= $title ?> - Ile Maurice</title>
     <link rel="icon" type="image/x-icon" href="uploads/logo.ico">
 </head>
 
@@ -52,7 +54,7 @@ global $base_url,$isConnected;
                         <a href="<?= $base_url ?>">Accueil</a>
                     </li>
                     <li class="list">
-                        <a href="<?= $base_url ?>?page=adoptions">Adoptions</a>
+                        <a href="<?= $base_url ?>?page=adoption-animaux">Adoptions</a>
                     </li>
                     <li class="list dropdown-btn">
                         <span>Missions
@@ -60,22 +62,22 @@ global $base_url,$isConnected;
                         </span>
                         <ul class="dropdown-menu">
                             <li class="list dropdown-list">
-                                <a href="<?= $base_url ?>?page=missions#sensibilisation">Sensibilisation</a>
+                                <a href="<?= $base_url ?>?page=aider-animaux-errants#sensibilisation-bien-etre-animal">Sensibilisation</a>
                             </li>
                             <li class="list dropdown-list">
 
-                                <a href="<?= $base_url ?>?page=missions#nourrissage">Nourrissage</a>
+                                <a href="<?= $base_url ?>?page=aider-animaux-errants#nourrissage-animaux">Nourrissage</a>
                             </li>
                             <li class="list dropdown-list">
-                                <a href="<?= $base_url ?>?page=missions#sauvetage">Sauvetage</a>
+                                <a href="<?= $base_url ?>?page=aider-animaux-errants#sauvetage-animaux">Sauvetage</a>
                             </li>
                             <li class="list dropdown-list">
-                                <a href="<?= $base_url ?>?page=missions#sterilisation">Stérilisation</a>
+                                <a href="<?= $base_url ?>?page=aider-animaux-errants#sterilisation-animaux">Stérilisation</a>
                             </li>
                         </ul>
                     </li>
                     <li class="list">
-                        <a href="<?= $base_url ?>?page=evenements">Évènements</a>
+                        <a href="<?= $base_url ?>?page=actions-pour-les-animaux">Évènements</a>
                     </li>
                     <li class="list">
                         <a href="<?= $base_url ?>?page=contact">Contact</a>
@@ -159,9 +161,19 @@ global $base_url,$isConnected;
 <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
 <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
 <script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"fr","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"wellbeingofstrays.com"});
-});
+    document.addEventListener('DOMContentLoaded', function() {
+        cookieconsent.run({
+            "notice_banner_type": "simple",
+            "consent_type": "express",
+            "palette": "light",
+            "language": "fr",
+            "page_load_consent_levels": ["strictly-necessary"],
+            "notice_banner_reject_button_hide": false,
+            "preferences_center_close_button_hide": false,
+            "page_refresh_confirmation_buttons": false,
+            "website_name": "wellbeingofstrays.com"
+        });
+    });
 </script>
 
 <noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/">Free Privacy Policy Generator</a></noscript>

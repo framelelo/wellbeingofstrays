@@ -3,7 +3,7 @@ function contactPage()
 {
 
     // Set title and page name
-    $title = 'Bien-être animal - île Maurice';
+    $title = 'Adoption chats ou chiens';
     $page = 'contact';
 
     // Start buffer

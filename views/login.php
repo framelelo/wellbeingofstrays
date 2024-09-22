@@ -3,7 +3,7 @@ function showLoginPage()
 {
 
     // Set title and page name
-    $title = 'Bien-être animal errant île Maurice';
+    $title = 'Aide aux animaux';
     $page =  'connexion';
 
     // Start buffer

@@ -3,7 +3,7 @@ function showMissions()
 {
 
     // Set title and page name
-    $title = 'Bien-être animal errant île Maurice';
+    $title = 'Sauvetage d\'animaux';
     $page = 'missions';
 
     // Start buffer
@@ -20,7 +20,7 @@ function showMissions()
     </div>
     <div class="container">
         <h1>Nos missions</h1>
-        <section id="sensibilisation" class="block animatable bounceInLeft">
+        <section id="sensibilisation-bien-etre-animal" class="block animatable bounceInLeft">
             <div class="img-part">
                 <img class="img-fluid" src="uploads/Missions-1.jpg" loading="lazy" alt="Sensibilisation animale ile maurice">
             </div>
@@ -34,7 +34,7 @@ function showMissions()
             </div>
 
         </section>
-        <section id="nourrissage" class="block animatable bounceInRight">
+        <section id="nourrissage-animaux" class="block animatable bounceInRight">
             <div class="img-part">
                 <img class="img-fluid" src="uploads/Missions-2.jpg" loading="lazy" alt="Nourrir les animaux errants - ile maurice">
             </div>
@@ -46,7 +46,7 @@ function showMissions()
                     Nos bénévoles à travers l’île nourrissent régulèrement les souvent que possibleanimaux errants de leur région. Afin de leur offrir un repas aussi souvent que possible n’ayant malheureusement pas de refuge pour les accueillir.</p>
             </div>
         </section>
-        <section id="sauvetage" class="block animatable bounceInLeft">
+        <section id="sauvetage-animaux" class="block animatable bounceInLeft">
             <div class="img-part">
                 <img class="img-fluid" src="uploads/Missions-3.png" loading="lazy" alt="Sensibilisation animale ile maurice">
             </div>
@@ -59,7 +59,7 @@ function showMissions()
             </div>
 
         </section>
-        <section id="sterilisation" class="block animatable bounceInRight">
+        <section id="sterilisation-animaux" class="block animatable bounceInRight">
             <div class="img-part">
                 <img class="img-fluid" src="uploads/Missions-4.jpg" loading="lazy" alt="Stérilisation animale ile maurice">
             </div>

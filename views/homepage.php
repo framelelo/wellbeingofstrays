@@ -3,7 +3,7 @@ function ShowHomePage($adoptions)
 {
 
     // Set title and page name
-    $title = 'Bien-être animal errant île Maurice';
+    $title = 'Bien-être des animaux errants';
     $page = 'home';
 
     global $base_url;
@@ -104,26 +104,26 @@ function ShowHomePage($adoptions)
         <h2>Nos missions</h2>
         <div class="container">
             <div class="column">
-                <a href="<?= $base_url ?>?page=missions#sensibilisation" class="img-container block animatable fadeInUp">
+                <a href="<?= $base_url ?>?page=aider-animaux-errants#sensibilisation-bien-etre-animal" class="img-container block animatable fadeInUp">
                     <div class="title">Sensibilisation</div>
                     <div class="content">Nous œuvrons pour trouver des foyers...</div>
                     <img src="uploads/Missions-1.jpg" loading="lazy" alt="Animaux île Maurice">
                 </a>
 
-                <a href="<?= $base_url ?>?page=missions#nourrissage" class="img-container block animatable fadeInDown">
+                <a href="<?= $base_url ?>?page=aider-animaux-errants#nourrissage-animaux" class="img-container block animatable fadeInDown">
                     <div class="title">Nourrissage</div>
                     <div class="content">Nos bénévoles à travers l’île nourrissent régulèrement les souvent que possibleanimaux errants de leur région...</div>
                     <img src="uploads/Missions-2.jpg" loading="lazy" alt="Aide aux animaux Maurice">
                 </a>
             </div>
             <div class="column">
-                <a href="<?= $base_url ?>?page=missions#sauvetage" class="img-container block animatable fadeInUp">
+                <a href="<?= $base_url ?>?page=aider-animaux-errants#sauvetage-animaux" class="img-container block animatable fadeInUp">
                     <div class="title">Sauvetage</div>
                     <div class="content">L'association recueille des animaux errants en détresse...
                     </div>
                     <img src="uploads/Missions-3.png" loading="lazy" alt="Sauvetage animaux Maurice">
                 </a>
-                <a href="<?= $base_url ?>?page=missions#sterilisation" class="img-container block animatable fadeInDown">
+                <a href="<?= $base_url ?>?page=aider-animaux-errants#sterilisation-animaux" class="img-container block animatable fadeInDown">
                     <div class="title">Stérilisation</div>
                     <div class="content">Des programmes de stérilisation et de castration sont tous les mois organisées...</div>
                     <img src="uploads/Missions-4.jpg" loading="lazy" alt="Sterilisation animaux Maurice">

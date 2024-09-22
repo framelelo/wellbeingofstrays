@@ -3,7 +3,7 @@ function showProfilePage($profiles, $selectedProfile)
 {
 
   // Set title and page name
-  $title = 'Sauvetage animal';
+  $title = 'Donation pour aider des animaux';
   $page = 'profiles';
 
   $defaultName = isset($selectedProfile['name']) ? $selectedProfile['name'] : 'Prénom';

@@ -3,7 +3,7 @@ function showMentions()
 {
 
     // Set title and page name
-    $title = 'Well-Being of Strays - Mentions Légales';
+    $title = 'Sauvetage animal';
     $page = 'mentions';
 
     // Start buffer

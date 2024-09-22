@@ -25,7 +25,7 @@ if (isset($_GET["page"])) {
             newRegistrer();
             break;
 
-        case "adoptions":
+        case "adoption-animaux":
             AdoptionPage();
             break;
 
@@ -45,11 +45,11 @@ if (isset($_GET["page"])) {
                 homePage();
             };
             break;
-        case "missions":
+        case "aider-animaux-errants":
             showMissions();
             break;
 
-        case "evenements":
+        case "actions-pour-les-animaux":
             eventPage();
             break;
 

@@ -3,7 +3,7 @@ function showEventsPage($events, $selectedEvent)
 {
 
     // Set title and page name
-    $title = 'Nos évènements';
+    $title = 'Aider les animaux errants';
     $page = 'evenements';
 
     global $isConnected, $token;

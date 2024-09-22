@@ -3,7 +3,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
 {
 
     // Set title and page name
-    $title = 'Adoptions Chiens ou Chats Maurice';
+    $title = 'Adoptions Chiens ou Chats';
     $page = 'adoptions';
 
     global $isConnected, $base_url, $token;

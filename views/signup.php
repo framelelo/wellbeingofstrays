@@ -3,7 +3,7 @@ function showRegsitrerPage()
 {
 
     // Set title and page name
-    $title = 'Bien-être animal errant île Maurice';
+    $title = 'Bien-être des animaux errants';
     $page = 'inscription';
 
     ob_start() ?>

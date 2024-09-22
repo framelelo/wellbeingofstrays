@@ -2,7 +2,7 @@
 function singleAdoptionPage($adoption)
 {
     // Set title and page name
-    $title = 'Adoption animale -' . $adoption['name'];
+    $title = $adoption['name'] . ' à l\'adoption';
     $page  = 'single';
 
     global $base_url, $isConnected, $token;
