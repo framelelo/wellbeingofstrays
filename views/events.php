@@ -17,7 +17,7 @@ function showEventsPage($events, $selectedEvent)
         $defaultImage = $selectedEvent['picture'] ?? '';
         $defaultTitle = $selectedEvent['title'] ?? 'Titre';
         $defaultLink = $selectedEvent['link'] ?? 'Lien';
-        $defaultCoontent = $selectedEvent['description'] ?? 'Description';
+        $defaultCoontent = $selectedEvent['description'] ?? '';
         $isRequired = isset($_GET['id']) ? '' : 'required';
 
 ?>
@@ -40,13 +40,13 @@ function showEventsPage($events, $selectedEvent)
 
                     </div>
 
-                    <input type="text" name="title" id="name" maxlength="40" value="<?= $defaultTitle ?>" <?= $isRequired ?>>
+                    <input type="text" id="name" maxlength="40" placeholder="<?= $defaultTitle  ?>" <?php if($defaultTitle  != 'Titre') echo 'value="' . $defaultTitle . '"'; $isRequired ?> >
                     <!-- Link format validation -->
-                    <input type="text" oninput="validateLinkFormat(this)" name="event-link" id="event-link" value="<?= $defaultLink ?>" <?= $isRequired ?> rel="noopener noreferrer nofollow">
+                    <input type="text" oninput="validateLinkFormat(this)" name="event-link" id="event-link" placeholder="<?= $defaultLink ?>"  <?php if($defaultLink != 'Lien') echo 'value="' . $defaultLink . '"'; $isRequired ?> rel="noopener noreferrer nofollow">
                     <span id="link-error-message" style="color: red;"></span>
 
                     
-                    <textarea name="description" id="message" cols="30" rows="10" maxlength="150" <?= $isRequired ?>><?= $defaultCoontent ?></textarea>
+                    <textarea name="description" id="message" cols="30" rows="10" maxlength="150" <?= $isRequired ?>><?=  $defaultCoontent ?></textarea>
 
                     <!-- CSRF token -->
                     <input type="hidden" name="token" value="<?= $token ?? '' ?>">
