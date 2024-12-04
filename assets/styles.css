@@ -547,9 +547,9 @@ header {
                 box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 
                 .dropdown-list {
-                  padding: 5px 5px 0px 5px;
+                  padding:  10px 5px 0px 5px;
                   > a {
-                    font-size: 14px;
+                    font-size: 1rem;
                   }
                 }
               }
@@ -1374,8 +1374,8 @@ footer {
     }
     .social-icons i {
       color: var(--secondary_color);
-      font-size: 20px;
-      padding: 0px 5px;
+      font-size: 1.7rem;
+      padding: 8px;
 
       &:hover {
         color: #3f3f3f;
