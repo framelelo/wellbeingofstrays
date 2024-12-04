@@ -58,7 +58,7 @@ function singleAdoptionPage($adoption)
         <div class="img-container">
             <img src="uploads/<?= $adoption['picture'] ?>" alt="Animaux en adoption Maurice" class="img-fluid">
         </div>
-        <div class="left-content">
+        <div class="right-content">
             <div class="content">
                 <div class="title">
                     <?php if ($adoption['gender'] == 'male') {
@@ -83,7 +83,7 @@ function singleAdoptionPage($adoption)
             <p><?= $adoption['description'] ?></p>
             <?php if ($adoption['contact'] != '') { ?>
                 <div class="contact-info">
-                    Pour plus d'informations, contactez-le <i class="fa fa-arrow-right"></i>
+                   <span>Pour plus d'informations, contactez-le <i class="fa fa-arrow-right"></i></span> 
                     <a href="tel:<?= $adoption['contact'] ?>"><?= $adoption['contact'] ?>
                     </a>
                 </div>
