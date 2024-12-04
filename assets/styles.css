@@ -315,7 +315,7 @@ p[class^="no-adoptions"] {
   .card {
     position: relative;
     justify-content: space-between;
-    margin: 30px auto;
+    margin: 20px auto;
     > a {
       color: var(--secondary_color);
       .img-container {
