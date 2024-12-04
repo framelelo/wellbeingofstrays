@@ -495,7 +495,7 @@ header {
   & nav {
     .navbar {
       > li {
-        padding: 5px 10px;
+        padding: 5px 8px;
         &.list {
           &.logout-btn i {
             font-size: 20px;
@@ -517,7 +517,7 @@ header {
           }
           & a,
           & span {
-            font: 16px var(--secondary-font);
+            font: 1.1rem var(--secondary-font);
             font-weight: 300;
             color: var(--secondary_color);
 
@@ -1010,11 +1010,10 @@ header {
       padding: 15px;
       > .img-container {
         width: 100%;
-        height: 300px;
         margin-bottom: 15px;
         display: block;
       }
-      .right-content {
+      .left-content {
         font: 0.9rem var(--primary-font);
 
         .content {
