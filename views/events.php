@@ -70,7 +70,7 @@ function showEventsPage($events, $selectedEvent)
                         <h3 class="title"><?= $event['title'] ?></h3>
                         <?php if ($isConnected) { ?>
                             <div class="edit-part">
-                                <a class="edit-btn" href="?page=evenements&id=<?= $event["id"] ?>">
+                                <a class="edit-btn" href="?page=actions-pour-les-animaux&id=<?= $event["id"] ?>">
                                     <i class="fa fa-pen"></i>
                                 </a>
 

@@ -86,7 +86,7 @@ function eventPage()
         }
 
         if ($update) {
-            header("Location: $base_url/?page=evenements");
+            header("Location: $base_url/?page=actions-pour-les-animaux");
         } else {
             echo '<div class="modal"><p>Merci de vérifier les champs obligatoires.</p></div>';
         }
