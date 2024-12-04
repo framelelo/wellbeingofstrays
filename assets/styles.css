@@ -1014,42 +1014,44 @@ header {
         margin-bottom: 15px;
         display: block;
       }
-      .content {
-        margin-bottom: 20px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid var(--dark_grey);
-        font-size: 1rem;
-        .title {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          > i {
-            font-size: 25px;
+      .right-content {
+        font: 0.9rem var(--primary-font);
+
+        .content {
+          margin-bottom: 20px;
+          padding-bottom: 15px;
+          border-bottom: 1px solid var(--dark_grey);
+          font-size: 1rem;
+          .title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            > i {
+              font-size: 25px;
+            }
+            > h3 {
+              font-size: 25px;
+              color: var(--primary_color);
+              font-weight: 600;
+            }
           }
-          > h3 {
-            font-size: 25px;
+        }
+
+        > .contact-info {
+          margin: 10px auto;
+          i {
+            padding: 0 5px;
+          }
+          a {
             color: var(--primary_color);
-            font-weight: 600;
+            font: 1.1rem var(--secondary-font);
+
+            &:hover {
+              color: var(--secondary_color);
+            }
           }
         }
-      }
-      .contact-info {
-        margin: 10px auto;
-        i {
-          padding: 0 5px;
-        }
-        a {
-          color: var(--primary_color);
-          font: 1.3rem var(--secondary-font);
-      
-          &:hover {
-            color: var(--secondary_color);
-          }
-        }
-      }
-      & p {
-        font: 13px var(--primary-font);
       }
     }
     .contact {
@@ -1091,7 +1093,6 @@ header {
         .img-container {
           width: 45%;
         }
-
         .left-content {
           width: 60%;
           .content {
