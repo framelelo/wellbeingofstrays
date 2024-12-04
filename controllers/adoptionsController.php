@@ -65,7 +65,7 @@ function AdoptionPage()
         }
         // Create a new adoption
 
-        if ($id && $name && $specie && $picture && $gender && $description) {
+        if ($id && $name && $specie && $picture && $gender && $description && $contact) {
             $adoption = newAdoptions($id, $name, $specie, $picture, $gender, $description, $contact);
             if ($adoption) {
                 header("location: $base_url/?page=adoptions");

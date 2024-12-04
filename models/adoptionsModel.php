@@ -21,7 +21,7 @@ function newAdoptions(int $id, string $name, string $specie, string $picture, st
 
     // Add a new adoption to the database
     try {
-        $query = $pdo->prepare("INSERT INTO adoptions(id_member,name,specie,picture,gender,description, contact,date) VALUES (:i,:n,:s,:p,:g,:d,:c)");
+        $query = $pdo->prepare("INSERT INTO adoptions(id_member,name,specie,picture,gender,description, contact,date) VALUES (:i,:n,:s,:p,:g,:d,:a,:c)");
 
         $query->execute([
             "i" => $id,

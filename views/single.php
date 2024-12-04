@@ -43,7 +43,7 @@ function singleAdoptionPage($adoption)
                     </select>
                     <i class="fa fa-caret-down"></i>
                 </div>
-                <input type="tel" name="contact" id="contact" value="Contact">
+                <input type="tel" name="contact" id="contact" placeholder="<?= $adoption['contact'] ?>" value="<?= $adoption['contact'] ?>" >
                 <textarea name="description" id="description" cols="30" rows="10" maxlength='200' placeholder="<?= $adoption['description'] ?>"><?= $adoption['description'] ?></textarea>
 
                 <!-- CSRF token -->

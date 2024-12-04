@@ -68,7 +68,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
 
                         <i class="fa fa-caret-down"></i>
                     </div>
-
+                    <input type="tel" name="contact" id="contact" placeholder="Contact">
                     <textarea name="description" id="description" cols="30" rows="10" placeholder="Description" maxlength='200' required></textarea>
 
                     <!-- CSRF token -->
