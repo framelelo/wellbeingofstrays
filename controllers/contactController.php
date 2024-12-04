@@ -9,7 +9,7 @@ function sendEmail()
 {
     require_once 'captchaControllers/autoload.php';
 
-    $secret = '6LcvTZIqAAAAAK7SuqNoysmzFiDpNbLK4ychjy_u';
+    $secret = '';
 
     if ($_POST) {
 
