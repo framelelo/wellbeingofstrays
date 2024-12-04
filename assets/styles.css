@@ -1018,6 +1018,7 @@ header {
         margin-bottom: 20px;
         padding-bottom: 15px;
         border-bottom: 1px solid var(--dark_grey);
+        font-size: 1rem;
         .title {
           display: flex;
           align-items: center;
@@ -1030,6 +1031,20 @@ header {
             font-size: 25px;
             color: var(--primary_color);
             font-weight: 600;
+          }
+        }
+      }
+      .contact-info {
+        margin: 10px auto;
+        i {
+          padding: 0 5px;
+        }
+        a {
+          color: var(--primary_color);
+          font: 1.3rem var(--secondary-font);
+      
+          &:hover {
+            color: var(--secondary_color);
           }
         }
       }
@@ -1502,13 +1517,16 @@ footer {
     color: var(--light_color) !important;
   }
 }
-.freeprivacypolicy-com---pc-dialog input[type=checkbox].cc-custom-checkbox:checked+label:before {
+.freeprivacypolicy-com---pc-dialog
+  input[type="checkbox"].cc-custom-checkbox:checked
+  + label:before {
   background-color: var(--tertiary_color) !important;
 }
 
 .freeprivacypolicy-com---palette-light .cc-pc-head-lang select:focus {
   box-shadow: 0 0 0 2px var(--dark_grey) !important;
 }
-.freeprivacypolicy-com---palette-light .cc-pc-head-close:active, .freeprivacypolicy-com---palette-light .cc-pc-head-close:focus {
+.freeprivacypolicy-com---palette-light .cc-pc-head-close:active,
+.freeprivacypolicy-com---palette-light .cc-pc-head-close:focus {
   border: 1px var(--dark_grey) !important;
 }

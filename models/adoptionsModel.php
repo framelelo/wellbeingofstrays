@@ -8,19 +8,20 @@
  * @param string $picture
  * @param string $gender
  * @param string $description
+ * @param string $contact
  * 
  * @return bool
  * 
-*/
+ */
 
-function newAdoptions(int $id, string $name, string $specie, string $picture, string $gender, string $description): bool
+function newAdoptions(int $id, string $name, string $specie, string $picture, string $gender, string $description, string $contact): bool
 {
 
     global $pdo;
 
     // Add a new adoption to the database
     try {
-        $query = $pdo->prepare("INSERT INTO adoptions(id_member,name,specie,picture,gender,description,date) VALUES (:i,:n,:s,:p,:g,:d,:c)");
+        $query = $pdo->prepare("INSERT INTO adoptions(id_member,name,specie,picture,gender,description, contact,date) VALUES (:i,:n,:s,:p,:g,:d,:c)");
 
         $query->execute([
             "i" => $id,
@@ -29,6 +30,7 @@ function newAdoptions(int $id, string $name, string $specie, string $picture, st
             "p" => $picture,
             "g" => $gender,
             "d" => $description,
+            "a" => $contact,
             "c" => date("Y-m-d H:i:s")
         ]);
         return true;
@@ -47,15 +49,16 @@ function newAdoptions(int $id, string $name, string $specie, string $picture, st
  * @param string $gender
  * @param string $description
  * 
+ * 
  * @return bool
  * */
 
-function updateAdoptions(int $id, int $id_user, string $name, string $specie, string $picture, string $gender, string $description):bool
+function updateAdoptions(int $id, int $id_user, string $name, string $specie, string $picture, string $gender, string $description, string $contact): bool
 {
     global $pdo;
 
     try {
-        $query = $pdo->prepare("UPDATE adoptions SET id_member = :u, name = :n, specie = :s, picture = :p, gender = :g, description = :d, date = :c WHERE id = :i");
+        $query = $pdo->prepare("UPDATE adoptions SET id_member = :u, name = :n, specie = :s, picture = :p, gender = :g, description = :d, contact = :a,date = :c WHERE id = :i");
 
         $query->execute([
             "i" => $id,
@@ -65,6 +68,7 @@ function updateAdoptions(int $id, int $id_user, string $name, string $specie, st
             "p" => $picture,
             "g" => $gender,
             "d" => $description,
+            "a" => $contact,
             "c" => date("Y-m-d H:i:s")
         ]);
 

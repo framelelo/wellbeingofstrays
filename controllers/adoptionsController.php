@@ -28,7 +28,8 @@ function AdoptionPage()
         $name = htmlspecialchars($_POST['name']);
         $specie = $_POST['species'];
         $gender = $_POST['gender'];
-        $description = htmlspecialchars($_POST['description']);
+        $description = htmlspecialchars($_POST['description']); 
+        $contact = htmlspecialchars($_POST['contact']);
 
 
         // Retrieve the uploaded image
@@ -65,7 +66,7 @@ function AdoptionPage()
         // Create a new adoption
 
         if ($id && $name && $specie && $picture && $gender && $description) {
-            $adoption = newAdoptions($id, $name, $specie, $picture, $gender, $description);
+            $adoption = newAdoptions($id, $name, $specie, $picture, $gender, $description, $contact);
             if ($adoption) {
                 header("location: $base_url/?page=adoptions");
             } else {
@@ -100,6 +101,7 @@ function updateAdoption(int $id)
         $gender = $_POST['gender'];
         $specie = $_POST['species'];
         $description = htmlspecialchars($_POST['description']);
+        $contact = htmlspecialchars($_POST['contact']);
 
         $picture = time() . '_' . $_FILES['img-animal']['name'];
         $temp_folder = $_FILES['img-animal']['tmp_name'];
@@ -135,7 +137,7 @@ function updateAdoption(int $id)
             return
                 ShowHomePage($adoption);
         }
-        $update = updateAdoptions($id, $id_user, $name, $specie, $picture, $gender,  $description);
+        $update = updateAdoptions($id, $id_user, $name, $specie, $picture, $gender,  $description, $contact);
         if ($update) {
             header("location: $base_url/?page=adoptions");
         } else {

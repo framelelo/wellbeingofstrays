@@ -12,7 +12,7 @@ function singleAdoptionPage($adoption)
         <div class="edit-form">
             <h4>Modifier la fiche</h4>
             <form method="post" action="<?php $base_url ?>?page=modifier-adoption&id=<?= $adoption["id"] ?>" enctype="multipart/form-data">
-                
+
 
                 <!-- Image upload & preview -->
                 <div class="image-upload-btn">
@@ -43,6 +43,7 @@ function singleAdoptionPage($adoption)
                     </select>
                     <i class="fa fa-caret-down"></i>
                 </div>
+                <input type="tel" name="contact" id="contact" value="Contact">
                 <textarea name="description" id="description" cols="30" rows="10" maxlength='200' placeholder="<?= $adoption['description'] ?>"><?= $adoption['description'] ?></textarea>
 
                 <!-- CSRF token -->
@@ -80,6 +81,14 @@ function singleAdoptionPage($adoption)
                 <?php }; ?>
             </div>
             <p><?= $adoption['description'] ?></p>
+            <?php if ($adoption['contact'] != '') { ?>
+                <div class="contact-info">
+                    Pour plus d'informations, contactez-le <i class="fa fa-arrow-right"></i>
+                    <a href="tel:<?= $adoption['contact'] ?>"><?= $adoption['contact'] ?>
+                    </a>
+                </div>
+            <?php } ?>
+
         </div>
     </section>
     <section class="contact center-text">
