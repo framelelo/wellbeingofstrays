@@ -117,7 +117,7 @@ function removeEvent()
         }
 
 
-        header("location: $base_url/?page=evenements");
+        header("location: $base_url/?page=actions-pour-les-animaux");
     } else {
         echo '<div class="modal"><p>Merci de vérifier !</p></div>';
     }

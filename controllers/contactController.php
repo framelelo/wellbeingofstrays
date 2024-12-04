@@ -9,14 +9,14 @@ function sendEmail()
 {
     require_once 'captchaControllers/autoload.php';
 
-    $secret = '6LdCN0opAAAAALwmhWXAZTjjktNbIwHoDNUc752F';
+    $secret = '6LcvTZIqAAAAAGLrlLEU4mYyAnatO3-gjReAiAn5';
 
     if ($_POST) {
 
         $gRecaptchaResponse = $_POST['g-recaptcha-response'];
 
         $recaptcha = new \ReCaptcha\ReCaptcha($secret);
-        $resp = $recaptcha->setExpectedHostname('localhost')
+        $resp = $recaptcha->setExpectedHostname('wellbeingofstrays.com')
             ->verify($gRecaptchaResponse, $_SERVER['REMOTE_ADDR']);
 
         if ($resp->isSuccess()) {
