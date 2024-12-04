@@ -9,7 +9,7 @@ function sendEmail()
 {
     require_once 'captchaControllers/autoload.php';
 
-    $secret = '6LcvTZIqAAAAAGLrlLEU4mYyAnatO3-gjReAiAn5';
+    $secret = 'secret';
 
     if ($_POST) {
 
@@ -27,7 +27,7 @@ function sendEmail()
             $object = $_POST['object'];
             $message = $_POST['message'];
 
-            $headers = "Content-Type: text/plain; charset=utf-8" ."\r\n";
+            
             $headers .= "From: $from"  . "\r\n" . "Name: " . $name .  "\r\n" ."Tel: " . $tel . "\r\n";
 
             if (mail($to,  $object, $headers, $message)) {
