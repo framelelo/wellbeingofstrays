@@ -1,4 +1,4 @@
 
 /.DS_Store
 /models/databaseModel.php
-/controllers/contactController.php
+controllers/contactController.php
