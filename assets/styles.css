@@ -812,7 +812,7 @@ header {
           font: 20px var(--primary-font);
           padding: 15px 30px;
           color: var(--secondary_color);
-          transition: 0.5s all linear;
+          transition: 0.2s all linear;
         }
         > img {
           width: 100%;
@@ -1426,7 +1426,7 @@ footer {
 .animated {
   visibility: visible;
   animation-fill-mode: both;
-  animation-duration: 2.5s;
+  animation-duration: .8s;
   animation-play-state: running;
   &.bounceInLeft {
     animation-name: bounceInLeft;
