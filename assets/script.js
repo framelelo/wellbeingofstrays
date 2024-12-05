@@ -73,6 +73,25 @@ function selectOpen(button, optionsClass) {
 }
 selectOpen("filter-species", "species-filter");
 
+// OPEN & CLOSE DROPDOWN MENU - MISSIONS
+const dropdownBtn = document.querySelector(".dropdown-btn");
+const dropdownMenu = document.querySelector(".dropdown-menu");
+
+dropdownBtn.addEventListener("click", (event) => {
+  event.stopPropagation(); // Prevent the event from propagating to the bodyContainer
+  dropdownMenu.classList.toggle("open");
+});
+
+bodyContainer.addEventListener("click", () => {
+  if (dropdownMenu.classList.contains("open")) {
+    dropdownMenu.classList.remove("open");
+  }
+});
+
+dropdownMenu.addEventListener("click", () => {
+  bodyContainer.classList.remove("open");
+});
+
 // FILTER FOR SPECIES
 
 const dogsFilter = document.getElementById("dogs-filter");
@@ -154,17 +173,7 @@ function validateLinkFormat(input) {
   }
 }
 
-const dropdownBtn = document.querySelector(".dropdown-btn");
-const dropdownMenu = dropdownBtn.querySelector(".dropdown-menu");
-
-dropdownBtn.addEventListener("click", () => {
-  dropdownMenu.classList.toggle("open");
-});
-
-dropdownMenu.addEventListener("click", () => {
-  bodyContainer.classList.remove("open");
-});
-
+// ANIMATIONS
 jQuery(function ($) {
   // Function which adds the 'animated' class to any '.animatable' in view
   var doAnimations = function () {
