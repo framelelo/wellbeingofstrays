@@ -1327,13 +1327,14 @@ footer {
     .menu {
       > .contact {
         > a {
-          font-size: 16px;
+          font-size: 1.1rem;
         }
       }
       & a {
         font-weight: 500;
         color: var(--secondary_color);
-        font-size: 14px;
+        font-size: 1rem;
+        line-height: 30px;
         padding: 7px;
         &:hover,
         &:active {
