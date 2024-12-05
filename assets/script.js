@@ -80,9 +80,11 @@ const catsFilter = document.getElementById("cats-filter");
 const dogsContent = document.querySelectorAll(".chien-content");
 const catsContent = document.querySelectorAll(".chat-content");
 const noAdoptionMessage = document.querySelector(".no-adoptions-message"); 
+const selectContainer = document.querySelector(".select-dropdown");
 
 if (dogsFilter) {
   dogsFilter.addEventListener("change", () => {
+    selectContainer.classList.remove("open-options");
     dogsContent.forEach(function (dog) {
       dog.style.display = dogsFilter.checked ? "block" : "none";
     });
@@ -104,6 +106,7 @@ if (dogsFilter) {
 
 if (catsFilter) {
   catsFilter.addEventListener("change", () => {
+    selectContainer.classList.remove("open-options");
     catsContent.forEach(function (cat) {
       cat.style.display = catsFilter.checked ? "block" : "none";
     });
