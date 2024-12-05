@@ -58,7 +58,7 @@ function ShowHomePage($adoptions)
         <div class="container-card">
             <?php if ($adoptions) {
                 foreach ($adoptions as $adoption) { ?>
-                    <div class="card <?= $adoption["specie"] ?>-content block animatable fadeInUp">
+                    <div class="card <?= $adoption["specie"] ?>-content">
 
                         <?php if ($isConnected) { ?>
                             <div class="edit-part">

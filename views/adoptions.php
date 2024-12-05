@@ -106,7 +106,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                     <div class="container-card">
                         <?php if ($adoptions_dogs) {
                             foreach ($adoptions_dogs as $dog) { ?>
-                                <div class="card <?= $dog["specie"] ?>  block animatable fadeInDown">
+                                <div class="card <?= $dog["specie"] ?>">
                                     <?php if ($isConnected) { ?>
                                         <div class="edit-part">
                                             <a class="edit-btn" href="?page=single&id=<?= $dog["id"] ?>">
@@ -148,7 +148,7 @@ function showAdoptionsPage($adoptions_cats, $adoptions_dogs, $singleAdoption, $a
                         <?php if ($adoptions_cats) {
                             foreach ($adoptions_cats as $cat) { ?>
                                 <!-- For filter purpose, a class with the specie has been added to the card -->
-                                <div class="card <?= $cat["specie"] ?> block animatable fadeInUp">
+                                <div class="card <?= $cat["specie"] ?>">
                                     <!-- If connected then edit part is displayed -->
                                     <?php if ($isConnected) { ?>
                                         <!-- To update or delete an adoption -->
