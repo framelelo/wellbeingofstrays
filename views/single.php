@@ -83,7 +83,7 @@ function singleAdoptionPage($adoption)
             <p><?= $adoption['description'] ?></p>
             <?php if ($adoption['contact'] != '') { ?>
                 <div class="contact-info">
-                   <span>Pour plus d'informations, contactez-le <i class="fa fa-arrow-right"></i></span> 
+                   <span>Plus d'informations ? Contactez-le <i class="fa fa-arrow-right"></i></span> 
                     <a href="tel:<?= $adoption['contact'] ?>"><?= $adoption['contact'] ?>
                     </a>
                 </div>

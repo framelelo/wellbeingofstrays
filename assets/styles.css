@@ -723,7 +723,7 @@ header {
 }
 .adoptions {
   max-width: 1024px;
-  padding: 10vh 15px;
+  padding: 10px 15px;
   margin: auto;
   > h1 {
     text-align: center;
@@ -1391,7 +1391,6 @@ footer {
   .container {
     width: 90%;
     margin: 50px auto;
-    text-align: justify;
   }
   h1,
   h2,
