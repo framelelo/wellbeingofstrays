@@ -205,7 +205,7 @@ p[class^="no-adoptions"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: bounce 3s ease-in-out;
+  animation: bounce 2s ease-in-out;
   box-shadow: 0px 0px 1px 3px rgba(191, 191, 191, 0.5);
   p {
     font: 25px var(--secondary-font);
@@ -520,7 +520,10 @@ header {
             font: 1.1rem var(--secondary-font);
             font-weight: 300;
             color: var(--secondary_color);
-
+            i {
+              padding-left: 3px;
+              padding-top: 2px;
+            }
             &:hover,
             &:active {
               color: var(--primary_color);
@@ -531,6 +534,7 @@ header {
           }
           &.dropdown-btn {
             position: relative;
+            cursor: pointer;
 
             .dropdown-menu {
               display: none;
@@ -547,7 +551,7 @@ header {
                 box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 
                 .dropdown-list {
-                  padding:  10px 5px 0px 5px;
+                  padding: 10px 5px 0px 5px;
                   > a {
                     font-size: 1rem;
                   }
@@ -561,9 +565,7 @@ header {
                   }
                 }
               }
-            }
-            &:hover {
-              .dropdown-menu {
+              &.open{
                 display: block;
               }
             }
@@ -812,7 +814,7 @@ header {
           font: 20px var(--primary-font);
           padding: 15px 30px;
           color: var(--secondary_color);
-          transition: 0.2s all linear;
+          transition: 0.5s all linear;
         }
         > img {
           width: 100%;
@@ -1426,7 +1428,7 @@ footer {
 .animated {
   visibility: visible;
   animation-fill-mode: both;
-  animation-duration: .8s;
+  animation-duration: 1.2s;
   animation-play-state: running;
   &.bounceInLeft {
     animation-name: bounceInLeft;

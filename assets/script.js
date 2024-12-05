@@ -1,6 +1,6 @@
-// 
+//
 // CONFIRMATION OF PASSWORD MATCH
-// 
+//
 function confirmPwd() {
   var password = document.getElementById("pwd").value;
   var confirmPassword = document.getElementById("confirmation-pwd").value;
@@ -79,7 +79,7 @@ const dogsFilter = document.getElementById("dogs-filter");
 const catsFilter = document.getElementById("cats-filter");
 const dogsContent = document.querySelectorAll(".chien-content");
 const catsContent = document.querySelectorAll(".chat-content");
-const noAdoptionMessage = document.querySelector(".no-adoptions-message"); 
+const noAdoptionMessage = document.querySelector(".no-adoptions-message");
 const selectContainer = document.querySelector(".select-dropdown");
 
 if (dogsFilter) {
@@ -94,13 +94,10 @@ if (dogsFilter) {
 
     // Show or hide the "No dogs for adoption" message
     if (dogsContent.length === 0) {
-      
-         noAdoptionMessage.style.display = "block";
+      noAdoptionMessage.style.display = "block";
     } else {
       noAdoptionMessage.style.display = "none";
     }
-      
-     
   });
 }
 
@@ -114,8 +111,8 @@ if (catsFilter) {
       dog.style.display = "none";
     });
 
-     // Show or hide the "No dogs for adoption" message
-     if (catsContent.length === 0 && catsFilter.checked) {
+    // Show or hide the "No dogs for adoption" message
+    if (catsContent.length === 0 && catsFilter.checked) {
       noAdoptionMessage.style.display = "block";
     } else {
       noAdoptionMessage.style.display = "none";
@@ -147,43 +144,49 @@ function validateLinkFormat(input) {
   var linkFormat = /^(ftp|http|https):\/\/[^ "]+$/;
 
   // Get the error message element
-  var errorMessage = document.getElementById('link-error-message');
-  
+  var errorMessage = document.getElementById("link-error-message");
+
   // Check if the input value matches the link format
   if (linkFormat.test(input.value)) {
-      errorMessage.textContent = '';
+    errorMessage.textContent = "";
   } else {
-      errorMessage.textContent = 'Merci de renseigner un lien valide';
+    errorMessage.textContent = "Merci de renseigner un lien valide";
   }
 }
 
+const dropdownBtn = document.querySelector(".dropdown-btn");
+const dropdownMenu = dropdownBtn.querySelector(".dropdown-menu");
 
-jQuery(function($) {
-  
+dropdownBtn.addEventListener("click", () => {
+  dropdownMenu.classList.toggle("open");
+});
+
+dropdownMenu.addEventListener("click", () => {
+  bodyContainer.classList.remove("open");
+});
+
+jQuery(function ($) {
   // Function which adds the 'animated' class to any '.animatable' in view
-  var doAnimations = function() {
-    
+  var doAnimations = function () {
     // Calc current offset and get all animatables
     var offset = $(window).scrollTop() + $(window).height(),
-        $animatables = $('.animatable');
-    
+      $animatables = $(".animatable");
+
     // Unbind scroll handler if we have no animatables
     if ($animatables.length == 0) {
-      $(window).off('scroll', doAnimations);
+      $(window).off("scroll", doAnimations);
     }
-    
+
     // Check all animatables and animate them if necessary
-    $animatables.each(function(i) {
-       var $animatable = $(this);
-      if (($animatable.offset().top + $animatable.height() - 40) < offset) {
-        $animatable.removeClass('animatable').addClass('animated');
+    $animatables.each(function (i) {
+      var $animatable = $(this);
+      if ($animatable.offset().top + $animatable.height() - 40 < offset) {
+        $animatable.removeClass("animatable").addClass("animated");
       }
     });
-
   };
-  
-  // Hook doAnimations on scroll, and trigger a scroll
-  $(window).on('scroll', doAnimations);
-  $(window).trigger('scroll');
 
+  // Hook doAnimations on scroll, and trigger a scroll
+  $(window).on("scroll", doAnimations);
+  $(window).trigger("scroll");
 });
