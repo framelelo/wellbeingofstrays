@@ -11,7 +11,7 @@ global $base_url, $isConnected;
 
     <meta name="description" content="Well-being of Strays est une organisation à but non lucratif basée à Maurice, fondée en 2017, dédiée au bien-être des animaux errants. Nous offrons refuge, soins médicaux, nourriture et amour aux animaux abandonnés, perdus ou maltraités. Notre mission est d'améliorer leur vie grâce à des solutions durables pour leur bien-être. L'association fonctionne grâce au soutien de bénévoles et donateurs, contribuant à un impact positif pour les animaux vulnérables de l'île Maurice.">
     <meta name="author" content="Well-being of Strays">
-    
+
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/script.js" defer></script>
 
@@ -144,11 +144,14 @@ global $base_url, $isConnected;
                 <p class="copyright">Well-Being of Strays <i class="fa fa-copyright"><span class="year"><?= date('Y'); ?></span></i></p>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/wellbeingofstrays808" target="_blank">
-                        <i class="fab fa-facebook-square"></i>
+                    <i class="fa-brands fa-facebook-f fa-lg"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@wellbeingofstrays?_t=ZN-8rxTr6ph9TK&_r=1" target="_blank">
+                    <i class="fa-brands fa-tiktok fa-lg"></i>
                     </a>
 
                     <a href="https://www.instagram.com/thewellbeingofstrays/" target="_blank">
-                        <i class="fab fa-instagram-square"></i>
+                    <i class="fa-brands fa-instagram fa-lg"></i>
                     </a>
                 </div>
             </div>

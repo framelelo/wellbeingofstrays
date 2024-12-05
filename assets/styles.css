@@ -1379,11 +1379,17 @@ footer {
     }
     .social-icons i {
       color: var(--secondary_color);
-      font-size: 1.7rem;
       padding: 8px;
 
       &:hover {
         color: #3f3f3f;
+      }
+    }
+    @media only screen and (max-width: 650px) {
+      text-align: center;
+      flex-direction: column-reverse;
+      .social-icons {
+       margin: 15px auto;
       }
     }
   }
