@@ -40,13 +40,13 @@ function showEventsPage($events, $selectedEvent)
 
                     </div>
 
-                    <input type="text" name="title" id="name" maxlength="40" placeholder="<?= $defaultTitle ?>" <?= $isRequired ?>>
+                    <input type="text" name="title" id="name" maxlength="40" value="<?= $defaultTitle ?>" <?= $isRequired ?>>
                     <!-- Link format validation -->
-                    <input type="text" oninput="validateLinkFormat(this)" name="event-link" id="event-link" placeholder="<?= $defaultLink ?>" <?= $isRequired ?> rel="noopener noreferrer nofollow">
+                    <input type="text" oninput="validateLinkFormat(this)" name="event-link" id="event-link" value="<?= $defaultLink ?>" <?= $isRequired ?> rel="noopener noreferrer nofollow">
                     <span id="link-error-message" style="color: red;"></span>
 
                     
-                    <textarea name="description" id="message" cols="30" rows="10" maxlength="150" placeholder="<?= $defaultContent ?>" <?= $isRequired ?>></textarea>
+                    <textarea name="description" id="message" cols="30" rows="10" maxlength="150" value="<?= $defaultContent ?>" <?= $isRequired ?>><?= $defaultContent ?></textarea>
 
                     <!-- CSRF token -->
                     <input type="hidden" name="token" value="<?= $token ?? '' ?>">
