@@ -46,7 +46,9 @@ function showEventsPage($events, $selectedEvent)
                     <span id="link-error-message" style="color: red;"></span>
                     <textarea name="description" id="message" cols="30" rows="10" maxlength="300" value="<?= $defaultContent ?>" <?= $isRequired ?>><?= $defaultContent ?></textarea>
                     <div class="checkbox">
-                        <input type="checkbox" name="featured-event" id="featured-event" value='featured' class="checkbox-input">
+                        <input type="checkbox" name="featured-event" id="featured-event" value='featured' class="checkbox-input" <?php  if (isset($selectedEvent['feature']) && $selectedEvent['feature'] == 'featured') {
+           echo 'checked';
+       }?>>
                         <label for="featured-event">
                         <i class="fas fa-check"></i> Afficher sur la page d'accueil
                         </label>
