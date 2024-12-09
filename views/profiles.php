@@ -60,7 +60,7 @@ function showProfilePage($profiles, $selectedProfile)
       <input type="password" placeholder="<?= isset($_GET['id']) ? 'Modifier le mot de passe' : 'Mot de passe' ?>" name="pwd" id="pwd" value="<?= $defaultPwd ?>">
       <input type="password" placeholder="Confirmer le mot de passe" name="confirmation-pwd" id="confirmation-pwd" value="<?= $defaultPwd ?>">
       <div class="checkbox">
-        <input type="checkbox" name="role" id="role" value='admin'>
+        <input type="checkbox" name="role" id="role" value='admin' class="checkbox-input">
         <label for="role"><i class="fas fa-check"></i> Administrateur</label>
       </div>
 

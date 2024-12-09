@@ -6,6 +6,7 @@
 function homePage()
 {
     $adoptions = showAdoptions();
+    $events = showEvents();
 
-    ShowHomePage($adoptions);
+    ShowHomePage($adoptions, $events);
 };

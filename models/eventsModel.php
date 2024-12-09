@@ -11,12 +11,12 @@
  * 
  * @return bool
  */
-function updateEvents(int $id, int $id_user,string $title, string $picture, string $link, string $description): bool
+function updateEvents(int $id, int $id_user,string $title, string $picture, string $link, string $description, $feature): bool
 {
     global $pdo;
 
     try {
-        $query = $pdo->prepare("UPDATE events SET id_member = :i, title = :t,picture = :p, link = :l, description = :d, date = :c WHERE id = :id");
+        $query = $pdo->prepare("UPDATE events SET id_member = :i, title = :t,picture = :p, link = :l, description = :d, feature = :f, date = :c WHERE id = :id");
 
         $query->execute([
             "i" => $id_user,
@@ -24,6 +24,7 @@ function updateEvents(int $id, int $id_user,string $title, string $picture, stri
             "p" => $picture,
             "l" => $link,
             "d" => $description,
+            "f" => $feature,
             "c" => date("Y-m-d H:i:s"),
             "id" => $id
         ]);
@@ -46,12 +47,12 @@ function updateEvents(int $id, int $id_user,string $title, string $picture, stri
  * 
  * @return bool
  */
-function newEvents(int $id_user, string $title, string $picture, string $link, string $description) : bool
+function newEvents(int $id_user, string $title, string $picture, string $link, string $description, $feature) : bool
 {
     global $pdo;
 
     try {
-        $query = $pdo->prepare("INSERT INTO events(id_member, title, picture, link, description, date) VALUES (:i, :t, :p, :l, :d, :c)");
+        $query = $pdo->prepare("INSERT INTO events(id_member, title, picture, link, description, feature, date) VALUES (:i, :t, :p, :l, :d, :f, :c)");
 
         $query->execute([
             "i" => $id_user,
@@ -59,6 +60,7 @@ function newEvents(int $id_user, string $title, string $picture, string $link, s
             "p" => $picture,
             "l" => $link,
             "d" => $description,
+            "f" => $feature,
             "c" => date("Y-m-d H:i:s")
         ]);
 

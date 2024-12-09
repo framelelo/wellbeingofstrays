@@ -31,7 +31,9 @@ function eventPage()
         $title = htmlspecialchars($_POST['title']);
         $link = htmlspecialchars($_POST['event-link']);
         $description = htmlspecialchars($_POST['description']);
+        $feature = isset($_POST['featured-event']) ? $_POST['featured-event'] : null;
 
+        
         // Retrieve the uploaded image
         $picture = time() . '_' . $_FILES['img-event']['name'];
         $temp_folder = $_FILES['img-event']['tmp_name'];
@@ -80,9 +82,9 @@ function eventPage()
         // Update an event in the database if already exists else create a new one
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
-            $update = updateEvents($id, $id_user, $title, $picture, $link, $description);
+            $update = updateEvents($id, $id_user, $title, $picture, $link, $description, $feature);
         } else {
-            $update = newEvents($id_user, $title, $picture, $link, $description);
+            $update = newEvents($id_user, $title, $picture, $link, $description, $feature);
         }
 
         if ($update) {

@@ -18,8 +18,6 @@ if (isset($_GET["page"])) {
                 header("Location: $base_url");
             } else signIn();
             break;
-
-
             
         case "signup":
             newRegistrer();

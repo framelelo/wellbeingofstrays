@@ -40,13 +40,17 @@ function showEventsPage($events, $selectedEvent)
 
                     </div>
 
-                    <input type="text" name="title" id="name" maxlength="40" value="<?= $defaultTitle ?>" <?= $isRequired ?>>
+                    <input type="text" name="title" id="name" maxlength="70" value="<?= $defaultTitle ?>" <?= $isRequired ?>>
                     <!-- Link format validation -->
                     <input type="text" oninput="validateLinkFormat(this)" name="event-link" id="event-link" value="<?= $defaultLink ?>" <?= $isRequired ?> rel="noopener noreferrer nofollow">
                     <span id="link-error-message" style="color: red;"></span>
-
-                    
-                    <textarea name="description" id="message" cols="30" rows="10" maxlength="150" value="<?= $defaultContent ?>" <?= $isRequired ?>><?= $defaultContent ?></textarea>
+                    <textarea name="description" id="message" cols="30" rows="10" maxlength="300" value="<?= $defaultContent ?>" <?= $isRequired ?>><?= $defaultContent ?></textarea>
+                    <div class="checkbox">
+                        <input type="checkbox" name="featured-event" id="featured-event" value='featured' class="checkbox-input">
+                        <label for="featured-event">
+                        <i class="fas fa-check"></i> Afficher sur la page d'accueil
+                        </label>
+                    </div>
 
                     <!-- CSRF token -->
                     <input type="hidden" name="token" value="<?= $token ?? '' ?>">
@@ -67,19 +71,18 @@ function showEventsPage($events, $selectedEvent)
             <?php if ($events) {
                 foreach ($events as $event) { ?>
                     <div class="card">
-                        <h3 class="title"><?= $event['title'] ?></h3>
                         <?php if ($isConnected) { ?>
                             <div class="edit-part">
                                 <a class="edit-btn" href="?page=actions-pour-les-animaux&id=<?= $event["id"] ?>">
                                     <i class="fa fa-pen"></i>
                                 </a>
-
                                 <a class="delete-btn" href="?page=supprimer-evenement&id=<?= $event["id"] ?>">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                             </div>
                         <?php } ?>
                         <a href="<?= $event['link'] ?>" target="_blank" rel="noopener noreferrer nofollow">
+                            <h4 class="title"><?= $event['title'] ?></h4>
                             <div class="img-container">
                                 <img src="uploads/<?= $event['picture'] ?>" alt="Animaux en adoption à l'ile Maurice" loading="lazy" class="img-fluid">
                             </div>

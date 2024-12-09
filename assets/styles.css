@@ -91,7 +91,7 @@ h4 {
 
 /* General INPUTS styles */
 
-main input:not(#role),
+main input:not(.checkbox-input),
 textarea,
 .select-style select {
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -121,7 +121,7 @@ textarea {
   resize: none;
 }
 
-input:not(#role) {
+input:not(.checkbox-input){
   height: 45px;
 }
 
@@ -673,7 +673,7 @@ header {
     > .content {
       width: 90%;
       margin: auto;
-      > h2 {
+      > h1 {
         font-family: var(--secondary-font);
         text-align: center;
         font-size: 30px;
@@ -723,11 +723,54 @@ header {
     background-image: url("../uploads/jumbotron-accueil.jpg");
   }
 }
+.pinned-event {
+  background-color: #fafafa;
+  padding: 15px;
+  border-bottom: 1px solid rgba(191, 191, 191, 0.5);
+  .container-card {
+    max-width: 1024px;
+    margin: 15px auto;
+    h2 {
+      text-align: center;
+      color: var(--tertiary_color);
+      font-size: 2rem;
+      margin: 15px auto;
+    }
+    h3 {
+      text-align: center;
+      color: var(--secondary_color);
+      font-size: 1.5rem;
+      margin: 15px auto;
+    }
+    .img-container {
+      overflow: hidden;
+      height: 500px;
+      img {
+        transition: all 0.3s ease-in-out;
+      }
+    }
+    span {
+      display: block;
+      font-size: 1.3rem;
+      padding: 15px 10px;
+      text-align: center;
+      color: var(--secondary_color);
+      background-color: var(--tertiary_color);
+      text-transform: uppercase;
+      font-family: var(--secondary-font);
+      &:hover {
+        background-color: var(--secondary_color);
+        color: var(--light_color);
+      }
+    }
+  }
+}
+
 .adoptions {
   max-width: 1024px;
-  padding: 10px 15px;
+  padding: 30px 15px;
   margin: auto;
-  > h1 {
+  > h2 {
     text-align: center;
     text-transform: uppercase;
   }
@@ -746,7 +789,6 @@ header {
         width: 30%;
       }
     }
-
     @media only screen and (min-width: 561px) and (max-width: 743px) {
       display: flex;
       gap: 3%;
@@ -980,8 +1022,14 @@ header {
       & .title {
         text-align: center;
         color: var(--tertiary_color);
-        font-size: 30px;
+        font-size: 1.5rem;
         margin-bottom: 15px;
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      .img-container {
+        height: 520px;
       }
       & a {
         .description {
@@ -1110,6 +1158,52 @@ header {
   }
 }
 
+.checkbox-input {
+  display: block;
+  margin: 15px auto;
+}
+.checkbox {
+  margin: 25px auto;
+  text-align: right;
+  display: block;
+  .checkbox-input {
+    display: none;
+    &:checked + label {
+      &::before {
+        background-color: var(--tertiary_color);
+        content: "";
+        text-align: center;
+      }
+      > i {
+        display: block;
+      }
+    }
+  }
+  > label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 20px;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 2px;
+      height: 15px;
+      width: 15px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      display: block;
+      margin-right: 5px;
+    }
+    > i {
+      position: absolute;
+      left: 2px;
+      top: 4px;
+      font-size: 12px;
+      display: none;
+      color: var(--light_color);
+    }
+  }
+}
 /*************************
         PROFILE PAGE 
  ***********************/
@@ -1180,52 +1274,6 @@ header {
         }
       }
 
-      > input {
-        display: block;
-        margin: 15px auto;
-      }
-      > .checkbox {
-        margin: 25px auto;
-        text-align: right;
-        display: block;
-        #role {
-          display: none;
-          &:checked + label {
-            &::before {
-              background-color: var(--tertiary_color);
-              content: "";
-              text-align: center;
-            }
-            > i {
-              display: block;
-            }
-          }
-        }
-        > label {
-          position: relative;
-          cursor: pointer;
-          padding-left: 25px;
-          &::before {
-            content: "";
-            position: absolute;
-            left: 0px;
-            top: 2px;
-            height: 15px;
-            width: 15px;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            display: block;
-            margin-right: 5px;
-          }
-          > i {
-            position: absolute;
-            left: 2px;
-            top: 4px;
-            font-size: 12px;
-            display: none;
-            color: var(--light_color);
-          }
-        }
-      }
       .button {
         margin-top: 25px;
         font: 20px var(--secondary-font);
@@ -1389,7 +1437,7 @@ footer {
       text-align: center;
       flex-direction: column-reverse;
       .social-icons {
-       margin: 15px auto;
+        margin: 15px auto;
       }
     }
   }

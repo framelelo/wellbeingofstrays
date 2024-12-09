@@ -1,5 +1,5 @@
 <?php
-function ShowHomePage($adoptions)
+function ShowHomePage($adoptions, $events)
 {
 
     // Set title and page name
@@ -14,7 +14,7 @@ function ShowHomePage($adoptions)
     <div class="jumbotron">
         <div class="container">
             <div class="content">
-                <h2>QUI EST WELL-BEING OF STRAYS ?</h2>
+                <h1>QUI EST WELL-BEING OF STRAYS ?</h1>
                 <p>
                     L'association Well-being of Strays est une organisation créée en 2017 à but non lucratif dédiée au bien-être des animaux errants. Nous nous efforçons de venir en aide aux animaux abandonnés, perdus ou maltraités en leur offrant un refuge, des soins médicaux, de la nourriture et de l'amour.
                 </p>
@@ -34,8 +34,38 @@ function ShowHomePage($adoptions)
             </div>
         </div>
     </div>
+    <?php
+    if (!empty($events)) {
+        foreach ($events as $event) {
+            if (isset($event['feature']) && $event['feature'] === 'featured') {
+                // Display the first featured event only?>
+                <section class="event pinned-event">
+                    <div class="container-card">
+                        <h2>Notre prochain évènement</h2><a href="<?= htmlspecialchars($event['link'], ENT_QUOTES, 'UTF-8') ?>"
+                            target="_blank"
+                            rel="noopener noreferrer nofollow">
+                            <div class="card">
+                                <h3 class="title"><?= htmlspecialchars($event['title'], ENT_QUOTES, 'UTF-8') ?></h3>
+                                <div class="img-container">
+                                    <img src="uploads/<?= htmlspecialchars($event['picture'], ENT_QUOTES, 'UTF-8') ?>"
+                                        alt="<?= htmlspecialchars($event['title'], ENT_QUOTES, 'UTF-8') ?>"
+                                        loading="lazy"
+                                        class="img-fluid">
+                                </div>
+                                <span>Plus d'informations ?</span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+    <?php
+                break; // Exit the loop after displaying the first featured event
+            }
+        }
+    }
+    ?>
+
     <section class="adoptions">
-        <h1>Découvrez les animaux à l’adoption</h1>
+        <h2>Découvrez les animaux à l’adoption</h2>
 
         <?php if (($adoptions) && (sizeof($adoptions) > 1)) { ?>
             <div class="filter" id="filter-species">
