@@ -1263,6 +1263,7 @@ header {
       background-color: var(--light_grey);
       padding: 40px;
       box-shadow: 5px 2px 9px 0px rgba(191, 191, 191, 0.5);
+      text-align: center;
       > h2 {
         margin: 30px auto;
         text-align: center;
