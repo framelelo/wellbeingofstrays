@@ -33,7 +33,13 @@ function showMentions()
                 <strong>Responsable publication</strong> : Shalinee Doolub-Gaungoo – 59632054<br>
                 Le responsable publication est une personne physique ou une personne morale.<br>
                 <strong>Webmaster</strong> : Well-Being of Strays – wellbeingofstray@gmail.com<br>
-                <strong>Hébergeur</strong> : test – test 97490 Paris 12 +262693497217<br>
+                <strong>Hébergeur</strong> : Ligne Web Services (LWS)<br>
+                Adresse postale :<br>
+                10 Rue Penthièvre,<br>
+                75008 Paris, France<br>
+
+                Téléphone : +33 1 77 62 30 03<br>
+                Site web : <a href="https://www.lws.fr" target="_blank">www.lws.fr</a><br>
                 <strong>Délégué à la protection des données</strong> : Shalinee Doolub-Gaungoo – dmanishi@ymail.com<br>
             </p>
 
@@ -227,11 +233,6 @@ function showMentions()
                 Le prestataire externe pourra éventuellement recueillir des informations sur les visiteurs du Site et d’autres sites Internet grâce à ces balises, constituer des rapports sur l’activité du Site à l’attention de <a href="https://wellbeingofstrays.com/">https://wellbeingofstrays.com/</a>, et fournir d’autres services relatifs à l’utilisation de celui-ci et d’Internet.</p>
             <p>
             </p>
-            <h2>10. Droit applicable et attribution de juridiction.</h2>
-            <p>
-                Tout litige en relation avec l’utilisation du site <a href="https://wellbeingofstrays.com/">https://wellbeingofstrays.com/</a> est soumis au droit français.
-                En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction aux tribunaux compétents de </p>
-
         </div>
     <?php
 

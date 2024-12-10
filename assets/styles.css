@@ -1466,6 +1466,12 @@ footer {
     font-size: 18px;
     font-weight: 400;
   }
+  a, a:visited {
+    color: var(--primary_color);
+    &:hover {
+      color: var(--secondary_color);
+    }
+  }
   p {
     font-size: 16px;
     line-height: 25px;
