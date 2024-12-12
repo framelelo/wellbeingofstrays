@@ -127,7 +127,7 @@ global $base_url, $isConnected;
                     <h2>Comment Aider ?</h2>
                     <ul>
                         <li><a href="https://www.paypal.com/donate?hosted_button_id=3DS8RCCPB5EB6" target="_blank">Faire un don</a></li>
-                        <li><a href="<?= $base_url ?>?page=adoptions">Adopter un animal</a></li>
+                        <li><a href="<?= $base_url ?>?page=adoption-animaux">Adopter un animal</a></li>
                         <li><a href="https://rb.gy/lekvls" target="_blank">Devenir bénévole</a></li>
                     </ul>
                 </div>
