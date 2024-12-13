@@ -214,7 +214,8 @@ function eventPage()
         }
     }
     showEventsPage($events, $selectedEvent);
-}
+    }
+
 Pour les controllers qui récupèrent les valeurs des champs depuis les différents formulaires, ils sont accessibles :
 
 ```text
