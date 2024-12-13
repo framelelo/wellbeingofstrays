@@ -285,7 +285,7 @@ Pour tous les bugs ou autres demandes, merci de signaler sur : framelelelo89@gma
 
 ## Remerciements
 
-Merci pour votre intérêt à cette application que j'espère pourront servir.
+Merci pour votre intérêt...
 
 
 
